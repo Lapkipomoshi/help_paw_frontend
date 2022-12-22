@@ -14,8 +14,7 @@ const App = (props) => {
         loggedIn={loggedIn} />
       <Switch>
         <Route exact path="/">
-          <Main
-            loggedIn={loggedIn} />
+          <Main />
         </Route>
       </Switch>
       <Footer />
