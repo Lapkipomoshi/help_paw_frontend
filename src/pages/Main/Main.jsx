@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Main.css';
 import shelterLogo from '../../images/shelter-logo.svg';
-import paw from '../../images/pa.svg';
+import paw from '../../images/paw.svg';
 
 const Main = () => {
   return (
