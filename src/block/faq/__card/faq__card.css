@@ -1,0 +1,12 @@
+.faq__card {
+  display: flex;
+  flex-direction: column;
+  width: 1052px;
+  margin: 0 auto 24px 0;
+  padding: 20px 28px 24px 40px;
+  background-color: white;
+}
+
+.faq__card:last-of-type {
+  margin-bottom: 0;
+}
