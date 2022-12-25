@@ -23,7 +23,7 @@ const Main = () => {
 
       </section>
       <section className='papers-on-main'>
-        <h2 className='papers-on-main'>Полезные статьи</h2>
+        <h2 className='papers-on-main__title'>Полезные статьи</h2>
         <div className='papers-on-main__flex-container'>
           <div className='paper-card'>
             <img className='paper-card__image' src={paperPhoto1} alt='фото' />

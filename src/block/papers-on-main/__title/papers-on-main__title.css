@@ -1,0 +1,10 @@
+.papers-on-main__title {
+  margin: 0 0 44px;
+  padding: 0;
+  width: 100%;
+  font-size: 32px;
+  line-height: 39px;
+  font-weight: 700;
+  font-family: 'Montserrat Alternates', 'Inter', Arial, sans-serif;
+  color: #111C2C;
+}
