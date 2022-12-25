@@ -1,0 +1,10 @@
+.banner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  padding-left: 132px;
+  background-color: #FFFAF2;
+  box-sizing: border-box;
+  font-family: 'Montserrat Alternates', 'Inter', Arial, sans-serif;
+}
