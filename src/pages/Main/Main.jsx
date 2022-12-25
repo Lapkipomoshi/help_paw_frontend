@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Main.css';
 import bannerImage from '../../images/main__banner.svg';
+import paperPhoto1 from '../../images/paper-card__photo_1.svg';
+import paperPhoto2 from '../../images/paper-card__photo_2.svg';
+import paperPhoto3 from '../../images/paper-card__photo_3.svg';
 
 const Main = () => {
   return (
@@ -20,7 +23,21 @@ const Main = () => {
 
       </section>
       <section className='papers-on-main'>
-
+        <h2 className='papers-on-main'>Полезные статьи</h2>
+        <div className='papers-on-main__flex-container'>
+          <div className='paper-card'>
+            <img className='paper-card__image' src={paperPhoto1} alt='фото' />
+            <p className='paper-card__text'>Животное из приюта: что надо знать перед тем, как взять его в дом?</p>
+          </div>
+          <div className='paper-card'>
+            <img className='paper-card__image' src={paperPhoto2} alt='фото' />
+            <p className='paper-card__text'>Как отучить собаку прыгать на вас при встрече</p>
+          </div>
+          <div className='paper-card'>
+            <img className='paper-card__image' src={paperPhoto3} alt='фото' />
+            <p className='paper-card__text'>Современные кинологи не применяют наказание. Почему?</p>
+          </div>
+        </div>
       </section>
       <section className='faq'>
 
