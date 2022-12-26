@@ -3,10 +3,4 @@
   height: 32px;
   object-fit: contain;
   object-position: center;
-  cursor: pointer;
-}
-
-.faq__card-icon:hover {
-  opacity: .5;
-  transition-duration: .7s;
 }

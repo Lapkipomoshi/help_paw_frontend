@@ -26,34 +26,36 @@ const Main = () => {
       </section>
       <section className='faq'>
         <h2 className='faq__title'>FAQ</h2>
-        <div className='faq__card'>
-          <div className='faq__card-row'>
-            <h3 className='faq__card-title'>Как пожертвовать деньги приюту?</h3>
-            <img className='faq__card-icon' src={faqMinus} alt='свернуть' />
-          </div>
-          <p className='faq__card-text'>Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”</p>
-        </div>
-        <div className='faq__card'>
-          <div className='faq__card-row'>
-            <h3 className='faq__card-title'>Как взять питомца домой?</h3>
-            <img className='faq__card-icon' src={faqPlus} alt='развернуть' />
-          </div>
-          <p className='faq__card-text display_none'>Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”</p>
-        </div>
-        <div className='faq__card'>
-          <div className='faq__card-row'>
-            <h3 className='faq__card-title'>Как зарегистрировать приют?</h3>
-            <img className='faq__card-icon' src={faqPlus} alt='развернуть' />
-          </div>
-          <p className='faq__card-text display_none'>Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”</p>
-        </div>
-        <div className='faq__card'>
-          <div className='faq__card-row'>
-            <h3 className='faq__card-title'>Какая минимальная сумма пожертвования?</h3>
-            <img className='faq__card-icon' src={faqPlus} alt='развернуть' />
-          </div>
-          <p className='faq__card-text display_none'>Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”</p>
-        </div>
+        <ul className='faq__list'>
+          <li className='faq__card'>
+            <div className='faq__card-row'>
+              <h3 className='faq__card-title'>Как пожертвовать деньги приюту?</h3>
+              <img className='faq__card-icon' src={faqMinus} alt='свернуть' />
+            </div>
+            <p className='faq__card-text'>Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”</p>
+          </li>
+          <li className='faq__card'>
+            <div className='faq__card-row'>
+              <h3 className='faq__card-title'>Как взять питомца домой?</h3>
+              <img className='faq__card-icon' src={faqPlus} alt='развернуть' />
+            </div>
+            <p className='faq__card-text display_none'>Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”</p>
+          </li>
+          <li className='faq__card'>
+            <div className='faq__card-row'>
+              <h3 className='faq__card-title'>Как зарегистрировать приют?</h3>
+              <img className='faq__card-icon' src={faqPlus} alt='развернуть' />
+            </div>
+            <p className='faq__card-text display_none'>Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”</p>
+          </li>
+          <li className='faq__card'>
+            <div className='faq__card-row'>
+              <h3 className='faq__card-title'>Какая минимальная сумма пожертвования?</h3>
+              <img className='faq__card-icon' src={faqPlus} alt='развернуть' />
+            </div>
+            <p className='faq__card-text display_none'>Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”</p>
+          </li>
+        </ul>
       </section>
     </main>
   );
