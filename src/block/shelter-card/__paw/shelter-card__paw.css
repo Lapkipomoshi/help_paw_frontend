@@ -1,0 +1,7 @@
+.shelter-card__paw {
+  width: 23px;
+  height: 23px;
+  object-fit: cover;
+  position: absolute;
+  right: 22px;
+}
