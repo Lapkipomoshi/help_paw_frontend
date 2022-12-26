@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import './Main.css';
 import bannerImage from '../../images/main__banner.svg';
 import promoPhoto from '../../images/main__promo.svg';
+import shelterLogo from '../../images/shelter-logo.svg';
+import paw from '../../images/paw.svg';
 
 const Main = () => {
   return (
@@ -24,7 +26,39 @@ const Main = () => {
         </div>
       </section>
       <section className='shelters-on-main'>
-
+        <h2 className='shelters-on-main__title'>Приюты, которым очень нужна помощь</h2>
+        <ul className='shelters-on-main__shelters-container'>
+          <li className='shelter-card'>
+            <img className='shelter-card__logo' src={shelterLogo} alt='лого приюта' />
+            <h3 className='shelter-card__title'>Приют Бирюлево</h3>
+            <p className='shelter-card__address'>Востряковский пр-д, 10А, Москва, Россия</p>
+            <p className='shelter-card__working-hours'>Часы работы: <span className='shelter-card__hours'>10:00 - 18:00</span></p>
+            <Link className='shelter-card__link' to='/shelters'>Читать подробнее</Link>
+            <img className='shelter-card__paw' src={paw} alt='ЧП' />
+          </li>
+          <li className='shelter-card'>
+            <img className='shelter-card__logo' src={shelterLogo} alt='лого приюта' />
+            <h3 className='shelter-card__title'>Приют Бирюлево</h3>
+            <p className='shelter-card__address'>Востряковский пр-д, 10А, Москва, Россия</p>
+            <p className='shelter-card__working-hours'>Часы работы: <span className='shelter-card__hours'>10:00 - 18:00</span></p>
+            <Link className='shelter-card__link' to='/shelters'>Читать подробнее</Link>
+            <img className='shelter-card__paw' src={paw} alt='ЧП' />
+          </li>
+          <li className='shelter-card'>
+            <img className='shelter-card__logo' src={shelterLogo} alt='лого приюта' />
+            <h3 className='shelter-card__title'>Приют Бирюлево</h3>
+            <p className='shelter-card__address'>Востряковский пр-д, 10А, Москва, Россия</p>
+            <p className='shelter-card__working-hours'>Часы работы: <span className='shelter-card__hours'>10:00 - 18:00</span></p>
+            <Link className='shelter-card__link' to='/shelters'>Читать подробнее</Link>
+            <img className='shelter-card__paw' src={paw} alt='ЧП' />
+          </li>
+        </ul>
+        <Link className='shelters-on-main__link margin-left_auto' to='/map'>Смотреть на карте</Link>
+        <div className='shelters-on-main__text-container'>
+          <h3 className='shelters-on-main__text-title'>Вы владелец приюта?</h3>
+          <p className='shelters-on-main__text-subtitle'>Можете добавить ваш приют на наш сайт прямо сейчас!</p>
+          <Link className='shelters-on-main__link margin_column-center shelters-on-main__link_disabled' to='/sign-up-shelter'>Добавить приют</Link>
+        </div>
       </section>
       <section className='papers-on-main'>
 
