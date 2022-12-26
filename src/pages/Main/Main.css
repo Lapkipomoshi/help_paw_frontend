@@ -6,3 +6,9 @@
 @import url('../../block/banner/__line/banner__line.css');
 @import url('../../block/banner/__subtitle/banner__subtitle.css');
 @import url('../../block/banner/__button/banner__button.css');
+
+@import url('../../block/promo/promo.css');
+@import url('../../block/promo/__photo/promo__photo.css');
+@import url('../../block/promo/__text-container/promo__text-container.css');
+@import url('../../block/promo/__title/promo__title.css');
+@import url('../../block/promo/__text/promo__text.css');
