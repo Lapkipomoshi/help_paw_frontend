@@ -6,7 +6,7 @@ import PapersOnMain from '../../components/PapersOnMain/PapersOnMain';
 import FAQ from '../../components/FAQ/FAQ';
 import './MainPage.css';
 
-const Main = () => {
+const MainPage = () => {
   return (
     <main className='main'>
       <Banner />
@@ -18,4 +18,4 @@ const Main = () => {
   );
 }
 
-export default Main;
+export default MainPage;
