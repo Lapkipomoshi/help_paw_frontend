@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import Main from '../Main/Main';
+import MapPage from '../../pages/MapPage';
 
 const App = (props) => {
   const [loggedIn, setLoggedIn] = React.useState(false); // пользователь вошёл в учётную запись?
@@ -11,6 +12,9 @@ const App = (props) => {
         <Route exact path="/">
           <Main
             loggedIn={loggedIn} />
+        </Route>
+        <Route path='/map'>
+          <MapPage/>
         </Route>
       </Switch>
     </div>
