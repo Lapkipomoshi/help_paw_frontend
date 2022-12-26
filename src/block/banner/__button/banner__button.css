@@ -1,0 +1,16 @@
+.banner__button {
+  margin: 0 auto 106px 0;
+  padding: 0 26px;
+  font-size: 16px;
+  line-height: 44px;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  background-color: #F0924F;
+  border-radius: 12px;
+}
+
+.banner__button:hover {
+  opacity: .77;
+  transition-duration: 1s;
+}
