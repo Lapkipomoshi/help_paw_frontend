@@ -1,0 +1,10 @@
+.faq__title {
+  margin: 0 0 44px;
+  padding: 0;
+  width: 100%;
+  font-size: 40px;
+  line-height: 49px;
+  font-weight: 600;
+  font-family: 'Montserrat Alternates', 'Inter', Arial, sans-serif;
+  color: #111C2C;
+}
