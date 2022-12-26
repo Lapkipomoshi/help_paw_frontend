@@ -1,0 +1,15 @@
+.shelters-on-main__link {
+  padding: 0 26px;
+  font-size: 16px;
+  line-height: 44px;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  background-color: #F0924F;
+  border-radius: 12px;
+}
+
+.shelters-on-main__link:hover {
+  opacity: .77;
+  transition-duration: 1s;
+}

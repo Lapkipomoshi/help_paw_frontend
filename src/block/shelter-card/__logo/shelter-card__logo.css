@@ -1,0 +1,7 @@
+.shelter-card__logo {
+  width: 145px;
+  height: 145px;
+  object-fit: cover;
+  margin: 0 auto 24px;
+  overflow: hidden;
+}
