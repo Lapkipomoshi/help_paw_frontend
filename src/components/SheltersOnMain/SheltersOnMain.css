@@ -1,0 +1,5 @@
+@import url('../../block/shelters-on-main/shelters-on-main.css');
+  @import url('../../block/shelters-on-main/__shelters-container/shelters-on-main__shelters-container.css');
+  @import url('../../block/shelters-on-main/__text-container/shelters-on-main__text-container.css');
+  @import url('../../block/shelters-on-main/__text-title/shelters-on-main__text-title.css');
+  @import url('../../block/shelters-on-main/__text-subtitle/shelters-on-main__text-subtitle.css');
