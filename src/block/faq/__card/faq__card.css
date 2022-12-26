@@ -1,6 +1,4 @@
 .faq__card {
-  display: flex;
-  flex-direction: column;
   width: 100%;
   margin: 0 auto 24px 0;
   padding: 20px 28px 24px 40px;
