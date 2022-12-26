@@ -1,4 +1,4 @@
-.shelters-on-main__link {
+.button {
   padding: 0 26px;
   font-size: 16px;
   line-height: 44px;
@@ -6,10 +6,21 @@
   color: white;
   text-decoration: none;
   background-color: #F0924F;
+  border: none;
   border-radius: 12px;
+  cursor: pointer;
 }
 
-.shelters-on-main__link:hover {
+.button:hover {
   opacity: .77;
   transition-duration: 1s;
+}
+
+.button:disabled {
+  background-color: #FFE2CD;
+  cursor: default;
+}
+
+.button:disabled:hover {
+  opacity: 1;
 }

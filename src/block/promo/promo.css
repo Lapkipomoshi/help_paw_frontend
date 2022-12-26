@@ -2,6 +2,6 @@
   width: 100%;
   display: flex;
   flex-wrap: nowrap;
-  padding: 52px 164px 52px 128px;
+  padding: 0 164px 52px 128px;
   box-sizing: border-box;
 }

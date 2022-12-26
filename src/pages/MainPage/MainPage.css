@@ -10,14 +10,10 @@
 @import url('../../block/promo/promo.css');
   @import url('../../block/promo/__photo/promo__photo.css');
   @import url('../../block/promo/__text-container/promo__text-container.css');
-  @import url('../../block/promo/__title/promo__title.css');
   @import url('../../block/promo/__text/promo__text.css');
 
 @import url('../../block/shelters-on-main/shelters-on-main.css');
-  @import url('../../block/shelters-on-main/__title/shelters-on-main__title.css');
   @import url('../../block/shelters-on-main/__shelters-container/shelters-on-main__shelters-container.css');
-  @import url('../../block/shelters-on-main/__link/shelters-on-main__link.css');
-    @import url('../../block/shelters-on-main/__link/_disabled/shelters-on-main__link_disabled.css');
   @import url('../../block/shelters-on-main/__text-container/shelters-on-main__text-container.css');
   @import url('../../block/shelters-on-main/__text-title/shelters-on-main__text-title.css');
   @import url('../../block/shelters-on-main/__text-subtitle/shelters-on-main__text-subtitle.css');
@@ -48,4 +44,6 @@
   @import url('../../block/faq/__card-icon/faq____card-icon.css');
   @import url('../../block/faq/__card-text/faq__card-text.css');
 
+@import url('../../block/button/button.css');
+@import url('../../block/section-title/section-title.css');
 @import url('../../block/display/display_none.css');

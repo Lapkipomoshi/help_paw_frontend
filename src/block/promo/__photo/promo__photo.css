@@ -1,6 +1,7 @@
 .promo__photo {
   width: 592px; 
   height: 510px;
+  margin-top: 52px;
   object-fit: contain;
   margin-right: 102px;
 }

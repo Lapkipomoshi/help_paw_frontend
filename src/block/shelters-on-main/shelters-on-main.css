@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 52px 132px;
+  padding: 0 132px 52px;
   background-color: #FFFAF2;
   box-sizing: border-box;
 }

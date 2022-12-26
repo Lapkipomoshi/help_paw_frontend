@@ -1,7 +1,7 @@
 .faq {
   display: flex;
   flex-direction: column;
-  padding: 52px 262px 80px 126px;
+  padding: 0 262px 80px 126px;
   background-color: #FFFAF2;
   box-sizing: border-box;
 }
