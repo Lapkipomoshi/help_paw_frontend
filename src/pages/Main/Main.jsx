@@ -24,20 +24,26 @@ const Main = () => {
       </section>
       <section className='papers-on-main'>
         <h2 className='papers-on-main__title'>Полезные статьи</h2>
-        <div className='papers-on-main__flex-container'>
-          <Link className='paper-card' to='/paper'>
-            <img className='paper-card__image' src={paperPhoto1} alt='фото' />
-            <p className='paper-card__text'>Животное из приюта: что надо знать перед тем, как взять его в дом?</p>
-          </Link>
-          <Link className='paper-card' to='/paper'>
-            <img className='paper-card__image' src={paperPhoto2} alt='фото' />
-            <p className='paper-card__text'>Как отучить собаку прыгать на вас при встрече</p>
-          </Link>
-          <Link className='paper-card' to='/paper'>
-            <img className='paper-card__image' src={paperPhoto3} alt='фото' />
-            <p className='paper-card__text'>Современные кинологи не применяют наказание. Почему?</p>
-          </Link>
-        </div>
+        <ul className='papers-on-main__flex-container'>
+          <li className='papers-on-main__flex-element'>
+            <Link className='paper-card' to='/paper'>
+              <img className='paper-card__image' src={paperPhoto1} alt='фото' />
+              <p className='paper-card__text'>Животное из приюта: что надо знать перед тем, как взять его в дом?</p>
+            </Link>
+          </li>
+          <li className='papers-on-main__flex-element'>
+            <Link className='paper-card' to='/paper'>
+              <img className='paper-card__image' src={paperPhoto2} alt='фото' />
+              <p className='paper-card__text'>Как отучить собаку прыгать на вас при встрече</p>
+            </Link>
+          </li>
+          <li className='papers-on-main__flex-element'>
+            <Link className='paper-card' to='/paper'>
+              <img className='paper-card__image' src={paperPhoto3} alt='фото' />
+              <p className='paper-card__text'>Современные кинологи не применяют наказание. Почему?</p>
+            </Link>
+          </li>
+        </ul>
       </section>
       <section className='faq'>
 

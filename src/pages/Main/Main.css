@@ -10,6 +10,7 @@
 @import url('../../block/papers-on-main/papers-on-main.css');
   @import url('../../block/papers-on-main/__title/papers-on-main__title.css');
   @import url('../../block/papers-on-main/__flex-container/papers-on-main__flex-container.css');
+  @import url('../../block/papers-on-main/__flex-element/papers-on-element__flex-element.css');
 @import url('../../block/paper-card/paper-card.css');
   @import url('../../block/paper-card/__image/paper-card__image.css');
   @import url('../../block/paper-card/__text/paper-card__text.css');
