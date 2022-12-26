@@ -1,11 +1,11 @@
 @import url('../../block/main/main.css');
 
 @import url('../../block/banner/banner.css');
-@import url('../../block/banner/__image/banner__image.css');
-@import url('../../block/banner/__title/banner__title.css');
-@import url('../../block/banner/__line/banner__line.css');
-@import url('../../block/banner/__subtitle/banner__subtitle.css');
-@import url('../../block/banner/__button/banner__button.css');
+  @import url('../../block/banner/__image/banner__image.css');
+  @import url('../../block/banner/__title/banner__title.css');
+  @import url('../../block/banner/__line/banner__line.css');
+  @import url('../../block/banner/__subtitle/banner__subtitle.css');
+  @import url('../../block/banner/__button/banner__button.css');
 
 @import url('../../block/promo/promo.css');
 @import url('../../block/promo/__photo/promo__photo.css');
@@ -29,3 +29,11 @@
   @import url('../../block/shelter-card/__hours/shelter-card__hours.css');
   @import url('../../block/shelter-card/__link/shelter-card__link.css');
   @import url('../../block/shelter-card/__paw/shelter-card__paw.css');
+
+@import url('../../block/papers-on-main/papers-on-main.css');
+  @import url('../../block/papers-on-main/__title/papers-on-main__title.css');
+  @import url('../../block/papers-on-main/__flex-container/papers-on-main__flex-container.css');
+  @import url('../../block/papers-on-main/__flex-element/papers-on-element__flex-element.css');
+@import url('../../block/paper-card/paper-card.css');
+  @import url('../../block/paper-card/__image/paper-card__image.css');
+  @import url('../../block/paper-card/__text/paper-card__text.css');
