@@ -8,8 +8,6 @@ import paw from '../../images/paw.svg';
 import paperPhoto1 from '../../images/paper-card__photo_1.svg';
 import paperPhoto2 from '../../images/paper-card__photo_2.svg';
 import paperPhoto3 from '../../images/paper-card__photo_3.svg';
-import faqPlus from '../../images/faq__plus.svg';
-import faqMinus from '../../images/faq__minus.svg';
 
 const Main = () => {
   return (
@@ -104,7 +102,7 @@ const Main = () => {
             <details className='faq__detalis'>
               <summary className='faq__card-row'>
                 <h3 className='faq__card-title'>Как взять питомца домой?</h3>
-                <div className='faq__card-icon' src={faqPlus} alt='развернуть' />
+                <div className='faq__card-icon' />
               </summary>
               <p className='faq__card-text'>Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”</p>
             </details>
@@ -113,7 +111,7 @@ const Main = () => {
             <details className='faq__detalis'>
               <summary className='faq__card-row'>
                 <h3 className='faq__card-title'>Как зарегистрировать приют?</h3>
-                <div className='faq__card-icon' src={faqPlus} alt='развернуть' />
+                <div className='faq__card-icon' />
               </summary>
               <p className='faq__card-text'>Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”</p>
             </details>
@@ -122,7 +120,7 @@ const Main = () => {
             <details className='faq__detalis'>
               <summary className='faq__card-row'>
                 <h3 className='faq__card-title'>Какая минимальная сумма пожертвования?</h3>
-                <div className='faq__card-icon' src={faqPlus} alt='развернуть' />
+                <div className='faq__card-icon' />
               </summary>
               <p className='faq__card-text'>Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”</p>
             </details>
