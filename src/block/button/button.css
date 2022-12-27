@@ -3,21 +3,21 @@
   font-size: 16px;
   line-height: 44px;
   font-weight: 600;
-  color: white;
+  color: var(--color-text-light);
   text-decoration: none;
-  background-color: #F0924F;
+  background-color: var(--color-accent-base);
   border: none;
   border-radius: 12px;
   cursor: pointer;
 }
 
 .button:hover {
-  opacity: .77;
+  background-color: var(--color-accent-hover);
   transition-duration: 1s;
 }
 
 .button:disabled {
-  background-color: #FFE2CD;
+  background-color: var(--color-accent-disabled);
   cursor: default;
 }
 

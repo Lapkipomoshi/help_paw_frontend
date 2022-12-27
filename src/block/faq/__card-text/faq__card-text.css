@@ -5,5 +5,5 @@
   font-size: 18px;
   line-height: 28px;
   font-weight: 400;
-  color: #818181;
+  color: var(--color-text-additional);
 }

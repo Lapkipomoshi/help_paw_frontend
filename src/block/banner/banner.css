@@ -4,7 +4,7 @@
   width: 100%;
   position: relative;
   padding-left: 132px;
-  background-color: #FFFAF2;
+  background-color: var(--color-background-base);
   box-sizing: border-box;
   font-family: 'Montserrat Alternates', 'Inter', Arial, sans-serif;
 }

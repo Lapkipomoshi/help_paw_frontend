@@ -5,5 +5,5 @@
   line-height: 29px;
   font-weight: 500;
   font-family: 'Montserrat Alternates', 'Inter', Arial, sans-serif;
-  color: #111C2C;
+  color: var(--color-text-base);
 }

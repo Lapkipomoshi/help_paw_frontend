@@ -6,12 +6,12 @@
   line-height: 19px;
   font-weight: 400;
   text-decoration: none;
-  color: #F0924F;
+  color: var(--color-accent-base);
   text-align: right;
   cursor: pointer;
 }
 
 .shelter-card__link:hover {
-  opacity: .77;
+  color: var(--color-accent-hover);
   transition-duration: 1s;
 }
