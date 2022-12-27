@@ -8,7 +8,7 @@ import paperPhoto3 from '../../images/paper-card__photo_3.svg';
 const PapersOnMain = () => {
   return (
     <section className='papers-on-main'>
-      <h2 className='papers-on-main__title'>Полезные статьи</h2>
+      <h2 className='section-title'>Полезные статьи</h2>
       <ul className='papers-on-main__flex-container'>
         <li className='papers-on-main__flex-element'>
           <Link className='paper-card' to='/paper'>
