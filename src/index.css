@@ -2,6 +2,5 @@
 /* normalize.css - файл, при помощи которого браузеры начинают отображать все элементы более последовательно и в соответствии с современными стандартами*/
 @import url('./vendor/fonts.css');
 /* fonts.css - файл со шрифтами */
-
-@import url('./components/App/App.css');
-@import url('./components/Main/Main.css');
+@import url('./utils/vars.css');
+/* vars.css - файл со css-переменными */

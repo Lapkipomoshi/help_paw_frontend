@@ -1,0 +1,6 @@
+@import url('../../block/banner/banner.css');
+  @import url('../../block/banner/__image/banner__image.css');
+  @import url('../../block/banner/__title/banner__title.css');
+  @import url('../../block/banner/__line/banner__line.css');
+  @import url('../../block/banner/__subtitle/banner__subtitle.css');
+  @import url('../../block/banner/__button/banner__button.css');

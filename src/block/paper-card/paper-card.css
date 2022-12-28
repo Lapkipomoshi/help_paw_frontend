@@ -1,0 +1,11 @@
+.paper-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-decoration: none;
+}
+
+.paper-card:hover {
+  opacity: .77;
+  transition-duration: 1s;
+}

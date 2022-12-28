@@ -1,0 +1,9 @@
+.shelter-card__address {
+  margin: 8px 0 16px;
+  padding: 0;
+  width: 213px;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 400;
+  color: var(--color-text-additional);
+}

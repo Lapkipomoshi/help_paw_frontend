@@ -1,0 +1,26 @@
+.button {
+  padding: 0 26px;
+  font-size: 16px;
+  line-height: 44px;
+  font-weight: 600;
+  color: var(--color-text-light);
+  text-decoration: none;
+  background-color: var(--color-accent-base);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--color-accent-hover);
+  transition-duration: 1s;
+}
+
+.button:disabled {
+  background-color: var(--color-accent-disabled);
+  cursor: default;
+}
+
+.button:disabled:hover {
+  opacity: 1;
+}

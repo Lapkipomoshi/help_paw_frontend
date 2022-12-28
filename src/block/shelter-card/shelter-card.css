@@ -1,0 +1,11 @@
+.shelter-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 304px;
+  padding: 20px;
+  background-color: var(--color-background-additional);
+  border: 2px solid var(--color-accent-base);
+  border-radius: 20px;
+  box-sizing: border-box;
+}
