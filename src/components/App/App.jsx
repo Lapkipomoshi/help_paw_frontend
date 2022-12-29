@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -23,46 +23,32 @@ const App = (props) => {
     <div className="page">
       <Header
         loggedIn={loggedIn} />
-      <Switch>
-        <Route exact path="/">
-          <MainPage />
-        </Route>
-        <Route exact path="/map">
-          <MapPage />
-        </Route>
-        <Route exact path="/shelter-list">
-          <ShelterListPage /> 
-        </Route>
-        <Route exact path="/shelter">
-          <ShelterPage /> 
-        </Route>
-        <Route exact path="/papers">
-          <PapersPage /> 
-        </Route>
-        <Route exact path="/paper">
-          <PaperPage /> 
-        </Route>
-        <Route exact path="/news">
-          <NewsPage /> 
-        </Route>
-        <Route exact path="/new">
-          <NewPage /> 
-        </Route>
-        <ProtectedRoute
-          exact path="/sign-in"
-          loggedIn={!loggedIn}
-          component={LoginPage} />
-        <ProtectedRoute
-          exact path="/sign-up"
-          loggedIn={!loggedIn}
-          component={RegisterPage} />
-        <Route path="/">
-          <NotFoundPage />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route exact path="/" element={<MainPage />} />
+        <Route exact path="/map" element={<MapPage />} />
+        <Route exact path="/shelter-list" element={<ShelterListPage />} />
+        <Route exact path="/shelter" element={<ShelterPage />} />
+        <Route exact path="/papers" element={<PapersPage />} />
+        <Route exact path="/paper" element={<PaperPage />} />
+        <Route exact path="/news" element={<NewsPage />} />
+        <Route exact path="/new" element={<NewPage />} />
+        <Route exact path="/new" element={
+          <ProtectedRoute
+            exact path="/sign-in"
+            loggedIn={!loggedIn}
+            component={LoginPage} />
+          } />
+        <Route exact path="/new" element={
+          <ProtectedRoute
+            exact path="/sign-up"
+            loggedIn={!loggedIn}
+            component={RegisterPage} />
+          } />
+        <Route path="/" element={<NotFoundPage />} />
+      </Routes>
       <Footer />
     </div>
   );
 }
 
-export default withRouter(App);
+export default App;
