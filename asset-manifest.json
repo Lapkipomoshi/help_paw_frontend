@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.098ff622.css",
-    "main.js": "/static/js/main.fd478991.js",
-    "static/js/787.df3f365b.chunk.js": "/static/js/787.df3f365b.chunk.js",
-    "static/media/paper-card__photo_1.svg": "/static/media/paper-card__photo_1.9b5d4e65e3e2be8cf7e90e90a76e5667.svg",
-    "static/media/paper-card__photo_2.svg": "/static/media/paper-card__photo_2.efbba1abdfec313c2a232c527bceef55.svg",
-    "static/media/paper-card__photo_3.svg": "/static/media/paper-card__photo_3.77188220d98cc0b00c4d991280222499.svg",
-    "static/media/main__promo.svg": "/static/media/main__promo.11f296f3505a774b26b83d4bda2d888a.svg",
-    "static/media/main__banner.svg": "/static/media/main__banner.4842bf26859f8ad2b91cfc0e44f56034.svg",
-    "static/media/shelter-logo.svg": "/static/media/shelter-logo.f866320411eefaf0e545e49e3c604b39.svg",
-    "static/media/paw.svg": "/static/media/paw.4aac535c2b2e1af0113a7706ba2ad78b.svg",
-    "index.html": "/index.html",
-    "static/media/faq__plus.svg": "/static/media/faq__plus.4c8c012584c5453f3248.svg",
-    "static/media/faq__minus.svg": "/static/media/faq__minus.aa2a516aa81e7cf0d070.svg",
-    "main.098ff622.css.map": "/static/css/main.098ff622.css.map",
-    "main.fd478991.js.map": "/static/js/main.fd478991.js.map",
-    "787.df3f365b.chunk.js.map": "/static/js/787.df3f365b.chunk.js.map"
+    "main.css": "/help_paw_frontend/static/css/main.6f770dce.css",
+    "main.js": "/help_paw_frontend/static/js/main.0318aca6.js",
+    "static/js/787.df3f365b.chunk.js": "/help_paw_frontend/static/js/787.df3f365b.chunk.js",
+    "static/media/paper-card__photo_1.svg": "/help_paw_frontend/static/media/paper-card__photo_1.9b5d4e65e3e2be8cf7e90e90a76e5667.svg",
+    "static/media/paper-card__photo_2.svg": "/help_paw_frontend/static/media/paper-card__photo_2.efbba1abdfec313c2a232c527bceef55.svg",
+    "static/media/paper-card__photo_3.svg": "/help_paw_frontend/static/media/paper-card__photo_3.77188220d98cc0b00c4d991280222499.svg",
+    "static/media/main__promo.svg": "/help_paw_frontend/static/media/main__promo.11f296f3505a774b26b83d4bda2d888a.svg",
+    "static/media/main__banner.svg": "/help_paw_frontend/static/media/main__banner.4842bf26859f8ad2b91cfc0e44f56034.svg",
+    "static/media/shelter-logo.svg": "/help_paw_frontend/static/media/shelter-logo.f866320411eefaf0e545e49e3c604b39.svg",
+    "static/media/paw.svg": "/help_paw_frontend/static/media/paw.4aac535c2b2e1af0113a7706ba2ad78b.svg",
+    "index.html": "/help_paw_frontend/index.html",
+    "static/media/faq__plus.svg": "/help_paw_frontend/static/media/faq__plus.4c8c012584c5453f3248.svg",
+    "static/media/faq__minus.svg": "/help_paw_frontend/static/media/faq__minus.aa2a516aa81e7cf0d070.svg",
+    "main.6f770dce.css.map": "/help_paw_frontend/static/css/main.6f770dce.css.map",
+    "main.0318aca6.js.map": "/help_paw_frontend/static/js/main.0318aca6.js.map",
+    "787.df3f365b.chunk.js.map": "/help_paw_frontend/static/js/787.df3f365b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.098ff622.css",
-    "static/js/main.fd478991.js"
+    "static/css/main.6f770dce.css",
+    "static/js/main.0318aca6.js"
   ]
 }
