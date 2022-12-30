@@ -17,22 +17,22 @@ import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
 import './App.css';
 
 const App = (props) => {
-  const [loggedIn, setLoggedIn] = React.useState(true); // пользователь вошёл в учётную запись?
+  const [loggedIn, setLoggedIn] = React.useState(false); // пользователь вошёл в учётную запись?
 
   return (
     <div className="page">
       <Header
         loggedIn={loggedIn} />
       <Routes>
-        <Route exact path="/" element={<MainPage />} />
-        <Route exact path="/map" element={<MapPage />} />
-        <Route exact path="/shelter-list" element={<ShelterListPage />} />
-        <Route exact path="/shelter" element={<ShelterPage />} />
-        <Route exact path="/papers" element={<PapersPage />} />
-        <Route exact path="/paper" element={<PaperPage />} />
-        <Route exact path="/news" element={<NewsPage />} />
-        <Route exact path="/new" element={<NewPage />} />
-        <Route exact path="/sign-in" element={
+        <Route path="/" element={<MainPage />} />
+        <Route path="/map" element={<MapPage />} />
+        <Route path="/shelter-list" element={<ShelterListPage />} />
+        <Route path="/shelter" element={<ShelterPage />} />
+        <Route path="/papers" element={<PapersPage />} />
+        <Route path="/paper" element={<PaperPage />} />
+        <Route path="/news" element={<NewsPage />} />
+        <Route path="/new" element={<NewPage />} />
+        <Route path="/sign-in" element={
           <ProtectedRoute loggedIn={!loggedIn} component={LoginPage} />
           }/>
         <Route path="/sign-up" element={
