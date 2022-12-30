@@ -7,11 +7,11 @@ import telegramIcon from '../../images/footer__icon_telegram.svg';
 const Footer = () => {
   return (
     <footer className='footer'>
-      <div className='footer__title-container'>
+      <div className='footer__flex-column-container'>
         <p className='footer__title'>Лапки помощи</p>
         <p className='footer__subtitle'>Сервис для помощи приютам </p>
       </div>
-      <div className='footer__text-links'>
+      <div className='footer__flex-column-container'>
         <Link className='footer__link' to='/map'>Карта приютов</Link>
         <Link className='footer__link' to='/news'>Новости</Link>
         <Link className='footer__link' to='/papers'>Полезные статьи</Link>
