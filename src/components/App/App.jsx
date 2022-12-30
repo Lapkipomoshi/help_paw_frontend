@@ -32,15 +32,13 @@ const App = (props) => {
         <Route exact path="/paper" element={<PaperPage />} />
         <Route exact path="/news" element={<NewsPage />} />
         <Route exact path="/new" element={<NewPage />} />
-        <Route exact path="/new" element={
+        <Route exact path="/sign-in" element={
           <ProtectedRoute
-            exact path="/sign-in"
             loggedIn={!loggedIn}
             component={LoginPage} />
           } />
-        <Route exact path="/new" element={
+        <Route exact path="/sign-up" element={
           <ProtectedRoute
-            exact path="/sign-up"
             loggedIn={!loggedIn}
             component={RegisterPage} />
           } />
