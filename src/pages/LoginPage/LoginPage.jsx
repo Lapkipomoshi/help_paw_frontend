@@ -4,7 +4,7 @@ import './LoginPage.css';
 const LoginPage = () => {
   return (
     <main className='main'>
-      f
+      
     </main>
   );
 }

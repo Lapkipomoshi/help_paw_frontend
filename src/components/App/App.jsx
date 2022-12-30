@@ -17,7 +17,7 @@ import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
 import './App.css';
 
 const App = (props) => {
-  const [loggedIn, setLoggedIn] = React.useState(false); // пользователь вошёл в учётную запись?
+  const [loggedIn, setLoggedIn] = React.useState(true); // пользователь вошёл в учётную запись?
 
   return (
     <div className="page">
@@ -33,11 +33,11 @@ const App = (props) => {
         <Route exact path="/news" element={<NewsPage />} />
         <Route exact path="/new" element={<NewPage />} />
         <Route exact path="/sign-in" element={
-            !loggedIn ? <LoginPage /> : <Navigate to="/" replace />
-          } />
-        <Route exact path="/sign-up" element={
-            !loggedIn ? <RegisterPage /> : <Navigate to="/" replace />
-          } />
+          <ProtectedRoute loggedIn={!loggedIn} component={LoginPage} />
+          }/>
+        <Route path="/sign-up" element={
+          <ProtectedRoute loggedIn={!loggedIn} component={RegisterPage} />
+          }/>
         <Route path="/" element={<NotFoundPage />} />
       </Routes>
       <Footer />

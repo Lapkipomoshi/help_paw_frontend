@@ -4,7 +4,7 @@ import './NotFoundPage.css';
 const NotFoundPage = () => {
   return (
     <main className='main'>
-      
+      Страница не найдена
     </main>
   );
 }
