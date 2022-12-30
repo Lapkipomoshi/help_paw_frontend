@@ -1,0 +1,9 @@
+@import url('../../block/footer/footer.css');
+  @import url('../../block/footer/__title-container/footer__title-container.css');
+  @import url('../../block/footer/__title/footer__title.css');
+  @import url('../../block/footer/__subtitle/footer__subtitle.css');
+  @import url('../../block/footer/__text-links/footer__text-links.css');
+  @import url('../../block/footer/__link/footer__link.css');
+  @import url('../../block/footer/__icons/footer__icons.css');
+  @import url('../../block/footer/__icon-link/footer__icon-link.css');
+  @import url('../../block/footer/__icon/footer__icon.css');
