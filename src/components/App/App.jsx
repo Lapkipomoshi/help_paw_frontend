@@ -38,7 +38,7 @@ const App = (props) => {
         <Route path="/sign-up" element={
           <ProtectedRoute loggedIn={!loggedIn} component={RegisterPage} />
           }/>
-        <Route path="/" element={<NotFoundPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <Footer />
     </div>
