@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -33,10 +33,10 @@ const App = (props) => {
         <Route exact path="/news" element={<NewsPage />} />
         <Route exact path="/new" element={<NewPage />} />
         <Route exact path="/sign-in" element={
-            !loggedIn ? <LoginPage /> : <div />
+            !loggedIn ? <LoginPage /> : <Navigate to="/" replace />
           } />
         <Route exact path="/sign-up" element={
-            !loggedIn ? <RegisterPage /> : <div />
+            !loggedIn ? <RegisterPage /> : <Navigate to="/" replace />
           } />
         <Route path="/" element={<NotFoundPage />} />
       </Routes>
