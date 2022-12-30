@@ -33,14 +33,10 @@ const App = (props) => {
         <Route exact path="/news" element={<NewsPage />} />
         <Route exact path="/new" element={<NewPage />} />
         <Route exact path="/sign-in" element={
-          <ProtectedRoute
-            loggedIn={!loggedIn}
-            component={LoginPage} />
+            !loggedIn ? <LoginPage /> : <div />
           } />
         <Route exact path="/sign-up" element={
-          <ProtectedRoute
-            loggedIn={!loggedIn}
-            component={RegisterPage} />
+            !loggedIn ? <RegisterPage /> : <div />
           } />
         <Route path="/" element={<NotFoundPage />} />
       </Routes>
