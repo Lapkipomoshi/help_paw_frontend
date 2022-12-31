@@ -1,10 +1,10 @@
 import React from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import MainPage from '../../pages/MainPage/MainPage';
-import MapPage from '../../pages/MapPage';
+import MapPage from '../../pages/MapPage/MapPage';
 import ShelterListPage from '../../pages/ShelterListPage/ShelterListPage';
 import ShelterPage from '../../pages/ShelterPage/ShelterPage';
 import PapersPage from '../../pages/PapersPage/PapersPage';
