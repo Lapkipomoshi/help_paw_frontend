@@ -1,0 +1,12 @@
+.footer__flex-column-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-height: 114px;
+  gap: 24px 52px;
+}
+
+.footer__flex-column-container:nth-child(2) {
+  width: 355px;
+}
