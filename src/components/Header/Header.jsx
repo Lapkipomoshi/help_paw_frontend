@@ -11,8 +11,8 @@ const Header = ({ loggedIn }) => {
       </Link>
       <nav className='menu'>
         <NavLink to='/papers' className={({isActive}) => `menu__link ${isActive ? 'menu__link_active' : ''}`}>Полезные статьи</NavLink>
-        <NavLink to='/papers' className={({isActive}) => `menu__link ${isActive ? 'menu__link_active' : ''}`}>Полезные статьи</NavLink>
-        <NavLink to='/papers' className={({isActive}) => `menu__link ${isActive ? 'menu__link_active' : ''}`}>Полезные статьи</NavLink>
+        <NavLink to='/map' className={({isActive}) => `menu__link ${isActive ? 'menu__link_active' : ''}`}>Карта приютов</NavLink>
+        <NavLink to='/news' className={({isActive}) => `menu__link ${isActive ? 'menu__link_active' : ''}`}>Новости</NavLink>
       </nav>
       <Link className={'header__sign-up ' + (loggedIn ? 'display_none' : '')} to='/sign-up'>Регистрация</Link>
       <Link className={'header__profile ' + (loggedIn ? '' : 'display_none')} to='/profile' />
