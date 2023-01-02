@@ -29,7 +29,7 @@ const App = (props) => {
         <Route path="/shelter-list" element={<ShelterListPage />} />
         <Route path="/shelter" element={<ShelterPage />} />
         <Route path="/papers" element={<PapersPage />} />
-        <Route path="/paper" element={<PaperPage />} />
+        <Route path="/papers/:id" element={<PaperPage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/new" element={<NewPage />} />
         <Route path="/sign-in" element={
