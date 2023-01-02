@@ -9,10 +9,5 @@
   @import url('../../block/shelter-card/__link/shelter-card__link.css');
   @import url('../../block/shelter-card/__paw/shelter-card__paw.css');
 
-@import url('../../block/paper-card/paper-card.css');
-  @import url('../../block/paper-card/__image/paper-card__image.css');
-  @import url('../../block/paper-card/__text/paper-card__text.css');
-
-@import url('../../block/button/button.css');
 @import url('../../block/section-title/section-title.css');
 @import url('../../block/display/display_none.css');
