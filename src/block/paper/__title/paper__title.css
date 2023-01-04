@@ -1,0 +1,9 @@
+.paper__title {
+  margin: 0;
+  padding: 0;
+  width: 900px;
+  font-size: 40px;
+  line-height: 49px;
+  font-weight: 600;
+  color: var(--color-text-base);
+}
