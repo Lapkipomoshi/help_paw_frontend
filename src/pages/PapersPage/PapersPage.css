@@ -1,0 +1,5 @@
+@import url('../../block/papers/papers.css');
+  @import url('../../block/papers/__head-block/papers__head-block.css');
+  @import url('../../block/papers/__title/papers__title.css');
+  @import url('../../block/papers/__grid/papers__grid.css');
+  @import url('../../block/papers/__grid-element/papers__grid-element.css');
