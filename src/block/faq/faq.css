@@ -1,0 +1,7 @@
+.faq {
+  display: flex;
+  flex-direction: column;
+  padding: 0 262px 80px 126px;
+  background-color: var(--color-background-base);
+  box-sizing: border-box;
+}

@@ -1,3 +1,10 @@
-.App {
-  
-}
+@import url('../../block/page/page.css');
+
+@import url('../../block/paper-card/paper-card.css');
+  @import url('../../block/paper-card/__image/paper-card__image.css');
+  @import url('../../block/paper-card/__text/paper-card__text.css');
+
+@import url('../../block/button/button.css');
+
+@import url('../../block/margin/margin_column-center.css');
+@import url('../../block/margin/margin-left_auto.css');

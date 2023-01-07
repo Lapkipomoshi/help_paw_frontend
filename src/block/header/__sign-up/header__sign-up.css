@@ -1,0 +1,17 @@
+.header__sign-up {
+  margin: auto 0 auto auto; 
+  padding: 12px 26px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-accent-base);
+  border: 1px solid var(--color-accent-base);
+  border-radius: 12px;
+}
+
+.header__sign-up:hover {
+  color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  transition-duration: 1s;
+}
