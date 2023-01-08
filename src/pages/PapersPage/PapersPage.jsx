@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './PapersPage.css';
-import paperPhoto1 from '../../images/paper-card__photo_1.svg';
-import paperPhoto2 from '../../images/paper-card__photo_2.svg';
-import paperPhoto3 from '../../images/paper-card__photo_3.svg';
+import paperPhoto1 from '../../images/paper-card__photo_1.jpg';
+import paperPhoto2 from '../../images/paper-card__photo_2.jpg';
+import paperPhoto3 from '../../images/paper-card__photo_3.jpg';
 
 const PapersPage = () => {
   return (
