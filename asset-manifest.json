@@ -1,24 +1,29 @@
 {
   "files": {
-    "main.css": "/help_paw_frontend/static/css/main.6f770dce.css",
-    "main.js": "/help_paw_frontend/static/js/main.0318aca6.js",
+    "main.css": "/help_paw_frontend/static/css/main.cd286b1a.css",
+    "main.js": "/help_paw_frontend/static/js/main.fa29a9a9.js",
     "static/js/787.df3f365b.chunk.js": "/help_paw_frontend/static/js/787.df3f365b.chunk.js",
-    "static/media/paper-card__photo_1.svg": "/help_paw_frontend/static/media/paper-card__photo_1.9b5d4e65e3e2be8cf7e90e90a76e5667.svg",
-    "static/media/paper-card__photo_2.svg": "/help_paw_frontend/static/media/paper-card__photo_2.efbba1abdfec313c2a232c527bceef55.svg",
-    "static/media/paper-card__photo_3.svg": "/help_paw_frontend/static/media/paper-card__photo_3.77188220d98cc0b00c4d991280222499.svg",
     "static/media/main__promo.svg": "/help_paw_frontend/static/media/main__promo.11f296f3505a774b26b83d4bda2d888a.svg",
+    "static/media/paper_big-image.jpg": "/help_paw_frontend/static/media/paper_big-image.29ec18fe728e9e77a783.jpg",
     "static/media/main__banner.svg": "/help_paw_frontend/static/media/main__banner.4842bf26859f8ad2b91cfc0e44f56034.svg",
+    "static/media/paper-card__photo_2.jpg": "/help_paw_frontend/static/media/paper-card__photo_2.cc7c43a5eec1e4da208a.jpg",
+    "static/media/paper-card__photo_3.jpg": "/help_paw_frontend/static/media/paper-card__photo_3.cc7c43a5eec1e4da208a.jpg",
+    "static/media/paper-card__photo_1.jpg": "/help_paw_frontend/static/media/paper-card__photo_1.8ecd59acc08b50766076.jpg",
     "static/media/shelter-logo.svg": "/help_paw_frontend/static/media/shelter-logo.f866320411eefaf0e545e49e3c604b39.svg",
+    "static/media/profile.svg": "/help_paw_frontend/static/media/profile.5b44f04c91dca29cd0f0.svg",
+    "static/media/logo.svg": "/help_paw_frontend/static/media/logo.3c45c214a48439f2338cbeb3168bda1f.svg",
     "static/media/paw.svg": "/help_paw_frontend/static/media/paw.4aac535c2b2e1af0113a7706ba2ad78b.svg",
+    "static/media/footer__icon_vk.svg": "/help_paw_frontend/static/media/footer__icon_vk.4322032db3b9fee96097b04a7a6439af.svg",
     "index.html": "/help_paw_frontend/index.html",
+    "static/media/footer__icon_telegram.svg": "/help_paw_frontend/static/media/footer__icon_telegram.64e980b8b25154680d1c578c1ac4c609.svg",
     "static/media/faq__plus.svg": "/help_paw_frontend/static/media/faq__plus.4c8c012584c5453f3248.svg",
     "static/media/faq__minus.svg": "/help_paw_frontend/static/media/faq__minus.aa2a516aa81e7cf0d070.svg",
-    "main.6f770dce.css.map": "/help_paw_frontend/static/css/main.6f770dce.css.map",
-    "main.0318aca6.js.map": "/help_paw_frontend/static/js/main.0318aca6.js.map",
+    "main.cd286b1a.css.map": "/help_paw_frontend/static/css/main.cd286b1a.css.map",
+    "main.fa29a9a9.js.map": "/help_paw_frontend/static/js/main.fa29a9a9.js.map",
     "787.df3f365b.chunk.js.map": "/help_paw_frontend/static/js/787.df3f365b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6f770dce.css",
-    "static/js/main.0318aca6.js"
+    "static/css/main.cd286b1a.css",
+    "static/js/main.fa29a9a9.js"
   ]
 }
