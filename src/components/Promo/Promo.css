@@ -1,4 +1,7 @@
 @import url('../../block/promo/promo.css');
+  @import url('../../block/promo/__photo-container/promo__photo-container.css');
   @import url('../../block/promo/__photo/promo__photo.css');
+    @import url('../../block/promo/__photo/_position/promo__photo_position_left.css');
+    @import url('../../block/promo/__photo/_position/promo__photo_position_right.css');
   @import url('../../block/promo/__text-container/promo__text-container.css');
   @import url('../../block/promo/__text/promo__text.css');
