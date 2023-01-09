@@ -1,14 +1,27 @@
 import React from 'react';
+import { useInView } from 'react-intersection-observer';
 import './Promo.css';
 import promoPhotoLeft from '../../images/main__promo_position_left.jpg';
 import promoPhotoRight from '../../images/main__promo_position_right.jpg';
 
 const Promo = () => {
+  const [isActiveAnimation, setIsActiveAnimation] = React.useState(false); // отобразить анимацию?
+
+  const { ref, inView } = useInView({
+    threshold: 1,
+  });
+
+  React.useEffect(() => {
+    if (inView) {
+      setIsActiveAnimation(true);
+    };
+  }, [inView])
+
   return (
     <section className='promo'>
-      <div className='promo__photo-container'>
-        <img className='promo__photo promo__photo_position_left' src={promoPhotoLeft} alt='наши любимцы' />
-        <img className='promo__photo promo__photo_position_right' src={promoPhotoRight} alt='наши любимцы' />
+      <div className='promo__photo-container' ref={ref}>
+        <img className={`promo__photo promo__photo_position_left ${isActiveAnimation ? 'promo__photo_animation_to-left' : ''}`} src={promoPhotoLeft} alt='наши любимцы' />
+        <img className={`promo__photo promo__photo_position_right ${isActiveAnimation ? 'promo__photo_animation_to-right' : ''}`} src={promoPhotoRight} alt='наши любимцы' />
       </div>
       <div className='promo__text-container'>
         <h2 className='section-title'>О нас</h2>
