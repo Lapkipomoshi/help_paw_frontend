@@ -9,11 +9,11 @@
   border: none;
   border-radius: 12px;
   cursor: pointer;
+  transition-duration: 1s;
 }
 
 .button:hover {
   background-color: var(--color-accent-hover);
-  transition-duration: 1s;
 }
 
 .button:disabled {

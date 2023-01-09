@@ -9,9 +9,9 @@
   color: var(--color-accent-base);
   text-align: right;
   cursor: pointer;
+  transition-duration: 1s;
 }
 
 .shelter-card__link:hover {
   color: var(--color-accent-hover);
-  transition-duration: 1s;
 }

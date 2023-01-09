@@ -3,9 +3,9 @@
   flex-direction: column;
   width: 100%;
   text-decoration: none;
+  transition-duration: 1s;
 }
 
 .paper-card:hover {
   opacity: .77;
-  transition-duration: 1s;
 }
