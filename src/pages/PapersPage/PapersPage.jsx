@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './PapersPage.css';
 import PaperCard from '../../components/PaperCard/PaperCard';
 import paperPhoto1 from '../../images/paper-card__photo_1.jpg';
