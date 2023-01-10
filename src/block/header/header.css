@@ -2,7 +2,8 @@
   display: flex;
   width: 100%;
   min-height: 100px;
-  padding: 20px 132px;
+  padding: 18px 132px;
+  justify-content: space-between;
   align-items: center;
   background-color: var(--color-background-base);
   box-sizing: border-box;

@@ -1,7 +1,7 @@
-.header__sign-up {
-  margin: auto 0 auto auto; 
-  padding: 12px 26px;
-  font-size: 16px;
+.menu__sign-up {
+  margin: 0;
+  padding: 16px 32px;
+  font-size: 18px;
   line-height: 20px;
   font-weight: 600;
   text-decoration: none;
@@ -10,7 +10,7 @@
   border-radius: 12px;
 }
 
-.header__sign-up:hover {
+.menu__sign-up:hover {
   color: var(--color-accent-hover);
   border-color: var(--color-accent-hover);
   transition-duration: 1s;
