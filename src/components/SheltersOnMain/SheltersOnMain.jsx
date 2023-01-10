@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import './SheltersOnMain.css';
 import ShelterCard from '../ShelterCard/ShelterCard';
-import shelterLogo from '../../images/shelter-logo.svg';
+import shelterImage from '../../images/shelter-image.jpg';
+import shelterLogo from '../../images/shelter-logo.jpg';
+
 
 const SheltersOnMain = () => {
   const [isActiveAnimation, setIsActiveAnimation] = React.useState(false); // отобразить анимацию?
@@ -22,24 +23,33 @@ const SheltersOnMain = () => {
     <section className='shelters-on-main'>
       <h2 className='section-title'>Приюты, которым очень нужна помощь</h2>
       <ul className='shelters-on-main__shelters-container'>
-        <ShelterCard
-          image={shelterLogo}
-          title={'Приют Бирюлево'}
-          address={'Востряковский пр-д, 10А, Москва, Россия'}
-          workingHours={'10:00 - 18:00'}
-          linkID={'/shelters/1'} />
-        <ShelterCard
-          image={shelterLogo}
-          title={'Приют Бирюлево'}
-          address={'Востряковский пр-д, 10А, Москва, Россия'}
-          workingHours={'10:00 - 18:00'}
-          linkID={'/shelters/1'} />
-        <ShelterCard
-          image={shelterLogo}
-          title={'Приют Бирюлево'}
-          address={'Востряковский пр-д, 10А, Москва, Россия'}
-          workingHours={'10:00 - 18:00'}
-          linkID={'/shelters/1'} />
+        <li>
+          <ShelterCard
+            image={shelterImage}
+            logo={shelterLogo}
+            title={'Приют Бирюлево'}
+            address={'Востряковский пр-д, 10А, Москва, Россия'}
+            workingHours={'10:00 - 18:00'}
+            linkID={'/shelters/1'} />
+        </li>
+        <li>
+          <ShelterCard
+            image={shelterImage}
+            logo={shelterLogo}
+            title={'Приют Бирюлево'}
+            address={'Востряковский пр-д, 10А, Москва, Россия'}
+            workingHours={'10:00 - 18:00'}
+            linkID={'/shelters/1'} />
+        </li>
+        <li>
+          <ShelterCard
+            image={shelterImage}
+            logo={shelterLogo}
+            title={'Приют Бирюлево'}
+            address={'Востряковский пр-д, 10А, Москва, Россия'}
+            workingHours={'10:00 - 18:00'}
+            linkID={'/shelters/1'} />
+        </li>
       </ul>
       <button className='button margin-left_auto' to='/map'>Смотреть на карте</button>
       <div className={`shelters-on-main__text-container ${isActiveAnimation ? 'shelters-on-main__text-container_animation' : ''}`} ref={ref}>
