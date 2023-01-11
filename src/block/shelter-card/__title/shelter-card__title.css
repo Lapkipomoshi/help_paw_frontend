@@ -1,7 +1,6 @@
 .shelter-card__title {
-  margin: 0;
+  margin: 0 20px;
   padding: 0;
-  width: 213px;
   font-size: 20px;
   line-height: 24px;
   font-weight: 500;
