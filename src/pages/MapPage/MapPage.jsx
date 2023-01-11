@@ -1,7 +1,8 @@
 import './MapPage.css';
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 import pawIcon from '../../images/icons/ic_paw.svg';
-import websiteIcon from '../../images/icons/ic_website.svg'
+import websiteIcon from '../../images/icons/ic_website.svg';
+import { Link } from 'react-router-dom';
 
 const MapPage = () => {
   return (<YMaps>
@@ -11,7 +12,7 @@ const MapPage = () => {
            modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}>
         <ul className="shelters-list">
           <li className="shelters-list__item shelter">
-            <div className='shelter__inf'>
+            <div className="shelter__inf">
               <h3 className="shelter__title">
                 Приют Бирюлево
               </h3>
@@ -19,13 +20,14 @@ const MapPage = () => {
                 Востряковский пр-д, 10А,
                 Москва, Россия.
               </p>
-              <p className="shelter__time"><span className="text-accent">Часы работы: </span>10:00 -
+              <p className="shelter__time"><span
+                className="shelter__time-heading">Часы работы: </span>10:00 -
                 18:00</p>
             </div>
-            <img src={websiteIcon} alt='website'/>
+            <Link to="#"><img src={websiteIcon} alt="website"/></Link>
           </li>
           <li className="shelters-list__item shelter">
-            <div className='shelter__inf'>
+            <div className="shelter__inf">
               <h3 className="shelter__title">
                 Приют Бирюлево
               </h3>
@@ -33,13 +35,14 @@ const MapPage = () => {
                 Востряковский пр-д, 10А,
                 Москва, Россия.
               </p>
-              <p className="shelter__time"><span className="text-accent">Часы работы: </span>10:00 -
+              <p className="shelter__time"><span
+                className="shelter__time-heading">Часы работы: </span>10:00 -
                 18:00</p>
             </div>
-            <img src={websiteIcon} alt='website'/>
+            <Link to="#"><img src={websiteIcon} alt="website"/></Link>
           </li>
           <li className="shelters-list__item shelter">
-            <div className='shelter__inf'>
+            <div className="shelter__inf">
               <h3 className="shelter__title">
                 Приют Бирюлево
               </h3>
@@ -47,13 +50,14 @@ const MapPage = () => {
                 Востряковский пр-д, 10А,
                 Москва, Россия.
               </p>
-              <p className="shelter__time"><span className="text-accent">Часы работы: </span>10:00 -
+              <p className="shelter__time"><span
+                className="shelter__time-heading">Часы работы: </span>10:00 -
                 18:00</p>
             </div>
-            <img src={websiteIcon} alt='website'/>
+            <Link to="#"><img src={websiteIcon} alt="website"/></Link>
           </li>
           <li className="shelters-list__item shelter">
-            <div className='shelter__inf'>
+            <div className="shelter__inf">
               <h3 className="shelter__title">
                 Приют Бирюлево
               </h3>
@@ -61,10 +65,71 @@ const MapPage = () => {
                 Востряковский пр-д, 10А,
                 Москва, Россия.
               </p>
-              <p className="shelter__time"><span className="text-accent">Часы работы: </span>10:00 -
+              <p className="shelter__time"><span
+                className="shelter__time-heading">Часы работы: </span>10:00 -
                 18:00</p>
             </div>
-            <img src={websiteIcon} alt='website'/>
+            <Link to="#"><img src={websiteIcon} alt="website"/></Link>
+          </li>
+          <li className="shelters-list__item shelter">
+            <div className="shelter__inf">
+              <h3 className="shelter__title">
+                Приют Бирюлево
+              </h3>
+              <p className="shelter__address">
+                Востряковский пр-д, 10А,
+                Москва, Россия.
+              </p>
+              <p className="shelter__time"><span
+                className="shelter__time-heading">Часы работы: </span>10:00 -
+                18:00</p>
+            </div>
+            <Link to="#"><img src={websiteIcon} alt="website"/></Link>
+          </li>
+          <li className="shelters-list__item shelter">
+            <div className="shelter__inf">
+              <h3 className="shelter__title">
+                Приют Бирюлево
+              </h3>
+              <p className="shelter__address">
+                Востряковский пр-д, 10А,
+                Москва, Россия.
+              </p>
+              <p className="shelter__time"><span
+                className="shelter__time-heading">Часы работы: </span>10:00 -
+                18:00</p>
+            </div>
+            <Link to="#"><img src={websiteIcon} alt="website"/></Link>
+          </li>
+          <li className="shelters-list__item shelter">
+            <div className="shelter__inf">
+              <h3 className="shelter__title">
+                Приют Бирюлево
+              </h3>
+              <p className="shelter__address">
+                Востряковский пр-д, 10А,
+                Москва, Россия.
+              </p>
+              <p className="shelter__time"><span
+                className="shelter__time-heading">Часы работы: </span>10:00 -
+                18:00</p>
+            </div>
+            <Link to="#"><img src={websiteIcon} alt="website"/></Link>
+          </li>
+          <li className="shelters-list__item shelter">
+            <div className="shelter__inf">
+              <h3 className="shelter__title">
+                Приют Бирюлево
+              </h3>
+              <p className="shelter__address">
+                Востряковский пр-д, 10А,
+                Москва, Россия.
+              </p>
+              <p className="shelter__time"><span
+                className="shelter__time-heading">Часы работы: </span>10:00 -
+                18:00</p>
+            </div>
+            <Link to="#"><img src={websiteIcon} alt="website"/></Link>
           </li>
         </ul>
         <Placemark geometry={[55.684758, 37.738521]}
