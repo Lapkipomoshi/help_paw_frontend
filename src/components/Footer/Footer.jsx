@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
-import classmatesIcon from '../../images/footer__icon_classmates.svg';
-import vkIcon from '../../images/footer__icon_vk.svg';
-import telegramIcon from '../../images/footer__icon_telegram.svg';
+import classmatesIcon from '../../images/icons/footer__icon_classmates.svg';
+import vkIcon from '../../images/icons/footer__icon_vk.svg';
+import telegramIcon from '../../images/icons/footer__icon_telegram.svg';
 
 const Footer = () => {
   return (
