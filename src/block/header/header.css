@@ -5,6 +5,6 @@
   padding: 18px 132px;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color-background-base);
+  background-color: var(--color-background-additional);
   box-sizing: border-box;
 }
