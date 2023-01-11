@@ -8,4 +8,5 @@
   --color-accent-hover: rgba(240, 146, 79, .77);
   --color-accent-pressed: #ff852e;
   --color-accent-disabled: #ffe2cd;
+  --base-font: 'Inter', 'Arial', sans-serif;
 }

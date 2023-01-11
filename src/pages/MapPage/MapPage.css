@@ -9,14 +9,22 @@
   list-style-type: none;
   margin: 0;
   flex-direction: column;
-  width: 30%;
-  padding: 32px 24px;
-  position: relative;
+  width: 508px;
+  padding: 4px 24px;
+  position: absolute;
+  background: #FFFFFF;
+  z-index: 1;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .shelters-list__item {
-  padding: 0 52.5px 0 36px;
+  padding: 28px 35px 0 112px;
   position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: space-between;
 }
 
 .shelters-list__item:not(:last-child) {
@@ -24,5 +32,42 @@
   border-bottom: 1px solid #BDBDBD;
 }
 
+.shelter__inf {
+  display: flex;
+  flex-direction: column;
+  max-width: 213px;
+}
+
+.shelter__title {
+  font-family: var(--base-font);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0 auto 8px 0;
+
+  /* text/base */
+  color: var(--color-text-base);
+}
+
+.shelter__address {
+  font-family: var(--base-font);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--color-text-additional);
+  margin: 0 auto 16px 0;
+}
+
+.shelter__time {
+  font-family: var(--base-font);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--color-text-base);
+  margin: 0 auto 0 0;
+}
 
 
