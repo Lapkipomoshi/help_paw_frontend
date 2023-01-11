@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
+import classmatesIcon from '../../images/footer__icon_classmates.svg';
 import vkIcon from '../../images/footer__icon_vk.svg';
 import telegramIcon from '../../images/footer__icon_telegram.svg';
 
@@ -19,6 +20,9 @@ const Footer = () => {
         <Link className='footer__link' to='/faq'>FAQ</Link>
       </div>
       <div className='footer__icons'>
+        <Link className='footer__icon-link' to=''>
+          <img className='footer__icon' src={classmatesIcon} alt='OK.ru' />
+        </Link>
         <Link className='footer__icon-link' to=''>
           <img className='footer__icon' src={vkIcon} alt='ВК' />
         </Link>
