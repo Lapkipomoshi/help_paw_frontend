@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './PapersOnMain.css';
-import paperPhoto1 from '../../images/paper-card__photo_1.svg';
-import paperPhoto2 from '../../images/paper-card__photo_2.svg';
-import paperPhoto3 from '../../images/paper-card__photo_3.svg';
+import PaperCard from '../PaperCard/PaperCard';
+import paperPhoto1 from '../../images/paper-card__photo_1.jpg';
+import paperPhoto2 from '../../images/paper-card__photo_2.jpg';
+import paperPhoto3 from '../../images/paper-card__photo_3.jpg';
 
 const PapersOnMain = () => {
   return (
@@ -11,22 +11,19 @@ const PapersOnMain = () => {
       <h2 className='section-title'>Полезные статьи</h2>
       <ul className='papers-on-main__flex-container'>
         <li className='papers-on-main__flex-element'>
-          <Link className='paper-card' to='/papers/1'>
-            <img className='paper-card__image' src={paperPhoto1} alt='фото' />
-            <p className='paper-card__text'>Животное из приюта: что надо знать перед тем, как взять его в дом?</p>
-          </Link>
+          <PaperCard
+            photo={paperPhoto1}
+            text={'Животное из приюта: что надо знать перед тем, как взять его в дом?'} />
         </li>
         <li className='papers-on-main__flex-element'>
-          <Link className='paper-card' to='/papers/2'>
-            <img className='paper-card__image' src={paperPhoto2} alt='фото' />
-            <p className='paper-card__text'>Как отучить собаку прыгать на вас при встрече</p>
-          </Link>
+          <PaperCard
+            photo={paperPhoto2}
+            text={'Как отучить собаку прыгать на вас при встрече'} />
         </li>
         <li className='papers-on-main__flex-element'>
-          <Link className='paper-card' to='/papers/3'>
-            <img className='paper-card__image' src={paperPhoto3} alt='фото' />
-            <p className='paper-card__text'>Современные кинологи не применяют наказание. Почему?</p>
-          </Link>
+          <PaperCard
+            photo={paperPhoto3}
+            text={'Современные кинологи не применяют наказание. Почему?'} />
         </li>
       </ul>
     </section>

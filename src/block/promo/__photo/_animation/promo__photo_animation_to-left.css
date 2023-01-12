@@ -1,0 +1,4 @@
+.promo__photo_animation_to-left {
+  transform: rotate(-6.69deg);
+  transition: transform 2s ease;
+}

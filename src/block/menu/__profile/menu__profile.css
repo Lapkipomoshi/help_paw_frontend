@@ -1,0 +1,13 @@
+.menu__profile {
+  width: 60px;
+  height: 60px;
+  margin: 2px 0;
+  background-image: url('../../../images/profile.svg');
+  background-position: center;
+  background-size: cover;
+}
+
+.menu__profile:hover {
+  opacity: .5;
+  transition-duration: 1s;
+}

@@ -1,11 +1,11 @@
 :root {
-  --color-background-base: #fffaf2;
+  --color-background-base: #fef4e8;
   --color-background-additional: #fff;
   --color-text-base: #111c2c;
   --color-text-additional: #818181;
   --color-text-light: #fff;
   --color-accent-base: #f0924f;
-  --color-accent-hover: rgba(240, 146, 79, .77);
+  --color-accent-hover: rgba(240, 146, 79, .77); /* #f0924f */
   --color-accent-pressed: #ff852e;
   --color-accent-disabled: #ffe2cd;
   --base-font: 'Inter', 'Arial', sans-serif;

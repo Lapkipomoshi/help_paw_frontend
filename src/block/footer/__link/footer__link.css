@@ -6,9 +6,9 @@
   font-weight: 400;
   color: var(--color-text-base);
   text-decoration: none;
+  transition-duration: 1s;
 }
 
 .footer__link:hover {
   opacity: .5;
-  transition-duration: 1s;
 }

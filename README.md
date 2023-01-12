@@ -9,3 +9,5 @@
 Команда:
 
 Фронтенд: Влада, Эльвира и Артём
+
+Ссылка на gh-pages: https://artyom774.github.io/help_paw_frontend/
