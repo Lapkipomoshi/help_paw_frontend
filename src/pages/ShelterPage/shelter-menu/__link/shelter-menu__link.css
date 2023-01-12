@@ -7,9 +7,9 @@
   font-weight: 500;
   color: var(--color-text-base);
   text-decoration: none;
-  transition-duration: 1s;
 }
 
 .shelter-menu__link:hover {
-  opacity: .77;;
+  opacity: .77;
+  transition: opacity 1s;
 }

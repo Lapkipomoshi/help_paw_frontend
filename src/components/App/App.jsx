@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -28,7 +28,7 @@ const App = (props) => {
         <Route path="/map" element={<MapPage />} />
         <Route path="/shelter-list" element={<ShelterListPage />} />
         <Route path="/shelters/:id" element={<ShelterPage />}>
-          <Route path='' element={<p>работает</p>} />
+          <Route path='about' element={<p>работает</p>} />
           <Route path='how-to-help' element={<p>работает1</p>} />
           <Route path='news' element={<p>работает2</p>} />
           <Route path='pets' element={<p>работает3</p>} />

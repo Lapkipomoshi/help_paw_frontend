@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, NavLink } from 'react-router-dom';
 import './ShelterPage.css';
 
 const ShelterPage = () => {
@@ -8,19 +8,19 @@ const ShelterPage = () => {
       <section className='shelter-menu'>
         <ul className="shelter-menu__menu">
           <li>
-            <Link to='' className='shelter-menu__link shelter-menu__link_active'>О приюте</Link>
+            <NavLink to='about' className={({isActive}) => `shelter-menu__link ${isActive ? 'shelter-menu__link_active' : ''}`}>О приюте</NavLink>
           </li>
           <li>
-            <Link to='how-to-help' className='shelter-menu__link'>Как помочь</Link>
+            <NavLink to='how-to-help' className={({isActive}) => `shelter-menu__link ${isActive ? 'shelter-menu__link_active' : ''}`}>Как помочь</NavLink>
           </li>
           <li>
-            <Link to='news' className='shelter-menu__link'>Новости</Link>
+            <NavLink to='news' className={({isActive}) => `shelter-menu__link ${isActive ? 'shelter-menu__link_active' : ''}`}>Новости</NavLink>
           </li>
           <li>
-            <Link to='pets' className='shelter-menu__link'>Питомцы</Link>
+            <NavLink to='pets' className={({isActive}) => `shelter-menu__link ${isActive ? 'shelter-menu__link_active' : ''}`}>Питомцы</NavLink>
           </li>
           <li>
-            <Link to='vacancies' className='shelter-menu__link'>Вакансии</Link>
+            <NavLink to='vacancies' className={({isActive}) => `shelter-menu__link ${isActive ? 'shelter-menu__link_active' : ''}`}>Вакансии</NavLink>
           </li>
         </ul>
       </section>
