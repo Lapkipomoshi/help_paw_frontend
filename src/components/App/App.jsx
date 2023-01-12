@@ -27,7 +27,13 @@ const App = (props) => {
         <Route path="/" element={<MainPage />} />
         <Route path="/map" element={<MapPage />} />
         <Route path="/shelter-list" element={<ShelterListPage />} />
-        <Route path="/shelter" element={<ShelterPage />} />
+        <Route path="/shelters/:id" element={<ShelterPage />}>
+          <Route path='' element={<p>работает</p>} />
+          <Route path='how-to-help' element={<p>работает1</p>} />
+          <Route path='news' element={<p>работает2</p>} />
+          <Route path='pets' element={<p>работает3</p>} />
+          <Route path='vacancies' element={<p>работает4</p>} />
+        </Route>
         <Route path="/papers" element={<PapersPage />} />
         <Route path="/papers/:id" element={<PaperPage />} />
         <Route path="/news" element={<NewsPage />} />
