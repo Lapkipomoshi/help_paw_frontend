@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, Link, Route } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import './ShelterPage.css';
 
 const ShelterPage = () => {
@@ -8,19 +8,19 @@ const ShelterPage = () => {
       <section className='shelter-menu'>
         <ul className="shelter-menu__menu">
           <li>
-            <Link to=''>О приюте</Link>
+            <Link to='' className='shelter-menu__link shelter-menu__link_active'>О приюте</Link>
           </li>
           <li>
-            <Link to='how-to-help'>Как помочь</Link>
+            <Link to='how-to-help' className='shelter-menu__link'>Как помочь</Link>
           </li>
           <li>
-            <Link to='news'>Новости</Link>
+            <Link to='news' className='shelter-menu__link'>Новости</Link>
           </li>
           <li>
-            <Link to='pets'>Питомцы</Link>
+            <Link to='pets' className='shelter-menu__link'>Питомцы</Link>
           </li>
           <li>
-            <Link to='vacancies'>Вакансии</Link>
+            <Link to='vacancies' className='shelter-menu__link'>Вакансии</Link>
           </li>
         </ul>
       </section>
