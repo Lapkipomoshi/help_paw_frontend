@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Header.css';
-import logo from '../../images/logo.svg';
+import logo from '../../images/icons/ic_paw.svg';
 
 const Header = ({ loggedIn }) => {
   return (

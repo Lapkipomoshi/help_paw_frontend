@@ -1,9 +1,9 @@
-@import url('../../block/header/header.css');
-  @import url('../../block/header/__logo-link/header__logo-link.css');
-  @import url('../../block/header/__logo/header__logo.css');
-@import url('../../block/menu/menu.css');
-  @import url('../../block/menu/__link/menu__link.css');
-    @import url('../../block/menu/__link/_active/menu__link_active.css');
-    @import url('../../block/menu/__sign-in/menu__sign-in.css');
-    @import url('../../block/menu/__sign-up/menu__sign-up.css');
-    @import url('../../block/menu/__profile/menu__profile.css');
+@import url('./header/header.css');
+  @import url('./header/__logo-link/header__logo-link.css');
+  @import url('./header/__logo/header__logo.css');
+@import url('./menu/menu.css');
+  @import url('./menu/__link/menu__link.css');
+    @import url('./menu/__link/_active/menu__link_active.css');
+    @import url('./menu/__sign-in/menu__sign-in.css');
+    @import url('./menu/__sign-up/menu__sign-up.css');
+    @import url('./menu/__profile/menu__profile.css');
