@@ -25,7 +25,7 @@ const AboutShelter = () => {
       gettingAllMoney: 6457362,
       takingAllPets: 365,
     });
-  }, [])
+  }, []);
 
   return (
     <section className='shelter-section about-shelter'>

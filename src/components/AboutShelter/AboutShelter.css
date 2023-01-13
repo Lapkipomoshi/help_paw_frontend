@@ -8,3 +8,6 @@
   @import url('./shelter-info/__title/shelter-info__title.css');
   @import url('./shelter-info/__text/shelter-info__text.css');
   @import url('./shelter-info/__link/shelter-info__link.css');
+  @import url('./shelter-info/__icons/shelter-info__icons.css');
+  @import url('./shelter-info/__icon/shelter-info__icon.css');
+    @import url('./shelter-info/__icon/_image/shelter-info__icon_image.css');
