@@ -4,6 +4,7 @@
   line-height: 52px;
   font-weight: 600;
   color: var(--color-text-light);
+  font-family: 'Montserrat Alternates', 'Inter', Arial, sans-serif;
   text-decoration: none;
   background-color: var(--color-accent-base);
   border: none;
