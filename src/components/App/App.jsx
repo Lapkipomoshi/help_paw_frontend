@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -7,6 +7,11 @@ import MainPage from '../../pages/MainPage/MainPage';
 import MapPage from '../../pages/MapPage/MapPage';
 import ShelterListPage from '../../pages/ShelterListPage/ShelterListPage';
 import ShelterPage from '../../pages/ShelterPage/ShelterPage';
+  import AboutShelter from '../AboutShelter/AboutShelter';
+  import HelpToShelter from '../HelpToShelter/HelpToShelter';
+  import SheterNews from '../ShelterNews/ShelterNews';
+  import ShelterPets from '../ShelterPets/ShelterPets';
+  import ShelterVacancies from '../ShelterVacancies/ShelterVacancies';
 import PapersPage from '../../pages/PapersPage/PapersPage';
 import PaperPage from '../../pages/PaperPage/PaperPage';
 import NewsPage from '../../pages/NewsPage/NewsPage';
@@ -28,11 +33,11 @@ const App = (props) => {
         <Route path="/map" element={<MapPage />} />
         <Route path="/shelter-list" element={<ShelterListPage />} />
         <Route path="/shelters/:id" element={<ShelterPage />}>
-          <Route path='about' element={<p>работает</p>} />
-          <Route path='how-to-help' element={<p>работает1</p>} />
-          <Route path='news' element={<p>работает2</p>} />
-          <Route path='pets' element={<p>работает3</p>} />
-          <Route path='vacancies' element={<p>работает4</p>} />
+          <Route path='about' element={<AboutShelter />} />
+          <Route path='how-to-help' element={<HelpToShelter />} />
+          <Route path='news' element={<SheterNews />} />
+          <Route path='pets' element={<ShelterPets />} />
+          <Route path='vacancies' element={<ShelterVacancies />} />
         </Route>
         <Route path="/papers" element={<PapersPage />} />
         <Route path="/papers/:id" element={<PaperPage />} />

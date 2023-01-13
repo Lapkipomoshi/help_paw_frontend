@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, Link, NavLink } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
 import './ShelterPage.css';
 
 const ShelterPage = () => {
