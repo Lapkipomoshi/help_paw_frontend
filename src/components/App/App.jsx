@@ -27,7 +27,7 @@ const App = (props) => {
         <Route path="/" element={<MainPage />} />
         <Route path="/map" element={<MapPage />} />
         <Route path="/shelter-list" element={<ShelterListPage />} />
-        <Route path="/shelter" element={<ShelterPage />} />
+        <Route path="/shelters/:id" element={<ShelterPage />} />
         <Route path="/papers" element={<PapersPage />} />
         <Route path="/papers/:id" element={<PaperPage />} />
         <Route path="/news" element={<NewsPage />} />
