@@ -5,9 +5,9 @@
   background-image: url('../../../../images/profile.svg');
   background-position: center;
   background-size: cover;
+  transition-duration: 1s;
 }
 
 .menu__profile:hover {
   opacity: .5;
-  transition-duration: 1s;
 }
