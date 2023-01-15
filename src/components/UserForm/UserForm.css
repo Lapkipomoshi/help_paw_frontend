@@ -1,0 +1,46 @@
+.user-form__container {
+    max-width: 436px;
+}
+
+.user-form__title {
+    font-family: 'Montserrat Alternates', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 49px;
+    color: #000000;
+}
+
+.user-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-input__label {
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: #111C2C;
+    margin-bottom: 4px;
+}
+
+.user-input {
+    width: 364px;
+    height: 40px;
+    border: 1px solid #818181;
+    border-radius: 5px;
+    padding: 0;
+}
+
+.user-input__error {
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #D83E3E;
+    margin-top: 2px;
+    min-height: 17px;
+}
