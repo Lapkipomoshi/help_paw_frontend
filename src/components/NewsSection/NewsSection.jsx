@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './NewsSection.css';
-import newPhoto from '../../images/new-big-card.jpg';
+import NewCard from '../NewCard/NewCard';
 import dataIcon from '../../images/icons/ic_data.svg';
 import dataSelf from '../../images/icons/ic_self.svg';
-import dataDarkIcon from '../../images/icons/ic_data_dark.svg';
-import dataDarkSelf from '../../images/icons/ic_self_dark.svg';
+import newPhoto from '../../images/new-big-card.jpg';
+import newPhoto1 from '../../images/new-card__photo_1.jpg';
+import newPhoto2 from '../../images/new-card__photo_2.jpg';
+import newPhoto3 from '../../images/new-card__photo_3.jpg';
 
 const NewsSection = () => {
   return (
@@ -30,20 +32,28 @@ const NewsSection = () => {
       </Link>
       <ul className='news-section__column'>
         <li className='news-section__item'>
-          <Link className='new-card' to=''>
-            <img className='new-card__image' src='' alt='' />
-            <div className='new-card__info'>
-              <h4 className='new-card__title'>В приюте Бирюлево побывали школьники</h4>
-              <div className='new-card__info-block'>
-                <img className='new-card__icon' src={dataDarkIcon} alt='дата' />
-                <p className='new-card__info'>12.12.2022</p>
-              </div>
-              <div className='new-card__info-block'>
-                <img className='new-card__icon' src={dataDarkSelf} alt='приют' />
-                <p className='new-card__info'>Приют Бирюлево</p>
-              </div>
-            </div>
-          </Link>
+          <NewCard
+          title={'В приюте Бирюлево побывали школьники'}
+          data={'12.12.2022'}
+          shelter={'Приют Бирюлево'}
+          image={newPhoto1}
+          link={'/news/2'} />
+        </li>
+        <li className='news-section__item'>
+          <NewCard
+          title={'В приюте Бирюлево побывали школьники'}
+          data={'12.12.2022'}
+          shelter={'Приют Бирюлево'}
+          image={newPhoto2}
+          link={'/news/2'} />
+        </li>
+        <li className='news-section__item'>
+          <NewCard
+          title={'В приюте Бирюлево побывали школьники'}
+          data={'12.12.2022'}
+          shelter={'Приют Бирюлево'}
+          image={newPhoto3}
+          link={'/news/2'} />
         </li>
       </ul>
     </section>
