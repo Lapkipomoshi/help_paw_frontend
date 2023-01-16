@@ -1,0 +1,8 @@
+.vacancies-section__vacancies {
+  display: flex;
+  margin: 36px 0 0;
+  padding: 0;
+  flex-direction: column;
+  row-gap: 32px;
+  list-style-type: none;
+}
