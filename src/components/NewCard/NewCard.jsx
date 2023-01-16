@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './NewCard.css';
 import dataDarkIcon from '../../images/icons/ic_data_dark.svg';
-import dataDarkSelf from '../../images/icons/ic_self_dark.svg';
+import selfDarkIcon from '../../images/icons/ic_self_dark.svg';
 
 
 const NewCard = ({ title, data, shelter, image, link }) => {
@@ -16,7 +16,7 @@ const NewCard = ({ title, data, shelter, image, link }) => {
           <p className='new-card__info'>{data}</p>
         </div>
         <div className='new-card__info-block'>
-          <img className='new-card__icon' src={dataDarkSelf} alt='приют' />
+          <img className='new-card__icon' src={selfDarkIcon} alt='приют' />
           <p className='new-card__info'>{shelter}</p>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './NewsSection.css';
 import NewCard from '../NewCard/NewCard';
 import dataIcon from '../../images/icons/ic_data.svg';
-import dataSelf from '../../images/icons/ic_self.svg';
+import selfIcon from '../../images/icons/ic_self.svg';
 import newPhoto from '../../images/new-big-card.jpg';
 import newPhoto1 from '../../images/new-card__photo_1.jpg';
 import newPhoto2 from '../../images/new-card__photo_2.jpg';
@@ -21,7 +21,7 @@ const NewsSection = () => {
               <p className='new-big-card__info'>12.12.2022</p>
             </div>
             <div className='new-big-card__info-block'>
-              <img className='new-big-card__icon' src={dataSelf} alt='приют' />
+              <img className='new-big-card__icon' src={selfIcon} alt='приют' />
               <p className='new-big-card__info'>Приют Бирюлево</p>
             </div>
           </div>
