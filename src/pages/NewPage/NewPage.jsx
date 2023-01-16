@@ -8,7 +8,7 @@ const NewPage = () => {
   return (
     <main className='main new-page'>
       <h2 className='new-page__title'>В приюте Бирюлево побывали школьники</h2>
-      <div className='new-papge__row'>
+      <div className='new-page__row'>
         <div className='new-page__info-block'>
           <img className='new-page__icon' src={dataIcon} alt='дата' />
           <p className='new-page__info'>12.12.2022</p>
@@ -19,13 +19,11 @@ const NewPage = () => {
         </div>
       </div>
       <div className='new-page__photos'>
-        <div>
-          <img className='new-page__main-photo' src={newPagePhoto} alt='главное фото' />
-          <div className='new-page__photo-column'>
-            <img className='new-page__additional-photo' src={newPagePhoto} alt='фото' />
-            <img className='new-page__additional-photo' src={newPagePhoto} alt='фото' />
-            <img className='new-page__additional-photo' src={newPagePhoto} alt='фото' />
-          </div>
+        <img className='new-page__main-photo' src={newPagePhoto} alt='главное фото' />
+        <div className='new-page__photo-column'>
+          <img className='new-page__additional-photo' src={newPagePhoto} alt='фото' />
+          <img className='new-page__additional-photo' src={newPagePhoto} alt='фото' />
+          <img className='new-page__additional-photo' src={newPagePhoto} alt='фото' />
         </div>
       </div>
       <p className='new-page__text'>Выражаем большую благодарность ученикам 4 "Е" класса московской школы №2010 за подарки для наших подопечных! 

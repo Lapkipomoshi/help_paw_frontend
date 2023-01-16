@@ -1,0 +1,6 @@
+.new-page__photos {
+  display: flex;
+  width: 100%;
+  margin-bottom: 12px;
+  justify-content: space-between;
+}
