@@ -31,7 +31,7 @@ const App = (props) => {
         <Route path="/papers" element={<PapersPage />} />
         <Route path="/papers/:id" element={<PaperPage />} />
         <Route path="/news" element={<NewsPage />} />
-        <Route path="/new" element={<NewPage />} />
+        <Route path="/news/:id" element={<NewPage />} />
         <Route path="/sign-in" element={
           <ProtectedRoute loggedIn={!loggedIn} component={LoginPage} />
           }/>
