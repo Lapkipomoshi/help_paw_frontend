@@ -25,7 +25,7 @@ const AboutShelter = () => {
       gettingAllMoney: 6457362,
       takingAllPets: 365,
     });
-  }, []);
+  }, [id]);
 
   return (
     <section className='shelter-section about-shelter'>
@@ -33,13 +33,15 @@ const AboutShelter = () => {
         <img className='shelter-info__logo' src={shelterLogo} alt='лого' />
         <div className='shelter-info__text-container'>
           <h2 className='shelter-info__title'>{cardInfo.title}</h2>
-          <p className='shelter-info__text'>Адрес: <span className='color_text_additional'>{cardInfo.address}</span></p>
-          <p className='shelter-info__text'>Часы-работы: <span className='color_text_additional'>{cardInfo.workingHours}</span></p>
-          <p className='shelter-info__text'>Номер телефона: <span className='color_text_additional'>{cardInfo.phone}</span></p>
-          <p className='shelter-info__text'>E-mail: <span className='color_text_additional'>{cardInfo.email}</span></p>
-          <p className='shelter-info__text'>Сайт: <a className='shelter-info__link' href={cardInfo.link} target='_blank' rel="noreferrer">
-            {cardInfo.link}
-            </a></p>
+          <ul className='shelter-info__list'>
+            <li className='shelter-info__text'>Адрес: <span className='color_text_additional'>{cardInfo.address}</span></li>
+            <li className='shelter-info__text'>Часы-работы: <span className='color_text_additional'>{cardInfo.workingHours}</span></li>
+            <li className='shelter-info__text'>Номер телефона: <span className='color_text_additional'>{cardInfo.phone}</span></li>
+            <li className='shelter-info__text'>E-mail: <span className='color_text_additional'>{cardInfo.email}</span></li>
+            <li className='shelter-info__text'>Сайт: <a className='shelter-info__link' href={cardInfo.link} target='_blank' rel="noreferrer">
+              {cardInfo.link}
+              </a></li>
+          </ul>
           <div className='shelter-info__icons'>
             <a className='shelter-info__icon shelter-info__icon_image_vk' href={cardInfo.vkLink} target='_blank' rel="noreferrer" />
             <a className='shelter-info__icon shelter-info__icon_image_telegram' href={cardInfo.telegramLink} target='_blank' rel="noreferrer" />
