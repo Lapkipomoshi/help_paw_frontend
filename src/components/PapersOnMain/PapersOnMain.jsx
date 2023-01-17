@@ -8,7 +8,7 @@ import paperPhoto3 from '../../images/paper-card__photo_3.jpg';
 
 const PapersOnMain = () => {
   const navigate = useNavigate(); 
-  
+
   return (
     <section className='papers-on-main'>
       <h2 className='section-title'>Полезные статьи</h2>
@@ -29,6 +29,7 @@ const PapersOnMain = () => {
             text={'Современные кинологи не применяют наказание. Почему?'} />
         </li>
       </ul>
+      <button className='button margin-left_auto' type='button' onClick={() => navigate('/papers')}>Все статьи</button>
     </section>
   );
 }
