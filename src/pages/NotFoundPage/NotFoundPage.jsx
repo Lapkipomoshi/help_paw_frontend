@@ -1,10 +1,14 @@
 import React from 'react';
 import './NotFoundPage.css';
+import errorImage from '../../images/error-404.svg';
 
 const NotFoundPage = () => {
   return (
-    <main className='main'>
-      Страница не найдена
+    <main className='main not-found'>
+      <img className='not-found__404' src={errorImage} alt='ошибка 404' />
+      <p className='not-found__text'>Кажется, что то пошло не так :(</p>
+      <p className='not-found__text'>Предлагаем вам вернуться на предыдущую страницу</p>
+      <button className='button margin_column-center' type='button'>Вернуться назад</button>
     </main>
   );
 }

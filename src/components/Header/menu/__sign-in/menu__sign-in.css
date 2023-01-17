@@ -6,9 +6,9 @@
   font-weight: 600;
   text-decoration: none;
   color: var(--color-accent-base);
+  transition-duration: 1s;
 }
 
 .menu__sign-in:hover {
   color: var(--color-accent-hover);
-  transition-duration: 1s;
 }
