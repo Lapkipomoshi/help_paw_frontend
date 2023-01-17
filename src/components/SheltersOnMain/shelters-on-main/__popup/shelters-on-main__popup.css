@@ -10,7 +10,8 @@
   flex-direction: column;
   background-color: var(--color-background-additional);
   border-radius: 30px;
+  box-shadow: 4px 4px 17px var(--color-shadow-base);
   box-sizing: border-box;
-  transition: display 0s 1s 1;
+  transition: visibility 0s .5s, opacity .5s;
   z-index: 2;
 }

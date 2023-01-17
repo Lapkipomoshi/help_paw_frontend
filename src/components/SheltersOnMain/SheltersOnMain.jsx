@@ -28,7 +28,7 @@ const SheltersOnMain = ({ loggedIn }) => {
   }, [inView])
 
   return (
-    <section className='shelters-on-main'>
+    <section className='shelters-on-main' onClick={() => {isOpenPopup && setIsOpenPopup(false)}}>
       <h2 className='section-title'>Приюты, которым очень нужна помощь</h2>
       <ul className='shelters-on-main__shelters-container'>
         <li>
