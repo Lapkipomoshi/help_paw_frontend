@@ -1,0 +1,14 @@
+@import url('./about-shelter/about-shelter.css');
+  @import url('./about-shelter/__title/about-shelter__title.css');
+  @import url('./about-shelter/__description/about-shelter__description.css');
+  @import url('./about-shelter/__text/about-shelter__text.css');
+@import url('./shelter-info/shelter-info.css');
+  @import url('./shelter-info/__logo/shelter-info__logo.css');
+  @import url('./shelter-info/__text-container/shelter-info__text-container.css');
+  @import url('./shelter-info/__title/shelter-info__title.css');
+  @import url('./shelter-info/__list/shelter-info__list.css');
+  @import url('./shelter-info/__text/shelter-info__text.css');
+  @import url('./shelter-info/__link/shelter-info__link.css');
+  @import url('./shelter-info/__icons/shelter-info__icons.css');
+  @import url('./shelter-info/__icon/shelter-info__icon.css');
+    @import url('./shelter-info/__icon/_image/shelter-info__icon_image.css');
