@@ -4,9 +4,9 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  transition-duration: .5s;
 }
 
 .faq__card-row:hover {
   opacity: .5;
-  transition-duration: .5s;
 }
