@@ -1,0 +1,5 @@
+.new-page__info-block {
+  display: flex;
+  column-gap: 12px;
+  flex-wrap: nowrap;
+}
