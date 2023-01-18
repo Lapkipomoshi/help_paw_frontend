@@ -32,7 +32,7 @@ const AboutShelter = () => {
       <div className='shelter-info'>
         <img className='shelter-info__logo' src={shelterLogo} alt='лого' />
         <div className='shelter-info__text-container'>
-          <h2 className='shelter-info__title'>{cardInfo.title}</h2>
+          <h2 className='shelter-section__title'>{cardInfo.title}</h2>
           <ul className='shelter-info__list'>
             <li className='shelter-info__text'>Адрес: <span className='color_text_additional'>{cardInfo.address}</span></li>
             <li className='shelter-info__text'>Часы-работы: <span className='color_text_additional'>{cardInfo.workingHours}</span></li>
@@ -48,7 +48,7 @@ const AboutShelter = () => {
           </div>
         </div>
       </div>
-      <h2 className='about-shelter__title'>Описание</h2>
+      <h2 className='shelter-section__title'>Описание</h2>
       <p className='about-shelter__description'>{cardInfo.descriprion}</p>
       <p className='about-shelter__text'>Собрано денег за всё время: <span className='color_text_additional'>{cardInfo.gettingAllMoney}</span></p>
       <p className='about-shelter__text'>Забрали животных за всё время: <span className='color_text_additional'>{cardInfo.takingAllPets}</span></p>

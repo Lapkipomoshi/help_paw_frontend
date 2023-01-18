@@ -1,4 +1,5 @@
 .shelter-info {
   display: flex;
+  margin-bottom: 44px;
   column-gap: 44px;
 }

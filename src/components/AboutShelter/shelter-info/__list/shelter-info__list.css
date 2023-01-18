@@ -1,7 +1,7 @@
 .shelter-info__list {
   display: flex;
   width: 100%;
-  margin: 0;
+  margin: 28px 0 0;
   padding: 0;
   flex-direction: column;
   list-style-type: none;
