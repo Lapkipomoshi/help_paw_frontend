@@ -8,10 +8,10 @@
   color: var(--color-accent-base);
   border: 1px solid var(--color-accent-base);
   border-radius: 12px;
+  transition-duration: 1s;
 }
 
 .menu__sign-up:hover {
   color: var(--color-accent-hover);
   border-color: var(--color-accent-hover);
-  transition-duration: 1s;
 }
