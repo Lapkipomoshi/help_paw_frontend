@@ -3,7 +3,8 @@ import './ShelterNews.css';
 
 const ShelterNews = () => {
   return (
-    <section className=''>
+    <section className='shelter-section'>
+      <h2 className='shelter-section__title'>Новости приюта</h2>
     </section>
   );
 }

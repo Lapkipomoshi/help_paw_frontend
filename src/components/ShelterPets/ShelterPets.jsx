@@ -3,7 +3,8 @@ import './ShelterPets.css';
 
 const ShelterPets = () => {
   return (
-    <section className=''>
+    <section className='shelter-section'>
+      <h2 className='shelter-section__title'>Наши животные</h2>
     </section>
   );
 }
