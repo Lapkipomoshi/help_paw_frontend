@@ -1,10 +1,12 @@
 {
   "files": {
-    "main.css": "/help_paw_frontend/static/css/main.3bb9219b.css",
-    "main.js": "/help_paw_frontend/static/js/main.a7fc40f1.js",
+    "main.css": "/help_paw_frontend/static/css/main.c520c89b.css",
+    "main.js": "/help_paw_frontend/static/js/main.05a3cb73.js",
     "static/js/787.df3f365b.chunk.js": "/help_paw_frontend/static/js/787.df3f365b.chunk.js",
     "static/media/paper_big-image.jpg": "/help_paw_frontend/static/media/paper_big-image.29ec18fe728e9e77a783.jpg",
     "static/media/main__banner.svg": "/help_paw_frontend/static/media/main__banner.4842bf26859f8ad2b91cfc0e44f56034.svg",
+    "static/media/new-page_photo.jpg": "/help_paw_frontend/static/media/new-page_photo.e3fc355523addf7ea0b3.jpg",
+    "static/media/new-big-card.jpg": "/help_paw_frontend/static/media/new-big-card.716012dd524af312d52c.jpg",
     "static/media/error-404.svg": "/help_paw_frontend/static/media/error-404.d1d248467c10ce03e0f85e9b079e457b.svg",
     "static/media/Inter-LightBETA.woff": "/help_paw_frontend/static/media/Inter-LightBETA.ed9a7ce1dedab5d9333b.woff",
     "static/media/Inter-Bold.woff": "/help_paw_frontend/static/media/Inter-Bold.1e547cd04bfe2dae1f98.woff",
@@ -29,21 +31,28 @@
     "static/media/MontserratAlternates-Bold.woff2": "/help_paw_frontend/static/media/MontserratAlternates-Bold.0cd009562e70291fd77d.woff2",
     "static/media/MontserratAlternates-Medium.woff2": "/help_paw_frontend/static/media/MontserratAlternates-Medium.87b230217a9cd2f43ad7.woff2",
     "static/media/MontserratAlternates-SemiBold.woff2": "/help_paw_frontend/static/media/MontserratAlternates-SemiBold.c77c44712357b8d69e39.woff2",
+    "static/media/new-card__photo_2.jpg": "/help_paw_frontend/static/media/new-card__photo_2.b14d757f1eaaf39f8843.jpg",
     "static/media/shelter-image.jpg": "/help_paw_frontend/static/media/shelter-image.2f14b2a4cd49d0445f9a.jpg",
+    "static/media/new-card__photo_1.jpg": "/help_paw_frontend/static/media/new-card__photo_1.bfa0cfb955d6729af580.jpg",
+    "static/media/new-card__photo_3.jpg": "/help_paw_frontend/static/media/new-card__photo_3.ffb1a684af77330337fa.jpg",
     "static/media/profile.svg": "/help_paw_frontend/static/media/profile.5b44f04c91dca29cd0f0.svg",
     "static/media/ic_paw.svg": "/help_paw_frontend/static/media/ic_paw.8b669e83b630cbc11034cec5e0dc6942.svg",
     "static/media/footer__icon_vk.svg": "/help_paw_frontend/static/media/footer__icon_vk.4322032db3b9fee96097b04a7a6439af.svg",
     "static/media/footer__icon_classmates.svg": "/help_paw_frontend/static/media/footer__icon_classmates.6e3c9c4902d0f3251f942e72980b1aff.svg",
+    "static/media/ic_data.svg": "/help_paw_frontend/static/media/ic_data.33251e8700ff5f201f89ab27ec4eabb6.svg",
+    "static/media/ic_data_dark.svg": "/help_paw_frontend/static/media/ic_data_dark.9667dbe9b255d10e35756d05771e74cc.svg",
     "index.html": "/help_paw_frontend/index.html",
+    "static/media/ic_self_dark.svg": "/help_paw_frontend/static/media/ic_self_dark.fa897082c7fcdd3209a7a8a15c1f5b0a.svg",
+    "static/media/ic_self.svg": "/help_paw_frontend/static/media/ic_self.a0e93497a492f2bf75ffa0084911abb7.svg",
     "static/media/footer__icon_telegram.svg": "/help_paw_frontend/static/media/footer__icon_telegram.64e980b8b25154680d1c578c1ac4c609.svg",
     "static/media/faq__plus.svg": "/help_paw_frontend/static/media/faq__plus.4c8c012584c5453f3248.svg",
     "static/media/faq__minus.svg": "/help_paw_frontend/static/media/faq__minus.aa2a516aa81e7cf0d070.svg",
-    "main.3bb9219b.css.map": "/help_paw_frontend/static/css/main.3bb9219b.css.map",
-    "main.a7fc40f1.js.map": "/help_paw_frontend/static/js/main.a7fc40f1.js.map",
+    "main.c520c89b.css.map": "/help_paw_frontend/static/css/main.c520c89b.css.map",
+    "main.05a3cb73.js.map": "/help_paw_frontend/static/js/main.05a3cb73.js.map",
     "787.df3f365b.chunk.js.map": "/help_paw_frontend/static/js/787.df3f365b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3bb9219b.css",
-    "static/js/main.a7fc40f1.js"
+    "static/css/main.c520c89b.css",
+    "static/js/main.05a3cb73.js"
   ]
 }
