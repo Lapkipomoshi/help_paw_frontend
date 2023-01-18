@@ -12,7 +12,7 @@ const Banner = () => {
       <h1 className='banner__title'>Помогаем тем, кто в этом нуждается</h1>
       <div className='banner__line'></div>
       <p className='banner__subtitle'>Лапки помощи - это проект помощи приютам для животных.</p>
-      <button className='banner__button button' type='button' onClick={() => navigate('/map')}>Хочу помогать</button>
+      <button className='banner__button button' type='button' onClick={() => navigate('/shelters')}>Хочу помогать</button>
     </section>
   );
 }
