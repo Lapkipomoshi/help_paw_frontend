@@ -8,4 +8,7 @@
   --color-accent-hover: rgba(240, 146, 79, .77); /* #f0924f */
   --color-accent-pressed: #ff852e;
   --color-accent-disabled: #ffe2cd;
+  --color-accent-valid: #3ED872;
+  --color-accent-invalid: #D83E3E;
+  --color-base: #000000;
 }
