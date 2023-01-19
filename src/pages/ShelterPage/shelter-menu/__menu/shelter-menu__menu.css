@@ -1,0 +1,6 @@
+.shelter-menu__menu {
+  display: flex;
+  column-gap: 72px;
+  align-items: center;
+  list-style-type: none;
+}

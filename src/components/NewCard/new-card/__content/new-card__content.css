@@ -1,0 +1,5 @@
+.new-card__content {
+  display: flex;
+  width: 212px;
+  flex-direction: column;
+}
