@@ -53,7 +53,7 @@ const RegisterPage = () => {
                                 <span className='checkbox'></span>
                             </label>
 
-                            <p className='register__agreement'>Я согласен с <Link className='register__privacy-link' to='/'>Политикой конфиденциальности</Link> и <Link className='register__privacy-link' to='/'>Условиями использования сервиса</Link></p>
+                            <p className='register__agreement'>Я согласен с <Link className='register__privacy-link' to='/' target='_blank'>Политикой конфиденциальности</Link> и <Link className='register__privacy-link' to='/' target='_blank'>Условиями использования сервиса</Link></p>
                         </div>
 
                     </UserForm>
