@@ -13,23 +13,32 @@ const PapersPage = () => {
 
   React.useEffect(() => {
     setPapersList([ // будет запрашиваться с бэкенда
-      {photo: paperPhoto1,
+      {id: 1,
+        photo: paperPhoto1,
         title: 'Животное из приюта: что надо знать перед тем, как взять его в дом?'},
-      {photo: paperPhoto2,
+      {id: 2,
+        photo: paperPhoto2,
         title: 'Как отучить собаку прыгать на вас при встрече'},
-      {photo: paperPhoto3,
+      {id: 3,
+        photo: paperPhoto3,
         title: 'Современные кинологи не применяют наказание. Почему?'},
-      {photo: paperPhoto1,
+      {id: 4,
+        photo: paperPhoto1,
         title: 'Животное из приюта: что надо знать перед тем, как взять его в дом?'},
-      {photo: paperPhoto2,
+      {id: 5,
+        photo: paperPhoto2,
         title: 'Как отучить собаку прыгать на вас при встрече'},
-      {photo: paperPhoto3,
+      {id: 6,
+        photo: paperPhoto3,
       title: 'Современные кинологи не применяют наказание. Почему?'},
-      {photo: paperPhoto1,
+      {id: 7,
+        photo: paperPhoto1,
         title: 'Животное из приюта: что надо знать перед тем, как взять его в дом?'},
-      {photo: paperPhoto2,
+      {id: 8,
+        photo: paperPhoto2,
         title: 'Как отучить собаку прыгать на вас при встрече'},
-      {photo: paperPhoto3,
+      {id: 9,
+        photo: paperPhoto3,
         title: 'Современные кинологи не применяют наказание. Почему?'},
     ]);
   }, []);
@@ -42,8 +51,9 @@ const PapersPage = () => {
       </div>
       <ul className='papers__grid'>
         {papersList.map((card) => (
-          <li className='papers__grid-element'>
+          <li className='papers__grid-element' key={card.id}>
             <PaperCard
+              id={card.id}
               photo={card.photo}
               title={card.title} />
           </li>

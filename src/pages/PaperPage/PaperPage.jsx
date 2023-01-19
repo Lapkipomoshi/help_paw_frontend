@@ -4,7 +4,7 @@ import './PaperPage.css';
 import paperImage from '../../images/paper_big-image.jpg';
 
 const PaperPage = () => {
-  const { id } = useParams(); // id статьи
+  const { id } = useParams(); // id статьи, получаемый из url-адреса текущей страницы
   const [paper, setPaper] = React.useState({}); // информация о статье
 
   React.useEffect(() => {
