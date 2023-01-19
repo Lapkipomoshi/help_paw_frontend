@@ -37,6 +37,11 @@
     margin-top: 36px;
 }
 
+.user-form__button-submit:hover {
+    cursor: pointer;
+    background-color: var(--color-accent-hover);;
+}
+
 .user-input__label {
     font-family: 'Inter', Arial, sans-serif;
     font-style: normal;
@@ -56,11 +61,11 @@
 }
 
 .user-input_valid {
-    border-color: var(--color-accent-valid);
+    border-color: var(--color-verify-valid);
 }
 
 .user-input_invalid {
-    border-color: var(--color-accent-invalid);
+    border-color: var(--color-verify-invalid);
 }
 
 .user-input__span {
@@ -83,7 +88,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    color: var(--color-accent-invalid);
+    color: var(--color-verify-invalid);
     margin-top: 2px;
     min-height: 17px;
 }

@@ -9,6 +9,7 @@ function UserForm({title, buttonText, onSubmit, children}) {
             <form
                 className={`user-form`}
                 onSubmit={onSubmit}
+                noValidate
             >
 
                 {children}
