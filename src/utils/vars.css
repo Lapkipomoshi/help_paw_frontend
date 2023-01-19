@@ -8,12 +8,8 @@
   --color-accent-hover: rgba(240, 146, 79, .77); /* #f0924f */
   --color-accent-pressed: #ff852e;
   --color-accent-disabled: #ffe2cd;
-<<<<<<<<< Temporary merge branch 1
   --color-accent-valid: #3ED872;
   --color-accent-invalid: #D83E3E;
   --color-base: #000000;
+  --color-shadow-base: rgba(23, 23, 23, .12); /* #171717 */
 }
-=========
-  --color-shadow-base: rgba(23,23,23,.12) /* #171717 */
-}
->>>>>>>>> Temporary merge branch 2

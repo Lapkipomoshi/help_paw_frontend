@@ -80,3 +80,85 @@
     src: url("./fonts/Inter/Inter-Bold.woff2") format("woff2"),
     url("./fonts/Inter/Inter-Bold.woff") format("woff");
 }
+/*Montserrat Alternates fonts*/
+@font-face {
+    font-family: 'Montserrat Alternates';
+    font-style:  normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("./fonts/Montserrat Alternates/MontserratAlternates-Regular.woff2") format("woff2"),
+    url("./fonts/Montserrat Alternates/MontserratAlternates-Regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'Montserrat Alternates';
+    font-style:  normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("./fonts/Montserrat Alternates/MontserratAlternates-Medium.woff2") format("woff2"),
+    url("./fonts/Montserrat Alternates/MontserratAlternates-Medium.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'Montserrat Alternates';
+    font-style:  normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("./fonts/Montserrat Alternates/MontserratAlternates-SemiBold.woff2") format("woff2"),
+    url("./fonts/Montserrat Alternates/MontserratAlternates-SemiBold.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'Montserrat Alternates';
+    font-style:  normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("./fonts/Montserrat Alternates/MontserratAlternates-Bold.woff2") format("woff2"),
+    url("./fonts/Montserrat Alternates/MontserratAlternates-Bold.woff") format("woff");
+}
+
+/*Inter fonts*/
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url("./fonts/Inter/Inter-LightBETA.woff2") format("woff2"),
+    url("./fonts/Inter/Inter-LightBETA.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("./fonts/Inter/Inter-Regular.woff2") format("woff2"),
+    url("./fonts/Inter/Inter-Regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("./fonts/Inter/Inter-Medium.woff2") format("woff2"),
+    url("./fonts/Inter/Inter-Medium.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("./fonts/Inter/Inter-SemiBold.woff2") format("woff2"),
+    url("./fonts/Inter/Inter-SemiBold.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-style:  normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("./fonts/Inter/Inter-Bold.woff2") format("woff2"),
+    url("./fonts/Inter/Inter-Bold.woff") format("woff");
+}
