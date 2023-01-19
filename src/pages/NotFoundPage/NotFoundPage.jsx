@@ -4,7 +4,7 @@ import './NotFoundPage.css';
 import errorImage from '../../images/error-404.svg';
 
 const NotFoundPage = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // хук для использования программной навигации
 
   return (
     <main className='main not-found'>

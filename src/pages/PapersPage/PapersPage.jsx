@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import './PapersPage.css';
 import PaperCard from '../../components/PaperCard/PaperCard';
 import paperPhoto1 from '../../images/paper-card__photo_1.jpg';
@@ -6,7 +7,9 @@ import paperPhoto2 from '../../images/paper-card__photo_2.jpg';
 import paperPhoto3 from '../../images/paper-card__photo_3.jpg';
 
 const PapersPage = () => {
-  const [papersList, setPapersList] = React.useState([]);
+  const navigate = useNavigate(); // хук для использования программной навигации
+
+  const [papersList, setPapersList] = React.useState([]); // список отображаемых карточек со статьями
 
   React.useEffect(() => {
     setPapersList([ // будет запрашиваться с бэкенда
@@ -35,7 +38,7 @@ const PapersPage = () => {
     <main className='main papers'>
       <div className='papers__head-block'>
         <h1 className='papers__title'>Полезные статьи</h1>
-        <button className='button'>Хочу помогать</button>
+        <button className='button' type='button' onClick={() => navigate('/shelters')}>Хочу помогать</button>
       </div>
       <ul className='papers__grid'>
         {papersList.map((card) => (
