@@ -29,9 +29,9 @@ const App = (props) => {
       <Header
         loggedIn={loggedIn} />
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/map" element={<MapPage />} />
-        <Route path="/shelter-list" element={<ShelterListPage />} />
+        <Route path="/" element={<MainPage loggedIn={loggedIn} />} />
+        <Route path="/shelters" element={<MapPage />} />
+        <Route path="/shelters/list" element={<ShelterListPage />} />
         <Route path="/shelters/:id" element={<ShelterPage />}>
           <Route path='about' element={<AboutShelter />} />
           <Route path='how-to-help' element={<HelpToShelter />} />

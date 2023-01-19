@@ -1,0 +1,17 @@
+.shelters-on-main__popup {
+  display: flex;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  width: 329px;
+  top: -15px;
+  right: 21px;
+  padding: 20px 24px;
+  flex-direction: column;
+  background-color: var(--color-background-additional);
+  border-radius: 30px;
+  box-shadow: 4px 4px 17px var(--color-shadow-base);
+  box-sizing: border-box;
+  transition: visibility 0s .5s, opacity .5s;
+  z-index: 2;
+}

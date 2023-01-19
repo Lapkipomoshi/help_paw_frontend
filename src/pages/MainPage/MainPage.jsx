@@ -6,12 +6,12 @@ import PapersOnMain from '../../components/PapersOnMain/PapersOnMain';
 import FAQ from '../../components/FAQ/FAQ';
 import './MainPage.css';
 
-const MainPage = () => {
+const MainPage = ({ loggedIn }) => {
   return (
     <main className='main'>
       <Banner />
       <Promo />
-      <SheltersOnMain />
+      <SheltersOnMain loggedIn={loggedIn} />
       <PapersOnMain />
       <FAQ />
     </main>
