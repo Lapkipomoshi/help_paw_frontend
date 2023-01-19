@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/help_paw_frontend/static/css/main.c520c89b.css",
-    "main.js": "/help_paw_frontend/static/js/main.be93d263.js",
+    "main.css": "/help_paw_frontend/static/css/main.092348d0.css",
+    "main.js": "/help_paw_frontend/static/js/main.6618022e.js",
     "static/js/787.df3f365b.chunk.js": "/help_paw_frontend/static/js/787.df3f365b.chunk.js",
     "static/media/paper_big-image.jpg": "/help_paw_frontend/static/media/paper_big-image.29ec18fe728e9e77a783.jpg",
     "static/media/main__banner.svg": "/help_paw_frontend/static/media/main__banner.4842bf26859f8ad2b91cfc0e44f56034.svg",
@@ -35,6 +35,7 @@
     "static/media/shelter-image.jpg": "/help_paw_frontend/static/media/shelter-image.2f14b2a4cd49d0445f9a.jpg",
     "static/media/new-card__photo_1.jpg": "/help_paw_frontend/static/media/new-card__photo_1.bfa0cfb955d6729af580.jpg",
     "static/media/new-card__photo_3.jpg": "/help_paw_frontend/static/media/new-card__photo_3.ffb1a684af77330337fa.jpg",
+    "static/media/shelter-logo.jpg": "/help_paw_frontend/static/media/shelter-logo.217d9a44197504d2cb96.jpg",
     "static/media/profile.svg": "/help_paw_frontend/static/media/profile.5b44f04c91dca29cd0f0.svg",
     "static/media/ic_paw.svg": "/help_paw_frontend/static/media/ic_paw.8b669e83b630cbc11034cec5e0dc6942.svg",
     "static/media/footer__icon_vk.svg": "/help_paw_frontend/static/media/footer__icon_vk.4322032db3b9fee96097b04a7a6439af.svg",
@@ -47,12 +48,13 @@
     "static/media/footer__icon_telegram.svg": "/help_paw_frontend/static/media/footer__icon_telegram.64e980b8b25154680d1c578c1ac4c609.svg",
     "static/media/faq__plus.svg": "/help_paw_frontend/static/media/faq__plus.4c8c012584c5453f3248.svg",
     "static/media/faq__minus.svg": "/help_paw_frontend/static/media/faq__minus.aa2a516aa81e7cf0d070.svg",
-    "main.c520c89b.css.map": "/help_paw_frontend/static/css/main.c520c89b.css.map",
-    "main.be93d263.js.map": "/help_paw_frontend/static/js/main.be93d263.js.map",
+    "static/media/list-marker.svg": "/help_paw_frontend/static/media/list-marker.da283bb800f56777ef34.svg",
+    "main.092348d0.css.map": "/help_paw_frontend/static/css/main.092348d0.css.map",
+    "main.6618022e.js.map": "/help_paw_frontend/static/js/main.6618022e.js.map",
     "787.df3f365b.chunk.js.map": "/help_paw_frontend/static/js/787.df3f365b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c520c89b.css",
-    "static/js/main.be93d263.js"
+    "static/css/main.092348d0.css",
+    "static/js/main.6618022e.js"
   ]
 }
