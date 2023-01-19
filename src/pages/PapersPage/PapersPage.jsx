@@ -6,6 +6,31 @@ import paperPhoto2 from '../../images/paper-card__photo_2.jpg';
 import paperPhoto3 from '../../images/paper-card__photo_3.jpg';
 
 const PapersPage = () => {
+  const [papersList, setPapersList] = React.useState([]);
+
+  React.useEffect(() => {
+    setPapersList([ // будет запрашиваться с бэкенда
+      {photo: paperPhoto1,
+        title: 'Животное из приюта: что надо знать перед тем, как взять его в дом?'},
+      {photo: paperPhoto2,
+        title: 'Как отучить собаку прыгать на вас при встрече'},
+      {photo: paperPhoto3,
+        title: 'Современные кинологи не применяют наказание. Почему?'},
+      {photo: paperPhoto1,
+        title: 'Животное из приюта: что надо знать перед тем, как взять его в дом?'},
+      {photo: paperPhoto2,
+        title: 'Как отучить собаку прыгать на вас при встрече'},
+      {photo: paperPhoto3,
+      title: 'Современные кинологи не применяют наказание. Почему?'},
+      {photo: paperPhoto1,
+        title: 'Животное из приюта: что надо знать перед тем, как взять его в дом?'},
+      {photo: paperPhoto2,
+        title: 'Как отучить собаку прыгать на вас при встрече'},
+      {photo: paperPhoto3,
+        title: 'Современные кинологи не применяют наказание. Почему?'},
+    ]);
+  }, []);
+
   return (
     <main className='main papers'>
       <div className='papers__head-block'>
@@ -13,51 +38,13 @@ const PapersPage = () => {
         <button className='button'>Хочу помогать</button>
       </div>
       <ul className='papers__grid'>
-        <li className='papers__grid-element'>
-          <PaperCard
-            photo={paperPhoto1}
-            text={'Животное из приюта: что надо знать перед тем, как взять его в дом?'} />
-        </li>
-        <li className='papers__grid-element'>
-          <PaperCard
-            photo={paperPhoto2}
-            text={'Как отучить собаку прыгать на вас при встрече'} />
-        </li>
-        <li className='papers__grid-element'>
-          <PaperCard
-            photo={paperPhoto3}
-            text={'Современные кинологи не применяют наказание. Почему?'} />
-        </li>
-        <li className='papers__grid-element'>
-          <PaperCard
-            photo={paperPhoto1}
-            text={'Животное из приюта: что надо знать перед тем, как взять его в дом?'} />
-        </li>
-        <li className='papers__grid-element'>
-          <PaperCard
-            photo={paperPhoto2}
-            text={'Как отучить собаку прыгать на вас при встрече'} />
-        </li>
-        <li className='papers__grid-element'>
-          <PaperCard
-            photo={paperPhoto3}
-            text={'Современные кинологи не применяют наказание. Почему?'} />
-        </li>
-        <li className='papers__grid-element'>
-          <PaperCard
-            photo={paperPhoto1}
-            text={'Животное из приюта: что надо знать перед тем, как взять его в дом?'} />
-        </li>
-        <li className='papers__grid-element'>
-          <PaperCard
-            photo={paperPhoto2}
-            text={'Как отучить собаку прыгать на вас при встрече'} />
-        </li>
-        <li className='papers__grid-element'>
-          <PaperCard
-            photo={paperPhoto3}
-            text={'Современные кинологи не применяют наказание. Почему?'} />
-        </li>
+        {papersList.map((card) => (
+          <li className='papers__grid-element'>
+            <PaperCard
+              photo={card.photo}
+              title={card.title} />
+          </li>
+        ))}
       </ul>
     </main>
   );
