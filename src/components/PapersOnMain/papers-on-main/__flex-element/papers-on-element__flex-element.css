@@ -1,5 +1,12 @@
 .papers-on-main__flex-element {
   width: 376px;
   margin: 0;
-  padding: 0;
+  padding: 12px 12px 24px;
+  transition: border-color .5s;
+  border-radius: 35px;
+  border: 2px solid var(--color-background-additional);
+}
+
+.papers-on-main__flex-element:hover {
+  border-color: var(--color-accent-base);
 }

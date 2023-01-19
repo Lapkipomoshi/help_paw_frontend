@@ -11,4 +11,4 @@
   --color-accent-valid: #3ED872;
   --color-accent-invalid: #D83E3E;
   --color-base: #000000;
-}
+  --color-shadow-base: rgba(23,23,23,.12) /* #171717 */

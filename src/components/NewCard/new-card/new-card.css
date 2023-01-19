@@ -1,0 +1,13 @@
+.new-card {
+  display: flex;
+  width: 476px;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  color: var(--color-text-base);
+  text-decoration: none;
+  transition-duration: 1s;
+}
+
+.new-card:hover {
+  opacity: .77;
+}
