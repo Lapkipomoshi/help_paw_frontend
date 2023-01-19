@@ -1,0 +1,5 @@
+.shelter-info__icons {
+  display: flex;
+  margin-bottom: 7px;
+  column-gap: 16px;
+}
