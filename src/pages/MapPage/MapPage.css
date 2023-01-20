@@ -6,7 +6,7 @@
 
 .shelters-list {
   position: absolute;
-  background: #FFFFFF;
+  background: var(--color-text-light);
   z-index: 1;
   width: 508px;
   display: flex;
