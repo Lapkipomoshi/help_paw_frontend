@@ -9,15 +9,15 @@ const Footer = () => {
   return (
     <footer className='footer'>
       <div className='footer__flex-column-container'>
-        <p className='footer__title'>Лапки помощи</p>
+        <Link className='footer__title' to='/'>Лапки помощи</Link>
         <p className='footer__subtitle'>Сервис для помощи приютам </p>
       </div>
       <div className='footer__flex-column-container'>
-        <Link className='footer__link' to='/map'>Карта приютов</Link>
+        <Link className='footer__link' to='/shelters'>Карта приютов</Link>
         <Link className='footer__link' to='/news'>Новости</Link>
         <Link className='footer__link' to='/papers'>Полезные статьи</Link>
-        <Link className='footer__link' to='/about-us'>О компании</Link>
-        <Link className='footer__link' to='/faq'>FAQ</Link>
+        <Link className='footer__link' to='/'>О компании</Link>
+        <Link className='footer__link' to='/'>FAQ</Link>
       </div>
       <div className='footer__icons'>
         <Link className='footer__icon-link' to=''>
