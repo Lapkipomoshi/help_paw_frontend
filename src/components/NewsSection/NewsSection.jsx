@@ -11,7 +11,7 @@ import newPhoto3 from '../../images/new-card__photo_3.jpg';
 
 const NewsSection = () => {
   return (
-    <section className='news-section'>
+    <div className='news-section'>
       <Link className='new-big-card' to='/news/1'>
         <img className='new-big-card__photo' src={newPhoto} alt='фото новости' />
         <div className='new-big-card__content'>
@@ -56,7 +56,7 @@ const NewsSection = () => {
           link={'/news/2'} />
         </li>
       </ul>
-    </section>
+    </div>
   );
 }
 
