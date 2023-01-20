@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/help_paw_frontend/static/css/main.092348d0.css",
-    "main.js": "/help_paw_frontend/static/js/main.6618022e.js",
+    "main.css": "/help_paw_frontend/static/css/main.4272044b.css",
+    "main.js": "/help_paw_frontend/static/js/main.dcfd1eb4.js",
     "static/js/787.df3f365b.chunk.js": "/help_paw_frontend/static/js/787.df3f365b.chunk.js",
     "static/media/paper_big-image.jpg": "/help_paw_frontend/static/media/paper_big-image.29ec18fe728e9e77a783.jpg",
     "static/media/main__banner.svg": "/help_paw_frontend/static/media/main__banner.4842bf26859f8ad2b91cfc0e44f56034.svg",
@@ -49,12 +49,12 @@
     "static/media/faq__plus.svg": "/help_paw_frontend/static/media/faq__plus.4c8c012584c5453f3248.svg",
     "static/media/faq__minus.svg": "/help_paw_frontend/static/media/faq__minus.aa2a516aa81e7cf0d070.svg",
     "static/media/list-marker.svg": "/help_paw_frontend/static/media/list-marker.da283bb800f56777ef34.svg",
-    "main.092348d0.css.map": "/help_paw_frontend/static/css/main.092348d0.css.map",
-    "main.6618022e.js.map": "/help_paw_frontend/static/js/main.6618022e.js.map",
+    "main.4272044b.css.map": "/help_paw_frontend/static/css/main.4272044b.css.map",
+    "main.dcfd1eb4.js.map": "/help_paw_frontend/static/js/main.dcfd1eb4.js.map",
     "787.df3f365b.chunk.js.map": "/help_paw_frontend/static/js/787.df3f365b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.092348d0.css",
-    "static/js/main.6618022e.js"
+    "static/css/main.4272044b.css",
+    "static/js/main.dcfd1eb4.js"
   ]
 }
