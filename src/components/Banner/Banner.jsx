@@ -4,7 +4,7 @@ import './Banner.css';
 import bannerImage from '../../images/main__banner.svg';
 
 const Banner = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate(); // хук для использования программной навигации
 
   return (
     <section className='banner'>

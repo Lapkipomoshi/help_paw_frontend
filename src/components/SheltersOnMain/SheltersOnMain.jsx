@@ -47,7 +47,7 @@ const SheltersOnMain = ({ loggedIn }) => {
             title={'Приют Бирюлево'}
             address={'Востряковский пр-д, 10А, Москва, Россия'}
             workingHours={'10:00 - 18:00'}
-            linkID={'/shelters/1'} />
+            linkID={'/shelters/2'} />
         </li>
         <li>
           <ShelterCard
@@ -56,7 +56,7 @@ const SheltersOnMain = ({ loggedIn }) => {
             title={'Приют Бирюлево'}
             address={'Востряковский пр-д, 10А, Москва, Россия'}
             workingHours={'10:00 - 18:00'}
-            linkID={'/shelters/1'} />
+            linkID={'/shelters/3'} />
         </li>
       </ul>
       <button className='button margin-left_auto' type='button' onClick={() => navigate('/shelters')}>Смотреть на карте</button>
