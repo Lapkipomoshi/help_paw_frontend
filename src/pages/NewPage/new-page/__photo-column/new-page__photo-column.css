@@ -1,0 +1,7 @@
+.new-page__photo-column {
+  display: flex;
+  width: 23%;
+  flex-direction: column;
+  row-gap: 8px;
+  justify-content: center;
+}

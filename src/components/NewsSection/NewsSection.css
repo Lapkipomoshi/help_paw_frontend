@@ -1,0 +1,12 @@
+@import url('./news-section/news-section.css');
+  @import url('./news-section/__column/news-section__column.css');
+  @import url('./news-section/__item/news-section__item.css');
+@import url('./new-big-card/new-big-card.css');
+  @import url('./new-big-card/__photo/new-big-card__photo.css');
+  @import url('./new-big-card/__content/new-big-card__content.css');
+  @import url('./new-big-card/__row/new-big-card__row.css');
+  @import url('./new-big-card/__info-block/new-big-card__info-block.css');
+  @import url('./new-big-card/__icon/new-big-card__icon.css');
+  @import url('./new-big-card/__info/new-big-card__info.css');
+  @import url('./new-big-card/__title/new-big-card__title.css');
+  @import url('./new-big-card/__text/new-big-card__text.css');

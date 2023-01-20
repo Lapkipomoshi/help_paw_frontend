@@ -1,0 +1,11 @@
+.not-found__text {
+  margin: 0 auto 24px;
+  padding: 0;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 500;
+}
+
+.not-found__text:last-of-type {
+  margin-bottom: 44px;
+}

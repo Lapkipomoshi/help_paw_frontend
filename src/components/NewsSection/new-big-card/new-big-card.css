@@ -1,0 +1,15 @@
+.new-big-card {
+  width: calc(100% - 500px);
+  min-height: 458px;
+  position: relative;
+  margin: 0;
+  border-radius: 44px;
+  box-sizing: border-box;
+  text-decoration: none;
+  overflow: hidden;
+  transition-duration: 1s;
+}
+
+.new-big-card:hover {
+  opacity: .77;
+}

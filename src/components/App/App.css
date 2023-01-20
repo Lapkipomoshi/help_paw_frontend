@@ -1,8 +1,10 @@
-@import url('../../block/page/page.css');
-@import url('../../block/main/main.css');
+@import url('../../blocks/page/page.css');
+@import url('../../blocks/main/main.css');
 
-@import url('../../block/button/button.css');
+@import url('../../blocks/button/button.css');
+  @import url('../../blocks/button/_disabled/button_disabled.css');
 
-@import url('../../block/margin/margin_column-center.css');
-@import url('../../block/margin/margin-left_auto.css');
-@import url('../../block/display/display_none.css');
+@import url('../../blocks/margin/margin_column-center.css');
+@import url('../../blocks/margin/margin-left_auto.css');
+@import url('../../blocks/display/display_none.css');
+@import url('../../blocks/color/color.css');

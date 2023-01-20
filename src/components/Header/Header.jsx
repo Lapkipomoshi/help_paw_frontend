@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Header.css';
-import logo from '../../images/logo.svg';
+import logo from '../../images/icons/ic_paw.svg';
 
 const Header = ({ loggedIn }) => {
   return (
@@ -9,7 +9,7 @@ const Header = ({ loggedIn }) => {
       <Link className='header__logo-link' to='/'>
         <img className='header__logo' src={logo} alt='лого' />
       </Link>
-      <nav className='menu'>
+      <nav className='menu menu_items_links'>
         <NavLink to='/papers' className={({isActive}) => `menu__link ${isActive ? 'menu__link_active' : ''}`}>Полезные статьи</NavLink>
         <NavLink to='/map' className={({isActive}) => `menu__link ${isActive ? 'menu__link_active' : ''}`}>Карта приютов</NavLink>
         <NavLink to='/news' className={({isActive}) => `menu__link ${isActive ? 'menu__link_active' : ''}`}>Новости</NavLink>
