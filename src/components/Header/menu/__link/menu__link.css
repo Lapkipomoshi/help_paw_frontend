@@ -6,9 +6,9 @@
   font-weight: 400;
   text-decoration: none;
   color: var(--color-text-base);
-  transition: opacity 1s;
+  transition: color .7s;
 }
 
 .menu__link:hover {
-  opacity: .5;
+  color: var(--color-accent-base);
 }
