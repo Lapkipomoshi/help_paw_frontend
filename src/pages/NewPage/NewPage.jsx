@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './NewPage.css';
 import dataIcon from '../../images/icons/ic_data_dark.svg';
 import selfIcon from '../../images/icons/ic_self_dark.svg';
@@ -13,10 +14,10 @@ const NewPage = () => {
           <img className='new-page__icon' src={dataIcon} alt='дата' />
           <p className='new-page__info'>12.12.2022</p>
         </div>
-        <div className='new-page__info-block'>
+        <Link className='new-page__info-block new-page__info-block_link' to='/shelters/1'>
           <img className='new-page__icon' src={selfIcon} alt='приют' />
           <p className='new-page__info'>Приют Бирюлево</p>
-        </div>
+        </Link>
       </div>
       <div className='new-page__photos'>
         <img className='new-page__main-photo' src={newPagePhoto} alt='главное фото' />
