@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import './Banner.css';
-import bannerImage from '../../images/main__banner.svg';
+import bannerImage from '../../images/main__banner.png';
 
 const Banner = () => {
   const navigate = useNavigate(); // хук для использования программной навигации
