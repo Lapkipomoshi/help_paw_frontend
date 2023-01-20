@@ -59,6 +59,7 @@ const PapersPage = () => {
           </li>
         ))}
       </ul>
+      <button className='button margin_column-center' type='button'>Больше статей</button>
     </main>
   );
 }

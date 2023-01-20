@@ -1,7 +1,7 @@
 .papers__grid {
   display: grid;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 60px;
   padding: 0;
   gap: 36px 24px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
