@@ -1,0 +1,15 @@
+.pet-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 176px;
+  min-height: 217px;
+  text-decoration: none;
+  border-radius: 30px;
+  background-size: contain;
+  transition-duration: .7s;
+  color: var(--color-background-additional);
+}
+
+.pet-card:hover {
+  transform: scale(1.53);
+}

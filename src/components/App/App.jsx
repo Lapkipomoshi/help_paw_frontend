@@ -12,6 +12,7 @@ import ShelterPage from '../../pages/ShelterPage/ShelterPage';
   import SheterNews from '../ShelterNews/ShelterNews';
   import ShelterPets from '../ShelterPets/ShelterPets';
   import ShelterVacancies from '../ShelterVacancies/ShelterVacancies';
+import PetPage from '../../pages/PetPage/PetPage';
 import PapersPage from '../../pages/PapersPage/PapersPage';
 import PaperPage from '../../pages/PaperPage/PaperPage';
 import NewsPage from '../../pages/NewsPage/NewsPage';
@@ -21,7 +22,7 @@ import RegisterPage from '../../pages/RegisterPage/RegisterPage';
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
 import './App.css';
 
-const App = (props) => {
+const App = () => {
   const [loggedIn, setLoggedIn] = React.useState(false); // пользователь вошёл в учётную запись?
 
   return (
@@ -39,6 +40,7 @@ const App = (props) => {
           <Route path='pets' element={<ShelterPets />} />
           <Route path='vacancies' element={<ShelterVacancies />} />
         </Route>
+        <Route path="/pet/:id" element={<PetPage />} />
         <Route path="/papers" element={<PapersPage />} />
         <Route path="/papers/:id" element={<PaperPage />} />
         <Route path="/news" element={<NewsPage />} />

@@ -1,8 +1,7 @@
 .slider__item {
-  min-width: 188px;
-  height: 217px;
   margin: 0;
   padding: 0;
-  background-color: aqua;
   transition-duration: .7s;
+  background-image: linear-gradient(rgba(0,0,0,0), rgba(150,150,150,1));
+  border-radius: 30px;
 }

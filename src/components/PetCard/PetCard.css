@@ -1,0 +1,4 @@
+@import url('./pet-card/pet-card.css');
+  @import url('./pet-card/__icon/pet-card__icon.css');
+  @import url('./pet-card/__name/pet-card__name.css');
+  @import url('./pet-card/__age/pet-card__age.css');
