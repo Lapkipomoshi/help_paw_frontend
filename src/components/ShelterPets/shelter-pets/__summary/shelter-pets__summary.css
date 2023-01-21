@@ -1,11 +1,13 @@
 .shelter-pets__summary {
   display: flex;
-  width: 100%;
+  width: 1048px;
+  margin-left: 132px;
   padding: 25px 28px 25px 40px;
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-background-additional);
   border-radius: 20px;
+  box-sizing: border-box;
   cursor: pointer;
   transition-duration: .5s;
 }
