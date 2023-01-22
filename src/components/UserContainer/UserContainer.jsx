@@ -2,9 +2,9 @@ import React from 'react';
 import './UserContainer.css';
 import Dog from '../../images/dog.png';
 
-function UserContainer({children}) {
+function UserContainer({containerClass, children}) {
     return (
-        <div className='user-container'>
+        <div className={containerClass}>
             <img className='user-container__image' src={Dog} alt='Собака'/>
 
             {children}
