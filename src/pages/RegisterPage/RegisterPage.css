@@ -1,0 +1,59 @@
+.register {
+
+}
+
+.register__privacy {
+    display: flex;
+    flex-direction: row;
+    margin-top: 18px;
+    max-width: 402px;
+    position: relative;
+}
+
+.checkbox__container > .checkbox__input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.checkbox__container > .checkbox {
+    display: inline-flex;
+    align-items: center;
+}
+
+.checkbox__container > .checkbox::before {
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border: 1px solid var(--color-text-base);
+    border-radius: 2px;
+    margin-right: 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.checkbox__container > .checkbox__input:checked + .checkbox::before {
+    background-image: url("../../images/register__daw.svg");
+    background-size: 100%;
+}
+
+.checkbox:hover {
+    cursor: pointer;
+}
+
+.register__agreement {
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: var(--color-text-base);
+    margin: 0;
+    max-width: 370px;
+}
+
+.register__privacy-link {
+    color: var(--color-accent-base);
+    text-decoration: none;
+}

@@ -9,3 +9,14 @@
   @import url('./new-page/__photo-column/new-page__photo-column.css');
   @import url('./new-page/__additional-photo/new-page__additional-photo.css');
   @import url('./new-page/__text/new-page__text.css');
+@import url('./new-page/new-page.css');
+  @import url('./new-page/__title/new-page__title.css');
+  @import url('./new-page/__row/new-page__row.css');
+  @import url('./new-page/__info-block/new-page__info-block.css');
+  @import url('./new-page/__icon/new-page__icon.css');
+  @import url('./new-page/__info/new-page__info.css');
+  @import url('./new-page/__photos/new-page__photos.css');
+  @import url('./new-page/__main-photo/new-page__main-photo.css');
+  @import url('./new-page/__photo-column/new-page__photo-column.css');
+  @import url('./new-page/__additional-photo/new-page__additional-photo.css');
+  @import url('./new-page/__text/new-page__text.css');
