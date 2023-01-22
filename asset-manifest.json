@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/help_paw_frontend/static/css/main.d4e56dd4.css",
-    "main.js": "/help_paw_frontend/static/js/main.f07865d9.js",
+    "main.css": "/help_paw_frontend/static/css/main.e80d9a33.css",
+    "main.js": "/help_paw_frontend/static/js/main.02e55a88.js",
     "static/js/787.df3f365b.chunk.js": "/help_paw_frontend/static/js/787.df3f365b.chunk.js",
     "static/media/paper_big-image.jpg": "/help_paw_frontend/static/media/paper_big-image.29ec18fe728e9e77a783.jpg",
-    "static/media/main__banner.svg": "/help_paw_frontend/static/media/main__banner.4842bf26859f8ad2b91cfc0e44f56034.svg",
     "static/media/new-page_photo.jpg": "/help_paw_frontend/static/media/new-page_photo.e3fc355523addf7ea0b3.jpg",
     "static/media/new-big-card.jpg": "/help_paw_frontend/static/media/new-big-card.716012dd524af312d52c.jpg",
+    "static/media/main__banner.png": "/help_paw_frontend/static/media/main__banner.ecdd4761c2e048df2f0a.png",
     "static/media/error-404.svg": "/help_paw_frontend/static/media/error-404.d1d248467c10ce03e0f85e9b079e457b.svg",
+    "static/media/dog.png": "/help_paw_frontend/static/media/dog.437be532b4a4cb286149.png",
     "static/media/Inter-LightBETA.woff": "/help_paw_frontend/static/media/Inter-LightBETA.ed9a7ce1dedab5d9333b.woff",
     "static/media/Inter-Bold.woff": "/help_paw_frontend/static/media/Inter-Bold.1e547cd04bfe2dae1f98.woff",
     "static/media/Inter-SemiBold.woff": "/help_paw_frontend/static/media/Inter-SemiBold.7f6c3678e245486167d9.woff",
@@ -37,6 +38,10 @@
     "static/media/new-card__photo_3.jpg": "/help_paw_frontend/static/media/new-card__photo_3.ffb1a684af77330337fa.jpg",
     "static/media/shelter-logo.jpg": "/help_paw_frontend/static/media/shelter-logo.217d9a44197504d2cb96.jpg",
     "static/media/profile.svg": "/help_paw_frontend/static/media/profile.5b44f04c91dca29cd0f0.svg",
+    "static/media/password__visibility.svg": "/help_paw_frontend/static/media/password__visibility.24d86516ff04d170cebf.svg",
+    "static/media/ic_male.svg": "/help_paw_frontend/static/media/ic_male.17ad18746a158d7a1dbdb345fe17e877.svg",
+    "static/media/ic_female.svg": "/help_paw_frontend/static/media/ic_female.a01191d8133d9c56587610bcfeb17831.svg",
+    "static/media/slider__button.svg": "/help_paw_frontend/static/media/slider__button.7f7bafc95358c4209c08.svg",
     "static/media/ic_paw.svg": "/help_paw_frontend/static/media/ic_paw.8b669e83b630cbc11034cec5e0dc6942.svg",
     "static/media/footer__icon_vk.svg": "/help_paw_frontend/static/media/footer__icon_vk.4322032db3b9fee96097b04a7a6439af.svg",
     "static/media/footer__icon_classmates.svg": "/help_paw_frontend/static/media/footer__icon_classmates.6e3c9c4902d0f3251f942e72980b1aff.svg",
@@ -46,15 +51,17 @@
     "static/media/ic_self_dark.svg": "/help_paw_frontend/static/media/ic_self_dark.fa897082c7fcdd3209a7a8a15c1f5b0a.svg",
     "static/media/ic_self.svg": "/help_paw_frontend/static/media/ic_self.a0e93497a492f2bf75ffa0084911abb7.svg",
     "static/media/footer__icon_telegram.svg": "/help_paw_frontend/static/media/footer__icon_telegram.64e980b8b25154680d1c578c1ac4c609.svg",
+    "static/media/register__daw.svg": "/help_paw_frontend/static/media/register__daw.1d29b252981c5c5e4277.svg",
+    "static/media/pets__summary-icon.svg": "/help_paw_frontend/static/media/pets__summary-icon.dea3b41888782fdcb3ba.svg",
     "static/media/faq__plus.svg": "/help_paw_frontend/static/media/faq__plus.4c8c012584c5453f3248.svg",
     "static/media/faq__minus.svg": "/help_paw_frontend/static/media/faq__minus.aa2a516aa81e7cf0d070.svg",
     "static/media/list-marker.svg": "/help_paw_frontend/static/media/list-marker.da283bb800f56777ef34.svg",
-    "main.d4e56dd4.css.map": "/help_paw_frontend/static/css/main.d4e56dd4.css.map",
-    "main.f07865d9.js.map": "/help_paw_frontend/static/js/main.f07865d9.js.map",
+    "main.e80d9a33.css.map": "/help_paw_frontend/static/css/main.e80d9a33.css.map",
+    "main.02e55a88.js.map": "/help_paw_frontend/static/js/main.02e55a88.js.map",
     "787.df3f365b.chunk.js.map": "/help_paw_frontend/static/js/787.df3f365b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d4e56dd4.css",
-    "static/js/main.f07865d9.js"
+    "static/css/main.e80d9a33.css",
+    "static/js/main.02e55a88.js"
   ]
 }
