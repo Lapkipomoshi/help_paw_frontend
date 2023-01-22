@@ -6,7 +6,7 @@
   font-weight: 600;
   text-decoration: none;
   color: var(--color-accent-base);
-  transition-duration: 1s;
+  transition-duration: .7s;
 }
 
 .menu__sign-in:hover {

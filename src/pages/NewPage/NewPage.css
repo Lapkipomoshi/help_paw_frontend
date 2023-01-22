@@ -2,6 +2,7 @@
   @import url('./new-page/__title/new-page__title.css');
   @import url('./new-page/__row/new-page__row.css');
   @import url('./new-page/__info-block/new-page__info-block.css');
+    @import url('./new-page/__info-block/_link/new-page__info-block_link.css');
   @import url('./new-page/__icon/new-page__icon.css');
   @import url('./new-page/__info/new-page__info.css');
   @import url('./new-page/__photos/new-page__photos.css');

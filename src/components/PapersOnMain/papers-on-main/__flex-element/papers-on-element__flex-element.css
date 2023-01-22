@@ -1,10 +1,11 @@
 .papers-on-main__flex-element {
-  width: 376px;
+  width: 380px;
   margin: 0;
-  padding: 12px 12px 24px;
+  padding: 8px 8px 24px;
   transition: border-color .5s;
   border-radius: 35px;
   border: 2px solid var(--color-background-additional);
+  box-sizing: border-box;
 }
 
 .papers-on-main__flex-element:hover {

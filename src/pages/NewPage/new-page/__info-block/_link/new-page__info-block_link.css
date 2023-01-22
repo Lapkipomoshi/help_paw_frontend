@@ -1,0 +1,10 @@
+.new-page__info-block_link {
+  text-decoration: none;
+  transition-duration: .5s;
+  color: var(--color-text-additional);
+}
+
+.new-page__info-block_link:hover {
+  color: var(--color-accent-base);
+  transform: scale(1.1);
+}
