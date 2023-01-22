@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+import './App.css';
 import ProtectedRoute from '../ProtectedRoute';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -20,7 +21,6 @@ import NewPage from '../../pages/NewPage/NewPage';
 import LoginPage from '../../pages/LoginPage/LoginPage';
 import RegisterPage from '../../pages/RegisterPage/RegisterPage';
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
-import './App.css';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = React.useState(false); // пользователь вошёл в учётную запись?
@@ -40,7 +40,7 @@ const App = () => {
           <Route path='pets' element={<ShelterPets />} />
           <Route path='vacancies' element={<ShelterVacancies />} />
         </Route>
-        <Route path="/pet/:id" element={<PetPage />} />
+        <Route path="/pets/:id" element={<PetPage />} />
         <Route path="/papers" element={<PapersPage />} />
         <Route path="/papers/:id" element={<PaperPage />} />
         <Route path="/news" element={<NewsPage />} />
