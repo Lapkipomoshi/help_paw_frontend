@@ -6,4 +6,5 @@
   padding: 0 0 80px 132px;
   background-color: var(--color-background-base);
   box-sizing: border-box;
+  overflow: hidden;
 }
