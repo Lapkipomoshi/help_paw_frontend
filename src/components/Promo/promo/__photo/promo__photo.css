@@ -1,3 +1,4 @@
 .promo__photo {
   object-fit: cover;
+  transition: transform 2s ease;
 }

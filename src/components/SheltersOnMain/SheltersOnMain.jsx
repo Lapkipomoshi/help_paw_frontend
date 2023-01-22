@@ -22,9 +22,7 @@ const SheltersOnMain = ({ loggedIn }) => {
   }
 
   React.useEffect(() => {
-    if (inView) { // условие, чтобы анимация срабатывала лишь 1 раз
-      setIsActiveAnimation(true); // отобразить анимацию
-    };
+    setIsActiveAnimation(inView); // включать анимацию, когда объект полностью виден и убирать, когда скрывается
   }, [inView])
 
   return (
