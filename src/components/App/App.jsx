@@ -21,6 +21,8 @@ import NewPage from '../../pages/NewPage/NewPage';
 import LoginPage from '../../pages/LoginPage/LoginPage';
 import RegisterPage from '../../pages/RegisterPage/RegisterPage';
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
+import './App.css';
+import ShelterNews from '../ShelterNews/ShelterNews';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = React.useState(false); // пользователь вошёл в учётную запись?
@@ -36,7 +38,7 @@ const App = () => {
         <Route path="/shelters/:id" element={<ShelterPage />}>
           <Route path='about' element={<AboutShelter />} />
           <Route path='how-to-help' element={<HelpToShelter />} />
-          <Route path='news' element={<SheterNews />} />
+          <Route path='news' element={<ShelterNews />} />
           <Route path='pets' element={<ShelterPets />} />
           <Route path='vacancies' element={<ShelterVacancies />} />
         </Route>
