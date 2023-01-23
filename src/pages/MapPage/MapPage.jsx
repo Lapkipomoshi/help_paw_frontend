@@ -11,7 +11,7 @@ const MapPage = () => {
     <>
       <SearchInput/>
       <YMaps>
-        <div className="container container__flex_row">
+        <div className="container container_flex_row">
           <Map style={{ position: 'relative', width: '100%', height: 914 }}
                defaultState={{ center: [55.75, 37.57], zoom: 9, controls: [] }}
                modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}>

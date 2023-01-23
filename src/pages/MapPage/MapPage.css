@@ -1,7 +1,9 @@
-.container__flex_row {
+.container_flex_row {
   display: flex;
   flex-direction: row;
   max-width: 1440px;
+  padding-bottom: 80px;
+  background-color: var(--color-background-base);
 }
 
 .shelters-list {
@@ -40,7 +42,7 @@
 }
 
 .shelter__title {
-  font-family: var(--base-font);
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -55,7 +57,7 @@
 }
 
 .shelter__address {
-  font-family: var(--base-font);
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -66,10 +68,11 @@
 
 .shelter__address_balloon {
   margin: 0 auto 16px 20px;
+  max-width: 214px;
 }
 
 .shelter__time {
-  font-family: var(--base-font);
+  font-family: 'Inter', Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -95,3 +98,8 @@
 /*  background: #BDBDBD;*/
 /*  border-radius: 30px;*/
 /*}*/
+
+.ymaps-2-1-79-balloon__layout {
+  border: var(--color-accent-base) 1px solid;
+  border-radius: 12px;
+}
