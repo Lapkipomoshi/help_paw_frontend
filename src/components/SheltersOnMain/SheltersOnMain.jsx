@@ -58,7 +58,7 @@ const SheltersOnMain = ({ loggedIn }) => {
             linkID={'/shelters/3'} />
         </li>
       </ul>
-      <button className='button margin-left_auto' type='button' onClick={() => navigate('/shelters')}>Смотреть на карте</button>
+      <Button className='primary margin-left_auto' type='link' onClick='/shelters'>Смотреть на карте</Button>
       <div className={`shelters-on-main__text-container ${isActiveAnimation ? 'shelters-on-main__text-container_animation' : ''}`} ref={ref}>
         <h3 className='shelters-on-main__text-title'>Вы владелец приюта?</h3>
         <p className='shelters-on-main__text-subtitle'>Можете добавить ваш приют на наш сайт прямо сейчас!</p>
