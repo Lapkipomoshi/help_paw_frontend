@@ -4,7 +4,7 @@ import './FAQ.css';
 const FAQ = () => {
   return (
     <section className='faq'>
-      <h2 className='section-title'>FAQ</h2>
+      <h2 className='section-title'>Часто задаваемые вопросы</h2>
       <ul className='faq__list'>
         <li className='faq__card'>
           <details className='faq__detalis' open>

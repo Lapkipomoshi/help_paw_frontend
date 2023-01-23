@@ -15,18 +15,21 @@ const PapersOnMain = () => {
       <ul className='papers-on-main__flex-container'>
         <li className='papers-on-main__flex-element'>
           <PaperCard
+            id='1'
             photo={paperPhoto1}
-            text={'Животное из приюта: что надо знать перед тем, как взять его в дом?'} />
+            title={'Животное из приюта: что надо знать перед тем, как взять его в дом?'} />
         </li>
         <li className='papers-on-main__flex-element'>
           <PaperCard
+            id='2'
             photo={paperPhoto2}
-            text={'Как отучить собаку прыгать на вас при встрече'} />
+            title={'Как отучить собаку прыгать на вас при встрече'} />
         </li>
         <li className='papers-on-main__flex-element'>
           <PaperCard
+            id='3'
             photo={paperPhoto3}
-            text={'Современные кинологи не применяют наказание. Почему?'} />
+            title={'Современные кинологи не применяют наказание. Почему?'} />
         </li>
       </ul>
       <button className='button margin-left_auto' type='button' onClick={() => navigate('/papers')}>Все статьи</button>

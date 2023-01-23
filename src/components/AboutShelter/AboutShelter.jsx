@@ -4,7 +4,7 @@ import './AboutShelter.css';
 import shelterLogo from '../../images/shelter-logo.jpg';
 
 const AboutShelter = () => {
-  const { id } = useParams(); // id приюта
+  const { id } = useParams(); // id приюта, получаемый из url-адреса текущей страницы
   const [cardInfo, setCardInfo] = React.useState({}); // вся информация о приюте
 
   React.useEffect(() => {

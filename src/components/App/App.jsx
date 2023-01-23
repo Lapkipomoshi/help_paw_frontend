@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Route, Routes } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute';
 import Header from '../../components/Header/Header';
@@ -19,9 +18,9 @@ import NewPage from '../../pages/NewPage/NewPage';
 import LoginPage from '../../pages/LoginPage/LoginPage';
 import RegisterPage from '../../pages/RegisterPage/RegisterPage';
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
-import './App.css';
+import ShelterNews from '../ShelterNews/ShelterNews';
 
-const App = (props) => {
+const App = () => {
   const [loggedIn, setLoggedIn] = React.useState(false); // пользователь вошёл в учётную запись?
 
   return (
@@ -35,7 +34,7 @@ const App = (props) => {
         <Route path="/shelters/:id" element={<ShelterPage/>}>
           <Route path="about" element={<AboutShelter/>}/>
           <Route path="how-to-help" element={<HelpToShelter/>}/>
-          <Route path="news" element={<SheterNews/>}/>
+          <Route path="news" element={<ShelterNews/>}/>
           <Route path="pets" element={<ShelterPets/>}/>
           <Route path="vacancies" element={<ShelterVacancies/>}/>
         </Route>

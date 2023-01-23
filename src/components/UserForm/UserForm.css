@@ -1,0 +1,149 @@
+.user-form__container {
+    background-color: var(--color-background-additional);
+    border-radius: 30px;
+    padding: 36px 36px 40px;
+}
+
+.user-form__container_register {
+    width: 402px;
+}
+
+.user-form__container_login {
+    width: 364px;
+    max-height: 412px;
+}
+
+.user-form__title {
+    font-family: 'Montserrat Alternates', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 49px;
+    color: var(--color-text-base);
+    margin: 0 0 24px;
+}
+
+.user-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-form__button-container {
+    display: flex;
+}
+
+.user-form__button-container_register {
+    flex-direction: column-reverse;
+}
+
+.user-form__button-container_login {
+    flex-direction: column;
+}
+
+.user-form__button-submit {
+    height: 52px;
+    background-color: var(--color-accent-base);
+    border-radius: 12px;
+    border: none;
+    font-family: 'Montserrat Alternates', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    color: var(--color-text-light);
+    padding: 0;
+}
+
+.user-form__button-submit_register {
+    width: 284px;
+    margin-top: 36px;
+}
+
+.user-form__button-submit_login {
+    width: 133px;
+    margin-top: 17px;
+}
+
+.user-form__button-submit:hover {
+    cursor: pointer;
+    background-color: var(--color-accent-hover);;
+}
+
+.user-input__label {
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--color-text-base);
+    margin-bottom: 4px;
+}
+
+.user-input {
+    width: 364px;
+    height: 40px;
+    border: 1px solid var(--color-text-additional);
+    border-radius: 5px;
+    padding: 0;
+}
+
+.user-input_valid {
+    border-color: var(--color-verify-valid);
+}
+
+.user-input_invalid {
+    border-color: var(--color-verify-invalid);
+}
+
+.user-input__span {
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--color-text-additional);
+    margin-top: 2px;
+}
+
+.user-input_password {
+    border: none;
+}
+
+.user-input__error {
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: var(--color-verify-invalid);
+    margin-top: 2px;
+    min-height: 17px;
+}
+
+.user__password {
+    width: 364px;
+    height: 40px;
+    border: 1px solid var(--color-text-additional);
+    border-radius: 5px;
+    padding: 0;
+    position: relative;
+}
+
+.password-visibility {
+    background-image: url("../../images/password__visibility.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.password-visibility:hover {
+    cursor: pointer;
+}

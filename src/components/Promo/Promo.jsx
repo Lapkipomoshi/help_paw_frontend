@@ -12,9 +12,7 @@ const Promo = () => {
   });
 
   React.useEffect(() => {
-    if (inView) {
-      setIsActiveAnimation(true);
-    };
+    setIsActiveAnimation(inView); // включать анимацию, когда объект полностью виден и убирать, когда скрывается
   }, [inView])
 
   return (
