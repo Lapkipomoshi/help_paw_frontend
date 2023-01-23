@@ -1,8 +1,16 @@
 .user-form__container {
-    width: 402px;
     background-color: var(--color-background-additional);
     border-radius: 30px;
     padding: 36px 36px 40px;
+}
+
+.user-form__container_register {
+    width: 402px;
+}
+
+.user-form__container_login {
+    width: 364px;
+    max-height: 412px;
 }
 
 .user-form__title {
@@ -20,8 +28,19 @@
     flex-direction: column;
 }
 
+.user-form__button-container {
+    display: flex;
+}
+
+.user-form__button-container_register {
+    flex-direction: column-reverse;
+}
+
+.user-form__button-container_login {
+    flex-direction: column;
+}
+
 .user-form__button-submit {
-    width: 284px;
     height: 52px;
     background-color: var(--color-accent-base);
     border-radius: 12px;
@@ -34,7 +53,16 @@
     text-align: center;
     color: var(--color-text-light);
     padding: 0;
+}
+
+.user-form__button-submit_register {
+    width: 284px;
     margin-top: 36px;
+}
+
+.user-form__button-submit_login {
+    width: 133px;
+    margin-top: 17px;
 }
 
 .user-form__button-submit:hover {
