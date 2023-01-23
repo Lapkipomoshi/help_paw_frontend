@@ -1,5 +1,6 @@
 import React from 'react';
 import './UserForm.css';
+import Button from '../Button/Button';
 
 function UserForm({title, buttonText, onSubmit, formChildren, formClass, buttonContainerClass, buttonClass, buttonChildren}) {
     return (
@@ -15,12 +16,12 @@ function UserForm({title, buttonText, onSubmit, formChildren, formClass, buttonC
                 {formChildren}
 
                 <div className={buttonContainerClass}>
-                    <button
+                    <Button
                         className={buttonClass}
                         type='submit'
                     >
                         {buttonText}
-                    </button>
+                    </Button>
 
                     {buttonChildren}
                 </div>

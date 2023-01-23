@@ -12,6 +12,7 @@
   box-sizing: border-box;
   align-items: center;
   text-align: center;
+  width: fit-content;
 }
 
 .button_primary {
@@ -66,6 +67,8 @@
 }
 
 .button_tertiary {
+  font-family: 'Inter', Arial, sans-serif;
+  padding: 0;
   color: var(--color-accent-base);
 }
 
@@ -84,4 +87,9 @@
 .button_tertiary:disabled:hover {
   color: var(--color-accent-disabled);
   opacity: 1;
+}
+
+.button_disabled, .button_disabled:hover, .button_disabled:focus {
+  background-color: var(--color-accent-disabled);
+  cursor: default;
 }

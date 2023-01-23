@@ -92,7 +92,7 @@ const ShelterPets = () => {
               ))}
             </ul>
             <div className='slider__buttons'>
-              <button className='slider__button slider__button' type='button' onClick={handlePrev} />
+              <button className='slider__button' type='button' onClick={handlePrev} />
               <button className='slider__button slider__button_next' type='button' onClick={handleNext} />
             </div>
           </details>

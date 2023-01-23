@@ -19,6 +19,7 @@ const Button = ({
     <button disabled={disabled}
             className={`button button_${className}`}
             type={type}
+            onClick={onClick}
     >
       {children}
     </button>

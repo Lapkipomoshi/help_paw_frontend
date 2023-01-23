@@ -5,6 +5,7 @@ import './SheltersOnMain.css';
 import ShelterCard from '../ShelterCard/ShelterCard';
 import shelterImage from '../../images/shelter-image.jpg';
 import shelterLogo from '../../images/shelter-logo.jpg';
+import Button from '../Button/Button';
 
 
 const SheltersOnMain = ({ loggedIn }) => {
@@ -61,10 +62,10 @@ const SheltersOnMain = ({ loggedIn }) => {
       <div className={`shelters-on-main__text-container ${isActiveAnimation ? 'shelters-on-main__text-container_animation' : ''}`} ref={ref}>
         <h3 className='shelters-on-main__text-title'>Вы владелец приюта?</h3>
         <p className='shelters-on-main__text-subtitle'>Можете добавить ваш приют на наш сайт прямо сейчас!</p>
-        <button className={`button margin_column-center ${!loggedIn && 'button_disabled'}`} type='button' onClick={handleAddShelterButton}>Добавить приют</button>
+        <Button className={`primary margin_column-center ${!loggedIn && 'button_disabled'}`} type='button' onClick={() => handleAddShelterButton()}>Добавить приют</Button>
         <div className={`shelters-on-main__popup ${isOpenPopup && 'shelters-on-main__popup_opened'}`}>
           <p className='shelters-on-main__popup-text'>Добавить приют на сайт можно только после регистрации</p>
-          <button className='button margin_column-center' type='button' onClick={() => navigate('/sign-up')}>Зарегистрироваться</button>
+          <Button className='primary margin_column-center' type='link' onClick='/sign-up'>Зарегистрироваться</Button>
         </div>
       </div>
     </section>

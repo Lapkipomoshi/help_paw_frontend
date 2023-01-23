@@ -3,6 +3,7 @@ import './LoginPage.css';
 import UserContainer from '../../components/UserContainer/UserContainer';
 import UserForm from '../../components/UserForm/UserForm';
 import {Link} from 'react-router-dom';
+import Button from '../../components/Button/Button';
 
 const LoginPage = () => {
   return (
@@ -16,7 +17,7 @@ const LoginPage = () => {
               buttonText='Войти'
               formClass='user-form__container user-form__container_login'
               buttonContainerClass='user-form__button-container user-form__button-container_login'
-              buttonClass='user-form__button-submit user-form__button-submit_login'
+              buttonClass='primary user-form__button-submit_login'
               formChildren={
                 <>
                   <label className='user-input__label'>E-mail</label>
@@ -46,7 +47,7 @@ const LoginPage = () => {
 
               buttonChildren={
                 <div className='login__authorization-container'>
-                  <Link className='login__link' to='/password-recovery'>Забыли пароль?</Link>
+                  <Button type='link' className='tertiary' to='/password-recovery'>Забыли пароль?</Button>
 
                   <div className='login__signup-block'>
                     <p className='login__signup-text'>Нет аккаунта?</p>

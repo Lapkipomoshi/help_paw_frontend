@@ -16,7 +16,7 @@ const RegisterPage = () => {
                         buttonText='Зарегистрироваться'
                         formClass='user-form__container user-form__container_register'
                         buttonContainerClass='user-form__button-container user-form__button-container_register'
-                        buttonClass='user-form__button-submit user-form__button-submit_register'
+                        buttonClass='primary user-form__button-submit user-form__button-submit_register'
                         formChildren={
                         <>
                             <label className='user-input__label'>Имя</label>

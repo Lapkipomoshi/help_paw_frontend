@@ -5,9 +5,10 @@ import PaperCard from '../PaperCard/PaperCard';
 import paperPhoto1 from '../../images/paper-card__photo_1.jpg';
 import paperPhoto2 from '../../images/paper-card__photo_2.jpg';
 import paperPhoto3 from '../../images/paper-card__photo_3.jpg';
+import Button from '../Button/Button';
 
 const PapersOnMain = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   return (
     <section className='papers-on-main'>
@@ -32,7 +33,7 @@ const PapersOnMain = () => {
             title={'Современные кинологи не применяют наказание. Почему?'} />
         </li>
       </ul>
-      <button className='button margin-left_auto' type='button' onClick={() => navigate('/papers')}>Все статьи</button>
+      <Button className='primary margin-left_auto' type='link' onClick='/papers'>Все статьи</Button>
     </section>
   );
 }
