@@ -40,6 +40,10 @@
                     "_id"
                 ]
             }
-        ]
+        ],
+        "react/prop-types": 0,
+        "max-len": ["error", { "code": 80 }],
+        "object-curly-spacing": ["error", "always"],
+        "arrow-body-style": ["error", "never"]
     }
 }
