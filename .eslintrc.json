@@ -25,6 +25,7 @@
             "enforceForRenamedProperties": false
         }],
         "quotes": ["error", "single", { "avoidEscape": true }],
+        "jsx-quotes": ["error", "prefer-single"],
         "semi": ["error", "always"],
         "indent": ["error", 2],
         "space-before-blocks": "error",
