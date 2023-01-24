@@ -10,6 +10,6 @@ const PetPage = () => {
     <main className='main pet'>
     </main>
   );
-}
+};
 
 export default PetPage;

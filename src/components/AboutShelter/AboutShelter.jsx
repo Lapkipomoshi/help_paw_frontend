@@ -54,6 +54,6 @@ const AboutShelter = () => {
       <p className='about-shelter__text'>Забрали животных за всё время: <span className='color_text_additional'>{cardInfo.takingAllPets}</span></p>
     </section>
   );
-}
+};
 
 export default AboutShelter;

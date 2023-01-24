@@ -9,6 +9,6 @@ const PaperCard = ({ id, photo, title }) => {
       <p className='paper-card__text'>{title}</p>
     </Link>
   );
-}
+};
 
 export default PaperCard;

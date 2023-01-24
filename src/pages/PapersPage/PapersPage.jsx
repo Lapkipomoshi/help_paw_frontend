@@ -7,39 +7,57 @@ import paperPhoto2 from '../../images/paper-card__photo_2.jpg';
 import paperPhoto3 from '../../images/paper-card__photo_3.jpg';
 
 const PapersPage = () => {
-  const navigate = useNavigate(); // хук для использования программной навигации
-
   const [papersList, setPapersList] = React.useState([]); // список отображаемых карточек со статьями
+
+  const navigate = useNavigate(); // хук для использования программной навигации
 
   React.useEffect(() => {
     setPapersList([ // будет запрашиваться с бэкенда
-      {id: 1,
+      {
+        id: 1,
         photo: paperPhoto1,
-        title: 'Животное из приюта: что надо знать перед тем, как взять его в дом?'},
-      {id: 2,
+        title: 'Животное из приюта: что надо знать перед тем, как взять его в дом?'
+      },
+      {
+        id: 2,
         photo: paperPhoto2,
-        title: 'Как отучить собаку прыгать на вас при встрече'},
-      {id: 3,
+        title: 'Как отучить собаку прыгать на вас при встрече'
+      },
+      {
+        id: 3,
         photo: paperPhoto3,
-        title: 'Современные кинологи не применяют наказание. Почему?'},
-      {id: 4,
+        title: 'Современные кинологи не применяют наказание. Почему?'
+      },
+      {
+        id: 4,
         photo: paperPhoto1,
-        title: 'Животное из приюта: что надо знать перед тем, как взять его в дом?'},
-      {id: 5,
+        title: 'Животное из приюта: что надо знать перед тем, как взять его в дом?'
+      },
+      {
+        id: 5,
         photo: paperPhoto2,
-        title: 'Как отучить собаку прыгать на вас при встрече'},
-      {id: 6,
+        title: 'Как отучить собаку прыгать на вас при встрече'
+      },
+      {
+        id: 6,
         photo: paperPhoto3,
-      title: 'Современные кинологи не применяют наказание. Почему?'},
-      {id: 7,
+        title: 'Современные кинологи не применяют наказание. Почему?'
+      },
+      {
+        id: 7,
         photo: paperPhoto1,
-        title: 'Животное из приюта: что надо знать перед тем, как взять его в дом?'},
-      {id: 8,
+        title: 'Животное из приюта: что надо знать перед тем, как взять его в дом?'
+      },
+      {
+        id: 8,
         photo: paperPhoto2,
-        title: 'Как отучить собаку прыгать на вас при встрече'},
-      {id: 9,
+        title: 'Как отучить собаку прыгать на вас при встрече'
+      },
+      {
+        id: 9,
         photo: paperPhoto3,
-        title: 'Современные кинологи не применяют наказание. Почему?'},
+        title: 'Современные кинологи не применяют наказание. Почему?'
+      },
     ]);
   }, []);
 
@@ -55,13 +73,14 @@ const PapersPage = () => {
             <PaperCard
               id={card.id}
               photo={card.photo}
-              title={card.title} />
+              title={card.title}
+            />
           </li>
         ))}
       </ul>
       <button className='button margin_column-center' type='button'>Больше статей</button>
     </main>
   );
-}
+};
 
 export default PapersPage;

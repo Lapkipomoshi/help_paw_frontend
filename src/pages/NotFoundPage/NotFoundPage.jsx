@@ -14,6 +14,6 @@ const NotFoundPage = () => {
       <button className='button margin_column-center' type='button' onClick={() => navigate(-1)}>Вернуться назад</button>
     </main>
   );
-}
+};
 
 export default NotFoundPage;

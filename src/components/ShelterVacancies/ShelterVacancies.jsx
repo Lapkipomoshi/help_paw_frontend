@@ -11,20 +11,23 @@ const ShelterVacancies = () => {
           title={'Помощник уборщика'}
           salary={'35 000 рублей до НДФЛ'}
           workSchedule={'сменный'}
-          charge={'помогать уборщику убирать мусор'} />
+          charge={'помогать уборщику убирать мусор'}
+        />
         <VacancyCard
           title={'Помощник уборщика'}
           salary={'35 000 рублей до НДФЛ'}
           workSchedule={'сменный'}
-          charge={'помогать уборщику убирать мусор'} />
+          charge={'помогать уборщику убирать мусор'}
+        />
         <VacancyCard
           title={'Помощник уборщика'}
           salary={'35 000 рублей до НДФЛ'}
           workSchedule={'сменный'}
-          charge={'помогать уборщику убирать мусор'} />
+          charge={'помогать уборщику убирать мусор'}
+        />
       </ul>
     </section>
   );
-}
+};
 
 export default ShelterVacancies;

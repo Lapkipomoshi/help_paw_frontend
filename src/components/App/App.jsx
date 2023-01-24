@@ -7,12 +7,14 @@ import Footer from '../../components/Footer/Footer';
 import MainPage from '../../pages/MainPage/MainPage';
 import MapPage from '../../pages/MapPage/MapPage';
 import ShelterListPage from '../../pages/ShelterListPage/ShelterListPage';
+
 import ShelterPage from '../../pages/ShelterPage/ShelterPage';
 import AboutShelter from '../AboutShelter/AboutShelter';
 import HelpToShelter from '../HelpToShelter/HelpToShelter';
-import SheterNews from '../ShelterNews/ShelterNews';
+import ShelterNews from '../ShelterNews/ShelterNews';
 import ShelterPets from '../ShelterPets/ShelterPets';
 import ShelterVacancies from '../ShelterVacancies/ShelterVacancies';
+
 import PetPage from '../../pages/PetPage/PetPage';
 import PapersPage from '../../pages/PapersPage/PapersPage';
 import PaperPage from '../../pages/PaperPage/PaperPage';
@@ -36,7 +38,7 @@ const App = () => {
         <Route path='/shelters/:id' element={<ShelterPage />}>
           <Route path='about' element={<AboutShelter />} />
           <Route path='how-to-help' element={<HelpToShelter />} />
-          <Route path='news' element={<SheterNews />} />
+          <Route path='news' element={<ShelterNews />} />
           <Route path='pets' element={<ShelterPets />} />
           <Route path='vacancies' element={<ShelterVacancies />} />
         </Route>
@@ -57,6 +59,6 @@ const App = () => {
       <Footer />
     </div>
   );
-}
+};
 
 export default App;

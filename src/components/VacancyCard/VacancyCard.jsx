@@ -10,6 +10,6 @@ const VacancyCard = ({ title, salary, workSchedule, charge }) => {
       <p className='vacancy-card__text'>{`Обязанности: ${charge}`}</p>
     </li>
   );
-}
+};
 
 export default VacancyCard;

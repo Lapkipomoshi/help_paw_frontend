@@ -12,6 +12,6 @@ const NewsPage = () => {
       <NewsSection />
     </main>
   );
-}
+};
 
 export default NewsPage;

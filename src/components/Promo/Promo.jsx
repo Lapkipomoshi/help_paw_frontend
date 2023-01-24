@@ -1,5 +1,5 @@
 import React from 'react';
-import { useInView } from 'react-intersection-observer';
+import { useInView } from 'react-intersection-observer'; // позволяет отслеживать находится ли объект на экране и на какую часть
 import './Promo.css';
 import promoPhotoLeft from '../../images/main__promo_position_left.jpg';
 import promoPhotoRight from '../../images/main__promo_position_right.jpg';
@@ -13,7 +13,7 @@ const Promo = () => {
 
   React.useEffect(() => {
     setIsActiveAnimation(inView); // включать анимацию, когда объект полностью виден и убирать, когда скрывается
-  }, [inView])
+  }, [inView]);
 
   return (
     <section className='promo'>
@@ -29,6 +29,6 @@ const Promo = () => {
       </div>
     </section>
   );
-}
+};
 
 export default Promo;

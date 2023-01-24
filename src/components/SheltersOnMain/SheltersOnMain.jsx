@@ -6,12 +6,11 @@ import ShelterCard from '../ShelterCard/ShelterCard';
 import shelterImage from '../../images/shelter-image.jpg';
 import shelterLogo from '../../images/shelter-logo.jpg';
 
-
 const SheltersOnMain = ({ loggedIn }) => {
   const [isActiveAnimation, setIsActiveAnimation] = React.useState(false); // отобразить анимацию?
   const [isOpenPopup, setIsOpenPopup] = React.useState(false); // отобразить вспылвающее окно с предложением зарегистрироваться?
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // функция для программной навигации
 
   const { ref, inView } = useInView({
     threshold: 1, //  отображать анимацию, когда объект на экране на 100%
@@ -19,14 +18,14 @@ const SheltersOnMain = ({ loggedIn }) => {
 
   const handleAddShelterButton = () => {
     loggedIn ? navigate('/profile') : setIsOpenPopup(true);
-  }
+  };
 
   React.useEffect(() => {
     setIsActiveAnimation(inView); // включать анимацию, когда объект полностью виден и убирать, когда скрывается
-  }, [inView])
+  }, [inView]);
 
   return (
-    <section className='shelters-on-main' onClick={() => {isOpenPopup && setIsOpenPopup(false)}}>
+    <section className='shelters-on-main' onClick={() => { isOpenPopup && setIsOpenPopup(false) }}>
       <h2 className='section-title'>Приюты, которым очень нужна помощь</h2>
       <ul className='shelters-on-main__shelters-container'>
         <li>
@@ -36,7 +35,8 @@ const SheltersOnMain = ({ loggedIn }) => {
             title={'Приют Бирюлево'}
             address={'Востряковский пр-д, 10А, Москва, Россия'}
             workingHours={'10:00 - 18:00'}
-            linkID={'/shelters/1'} />
+            linkID={'/shelters/1'}
+          />
         </li>
         <li>
           <ShelterCard
@@ -45,7 +45,8 @@ const SheltersOnMain = ({ loggedIn }) => {
             title={'Приют Бирюлево'}
             address={'Востряковский пр-д, 10А, Москва, Россия'}
             workingHours={'10:00 - 18:00'}
-            linkID={'/shelters/2'} />
+            linkID={'/shelters/2'}
+          />
         </li>
         <li>
           <ShelterCard
@@ -54,7 +55,8 @@ const SheltersOnMain = ({ loggedIn }) => {
             title={'Приют Бирюлево'}
             address={'Востряковский пр-д, 10А, Москва, Россия'}
             workingHours={'10:00 - 18:00'}
-            linkID={'/shelters/3'} />
+            linkID={'/shelters/3'}
+          />
         </li>
       </ul>
       <button className='button margin-left_auto' type='button' onClick={() => navigate('/shelters')}>Смотреть на карте</button>
@@ -69,6 +71,6 @@ const SheltersOnMain = ({ loggedIn }) => {
       </div>
     </section>
   );
-}
+};
 
 export default SheltersOnMain;

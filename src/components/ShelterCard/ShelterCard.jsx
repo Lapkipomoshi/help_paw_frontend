@@ -12,6 +12,6 @@ const ShelterCard = ({ image, logo, title, address, workingHours, linkID }) => {
       <img className='shelter-card__logo' src={logo} alt='ЧП' />
     </Link>
   );
-}
+};
 
 export default ShelterCard;
