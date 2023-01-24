@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
 import { Route, Routes, Navigate } from 'react-router-dom';
+import './App.css';
 import ProtectedRoute from '../ProtectedRoute';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
