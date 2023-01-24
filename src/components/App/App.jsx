@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute';
 import Header from '../../components/Header/Header';
@@ -9,8 +10,10 @@ import ShelterListPage from '../../pages/ShelterListPage/ShelterListPage';
 import ShelterPage from '../../pages/ShelterPage/ShelterPage';
 import AboutShelter from '../AboutShelter/AboutShelter';
 import HelpToShelter from '../HelpToShelter/HelpToShelter';
+import ShelterNews from '../ShelterNews/ShelterNews';
 import ShelterPets from '../ShelterPets/ShelterPets';
 import ShelterVacancies from '../ShelterVacancies/ShelterVacancies';
+import PetPage from '../../pages/PetPage/PetPage';
 import PapersPage from '../../pages/PapersPage/PapersPage';
 import PaperPage from '../../pages/PaperPage/PaperPage';
 import NewsPage from '../../pages/NewsPage/NewsPage';
@@ -18,8 +21,6 @@ import NewPage from '../../pages/NewPage/NewPage';
 import LoginPage from '../../pages/LoginPage/LoginPage';
 import RegisterPage from '../../pages/RegisterPage/RegisterPage';
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
-import ShelterNews from '../ShelterNews/ShelterNews';
-import './App.css'
 
 const App = () => {
   const [loggedIn, setLoggedIn] = React.useState(false); // пользователь вошёл в учётную запись?
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="pets" element={<ShelterPets/>}/>
           <Route path="vacancies" element={<ShelterVacancies/>}/>
         </Route>
+        <Route path="/pets/:id" element={<PetPage />} />
         <Route path="/papers" element={<PapersPage/>}/>
         <Route path="/papers/:id" element={<PaperPage/>}/>
         <Route path="/news" element={<NewsPage/>}/>

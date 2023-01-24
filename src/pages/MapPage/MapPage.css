@@ -1,9 +1,17 @@
-.container_flex_row {
-  display: flex;
-  flex-direction: row;
-  max-width: 1440px;
+.section_with-background {
+  width: 100%;
   padding-bottom: 80px;
   background-color: var(--color-background-base);
+}
+
+.section__content {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.container_flex-row {
+  display: flex;
+  flex-direction: row;
 }
 
 .shelters-list {
