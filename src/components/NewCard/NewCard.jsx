@@ -22,6 +22,6 @@ const NewCard = ({ title, data, shelter, image, link }) => {
       </div>
     </Link>
   );
-}
+};
 
 export default NewCard;

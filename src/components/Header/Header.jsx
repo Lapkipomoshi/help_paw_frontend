@@ -10,9 +10,9 @@ const Header = ({ loggedIn }) => {
         <img className='header__logo' src={logo} alt='лого' />
       </Link>
       <nav className='menu menu_items_links'>
-        <NavLink to='/papers' className={({isActive}) => `menu__link ${isActive ? 'menu__link_active' : ''}`}>Полезные статьи</NavLink>
-        <NavLink to='/shelters' className={({isActive}) => `menu__link ${isActive ? 'menu__link_active' : ''}`}>Карта приютов</NavLink>
-        <NavLink to='/news' className={({isActive}) => `menu__link ${isActive ? 'menu__link_active' : ''}`}>Новости</NavLink>
+        <NavLink className={({ isActive }) => `menu__link ${isActive ? 'menu__link_active' : ''}`} to='/papers'>Полезные статьи</NavLink>
+        <NavLink className={({ isActive }) => `menu__link ${isActive ? 'menu__link_active' : ''}`} to='/shelters'>Карта приютов</NavLink>
+        <NavLink className={({ isActive }) => `menu__link ${isActive ? 'menu__link_active' : ''}`} to='/news'>Новости</NavLink>
       </nav>
       <nav className='menu'>
         <NavLink className={'menu__sign-in ' + (loggedIn ? 'display_none' : '')} to='/sign-in'>Войти</NavLink>
@@ -21,6 +21,6 @@ const Header = ({ loggedIn }) => {
       </nav>
     </header>
   );
-}
+};
 
 export default Header;

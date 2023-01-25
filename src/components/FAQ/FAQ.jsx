@@ -45,6 +45,6 @@ const FAQ = () => {
       </ul>
     </section>
   );
-}
+};
 
 export default FAQ;

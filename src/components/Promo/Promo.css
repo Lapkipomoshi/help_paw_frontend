@@ -1,9 +1,9 @@
 @import url('./promo/promo.css');
-  @import url('./promo/__photo-container/promo__photo-container.css');
-  @import url('./promo/__photo/promo__photo.css');
-    @import url('./promo/__photo/_position/promo__photo_position_left.css');
-    @import url('./promo/__photo/_position/promo__photo_position_right.css');
-    @import url('./promo/__photo/_animation/promo__photo_animation_to-left.css');
-    @import url('./promo/__photo/_animation/promo__photo_animation_to-right.css');
-  @import url('./promo/__text-container/promo__text-container.css');
-  @import url('./promo/__text/promo__text.css');
+@import url('./promo/__photo-container/promo__photo-container.css');
+@import url('./promo/__photo/promo__photo.css');
+@import url('./promo/__photo/_position/promo__photo_position_left.css');
+@import url('./promo/__photo/_position/promo__photo_position_right.css');
+@import url('./promo/__photo/_animation/promo__photo_animation_to-left.css');
+@import url('./promo/__photo/_animation/promo__photo_animation_to-right.css');
+@import url('./promo/__text-container/promo__text-container.css');
+@import url('./promo/__text/promo__text.css');

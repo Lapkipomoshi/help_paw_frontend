@@ -14,64 +14,82 @@ const ShelterPets = () => {
     slider.current.childNodes.forEach((element) => {
       element.style = `transform: translateX(${position}px)`;
     });
-  }
+  };
 
   const handleNext = () => { // показать следующие карточки
-    if (position >= (-(petsList.length - 7)*200)) position -= 200;
+    if (position >= (-(petsList.length - 7) * 200)) position -= 200;
     slider.current.childNodes.forEach((element) => {
       element.style = `transform: translateX(${position}px)`;
     });
-  }
+  };
 
   React.useEffect(() => {
     setPetsList([ // будет запрашиваться с бэкенда
-      {id: 1,
+      {
+        id: 1,
         name: 'Пушистик',
         age: '2 года',
         male: true,
-        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'},
-      {id: 2,
+        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+      },
+      {
+        id: 2,
         name: 'Пушистик',
         age: '2 года',
         male: true,
-        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'},
-      {id: 3,
+        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+      },
+      {
+        id: 3,
         name: 'Пушистик',
         age: '2 года',
         male: false,
-        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'},
-      {id: 4,
+        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+      },
+      {
+        id: 4,
         name: 'Пушистик',
         age: '2 года',
         male: true,
-        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'},
-      {id: 5,
+        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+      },
+      {
+        id: 5,
         name: 'Пушистик',
         age: '2 года',
         male: true,
-        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'},
-      {id: 6,
+        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+      },
+      {
+        id: 6,
         name: 'Пушистик',
         age: '2 года',
         male: false,
-        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'},
-      {id: 7,
+        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+      },
+      {
+        id: 7,
         name: 'Пушистик',
         age: '2 года',
         male: true,
-        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'},
-      {id: 8,
+        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+      },
+      {
+        id: 8,
         name: 'Пушистик',
         age: '2 года',
         male: true,
-        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'},
-      {id: 9,
+        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+      },
+      {
+        id: 9,
         name: 'Пушистик',
         age: '2 года',
         male: false,
-        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'},
-  ]);
-  }, [])
+        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+      },
+    ]);
+  }, []);
 
   return (
     <section className='shelter-section shelter-pets'>
@@ -87,12 +105,13 @@ const ShelterPets = () => {
               {petsList.map((card) => (
                 <li className='slider__item' key={card.id}>
                   <PetCard
-                  id={card.id} name={card.name} age={card.age} male={card.male} image={card.image} />
+                    id={card.id} name={card.name} age={card.age} male={card.male} image={card.image}
+                  />
                 </li>
               ))}
             </ul>
             <div className='slider__buttons'>
-              <button className='slider__button slider__button' type='button' onClick={handlePrev} />
+              <button className='slider__button' type='button' onClick={handlePrev} />
               <button className='slider__button slider__button_next' type='button' onClick={handleNext} />
             </div>
           </details>
@@ -118,6 +137,6 @@ const ShelterPets = () => {
       </ul>
     </section>
   );
-}
+};
 
 export default ShelterPets;

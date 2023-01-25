@@ -35,6 +35,6 @@ const PaperPage = () => {
       <a className='paper__link' href={paper.link} target='_blank'>Ссылка на источник</a>
     </main>
   );
-}
+};
 
 export default PaperPage;

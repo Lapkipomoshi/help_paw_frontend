@@ -7,7 +7,7 @@ import paperPhoto2 from '../../images/paper-card__photo_2.jpg';
 import paperPhoto3 from '../../images/paper-card__photo_3.jpg';
 
 const PapersOnMain = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   return (
     <section className='papers-on-main'>
@@ -17,24 +17,27 @@ const PapersOnMain = () => {
           <PaperCard
             id='1'
             photo={paperPhoto1}
-            title={'Животное из приюта: что надо знать перед тем, как взять его в дом?'} />
+            title={'Животное из приюта: что надо знать перед тем, как взять его в дом?'}
+          />
         </li>
         <li className='papers-on-main__flex-element'>
           <PaperCard
             id='2'
             photo={paperPhoto2}
-            title={'Как отучить собаку прыгать на вас при встрече'} />
+            title={'Как отучить собаку прыгать на вас при встрече'}
+          />
         </li>
         <li className='papers-on-main__flex-element'>
           <PaperCard
             id='3'
             photo={paperPhoto3}
-            title={'Современные кинологи не применяют наказание. Почему?'} />
+            title={'Современные кинологи не применяют наказание. Почему?'}
+          />
         </li>
       </ul>
       <button className='button margin-left_auto' type='button' onClick={() => navigate('/papers')}>Все статьи</button>
     </section>
   );
-}
+};
 
 export default PapersOnMain;

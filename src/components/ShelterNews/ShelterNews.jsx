@@ -1,6 +1,6 @@
 import React from 'react';
-import NewsSection from '../NewsSection/NewsSection';
 import './ShelterNews.css';
+import NewsSection from '../NewsSection/NewsSection';
 
 const ShelterNews = () => {
   return (
@@ -9,6 +9,6 @@ const ShelterNews = () => {
       <NewsSection />
     </section>
   );
-}
+};
 
 export default ShelterNews;
