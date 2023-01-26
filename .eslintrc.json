@@ -44,6 +44,7 @@
         "react/prop-types": 0,
         "max-len": ["error", { "code": 80 }],
         "object-curly-spacing": ["error", "always"],
-        "arrow-body-style": ["error", "never"]
+        "arrow-body-style": ["error", "never"],
+        "react/function-component-definition": [2, { "namedComponents": "arrow-function" }]
     }
 }
