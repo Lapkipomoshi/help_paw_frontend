@@ -2,8 +2,8 @@ import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
 import ProtectedRoute from '../ProtectedRoute';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import MainPage from '../../pages/MainPage/MainPage';
 import MapPage from '../../pages/MapPage/MapPage';
 import ShelterListPage from '../../pages/ShelterListPage/ShelterListPage';
@@ -25,12 +25,14 @@ import RegisterPage from '../../pages/RegisterPage/RegisterPage';
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
 
 const App = () => {
+  // eslint-disable-next-line no-unused-vars
   const [loggedIn, setLoggedIn] = React.useState(false); // пользователь вошёл в учётную запись?
 
   return (
     <div className='page'>
       <Header
-        loggedIn={loggedIn} />
+        loggedIn={loggedIn}
+      />
       <Routes>
         <Route path='/' element={<MainPage loggedIn={loggedIn} />} />
         <Route path='/shelters' element={<MapPage />} />
@@ -47,12 +49,18 @@ const App = () => {
         <Route path='/papers/:id' element={<PaperPage />} />
         <Route path='/news' element={<NewsPage />} />
         <Route path='/news/:id' element={<NewPage />} />
-        <Route path='/sign-in' element={
-          <ProtectedRoute loggedIn={!loggedIn} component={LoginPage} />
-        } />
-        <Route path='/sign-up' element={
-          <ProtectedRoute loggedIn={!loggedIn} component={RegisterPage} />
-        } />
+        <Route
+          path='/sign-in'
+          element={
+            <ProtectedRoute loggedIn={!loggedIn} component={LoginPage} />
+          }
+        />
+        <Route
+          path='/sign-up'
+          element={
+            <ProtectedRoute loggedIn={!loggedIn} component={RegisterPage} />
+          }
+        />
         <Route path='/help_paw_frontend' element={<Navigate to='/' replace />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>

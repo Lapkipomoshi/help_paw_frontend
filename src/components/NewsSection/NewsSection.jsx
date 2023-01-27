@@ -26,36 +26,38 @@ const NewsSection = () => {
             </div>
           </div>
           <h3 className='new-big-card__title'>В приюте Бирюлево побывали школьники</h3>
-          <p className='new-big-card__text'>Работники приюта показали им как устроен приют и ученики помогали выгуливать собак.
-            Работники приюта показали им как устроен приют и ученики помогали выгуливать собак</p>
+          <p className='new-big-card__text'>
+            Работники приюта показали им как устроен приют и ученики помогали выгуливать
+            собак. Работники приюта показали им как устроен приют и ученики помогали выгуливать собак
+          </p>
         </div>
       </Link>
       <ul className='news-section__column'>
         <li className='news-section__item'>
           <NewCard
-            title={'В приюте Бирюлево побывали школьники'}
-            data={'12.12.2022'}
-            shelter={'Приют Бирюлево'}
+            title='В приюте Бирюлево побывали школьники'
+            data='12.12.2022'
+            shelter='Приют Бирюлево'
             image={newPhoto1}
-            link={'/news/2'}
+            link='/news/2'
           />
         </li>
         <li className='news-section__item'>
           <NewCard
-            title={'В приюте Бирюлево побывали школьники'}
-            data={'12.12.2022'}
-            shelter={'Приют Бирюлево'}
+            title='В приюте Бирюлево побывали школьники'
+            data='12.12.2022'
+            shelter='Приют Бирюлево'
             image={newPhoto2}
-            link={'/news/2'}
+            link='/news/2'
           />
         </li>
         <li className='news-section__item'>
           <NewCard
-            title={'В приюте Бирюлево побывали школьники'}
-            data={'12.12.2022'}
-            shelter={'Приют Бирюлево'}
+            title='В приюте Бирюлево побывали школьники'
+            data='12.12.2022'
+            shelter='Приют Бирюлево'
             image={newPhoto3}
-            link={'/news/2'}
+            link='/news/2'
           />
         </li>
       </ul>
