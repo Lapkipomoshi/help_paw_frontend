@@ -33,18 +33,11 @@
         "arrow-parens": ["error", "always"],
         "no-duplicate-imports": ["error", { "includeExports": true }],
         "no-param-reassign": 0,
-        "no-underscore-dangle": [
-            "error",
-            {
-                "allow": [
-                    "_id"
-                ]
-            }
-        ],
+        "no-underscore-dangle": ["error", { "allow": ["_id"]}],
         "react/prop-types": 0,
         "max-len": ["error", { "code": 120 }],
         "object-curly-spacing": ["error", "always"],
         "arrow-body-style": ["error", "always"],
-        "react/function-component-definition": [2, { "namedComponents": "arrow-function" }]
+        "react/function-component-definition": [2, { "namedComponents": ["arrow-function", "function-declaration"] }]
     }
 }
