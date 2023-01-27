@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import './Banner.css';
 import bannerImage from '../../images/main__banner.png';
 
@@ -12,7 +12,9 @@ const Banner = () => {
       <h1 className='banner__title'>Помогаем тем, кто в этом нуждается</h1>
       <div className='banner__line' />
       <p className='banner__subtitle'>Лапки помощи - это проект помощи приютам для животных.</p>
-      <button className='banner__button button' type='button' onClick={() => navigate('/shelters')}>Хочу помогать</button>
+      <button className='banner__button button' type='button' onClick={() => { return navigate('/shelters'); }}>
+        Хочу помогать
+      </button>
     </section>
   );
 };

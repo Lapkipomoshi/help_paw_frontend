@@ -4,7 +4,7 @@ import './PaperCard.css';
 
 const PaperCard = ({ id, photo, title }) => {
   return (
-    <Link className='paper-card' to={'/papers/' + id}>
+    <Link className='paper-card' to={`/papers/${id}`}>
       <img className='paper-card__image' src={photo} alt='фото' />
       <p className='paper-card__text'>{title}</p>
     </Link>

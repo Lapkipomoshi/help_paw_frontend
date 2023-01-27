@@ -20,13 +20,13 @@ const Footer = () => {
         <Link className='footer__link' to='/'>FAQ</Link>
       </div>
       <div className='footer__icons'>
-        <Link className='footer__icon-link' to=''>
+        <Link className='footer__icon-link' to='/'>
           <img className='footer__icon' src={classmatesIcon} alt='OK.ru' />
         </Link>
-        <Link className='footer__icon-link' to=''>
+        <Link className='footer__icon-link' to='/'>
           <img className='footer__icon' src={vkIcon} alt='ВК' />
         </Link>
-        <Link className='footer__icon-link' to=''>
+        <Link className='footer__icon-link' to='/'>
           <img className='footer__icon' src={telegramIcon} alt='телеграм' />
         </Link>
       </div>

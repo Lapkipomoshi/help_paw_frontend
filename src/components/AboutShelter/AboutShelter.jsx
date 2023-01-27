@@ -9,7 +9,7 @@ const AboutShelter = () => {
 
   React.useEffect(() => {
     setCardInfo({ // будет запрашиваться с бэкенда
-      id: id,
+      id,
       logo: '../../images/shelter-logo.jpg',
       title: 'Приют Бирюлево',
       address: 'Востряковсий пр-д, 10А, Москва, Россия',
@@ -18,7 +18,8 @@ const AboutShelter = () => {
       email: 'email@email.com',
       link: 'https://izpriuta.ru',
       descriprion: `Приют Бирюлево - это муниципальный приют для бездомных собак и кошек в Южном округе г. Москвы.
-      В нём живет почти 2500 собак и 150 кошек. Большие и маленькие, пушистые и гладкие, весёлые и задумчивые - и на всех одна большая мечта
+      В нём живет почти 2500 собак и 150 кошек. Большие и маленькие, пушистые и гладкие,
+      весёлые и задумчивые - и на всех одна большая мечта
        - встретить своего Человека и найти Дом.`,
       vkLink: 'vk.com',
       telegramLink: 't.me',
@@ -34,24 +35,63 @@ const AboutShelter = () => {
         <div className='shelter-info__text-container'>
           <h2 className='shelter-section__title'>{cardInfo.title}</h2>
           <ul className='shelter-info__list'>
-            <li className='shelter-info__text'>Адрес: <span className='color_text_additional'>{cardInfo.address}</span></li>
-            <li className='shelter-info__text'>Часы-работы: <span className='color_text_additional'>{cardInfo.workingHours}</span></li>
-            <li className='shelter-info__text'>Номер телефона: <span className='color_text_additional'>{cardInfo.phone}</span></li>
-            <li className='shelter-info__text'>E-mail: <span className='color_text_additional'>{cardInfo.email}</span></li>
-            <li className='shelter-info__text'>Сайт: <a className='shelter-info__link' href={cardInfo.link} target='_blank' rel="noreferrer">
-              {cardInfo.link}
-              </a></li>
+            <li className='shelter-info__text'>
+              Адрес:
+              {' '}
+              <span className='color_text_additional'>{cardInfo.address}</span>
+            </li>
+            <li className='shelter-info__text'>
+              Часы-работы:
+              {' '}
+              <span className='color_text_additional'>{cardInfo.workingHours}</span>
+            </li>
+            <li className='shelter-info__text'>
+              Номер телефона:
+              {' '}
+              <span className='color_text_additional'>{cardInfo.phone}</span>
+            </li>
+            <li className='shelter-info__text'>
+              E-mail:
+              {' '}
+              <span className='color_text_additional'>{cardInfo.email}</span>
+            </li>
+            <li className='shelter-info__text'>
+              Сайт:
+              {' '}
+              <a className='shelter-info__link' href={cardInfo.link} target='_blank' rel='noreferrer'>
+                {cardInfo.link}
+              </a>
+
+            </li>
           </ul>
           <div className='shelter-info__icons'>
-            <a className='shelter-info__icon shelter-info__icon_image_vk' href={cardInfo.vkLink} target='_blank' rel="noreferrer" />
-            <a className='shelter-info__icon shelter-info__icon_image_telegram' href={cardInfo.telegramLink} target='_blank' rel="noreferrer" />
+            <a
+              className='shelter-info__icon shelter-info__icon_image_vk'
+              href={cardInfo.vkLink}
+              target='_blank'
+              rel='noreferrer'
+            />
+            <a
+              className='shelter-info__icon shelter-info__icon_image_telegram'
+              href={cardInfo.telegramLink}
+              target='_blank'
+              rel='noreferrer'
+            />
           </div>
         </div>
       </div>
       <h2 className='shelter-section__title'>Описание</h2>
       <p className='about-shelter__description'>{cardInfo.descriprion}</p>
-      <p className='about-shelter__text'>Собрано денег за всё время: <span className='color_text_additional'>{cardInfo.gettingAllMoney}</span></p>
-      <p className='about-shelter__text'>Забрали животных за всё время: <span className='color_text_additional'>{cardInfo.takingAllPets}</span></p>
+      <p className='about-shelter__text'>
+        Собрано денег за всё время:
+        {' '}
+        <span className='color_text_additional'>{cardInfo.gettingAllMoney}</span>
+      </p>
+      <p className='about-shelter__text'>
+        Забрали животных за всё время:
+        {' '}
+        <span className='color_text_additional'>{cardInfo.takingAllPets}</span>
+      </p>
     </section>
   );
 };

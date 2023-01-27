@@ -12,7 +12,9 @@ const FAQ = () => {
               <h3 className='faq__card-title'>Как пожертвовать деньги приюту?</h3>
               <div className='faq__card-icon' />
             </summary>
-            <p className='faq__card-text'>Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”</p>
+            <p className='faq__card-text'>
+              Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”
+            </p>
           </details>
         </li>
         <li className='faq__card'>
@@ -21,7 +23,9 @@ const FAQ = () => {
               <h3 className='faq__card-title'>Как взять питомца домой?</h3>
               <div className='faq__card-icon' />
             </summary>
-            <p className='faq__card-text'>Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”</p>
+            <p className='faq__card-text'>
+              Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”
+            </p>
           </details>
         </li>
         <li className='faq__card'>
@@ -30,7 +34,9 @@ const FAQ = () => {
               <h3 className='faq__card-title'>Как зарегистрировать приют?</h3>
               <div className='faq__card-icon' />
             </summary>
-            <p className='faq__card-text'>Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”</p>
+            <p className='faq__card-text'>
+              Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”
+            </p>
           </details>
         </li>
         <li className='faq__card'>
@@ -39,7 +45,9 @@ const FAQ = () => {
               <h3 className='faq__card-title'>Какая минимальная сумма пожертвования?</h3>
               <div className='faq__card-icon' />
             </summary>
-            <p className='faq__card-text'>Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”</p>
+            <p className='faq__card-text'>
+              Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”
+            </p>
           </details>
         </li>
       </ul>
