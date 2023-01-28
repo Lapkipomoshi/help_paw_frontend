@@ -38,6 +38,9 @@
         "max-len": ["error", { "code": 120 }],
         "object-curly-spacing": ["error", "always"],
         "arrow-body-style": ["error", "always"],
-        "react/function-component-definition": [2, { "namedComponents": ["arrow-function", "function-declaration"] }]
+        "react/function-component-definition": [2, { "namedComponents": ["arrow-function", "function-declaration"] }],
+        "jsx-a11y/label-has-associated-control": "off",
+        "react/jsx-props-no-multi-spaces": "off",
+        "jsx-a11y/control-has-associated-label": "off"
     }
 }
