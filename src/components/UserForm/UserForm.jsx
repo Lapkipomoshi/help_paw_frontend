@@ -1,33 +1,35 @@
 import React from 'react';
 import './UserForm.css';
 
-function UserForm({title, buttonText, onSubmit, formChildren, formClass, buttonContainerClass, buttonClass, buttonChildren}) {
-    return (
-        <div className={formClass}>
-            <h2 className='user-form__title'>{title}</h2>
+function UserForm({
+  title, buttonText, onSubmit, formChildren, formClass, buttonContainerClass, buttonClass, buttonChildren,
+}) {
+  return (
+    <div className={formClass}>
+      <h2 className='user-form__title'>{title}</h2>
 
-            <form
-                className={`user-form`}
-                onSubmit={onSubmit}
-                noValidate
-            >
+      <form
+        className='user-form'
+        onSubmit={onSubmit}
+        noValidate
+      >
 
-                {formChildren}
+        {formChildren}
 
-                <div className={buttonContainerClass}>
-                    <button
-                        className={buttonClass}
-                        type='submit'
-                    >
-                        {buttonText}
-                    </button>
+        <div className={buttonContainerClass}>
+          <button
+            className={buttonClass}
+            type='submit'
+          >
+            {buttonText}
+          </button>
 
-                    {buttonChildren}
-                </div>
-
-            </form>
+          {buttonChildren}
         </div>
-    );
+
+      </form>
+    </div>
+  );
 }
 
 export default UserForm;
