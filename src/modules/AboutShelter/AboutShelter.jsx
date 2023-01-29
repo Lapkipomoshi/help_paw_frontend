@@ -65,7 +65,6 @@ const AboutShelter = () => {
               <a className='shelter-info__link' href={cardInfo.link} target='_blank' rel='noreferrer'>
                 {cardInfo.link}
               </a>
-
             </li>
           </ul>
           <div className='shelter-info__icons'>
