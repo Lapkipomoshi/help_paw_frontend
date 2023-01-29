@@ -1,10 +1,10 @@
 import React from 'react';
 import './FaqCard.css';
 
-const FaqCard = ({ children, title }) => {
+const FaqCard = ({ children, title, isOpen }) => {
   return (
     <li className='faq-card'>
-      <details className='faq-card__detalis' open>
+      <details className='faq-card__detalis' open={isOpen}>
         <summary className='faq-card__row'>
           <h3 className='faq-card__title'>{title}</h3>
           <div className='faq-card__icon' />

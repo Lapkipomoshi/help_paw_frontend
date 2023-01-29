@@ -1,55 +1,32 @@
 import React from 'react';
 import './Faq.css';
+import FaqCard from '../../components/FaqCard/FaqCard';
 
 const Faq = () => {
   return (
     <section className='faq'>
       <h2 className='section-title'>Часто задаваемые вопросы</h2>
       <ul className='faq__list'>
-        <li className='faq__card'>
-          <details className='faq__detalis' open>
-            <summary className='faq__card-row'>
-              <h3 className='faq__card-title'>Как пожертвовать деньги приюту?</h3>
-              <div className='faq__card-icon' />
-            </summary>
-            <p className='faq__card-text'>
-              Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”
-            </p>
-          </details>
-        </li>
-        <li className='faq__card'>
-          <details className='faq__detalis'>
-            <summary className='faq__card-row'>
-              <h3 className='faq__card-title'>Как взять питомца домой?</h3>
-              <div className='faq__card-icon' />
-            </summary>
-            <p className='faq__card-text'>
-              Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”
-            </p>
-          </details>
-        </li>
-        <li className='faq__card'>
-          <details className='faq__detalis'>
-            <summary className='faq__card-row'>
-              <h3 className='faq__card-title'>Как зарегистрировать приют?</h3>
-              <div className='faq__card-icon' />
-            </summary>
-            <p className='faq__card-text'>
-              Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”
-            </p>
-          </details>
-        </li>
-        <li className='faq__card'>
-          <details className='faq__detalis'>
-            <summary className='faq__card-row'>
-              <h3 className='faq__card-title'>Какая минимальная сумма пожертвования?</h3>
-              <div className='faq__card-icon' />
-            </summary>
-            <p className='faq__card-text'>
-              Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”
-            </p>
-          </details>
-        </li>
+        <FaqCard title='Как пожертвовать деньги приюту?' isOpen>
+          <p className='faq__text'>
+            Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”
+          </p>
+        </FaqCard>
+        <FaqCard title='Как взять питомца домой?' isOpen={false}>
+          <p className='faq__text'>
+            Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”
+          </p>
+        </FaqCard>
+        <FaqCard title='Как зарегистрировать приют?' isOpen={false}>
+          <p className='faq__text'>
+            Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”
+          </p>
+        </FaqCard>
+        <FaqCard title='Какая минимальная сумма пожертвования?' isOpen={false}>
+          <p className='faq__text'>
+            Что бы сделать пожертвование, вам нужно открыть страницу приюта и нажать кнопку “Пожертвовать приюту”
+          </p>
+        </FaqCard>
       </ul>
     </section>
   );
