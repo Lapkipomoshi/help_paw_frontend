@@ -4,6 +4,7 @@ import './ShelterListPage.css';
 const ShelterListPage = () => {
   return (
     <main className='main'>
+      Список приютов
     </main>
   );
 };

@@ -18,6 +18,7 @@ const SheltersOnMain = ({ loggedIn }) => {
   });
 
   const handleAddShelterButton = () => {
+    // eslint-disable-next-line no-unused-expressions
     loggedIn ? navigate('/profile') : setIsOpenPopup(true);
   };
 
@@ -26,7 +27,14 @@ const SheltersOnMain = ({ loggedIn }) => {
   }, [inView]);
 
   return (
-    <section className='shelters-on-main' onClick={() => { isOpenPopup && setIsOpenPopup(false); }}>
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+    <section
+      className='shelters-on-main'
+      onClick={() => {
+        // eslint-disable-next-line no-unused-expressions
+        isOpenPopup && setIsOpenPopup(false);
+      }}
+    >
       <h2 className='section-title'>Приюты, которым очень нужна помощь</h2>
       <ul className='shelters-on-main__shelters-container'>
         <li>

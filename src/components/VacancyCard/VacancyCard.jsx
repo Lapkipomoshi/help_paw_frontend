@@ -1,7 +1,9 @@
 import React from 'react';
 import './VacancyCard.css';
 
-const VacancyCard = ({ title, salary, workSchedule, charge }) => {
+const VacancyCard = ({
+  title, salary, workSchedule, charge,
+}) => {
   return (
     <li className='vacancy-card'>
       <h3 className='vacancy-card__title'>{title}</h3>

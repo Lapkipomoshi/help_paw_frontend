@@ -1,10 +1,9 @@
 .shelter-info__icon {
   width: 32px;
   height: 32px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  transition-duration: 1s;
+  object-position: center;
+  object-fit: contain;
+  transition-duration: .7s;
 }
 
 .shelter-info__icon:hover {
