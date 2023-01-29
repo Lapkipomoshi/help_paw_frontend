@@ -1,6 +1,5 @@
 import React from 'react';
-import { useInView } from 'react-intersection-observer';
-// позволяет отслеживать находится ли объект на экране и на какую часть
+import { useInView } from 'react-intersection-observer'; // позволяет отслеживать находится ли объект на экране и на какую часть
 import './Promo.css';
 import promoPhotoLeft from '../../images/main__promo_position_left.jpg';
 import promoPhotoRight from '../../images/main__promo_position_right.jpg';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './PapersOnMain.css';
-import PaperCard from '../PaperCard/PaperCard';
+import PaperCard from '../../components/PaperCard/PaperCard';
 import paperPhoto1 from '../../images/paper-card__photo_1.jpg';
 import paperPhoto2 from '../../images/paper-card__photo_2.jpg';
 import paperPhoto3 from '../../images/paper-card__photo_3.jpg';

@@ -1,6 +1,6 @@
 import React from 'react';
 import './ShelterVacancies.css';
-import VacancyCard from '../VacancyCard/VacancyCard';
+import VacancyCard from '../../components/VacancyCard/VacancyCard';
 
 const ShelterVacancies = () => {
   return (

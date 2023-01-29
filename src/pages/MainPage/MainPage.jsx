@@ -1,10 +1,10 @@
 import React from 'react';
 import './MainPage.css';
-import Banner from '../../components/Banner/Banner';
-import Promo from '../../components/Promo/Promo';
-import SheltersOnMain from '../../components/SheltersOnMain/SheltersOnMain';
-import PapersOnMain from '../../components/PapersOnMain/PapersOnMain';
-import FAQ from '../../components/FAQ/FAQ';
+import Banner from '../../modules/Banner/Banner';
+import Promo from '../../modules/Promo/Promo';
+import SheltersOnMain from '../../modules/SheltersOnMain/SheltersOnMain';
+import PapersOnMain from '../../modules/PapersOnMain/PapersOnMain';
+import FAQ from '../../modules/FAQ/FAQ';
 
 const MainPage = ({ loggedIn }) => {
   return (

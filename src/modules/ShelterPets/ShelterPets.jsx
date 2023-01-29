@@ -1,6 +1,6 @@
 import React from 'react';
 import './ShelterPets.css';
-import PetCard from '../PetCard/PetCard';
+import PetCard from '../../components/PetCard/PetCard';
 
 const ShelterPets = () => {
   const slider = React.useRef(null); // элемент слайдера

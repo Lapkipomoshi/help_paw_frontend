@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom'; // подключает хук для программной навигации
 import { useInView } from 'react-intersection-observer'; // подключает хук, нужный для настройки анимации при прокрутки
 import './SheltersOnMain.css';
-import ShelterCard from '../ShelterCard/ShelterCard';
+import ShelterCard from '../../components/ShelterCard/ShelterCard';
 import shelterImage from '../../images/shelter-image.jpg';
 import shelterLogo from '../../images/shelter-logo.jpg';
 
