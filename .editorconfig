@@ -11,7 +11,7 @@ indent_style = space
 indent_size = 2
 
 # Позволяет выбрать, что использовать на концах строк.
-end_of_line = lf
+end_of_line = crlf
 
 # Позволяет выбрать кодировку для файлов.
 charset = utf-8
