@@ -18,6 +18,10 @@
   background-color: var(--color-accent-hover);
 }
 
+.button:focus {
+  background-color: var(--color-accent-pressed);
+}
+
 .button:disabled {
   background-color: var(--color-accent-disabled);
   cursor: default;
