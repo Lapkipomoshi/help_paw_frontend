@@ -41,6 +41,7 @@
         "react/function-component-definition": [2, { "namedComponents": ["arrow-function", "function-declaration"] }],
         "jsx-a11y/label-has-associated-control": "off",
         "react/jsx-props-no-multi-spaces": "off",
-        "jsx-a11y/control-has-associated-label": "off"
+        "jsx-a11y/control-has-associated-label": "off",
+        "linebreak-style": ["error", "windows"]
     }
 }
