@@ -1,0 +1,12 @@
+.faq-card__icon {
+  width: 32px;
+  height: 32px;
+  background-image: url('../../../../images/faq__plus.svg');
+  background-size: 32px 32px;
+  background-position: center;
+  box-sizing: border-box;
+}
+
+.faq-card__detalis[open] .faq-card__icon {
+  background-image: url('../../../../images/faq__minus.svg');
+}

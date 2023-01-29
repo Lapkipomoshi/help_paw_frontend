@@ -1,7 +1,7 @@
 import React from 'react';
-import './FAQ.css';
+import './Faq.css';
 
-const FAQ = () => {
+const Faq = () => {
   return (
     <section className='faq'>
       <h2 className='section-title'>Часто задаваемые вопросы</h2>
@@ -55,4 +55,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
+export default Faq;

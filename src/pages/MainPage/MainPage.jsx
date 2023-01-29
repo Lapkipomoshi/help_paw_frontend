@@ -4,7 +4,7 @@ import Banner from '../../modules/Banner/Banner';
 import Promo from '../../modules/Promo/Promo';
 import SheltersOnMain from '../../modules/SheltersOnMain/SheltersOnMain';
 import PapersOnMain from '../../modules/PapersOnMain/PapersOnMain';
-import FAQ from '../../modules/FAQ/FAQ';
+import Faq from '../../modules/Faq/Faq';
 
 const MainPage = ({ loggedIn }) => {
   return (
@@ -13,7 +13,7 @@ const MainPage = ({ loggedIn }) => {
       <Promo />
       <SheltersOnMain loggedIn={loggedIn} />
       <PapersOnMain />
-      <FAQ />
+      <Faq />
     </main>
   );
 };
