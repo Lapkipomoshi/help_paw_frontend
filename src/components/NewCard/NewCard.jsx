@@ -4,7 +4,9 @@ import './NewCard.css';
 import dataDarkIcon from '../../images/icons/ic_data_dark.svg';
 import selfDarkIcon from '../../images/icons/ic_self_dark.svg';
 
-const NewCard = ({ title, data, shelter, image, link }) => {
+const NewCard = ({
+  title, data, shelter, image, link,
+}) => {
   return (
     <Link className='new-card' to={link}>
       <img className='new-card__image' src={image} alt='фото' />
