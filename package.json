@@ -4,6 +4,7 @@
   "homepage": "https://artyom774.github.io/help_paw_frontend",
   "private": true,
   "dependencies": {
+    "@pbe/react-yandex-maps": "^1.2.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
