@@ -37,7 +37,7 @@ const LoginPage = () => {
                     type='password'
                     required
                   />
-                  <button type='button' className='password-visibility' />
+                  <button className='password-visibility' type='button' />
                 </div>
 
                 <span className='user-input__error' />
