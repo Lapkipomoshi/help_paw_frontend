@@ -1,4 +1,4 @@
-.faq-card__icon {
+.detalis-card__icon {
   width: 32px;
   height: 32px;
   background-image: url('../../../../images/faq__plus.svg');
@@ -7,6 +7,6 @@
   box-sizing: border-box;
 }
 
-.faq-card__detalis[open] .faq-card__icon {
+.detalis-card__detalis[open] .detalis-card__icon {
   background-image: url('../../../../images/faq__minus.svg');
 }
