@@ -2,6 +2,9 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import './AboutShelter.css';
 import shelterLogo from '../../images/shelter-logo.jpg';
+import classmatesIcon from '../../images/icons/footer__icon_classmates.svg';
+import vkIcon from '../../images/icons/footer__icon_vk.svg';
+import telegramIcon from '../../images/icons/footer__icon_telegram.svg';
 
 const AboutShelter = () => {
   const { id } = useParams(); // id приюта, получаемый из url-адреса текущей страницы
@@ -21,6 +24,7 @@ const AboutShelter = () => {
       В нём живет почти 2500 собак и 150 кошек. Большие и маленькие, пушистые и гладкие,
       весёлые и задумчивые - и на всех одна большая мечта
        - встретить своего Человека и найти Дом.`,
+      okLink: 'https://ok.ru/',
       vkLink: 'vk.com',
       telegramLink: 't.me',
       gettingAllMoney: 6457362,
@@ -65,18 +69,15 @@ const AboutShelter = () => {
             </li>
           </ul>
           <div className='shelter-info__icons'>
-            <a
-              className='shelter-info__icon shelter-info__icon_image_vk'
-              href={cardInfo.vkLink}
-              target='_blank'
-              rel='noreferrer'
-            />
-            <a
-              className='shelter-info__icon shelter-info__icon_image_telegram'
-              href={cardInfo.telegramLink}
-              target='_blank'
-              rel='noreferrer'
-            />
+            <a href={cardInfo.okLink} target='_blank' rel='noreferrer'>
+              <img className='shelter-info__icon' src={classmatesIcon} alt='OK.ru' />
+            </a>
+            <a href={cardInfo.vkLink} target='_blank' rel='noreferrer'>
+              <img className='shelter-info__icon' src={vkIcon} alt='ВК' />
+            </a>
+            <a href={cardInfo.telegramLink} target='_blank' rel='noreferrer'>
+              <img className='shelter-info__icon' src={telegramIcon} alt='телеграм' />
+            </a>
           </div>
         </div>
       </div>
