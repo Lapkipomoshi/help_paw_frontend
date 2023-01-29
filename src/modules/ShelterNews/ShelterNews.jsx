@@ -1,6 +1,6 @@
 import React from 'react';
 import './ShelterNews.css';
-import NewsSection from '../../components/NewsSection/NewsSection';
+import NewsSection from '../NewsSection/NewsSection';
 
 const ShelterNews = () => {
   return (
