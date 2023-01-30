@@ -2,18 +2,18 @@ import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
 import ProtectedRoute from '../ProtectedRoute';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+import Header from '../../modules/Header/Header';
+import Footer from '../../modules/Footer/Footer';
 import MainPage from '../../pages/MainPage/MainPage';
 import MapPage from '../../pages/MapPage/MapPage';
 import ShelterListPage from '../../pages/ShelterListPage/ShelterListPage';
 
 import ShelterPage from '../../pages/ShelterPage/ShelterPage';
-import AboutShelter from '../AboutShelter/AboutShelter';
-import HelpToShelter from '../HelpToShelter/HelpToShelter';
-import ShelterNews from '../ShelterNews/ShelterNews';
-import ShelterPets from '../ShelterPets/ShelterPets';
-import ShelterVacancies from '../ShelterVacancies/ShelterVacancies';
+import AboutShelter from '../../modules/AboutShelter/AboutShelter';
+import HelpToShelter from '../../modules/HelpToShelter/HelpToShelter';
+import ShelterNews from '../../modules/ShelterNews/ShelterNews';
+import ShelterPets from '../../modules/ShelterPets/ShelterPets';
+import ShelterVacancies from '../../modules/ShelterVacancies/ShelterVacancies';
 
 import PetPage from '../../pages/PetPage/PetPage';
 import PapersPage from '../../pages/PapersPage/PapersPage';
