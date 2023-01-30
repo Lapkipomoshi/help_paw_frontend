@@ -1,27 +1,10 @@
 import React from 'react';
 import './ShelterPets.css';
+import CardsSlider from '../../components/CardsSlider/CardsSlider';
 import PetCard from '../../components/PetCard/PetCard';
 
 const ShelterPets = () => {
-  const slider = React.useRef(null); // элемент слайдера
-
   const [petsList, setPetsList] = React.useState([]); // список питомцев приюта
-
-  let position = 0; // смещение карточек в слайдере при листании
-
-  const handlePrev = () => { // показать предыдущие карточки
-    if (position < 0) position += 200;
-    slider.current.childNodes.forEach((element) => {
-      element.style = `transform: translateX(${position}px)`;
-    });
-  };
-
-  const handleNext = () => { // показать следующие карточки
-    if (position >= (-(petsList.length - 7) * 200)) position -= 200;
-    slider.current.childNodes.forEach((element) => {
-      element.style = `transform: translateX(${position}px)`;
-    });
-  };
 
   React.useEffect(() => {
     setPetsList([ // будет запрашиваться с бэкенда
@@ -101,7 +84,7 @@ const ShelterPets = () => {
               <h3 className='shelter-pets__summary-title'>Кошки</h3>
               <div className='shelter-pets__summary-icon' />
             </summary>
-            <ul className='slider' ref={slider}>
+            <CardsSlider listLength={petsList.length}>
               {petsList.map((card) => {
                 return (
                   <li className='slider__item' key={card.id}>
@@ -115,11 +98,7 @@ const ShelterPets = () => {
                   </li>
                 );
               })}
-            </ul>
-            <div className='slider__buttons'>
-              <button className='slider__button' type='button' onClick={handlePrev} />
-              <button className='slider__button slider__button_next' type='button' onClick={handleNext} />
-            </div>
+            </CardsSlider>
           </details>
         </li>
         <li className='shelter-pets__item'>
