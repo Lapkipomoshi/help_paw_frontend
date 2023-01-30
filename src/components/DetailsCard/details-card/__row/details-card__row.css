@@ -1,4 +1,4 @@
-.detalis-card__row {
+.details-card__row {
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -7,6 +7,6 @@
   transition-duration: .5s;
 }
 
-.detalis-card__row:hover {
+.details-card__row:hover {
   opacity: .5;
 }

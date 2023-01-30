@@ -1,6 +1,6 @@
 import React from 'react';
 import './Faq.css';
-import DetalisCard from '../../components/DetalisCard/DetalisCard';
+import DetailsCard from '../../components/DetailsCard/DetailsCard';
 
 const Faq = () => {
   const [faqList, setFaqList] = React.useState([]); // список часто задаваемых вопросов
@@ -37,9 +37,9 @@ const Faq = () => {
       <ul className='faq__list'>
         {faqList.map((card) => {
           return (
-            <DetalisCard key={card.id} title={card.title} isOpen={false}>
+            <DetailsCard key={card.id} title={card.title} isOpen={false}>
               <p className='faq__text'>{card.text}</p>
-            </DetalisCard>
+            </DetailsCard>
           );
         })}
       </ul>
