@@ -1,4 +1,4 @@
-.slider__button {
+.cards-slider__button {
   width: 49px;
   height: 49px;
   margin: 0 9px 0 auto;
@@ -12,6 +12,6 @@
   transition-duration: .7s;
 }
 
-.slider__button:hover {
+.cards-slider__button:hover {
   opacity: .77;
 }

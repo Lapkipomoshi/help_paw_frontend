@@ -22,12 +22,12 @@ const CardsSlider = ({ children, listLength }) => {
 
   return (
     <>
-      <ul className='slider' ref={slider}>
+      <ul className='cards-slider' ref={slider}>
         {children}
       </ul>
-      <div className='slider__buttons'>
-        <button className='slider__button' type='button' onClick={handlePrev} />
-        <button className='slider__button slider__button_next' type='button' onClick={handleNext} />
+      <div className='cards-slider__buttons'>
+        <button className='cards-slider__button' type='button' onClick={handlePrev} />
+        <button className='cards-slider__button cards-slider__button_next' type='button' onClick={handleNext} />
       </div>
     </>
   );

@@ -1,5 +1,4 @@
-@import url('./slider/slider.css');
-@import url('./slider/__item/slider__item.css');
-@import url('./slider/__buttons/slider__buttons.css');
-@import url('./slider/__button/slider__button.css');
-@import url('./slider/__button/_next/slider__button_next.css');
+@import url('./cards-slider/cards-slider.css');
+@import url('./cards-slider/__buttons/cards-slider__buttons.css');
+@import url('./cards-slider/__button/cards-slider__button.css');
+@import url('./cards-slider/__button/_next/cards-slider__button_next.css');
