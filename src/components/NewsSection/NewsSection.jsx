@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './NewsSection.css';
-import NewCard from '../../components/NewCard/NewCard';
+import NewCard from '../NewCard/NewCard';
 import dataIcon from '../../images/icons/ic_data.svg';
 import selfIcon from '../../images/icons/ic_self.svg';
 import newPhoto from '../../images/new-big-card.jpg';

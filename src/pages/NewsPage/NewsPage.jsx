@@ -1,6 +1,6 @@
 import React from 'react';
 import './NewsPage.css';
-import NewsSection from '../../modules/NewsSection/NewsSection';
+import NewsSection from '../../components/NewsSection/NewsSection';
 
 const NewsPage = () => {
   return (
