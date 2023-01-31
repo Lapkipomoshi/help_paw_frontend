@@ -10,6 +10,49 @@ import newPhoto2 from '../../images/new-card__photo_2.jpg';
 import newPhoto3 from '../../images/new-card__photo_3.jpg';
 
 const NewsSection = () => {
+  const [newsList, setNewsList] = React.useState([]); // список новостей
+
+  React.useEffect(() => {
+    setNewsList([ // будет запрашиваться с бэкенда
+      {
+        id: 1,
+        title: 'В приюте Бирюлево побывали школьники',
+        data: '12.12.2022',
+        shelter: 'Приют Бирюлево',
+        description: `Работники приюта показали им как устроен приют и ученики помогали выгуливать
+        собак. Работники приюта показали им как устроен приют и ученики помогали выгуливать собак`,
+        mainPhoto: newPhoto,
+      },
+      {
+        id: 2,
+        title: 'В приюте Бирюлево побывали школьники',
+        data: '12.12.2022',
+        shelter: 'Приют Бирюлево',
+        description: `Работники приюта показали им как устроен приют и ученики помогали выгуливать
+        собак. Работники приюта показали им как устроен приют и ученики помогали выгуливать собак`,
+        mainPhoto: newPhoto1,
+      },
+      {
+        id: 3,
+        title: 'В приюте Бирюлево побывали школьники',
+        data: '12.12.2022',
+        shelter: 'Приют Бирюлево',
+        description: `Работники приюта показали им как устроен приют и ученики помогали выгуливать
+        собак. Работники приюта показали им как устроен приют и ученики помогали выгуливать собак`,
+        mainPhoto: newPhoto2,
+      },
+      {
+        id: 4,
+        title: 'В приюте Бирюлево побывали школьники',
+        data: '12.12.2022',
+        shelter: 'Приют Бирюлево',
+        description: `Работники приюта показали им как устроен приют и ученики помогали выгуливать
+        собак. Работники приюта показали им как устроен приют и ученики помогали выгуливать собак`,
+        mainPhoto: newPhoto3,
+      },
+    ]);
+  }, []);
+
   return (
     <div className='news-section'>
       <Link className='new-big-card' to='/news/1'>
@@ -33,33 +76,21 @@ const NewsSection = () => {
         </div>
       </Link>
       <ul className='news-section__column'>
-        <li className='news-section__item'>
-          <NewCard
-            title='В приюте Бирюлево побывали школьники'
-            data='12.12.2022'
-            shelter='Приют Бирюлево'
-            image={newPhoto1}
-            link='/news/2'
-          />
-        </li>
-        <li className='news-section__item'>
-          <NewCard
-            title='В приюте Бирюлево побывали школьники'
-            data='12.12.2022'
-            shelter='Приют Бирюлево'
-            image={newPhoto2}
-            link='/news/2'
-          />
-        </li>
-        <li className='news-section__item'>
-          <NewCard
-            title='В приюте Бирюлево побывали школьники'
-            data='12.12.2022'
-            shelter='Приют Бирюлево'
-            image={newPhoto3}
-            link='/news/2'
-          />
-        </li>
+        {newsList.map((card, index) => {
+          return (
+            index !== 0 && (
+              <li className='news-section__item' key={card.id}>
+                <NewCard
+                  id={card.id}
+                  title={card.title}
+                  data={card.data}
+                  shelter={card.shelter}
+                  image={card.mainPhoto}
+                />
+              </li>
+            )
+          );
+        })}
       </ul>
     </div>
   );
