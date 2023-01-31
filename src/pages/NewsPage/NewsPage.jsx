@@ -1,6 +1,7 @@
 import React from 'react';
 import './NewsPage.css';
 import NewsSection from '../../components/NewsSection/NewsSection';
+import Button from '../../ui/Button/Button';
 import newPhoto from '../../images/new-big-card.jpg';
 import newPhoto1 from '../../images/new-card__photo_1.jpg';
 import newPhoto2 from '../../images/new-card__photo_2.jpg';
@@ -54,7 +55,7 @@ const NewsPage = () => {
     <main className='main news'>
       <div className='news__title-row'>
         <h2 className='news__title'>Новости</h2>
-        <button className='button' type='button' disabled>Предложить новость</button>
+        <Button className='margin-left_auto' onClick={() => {}} disabled>Предложить новость</Button>
       </div>
       <NewsSection newsList={newsList} />
     </main>

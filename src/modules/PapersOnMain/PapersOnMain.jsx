@@ -1,14 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './PapersOnMain.css';
 import PaperCard from '../../components/PaperCard/PaperCard';
+import Button from '../../ui/Button/Button';
 import paperPhoto1 from '../../images/paper-card__photo_1.jpg';
 import paperPhoto2 from '../../images/paper-card__photo_2.jpg';
 import paperPhoto3 from '../../images/paper-card__photo_3.jpg';
 
 const PapersOnMain = () => {
-  const navigate = useNavigate();
-
   const [papersList, setPapersList] = React.useState([]); // список полезных статей на главной странице
 
   React.useEffect(() => {
@@ -37,7 +35,7 @@ const PapersOnMain = () => {
       <ul className='papers-on-main__flex-container'>
         {papersList.map((card) => {
           return (
-            <li className='papers-on-main__flex-element'>
+            <li className='papers-on-main__flex-element' key={card.id}>
               <PaperCard
                 id={card.id}
                 photo={card.photo}
@@ -47,9 +45,7 @@ const PapersOnMain = () => {
           );
         })}
       </ul>
-      <button className='button margin-left_auto' type='button' onClick={() => { return navigate('/papers'); }}>
-        Все статьи
-      </button>
+      <Button className='margin-left_auto' to='/papers' link>Все статьи</Button>
     </section>
   );
 };

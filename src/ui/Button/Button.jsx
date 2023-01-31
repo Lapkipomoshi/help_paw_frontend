@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom'; // подключает хук �
 import './Button.css';
 
 const Button = ({
-  children, className = '', link, onClick = () => {}, to = '', disabled,
+  children, className = '', onClick = () => {}, to = '', submit, link, disabled,
 }) => {
   const navigate = useNavigate(); // хук для использования программной навигации
 
   return (
-    <button className={`button ${className}`} type='button' onClick={link ? () => { return navigate(to); } : onClick} disabled={disabled}>
+    <button className={`button ${className}`} type={submit ? 'submit' : 'button'} onClick={link ? () => { return navigate(to); } : onClick} disabled={disabled}>
       {children}
     </button>
   );

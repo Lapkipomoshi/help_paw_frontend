@@ -1,7 +1,0 @@
-.button_disabled {
-  background-color: var(--color-accent-disabled);
-}
-
-.button_disabled:hover {
-  background-color: var(--color-accent-disabled);
-}
