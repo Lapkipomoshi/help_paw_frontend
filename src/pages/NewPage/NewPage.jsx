@@ -14,7 +14,7 @@ const NewPage = () => {
           <img className='new-page__icon' src={dataIcon} alt='дата' />
           <p className='new-page__info'>12.12.2022</p>
         </div>
-        <Link className='new-page__info-block new-page__info-block_link' to='/shelters/1'>
+        <Link className='new-page__info-block new-page__info-block_link' to='/shelters/1/news'>
           <img className='new-page__icon' src={selfIcon} alt='приют' />
           <p className='new-page__info'>Приют Бирюлево</p>
         </Link>
