@@ -5,13 +5,12 @@
   font-weight: 600;
   font-family: 'Montserrat Alternates', 'Inter', Arial, sans-serif;
   color: var(--color-text-light);
-  font-family: 'Montserrat Alternates', 'Inter', Arial, sans-serif;
   text-decoration: none;
   background-color: var(--color-accent-base);
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  transition-duration: 1s;
+  transition-duration: .7s;
 }
 
 .button:hover {
@@ -25,10 +24,6 @@
 .button:disabled {
   background-color: var(--color-accent-disabled);
   cursor: default;
-}
-
-.button:disabled:hover {
-  opacity: 1;
 }
 
 .button_disabled {
