@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import ProtectedRoute from '../ProtectedRoute';
 import Header from '../../modules/Header/Header';
@@ -61,7 +61,6 @@ const App = () => {
             <ProtectedRoute loggedIn={!loggedIn} component={RegisterPage} />
           }
         />
-        <Route path='/help_paw_frontend' element={<Navigate to='/' replace />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
       <Footer />
