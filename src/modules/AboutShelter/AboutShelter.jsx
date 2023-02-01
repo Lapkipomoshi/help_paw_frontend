@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import './AboutShelter.css';
-import InfoRow from '../../ui/InfoRow/InfoRow';
+import InfoItem from '../../ui/InfoItem/InfoItem';
 import shelterLogo from '../../images/shelter-logo.jpg';
 import classmatesIcon from '../../images/icons/footer__icon_classmates.svg';
 import vkIcon from '../../images/icons/footer__icon_vk.svg';
@@ -40,15 +40,15 @@ const AboutShelter = () => {
         <div className='shelter-info__text-container'>
           <h2 className='shelter-section__title'>{cardInfo.title}</h2>
           <ul className='shelter-info__list'>
-            <InfoRow argument='Адрес'>{cardInfo.address}</InfoRow>
-            <InfoRow argument='Часы-работы'>{cardInfo.workingHours}</InfoRow>
-            <InfoRow argument='Номер телефона'>{cardInfo.phone}</InfoRow>
-            <InfoRow argument='E-mail'>{cardInfo.email}</InfoRow>
-            <InfoRow argument='Сайт'>
+            <InfoItem argument='Адрес'>{cardInfo.address}</InfoItem>
+            <InfoItem argument='Часы-работы'>{cardInfo.workingHours}</InfoItem>
+            <InfoItem argument='Номер телефона'>{cardInfo.phone}</InfoItem>
+            <InfoItem argument='E-mail'>{cardInfo.email}</InfoItem>
+            <InfoItem argument='Сайт'>
               <a className='shelter-info__link' href={cardInfo.link} target='_blank' rel='noreferrer'>
                 {cardInfo.link}
               </a>
-            </InfoRow>
+            </InfoItem>
             <div className='shelter-info__icons'>
               <a href={cardInfo.okLink} target='_blank' rel='noreferrer'>
                 <img className='shelter-info__icon' src={classmatesIcon} alt='OK.ru' />

@@ -1,4 +1,4 @@
-.info-row {
+.info-item {
   margin: 0;
   padding: 0;
   font-size: 18px;
@@ -6,6 +6,6 @@
   font-weight: 400;
 }
 
-.info-row__span {
+.info-item__span {
   color: var(--color-text-additional);
 }
