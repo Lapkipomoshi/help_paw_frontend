@@ -1,0 +1,8 @@
+@import url('./footer/footer.css');
+@import url('./footer/__flex-column-container/footer__flex-column-container.css');
+@import url('./footer/__title/footer__title.css');
+@import url('./footer/__subtitle/footer__subtitle.css');
+@import url('./footer/__link/footer__link.css');
+@import url('./footer/__icons/footer__icons.css');
+@import url('./footer/__icon-link/footer__icon-link.css');
+@import url('./footer/__icon/footer__icon.css');

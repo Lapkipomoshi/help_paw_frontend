@@ -1,0 +1,12 @@
+.user-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--color-background-base);
+    padding: 62px 99px 147px 134px;
+}
+
+.user-container_login {
+    padding-right: 169px;
+}
+

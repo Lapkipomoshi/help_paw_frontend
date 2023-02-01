@@ -1,0 +1,27 @@
+# Если root = true, парсер не будет искать другие конфиги родительских папках
+root = true
+
+# Для всех файлов используем unix-совместимые переносы строк
+[*]
+
+# Позволяет задать жесткую или мягкую табуляцию для отступов.
+indent_style = space
+
+# Позволяет задать ширину отступа использовании мягкой табуляции.
+indent_size = 2
+
+# Позволяет выбрать, что использовать на концах строк.
+end_of_line = crlf
+
+# Позволяет выбрать кодировку для файлов.
+charset = utf-8
+
+# Denotes whether to trim whitespace at the end of lines
+# Possible values - true, false
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+# Позволяет убедиться, что в конце файла всегда будет новая строка.
+insert_final_newline = true

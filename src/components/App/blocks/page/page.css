@@ -1,0 +1,8 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 1440px;
+  font-family: 'Inter', Arial, sans-serif;
+  color: var(--color-text-base);
+}

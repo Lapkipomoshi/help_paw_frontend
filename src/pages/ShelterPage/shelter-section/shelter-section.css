@@ -1,0 +1,10 @@
+.shelter-section {
+  display: flex;
+  width: 100%;
+  min-height: 625px;
+  flex-direction: column;
+  padding: 0 0 80px 132px;
+  background-color: var(--color-background-base);
+  box-sizing: border-box;
+  overflow: hidden;
+}

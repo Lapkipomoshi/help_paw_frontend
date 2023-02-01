@@ -1,0 +1,5 @@
+.new-big-card__photo {
+  position: absolute;
+  width: 100%;
+  object-fit: contain;
+}

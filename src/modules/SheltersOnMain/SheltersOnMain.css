@@ -1,0 +1,9 @@
+@import url('./shelters-on-main/shelters-on-main.css');
+@import url('./shelters-on-main/__shelters-container/shelters-on-main__shelters-container.css');
+@import url('./shelters-on-main/__text-container/shelters-on-main__text-container.css');
+@import url('./shelters-on-main/__text-container/_animation/shelters-on-main__text-container_animation.css');
+@import url('./shelters-on-main/__text-title/shelters-on-main__text-title.css');
+@import url('./shelters-on-main/__text-subtitle/shelters-on-main__text-subtitle.css');
+@import url('./shelters-on-main/__popup/shelters-on-main__popup.css');
+@import url('./shelters-on-main/__popup/_opened/shelters-on-main__popup_opened.css');
+@import url('./shelters-on-main/__popup-text/shelters-on-main__popup-text.css');

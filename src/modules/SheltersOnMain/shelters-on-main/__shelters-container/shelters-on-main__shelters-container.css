@@ -1,0 +1,8 @@
+.shelters-on-main__shelters-container {
+  display: flex;
+  width: 848px;
+  margin: 0 auto 44px;
+  padding: 0;
+  list-style-type: none;
+  justify-content: space-between;
+}

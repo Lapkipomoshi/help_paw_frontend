@@ -1,0 +1,5 @@
+@import url('./paper/paper.css');
+@import url('./paper/__title/paper__title.css');
+@import url('./paper/__image/paper__image.css');
+@import url('./paper/__text/paper__text.css');
+@import url('./paper/__link/paper__link.css');

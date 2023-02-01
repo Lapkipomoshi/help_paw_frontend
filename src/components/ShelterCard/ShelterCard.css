@@ -1,0 +1,7 @@
+@import url('./shelter-card/shelter-card.css');
+@import url('./shelter-card/__image/shelter-card__image.css');
+@import url('./shelter-card/__title/shelter-card__title.css');
+@import url('./shelter-card/__address/shelter-card__address.css');
+@import url('./shelter-card/__working-hours/shelter-card__working-hours.css');
+@import url('./shelter-card/__hours/shelter-card__hours.css');
+@import url('./shelter-card/__logo/shelter-card__logo.css');
