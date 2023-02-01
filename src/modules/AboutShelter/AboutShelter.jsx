@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import './AboutShelter.css';
+import InfoRow from '../../ui/InfoRow/InfoRow';
 import shelterLogo from '../../images/shelter-logo.jpg';
 import classmatesIcon from '../../images/icons/footer__icon_classmates.svg';
 import vkIcon from '../../images/icons/footer__icon_vk.svg';
@@ -39,45 +40,27 @@ const AboutShelter = () => {
         <div className='shelter-info__text-container'>
           <h2 className='shelter-section__title'>{cardInfo.title}</h2>
           <ul className='shelter-info__list'>
-            <li className='shelter-info__text'>
-              Адрес:
-              {' '}
-              <span className='color_text_additional'>{cardInfo.address}</span>
-            </li>
-            <li className='shelter-info__text'>
-              Часы-работы:
-              {' '}
-              <span className='color_text_additional'>{cardInfo.workingHours}</span>
-            </li>
-            <li className='shelter-info__text'>
-              Номер телефона:
-              {' '}
-              <span className='color_text_additional'>{cardInfo.phone}</span>
-            </li>
-            <li className='shelter-info__text'>
-              E-mail:
-              {' '}
-              <span className='color_text_additional'>{cardInfo.email}</span>
-            </li>
-            <li className='shelter-info__text'>
-              Сайт:
-              {' '}
+            <InfoRow argument='Адрес'>{cardInfo.address}</InfoRow>
+            <InfoRow argument='Часы-работы'>{cardInfo.workingHours}</InfoRow>
+            <InfoRow argument='Номер телефона'>{cardInfo.phone}</InfoRow>
+            <InfoRow argument='E-mail'>{cardInfo.email}</InfoRow>
+            <InfoRow argument='Сайт'>
               <a className='shelter-info__link' href={cardInfo.link} target='_blank' rel='noreferrer'>
                 {cardInfo.link}
               </a>
-            </li>
+            </InfoRow>
+            <div className='shelter-info__icons'>
+              <a href={cardInfo.okLink} target='_blank' rel='noreferrer'>
+                <img className='shelter-info__icon' src={classmatesIcon} alt='OK.ru' />
+              </a>
+              <a href={cardInfo.vkLink} target='_blank' rel='noreferrer'>
+                <img className='shelter-info__icon' src={vkIcon} alt='ВК' />
+              </a>
+              <a href={cardInfo.telegramLink} target='_blank' rel='noreferrer'>
+                <img className='shelter-info__icon' src={telegramIcon} alt='телеграм' />
+              </a>
+            </div>
           </ul>
-          <div className='shelter-info__icons'>
-            <a href={cardInfo.okLink} target='_blank' rel='noreferrer'>
-              <img className='shelter-info__icon' src={classmatesIcon} alt='OK.ru' />
-            </a>
-            <a href={cardInfo.vkLink} target='_blank' rel='noreferrer'>
-              <img className='shelter-info__icon' src={vkIcon} alt='ВК' />
-            </a>
-            <a href={cardInfo.telegramLink} target='_blank' rel='noreferrer'>
-              <img className='shelter-info__icon' src={telegramIcon} alt='телеграм' />
-            </a>
-          </div>
         </div>
       </div>
       <h2 className='shelter-section__title'>Описание</h2>

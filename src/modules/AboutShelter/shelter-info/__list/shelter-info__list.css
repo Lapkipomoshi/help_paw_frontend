@@ -1,8 +1,9 @@
 .shelter-info__list {
   display: flex;
-  width: 100%;
+  width: 298px;
   margin: 28px 0 0;
   padding: 0;
   flex-direction: column;
+  row-gap: 16px;
   list-style-type: none;
 }

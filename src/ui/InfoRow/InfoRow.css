@@ -1,0 +1,11 @@
+.info-row {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+.info-row__span {
+  color: var(--color-text-additional);
+}
