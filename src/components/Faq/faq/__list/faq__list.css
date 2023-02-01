@@ -1,9 +1,0 @@
-.faq__list {
-  display: flex;
-  flex-direction: column;
-  width: 1052px;
-  margin: 0;
-  padding: 0;
-  row-gap: 24px;
-  list-style-type: none;
-}
