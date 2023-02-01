@@ -10,7 +10,7 @@ const SearchInput = () => {
         <input className='search-form__input' id='searchInput' placeholder='Поиск...' />
         <Button onClick={() => {}} submit>Искать</Button>
       </form>
-      <Link to='#' className='search__shelters-link'>Показать приюты списком</Link>
+      <Link className='search__shelters-link' to='/shelters/list'>Показать приюты списком</Link>
     </section>
   );
 };
