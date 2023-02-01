@@ -35,7 +35,7 @@ const Faq = () => {
     <section className='faq'>
       <h2 className='section-title'>Часто задаваемые вопросы</h2>
       <ul className='faq__list'>
-        {faqList.map((card) => {
+        {faqList.map((card) => { // список карточек с часто задаваемыми вопросами
           return (
             <DetailsCard key={card.id} title={card.title} isOpen={false}>
               <p className='faq__text'>{card.text}</p>

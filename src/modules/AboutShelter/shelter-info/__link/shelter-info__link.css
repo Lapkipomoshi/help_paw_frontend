@@ -1,7 +1,7 @@
 .shelter-info__link {
   color: var(--color-accent-base);
   text-decoration: none;
-  transition-duration: 1s;
+  transition-duration: .7s;
 }
 
 .shelter-info__link:hover {

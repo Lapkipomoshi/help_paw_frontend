@@ -5,11 +5,11 @@ import dataDarkIcon from '../../images/icons/ic_data_dark.svg';
 import selfDarkIcon from '../../images/icons/ic_self_dark.svg';
 
 const NewCard = ({
-  title, data, shelter, image, link,
+  id, title, data, shelter, image,
 }) => {
   return (
-    <Link className='new-card' to={link}>
-      <img className='new-card__image' src={image} alt='фото' />
+    <Link className='new-card' to={`/news/${id}`}>
+      <img className='new-card__image' src={image} alt={title} />
       <div className='new-card__content'>
         <h4 className='new-card__title'>{title}</h4>
         <div className='new-card__info-block'>

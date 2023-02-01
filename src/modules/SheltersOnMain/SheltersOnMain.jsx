@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'; // подключает хук �
 import { useInView } from 'react-intersection-observer'; // подключает хук, нужный для настройки анимации при прокрутки
 import './SheltersOnMain.css';
 import ShelterCard from '../../components/ShelterCard/ShelterCard';
+import Button from '../../ui/Button/Button';
 import shelterImage from '../../images/shelter-image.jpg';
 import shelterLogo from '../../images/shelter-logo.jpg';
 
@@ -68,9 +69,7 @@ const SheltersOnMain = ({ loggedIn }) => {
           />
         </li>
       </ul>
-      <button className='button margin-left_auto' type='button' onClick={() => { return navigate('/shelters'); }}>
-        Смотреть на карте
-      </button>
+      <Button className='margin-left_auto' to='/shelters' link>Смотреть на карте</Button>
       <div
         className={
           `shelters-on-main__text-container ${isActiveAnimation ? 'shelters-on-main__text-container_animation' : ''}`
@@ -79,24 +78,10 @@ const SheltersOnMain = ({ loggedIn }) => {
       >
         <h3 className='shelters-on-main__text-title'>Вы владелец приюта?</h3>
         <p className='shelters-on-main__text-subtitle'>Можете добавить ваш приют на наш сайт прямо сейчас!</p>
-        <button
-          className={
-            `button margin_column-center ${!loggedIn && 'button_disabled'}`
-          }
-          type='button'
-          onClick={handleAddShelterButton}
-        >
-          Добавить приют
-        </button>
+        <Button className={`margin_column-center ${!loggedIn && 'button_disabled'}`} onClick={handleAddShelterButton}>Добавить приют</Button>
         <div className={`shelters-on-main__popup ${isOpenPopup && 'shelters-on-main__popup_opened'}`}>
           <p className='shelters-on-main__popup-text'>Добавить приют на сайт можно только после регистрации</p>
-          <button
-            className='button margin_column-center'
-            type='button'
-            onClick={() => { return navigate('/sign-up'); }}
-          >
-            Зарегистрироваться
-          </button>
+          <Button className='margin_column-center' to='/sign-up' link>Зарегистрироваться</Button>
         </div>
       </div>
     </section>
