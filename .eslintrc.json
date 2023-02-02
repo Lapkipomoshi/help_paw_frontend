@@ -42,7 +42,7 @@
         "jsx-a11y/label-has-associated-control": "off",
         "react/jsx-props-no-multi-spaces": "off",
         "jsx-a11y/control-has-associated-label": "off",
-        "linebreak-style": ["error", "windows"],
+        "linebreak-style": "off",
         "jsx-a11y/anchor-is-valid": "off",
         "import/no-extraneous-dependencies": "off",
         "react/jsx-props-no-spreading": "off",
