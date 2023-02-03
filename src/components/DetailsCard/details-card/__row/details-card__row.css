@@ -4,9 +4,4 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  transition-duration: .5s;
-}
-
-.details-card__row:hover {
-  opacity: .5;
 }

@@ -1,12 +1,20 @@
 .details-card__icon {
   width: 32px;
   height: 32px;
-  background-image: url('../../../../images/faq__plus.svg');
-  background-size: 32px 32px;
-  background-position: center;
-  box-sizing: border-box;
 }
 
-.details-card__details[open] .details-card__icon {
-  background-image: url('../../../../images/faq__minus.svg');
+.details-card__icon line {
+  transition-duration: .5s;
+}
+
+.details-card__details:hover line {
+  stroke: var(--color-accent-hover);
+}
+
+.details-card__row:focus line {
+  stroke: var(--color-accent-pressed);
+}
+
+.details-card__details[open] #svg-vertical {
+  stroke: #fff;
 }
