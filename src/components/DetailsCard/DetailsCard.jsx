@@ -6,9 +6,9 @@ const DetailsCard = ({
   children, title, isOpen, textStyle, iconType,
 }) => {
   return (
-    <li className='details-card'>
+    <li className={`details-card details-card_style_${textStyle}`}>
       <details className='details-card__details' open={isOpen}>
-        <summary className='details-card__row'>
+        <summary className={`details-card__summary details-card__summary_style_${textStyle}`}>
           <p className={`details-card__title details-card__title_style_${textStyle}`}>{title}</p>
           {iconType === 'plus-minus' && <PlusMinus />}
         </summary>

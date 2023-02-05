@@ -12,7 +12,7 @@
   stroke: var(--color-accent-hover);
 }
 
-.details-card__row:focus .plus-minus line {
+.details-card__summary:focus .plus-minus line {
   stroke: var(--color-accent-pressed);
 }
 

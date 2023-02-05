@@ -1,6 +1,6 @@
 import React from 'react';
 import './ShelterPets.css';
-// import DetailsCard from '../../components/DetailsCard/DetailsCard';
+import DetailsCard from '../../components/DetailsCard/DetailsCard';
 import CardsSlider from '../../components/CardsSlider/CardsSlider';
 import PetCard from '../../components/PetCard/PetCard';
 
@@ -96,29 +96,23 @@ const ShelterPets = () => {
       <ul className='shelter-pets__list'>
         {petsList.map((pets) => {
           return (
-            <li className='shelter-pets__item' key={pets.id}>
-              <details className='shelter-pets__detalis'>
-                <summary className='shelter-pets__summary'>
-                  <h3 className='shelter-pets__summary-title'>{pets.pets}</h3>
-                  <div className='shelter-pets__summary-icon' />
-                </summary>
-                <CardsSlider listLength={catsList.length}>
-                  {catsList.map((card) => {
-                    return (
-                      <li className='shelter-pets__card-item' key={card.id}>
-                        <PetCard
-                          id={card.id}
-                          name={card.name}
-                          age={card.age}
-                          male={card.male}
-                          image={card.image}
-                        />
-                      </li>
-                    );
-                  })}
-                </CardsSlider>
-              </details>
-            </li>
+            <DetailsCard key={pets.id} title={pets.pets} isOpen={false} textStyle='shelter-pets' iconType='plus-minus'>
+              <CardsSlider listLength={catsList.length}>
+                {catsList.map((card) => {
+                  return (
+                    <li className='shelter-pets__card-item' key={card.id}>
+                      <PetCard
+                        id={card.id}
+                        name={card.name}
+                        age={card.age}
+                        male={card.male}
+                        image={card.image}
+                      />
+                    </li>
+                  );
+                })}
+              </CardsSlider>
+            </DetailsCard>
           );
         })}
       </ul>
