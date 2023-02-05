@@ -1,0 +1,22 @@
+.arrow {
+  width: 37px;
+  height: 22px;
+  transition: transform .7s;
+}
+
+.arrow path {
+  transition-duration: .3s;
+  fill: var(--color-text-base);
+}
+
+.details-card__details:hover .arrow path {
+  fill: var(--color-accent-hover);
+}
+
+.details-card__summary:focus .arrow path {
+  fill: var(--color-accent-pressed);
+}
+
+.details-card__details[open] .arrow {
+  transform: rotate(180deg);
+}

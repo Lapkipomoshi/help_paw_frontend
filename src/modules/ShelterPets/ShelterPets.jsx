@@ -96,7 +96,7 @@ const ShelterPets = () => {
       <ul className='shelter-pets__list'>
         {petsList.map((pets) => {
           return (
-            <DetailsCard key={pets.id} title={pets.pets} isOpen={false} textStyle='shelter-pets' iconType='plus-minus'>
+            <DetailsCard key={pets.id} title={pets.pets} isOpen={false} textStyle='shelter-pets' iconType='arrow'>
               <CardsSlider listLength={catsList.length}>
                 {catsList.map((card) => {
                   return (
