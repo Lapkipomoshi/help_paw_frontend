@@ -1,12 +1,17 @@
 .user-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    column-gap: 140px;
     background-color: var(--color-background-base);
-    padding: 62px 99px 147px 134px;
+    padding: 62px 99px 147px 132px;
 }
 
 .user-container_login {
     padding-right: 169px;
+}
+
+.user-container__image {
+  height: 561px;
+  width: 623px;
 }
 
