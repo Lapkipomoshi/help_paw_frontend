@@ -24,6 +24,10 @@
   padding: 6px 12px;
 }
 
+.input:focus {
+  outline: none;
+}
+
 .input_valid {
   border-color: var(--color-verify-valid);
 }
