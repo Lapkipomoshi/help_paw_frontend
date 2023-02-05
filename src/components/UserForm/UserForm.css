@@ -13,6 +13,11 @@
   max-height: 412px;
 }
 
+.user-form__container_recovery {
+  width: 382px;
+  max-height: 337px;
+}
+
 .user-form__title {
   font-family: 'Montserrat Alternates', Arial, sans-serif;
   font-style: normal;
