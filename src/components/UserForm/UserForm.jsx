@@ -2,7 +2,7 @@ import React from 'react';
 import './UserForm.css';
 
 function UserForm({
-  title, buttonText, onSubmit, formChildren, formClass, buttonContainerClass, buttonClass, buttonChildren,
+  title, onSubmit, formChildren, formClass,
 }) {
   return (
     <div className={`user-form__container user-form__container_${formClass}`}>
@@ -13,20 +13,7 @@ function UserForm({
         onSubmit={onSubmit}
         noValidate
       >
-
         {formChildren}
-
-        <div className={buttonContainerClass}>
-          <button
-            className={buttonClass}
-            type='submit'
-          >
-            {buttonText}
-          </button>
-
-          {buttonChildren}
-        </div>
-
       </form>
     </div>
   );
