@@ -12,14 +12,11 @@ const MainPage = ({ loggedIn }) => {
   const [faqList, setFaqList] = React.useState([]); // список часто задаваемых вопросов
 
   React.useEffect(() => {
-    console.log(mainApi.getFaq);
-
-    fetch('https://lapkipomoshi.ru/api/v1/faq', {
+    fetch('https://lapkipomoshi.ru/api/v1/faq/', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
       },
-      credentials: 'include',
     })
       .then((res) => {
         if (res.ok) {
