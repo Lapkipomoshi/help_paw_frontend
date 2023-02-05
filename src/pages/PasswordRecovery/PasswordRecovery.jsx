@@ -1,23 +1,21 @@
 import React from 'react';
-import './LoginPage.css';
-import { Link } from 'react-router-dom';
+import './PasswordRecovery.css';
 import UserContainer from '../../components/UserContainer/UserContainer';
 import UserForm from '../../components/UserForm/UserForm';
 import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
-import PasswordInput from '../../ui/PasswordInput/PasswordInput';
 import SignUpBlock from '../../components/SignUpBlock/SignUpBlock';
 
-const LoginPage = () => {
+const PasswordRecovery = () => {
   return (
     <main className='main'>
-      <section className='login'>
+      <section className='recovery'>
         <UserContainer
-          containerClass='login'
+          containerClass='recovery'
         >
           <UserForm
-            title='Вход'
-            formClass='login'
+            title='Восстановление пароля'
+            formClass='recovery'
             formChildren={(
               <>
                 <Input
@@ -27,17 +25,9 @@ const LoginPage = () => {
                   pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'
                 />
 
-                <PasswordInput
-                  spanClass='input__error'
-                  spanText=''
-                />
+                <Button className='password-recovery__button' submit disabled>Отправить ссылку</Button>
 
-                <Button className='user-form__button-submit_login' submit disabled>Войти</Button>
-
-                <div className='login__authorization-container'>
-                  <Link className='login__link' to='/password-recovery'>Забыли пароль?</Link>
-                  <SignUpBlock className='login' />
-                </div>
+                <SignUpBlock className='recovery' />
               </>
             )}
           />
@@ -48,4 +38,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default PasswordRecovery;
