@@ -64,10 +64,10 @@ const RegisterPage = () => {
 
                 <p className='register__agreement'>
                   Я согласен с
-                  <Link className='register__privacy-link' to='/' target='_blank'>Политикой конфиденциальности</Link>
+                  <Link className='register__privacy-link' to='/' target='_blank'> Политикой конфиденциальности</Link>
                   {' '}
                   и
-                  <Link className='register__privacy-link' to='/' target='_blank'>Условиями использования сервиса</Link>
+                  <Link className='register__privacy-link' to='/' target='_blank'> Условиями использования сервиса</Link>
                 </p>
               </div>
             )}
