@@ -37,7 +37,7 @@ const Faq = () => {
       <ul className='faq__list'>
         {faqList.map((card) => { // список карточек с часто задаваемыми вопросами
           return (
-            <DetailsCard key={card.id} title={card.title} isOpen={false}>
+            <DetailsCard key={card.id} title={card.title} isOpen={false} iconType='plus-minus'>
               <p className='faq__text'>{card.text}</p>
             </DetailsCard>
           );

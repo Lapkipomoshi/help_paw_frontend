@@ -1,20 +1,20 @@
-.details-card__icon {
+.details-card__icon_type_plus-minus {
   width: 32px;
   height: 32px;
 }
 
-.details-card__icon line {
-  transition-duration: .5s;
+.details-card__icon_type_plus-minus line {
+  transition-duration: .3s;
 }
 
-.details-card__details:hover line {
+.details-card__details:hover .details-card__icon_type_plus-minus line {
   stroke: var(--color-accent-hover);
 }
 
-.details-card__row:focus line {
+.details-card__row:focus .details-card__icon_type_plus-minus line {
   stroke: var(--color-accent-pressed);
 }
 
-.details-card__details[open] #svg-vertical {
-  stroke: #fff;
+.details-card__details[open] .details-card__icon_type_plus-minus #svg-vertical {
+  stroke: rgba(0,0,0,0);
 }

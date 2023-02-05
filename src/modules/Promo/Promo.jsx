@@ -35,7 +35,7 @@ const Promo = () => {
       </div>
       <div className='promo__text-container'>
         <h2 className='section-title'>О нас</h2>
-        <p className='promo__text'>Наш проект “Лапка помощи” призван помочь приютам</p>
+        <p className='promo__text'>Наш проект “Лапки помощи” призван помочь приютам</p>
         <p className='promo__text'>
           Здесь вы можете поддержать приюты материально или забрать к себе домой одного из питомцев
 
