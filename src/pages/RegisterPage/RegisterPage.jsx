@@ -9,12 +9,12 @@ const RegisterPage = () => {
     <main className='main'>
       <section className='register'>
         <UserContainer
-          containerClass='user-container'
+          containerClass='register'
         >
           <UserForm
             title='Регистрация'
             buttonText='Зарегистрироваться'
-            formClass='user-form__container user-form__container_register'
+            formClass='register'
             buttonContainerClass='user-form__button-container user-form__button-container_register'
             buttonClass='user-form__button-submit user-form__button-submit_register'
             formChildren={(

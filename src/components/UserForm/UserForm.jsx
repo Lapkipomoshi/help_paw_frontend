@@ -5,7 +5,7 @@ function UserForm({
   title, buttonText, onSubmit, formChildren, formClass, buttonContainerClass, buttonClass, buttonChildren,
 }) {
   return (
-    <div className={formClass}>
+    <div className={`user-form__container user-form__container_${formClass}`}>
       <h2 className='user-form__title'>{title}</h2>
 
       <form

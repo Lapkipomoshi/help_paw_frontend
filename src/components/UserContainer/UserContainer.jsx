@@ -4,7 +4,7 @@ import Dog from '../../images/dog.png';
 
 function UserContainer({ containerClass, children }) {
   return (
-    <div className={containerClass}>
+    <div className={`user-container user-container_${containerClass}`}>
       <img className='user-container__image' src={Dog} alt='Собака' />
 
       {children}

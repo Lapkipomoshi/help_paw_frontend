@@ -9,12 +9,12 @@ const LoginPage = () => {
     <main className='main'>
       <section className='login'>
         <UserContainer
-          containerClass='user-container user-container_login'
+          containerClass='login'
         >
           <UserForm
             title='Вход'
             buttonText='Войти'
-            formClass='user-form__container user-form__container_login'
+            formClass='login'
             buttonContainerClass='user-form__button-container user-form__button-container_login'
             buttonClass='user-form__button-submit user-form__button-submit_login'
             formChildren={(
