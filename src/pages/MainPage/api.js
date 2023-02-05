@@ -1,3 +1,5 @@
+import { baseUrl, apiHeaders } from '../../utils/constants';
+
 class MainApi {
   constructor(options) {
     this._baseUrl = options._baseUrl;
@@ -12,10 +14,17 @@ class MainApi {
   }
 
   getFaq() { // загрузка часто задаваемых вопросов
-    return fetch(`${this._baseUrl}/v1/faq`, {
-      method: 'GET',
+    return fetch(`${this._baseUrl}/v1/faq/`, {
       headers: this._headers,
-      credentials: 'include',
+    })
+      .then((res) => {
+        return this._processTheResponse(res);
+      });
+  }
+
+  getSheltersOnMain() { // загрузка часто задаваемых вопросов
+    return fetch(`${this._baseUrl}/v1/shelters/on_main/`, {
+      headers: this._headers,
     })
       .then((res) => {
         return this._processTheResponse(res);
@@ -24,10 +33,8 @@ class MainApi {
 }
 
 const mainApi = new MainApi({
-  _baseUrl: 'https://lapkipomoshi.ru/api',
-  _headers: {
-    'Content-Type': 'application/json',
-  },
+  _baseUrl: baseUrl,
+  _headers: apiHeaders,
 });
 
 export default mainApi;

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
 import './MainPage.css';
 import Banner from '../../modules/Banner/Banner';
@@ -12,35 +11,14 @@ const MainPage = ({ loggedIn }) => {
   const [faqList, setFaqList] = React.useState([]); // список часто задаваемых вопросов
 
   React.useEffect(() => {
-    fetch('https://lapkipomoshi.ru/api/v1/faq/', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-      })
+    mainApi
+      .getFaq() // загрузка карточек с часто задаваемыми вопросами
       .then((faqs) => {
-        console.log(faqs);
         setFaqList(faqs);
       })
       .catch((err) => {
         console.log(err);
       });
-
-    /*    mainApi
-      .getFaq()
-      .then((faqs) => {
-        console.log(faqs);
-        setFaqList(faqs);
-      })
-      .catch((err) => {
-        console.log(err);
-      }); */
   }, []);
 
   return (
