@@ -6,6 +6,7 @@ import UserForm from '../../components/UserForm/UserForm';
 import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import PasswordInput from '../../ui/PasswordInput/PasswordInput';
+import SignUpBlock from '../../components/SignUpBlock/SignUpBlock';
 
 const LoginPage = () => {
   return (
@@ -35,11 +36,7 @@ const LoginPage = () => {
 
                 <div className='login__authorization-container'>
                   <Link className='login__link' to='/password-recovery'>Забыли пароль?</Link>
-
-                  <div className='login__signup-block'>
-                    <p className='login__signup-text'>Нет аккаунта?</p>
-                    <Link className='login__link' to='/sign-up'>Зарегистрироваться</Link>
-                  </div>
+                  <SignUpBlock className='login' />
                 </div>
               </>
             )}
