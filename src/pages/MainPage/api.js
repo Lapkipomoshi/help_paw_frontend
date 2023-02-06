@@ -13,8 +13,8 @@ class MainApi {
     return Promise.reject(`Ошибка: ${res.status}`);
   }
 
-  getFaq() { // загрузка часто задаваемых вопросов
-    return fetch(`${this._baseUrl}/v1/faq/`, {
+  getSheltersOnMain(amount) { // загрузка карточек приютов для главной страницы
+    return fetch(`${this._baseUrl}/v1/shelters/on-main/?limit=${amount}`, {
       headers: this._headers,
     })
       .then((res) => {
@@ -22,8 +22,17 @@ class MainApi {
       });
   }
 
-  getSheltersOnMain() { // загрузка часто задаваемых вопросов
-    return fetch(`${this._baseUrl}/v1/shelters/on_main/`, {
+  getPapersOnMain(amount) { // загрузка полезных статей для главной страницы
+    return fetch(`${this._baseUrl}/v1/help-articles/?limit=${amount}`, {
+      headers: this._headers,
+    })
+      .then((res) => {
+        return this._processTheResponse(res);
+      });
+  }
+
+  getFaq() { // загрузка часто задаваемых вопросов
+    return fetch(`${this._baseUrl}/v1/faq/`, {
       headers: this._headers,
     })
       .then((res) => {
