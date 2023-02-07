@@ -1,4 +1,5 @@
 @import url('./shelter-pets/shelter-pets.css');
 @import url('./shelter-pets/__title/shelter-pets__title.css');
 @import url('./shelter-pets/__list/shelter-pets__list.css');
+@import url('./shelter-pets/__pets-item/shelter-pets__pets-item.css');
 @import url('./shelter-pets/__card-item/shelter-pets__card-item.css');
