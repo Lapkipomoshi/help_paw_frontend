@@ -1,4 +1,5 @@
 .paw path {
+  transition-duration: .5s;
   fill: var(--color-accent-base);
 }
 

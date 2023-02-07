@@ -36,8 +36,8 @@ const Header = ({ loggedIn }) => {
         </NavLink>
       </nav>
       <nav className='menu'>
-        <NavLink className={`menu__sign-in ${loggedIn ? 'display_none' : ''}`} to='/sign-in'>Вход</NavLink>
-        <NavLink className={`menu__sign-up ${loggedIn ? 'display_none' : ''}`} to='/sign-up'>Регистрация</NavLink>
+        <NavLink className={`menu__sign menu__sign_in ${loggedIn ? 'display_none' : ''}`} to='/sign-in'>Вход</NavLink>
+        <NavLink className={`menu__sign menu__sign_up ${loggedIn ? 'display_none' : ''}`} to='/sign-up'>Регистрация</NavLink>
         <NavLink className={`menu__profile ${loggedIn ? '' : 'display_none'}`} to='/profile' />
       </nav>
     </header>
