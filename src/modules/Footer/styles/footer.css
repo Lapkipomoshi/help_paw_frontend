@@ -5,5 +5,6 @@
   justify-content: space-between;
   background-color: var(--color-background-additional);
   color: var(--color-text-base);
+  font-family: var(--font-family-title);
   box-sizing: border-box;
 }

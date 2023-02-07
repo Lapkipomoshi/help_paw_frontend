@@ -6,9 +6,13 @@
   font-weight: 700;
   color: var(--color-text-base);
   text-decoration: none;
-  transition-duration: .7s;
+  transition-duration: .5s;
 }
 
 .footer__title:hover {
-  opacity: .5;
+  color: var(--color-accent-hover);
+}
+
+.footer__title:focus {
+  color: var(--color-accent-pressed);
 }
