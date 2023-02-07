@@ -8,7 +8,7 @@
 
 .details-card__title_style_faq {
   font-weight: 500;
-  font-family: 'Montserrat Alternates', 'Inter', Arial, sans-serif;
+  font-family: var(--font-family-title);
 }
 
 .details-card__title_style_shelter-pets {

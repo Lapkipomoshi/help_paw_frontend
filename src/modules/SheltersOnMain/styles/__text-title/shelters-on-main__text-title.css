@@ -1,9 +1,10 @@
-.section-title {
-  margin: 64px auto 44px 0;
+.shelters-on-main__text-title {
+  margin: 0 auto;
   padding: 0;
   width: 100%;
   font-size: 40px;
   line-height: 49px;
   font-weight: 600;
+  text-align: center;
   font-family: var(--font-family-title);
 }
