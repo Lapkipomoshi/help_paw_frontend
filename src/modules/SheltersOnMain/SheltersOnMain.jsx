@@ -4,10 +4,8 @@ import { useInView } from 'react-intersection-observer'; // подключает
 import './SheltersOnMain.css';
 import ShelterCard from '../../components/ShelterCard/ShelterCard';
 import Button from '../../ui/Button/Button';
-import shelterImage from '../../images/shelter-image.jpg';
-import shelterLogo from '../../images/shelter-logo.jpg';
 
-const SheltersOnMain = ({ loggedIn }) => {
+const SheltersOnMain = ({ loggedIn, sheltersList }) => {
   const [isActiveAnimation, setIsActiveAnimation] = React.useState(false); // отобразить анимацию?
   const [isOpenPopup, setIsOpenPopup] = React.useState(false);
   // отобразить вспылвающее окно с предложением зарегистрироваться?
@@ -38,36 +36,20 @@ const SheltersOnMain = ({ loggedIn }) => {
     >
       <h2 className='section-title'>Приюты, которым очень нужна помощь</h2>
       <ul className='shelters-on-main__shelters-container'>
-        <li>
-          <ShelterCard
-            image={shelterImage}
-            logo={shelterLogo}
-            title='Приют Бирюлево'
-            address='Востряковский пр-д, 10А, Москва, Россия'
-            workingHours='10:00 - 18:00'
-            linkID='/shelters/1'
-          />
-        </li>
-        <li>
-          <ShelterCard
-            image={shelterImage}
-            logo={shelterLogo}
-            title='Приют Бирюлево'
-            address='Востряковский пр-д, 10А, Москва, Россия'
-            workingHours='10:00 - 18:00'
-            linkID='/shelters/2'
-          />
-        </li>
-        <li>
-          <ShelterCard
-            image={shelterImage}
-            logo={shelterLogo}
-            title='Приют Бирюлево'
-            address='Востряковский пр-д, 10А, Москва, Россия'
-            workingHours='10:00 - 18:00'
-            linkID='/shelters/3'
-          />
-        </li>
+        {sheltersList.map((shelter) => {
+          return (
+            <li key={shelter.id}>
+              <ShelterCard
+                id={shelter.id}
+                name={shelter.name}
+                address={shelter.address}
+                workingHours={shelter.working_hours}
+                logo={shelter.logo}
+                profileImage={shelter.profile_image}
+              />
+            </li>
+          );
+        })}
       </ul>
       <Button className='margin-left_auto' to='/shelters' link>Смотреть на карте</Button>
       <div

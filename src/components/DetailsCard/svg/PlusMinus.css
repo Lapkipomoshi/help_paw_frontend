@@ -1,0 +1,21 @@
+.plus-minus {
+  width: 32px;
+  height: 32px;
+}
+
+.plus-minus line {
+  transition-duration: .3s;
+  stroke: var(--color-text-base);
+}
+
+.details-card__details:hover .plus-minus line {
+  stroke: var(--color-accent-hover);
+}
+
+.details-card__summary:focus .plus-minus line {
+  stroke: var(--color-accent-pressed);
+}
+
+.details-card__details[open] .plus-minus .plus-minus__vertical {
+  stroke: rgba(0,0,0,0);
+}

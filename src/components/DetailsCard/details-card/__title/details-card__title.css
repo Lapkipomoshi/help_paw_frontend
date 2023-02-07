@@ -4,6 +4,13 @@
   padding: 0;
   font-size: 24px;
   line-height: 29px;
+}
+
+.details-card__title_style_faq {
   font-weight: 500;
   font-family: 'Montserrat Alternates', 'Inter', Arial, sans-serif;
+}
+
+.details-card__title_style_shelter-pets {
+  font-weight: 400;
 }

@@ -17,11 +17,13 @@
 }
 
 .faq__text {
-  width: 716px;
-  margin: 13px auto 0 0;
-  padding: 0;
+  width: 100%;
+  margin: -4px 0 0;
+  padding: 0 240px 24px 45px;
   font-size: 18px;
   line-height: 28px;
   font-weight: 400;
   color: var(--color-text-additional);
+  background-color: var(--color-background-additional);
+  box-sizing: border-box;
 }

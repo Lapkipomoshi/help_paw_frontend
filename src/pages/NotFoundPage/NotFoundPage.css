@@ -1,3 +1,27 @@
-@import url('./not-found/not-found.css');
-@import url('./not-found/__404/not-found__404.css');
-@import url('./not-found/__text/not-found__text.css');
+.not-found {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 130px 132px 140px;
+  background-color: var(--color-background-base);
+  box-sizing: border-box;
+}
+
+.not-found__404 {
+  width: 813px;
+  height: 300px;
+  margin-bottom: 72px;
+}
+
+.not-found__text {
+  margin: 0 auto 24px;
+  padding: 0;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 500;
+}
+
+.not-found__text:last-of-type {
+  margin-bottom: 44px;
+}
