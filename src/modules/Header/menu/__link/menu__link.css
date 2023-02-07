@@ -12,3 +12,7 @@
 .menu__link:hover {
   color: var(--color-accent-base);
 }
+
+.menu__link:focus {
+  color: var(--color-accent-pressed);
+}

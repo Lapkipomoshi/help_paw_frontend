@@ -3,6 +3,6 @@
   flex-direction: column;
   margin: 0 auto;
   width: 1440px;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: var(--font-family-base);
   color: var(--color-text-base);
 }

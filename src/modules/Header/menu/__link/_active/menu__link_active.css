@@ -3,6 +3,6 @@
 }
 
 .menu__link_active:hover {
-  opacity: 1;
+  color: var(--color-accent-base);
   cursor: default;
 }

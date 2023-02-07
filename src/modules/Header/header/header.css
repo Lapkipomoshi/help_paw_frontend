@@ -1,8 +1,8 @@
 .header {
   display: flex;
   width: 100%;
-  min-height: 100px;
-  padding: 18px 132px;
+  min-height: 88px;
+  padding: 14px 132px;
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-background-additional);

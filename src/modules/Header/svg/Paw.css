@@ -1,0 +1,11 @@
+.paw path {
+  fill: var(--color-accent-base);
+}
+
+.paw:hover path {
+  fill: var(--color-accent-hover);
+}
+
+.header__logo-link:focus path {
+  fill: var(--color-accent-pressed);
+}
