@@ -96,23 +96,25 @@ const ShelterPets = () => {
       <ul className='shelter-pets__list'>
         {petsList.map((pets) => {
           return (
-            <DetailsCard key={pets.id} title={pets.pets} isOpen={false} textStyle='shelter-pets' iconType='arrow'>
-              <CardsSlider listLength={catsList.length}>
-                {catsList.map((card) => {
-                  return (
-                    <li className='shelter-pets__card-item' key={card.id}>
-                      <PetCard
-                        id={card.id}
-                        name={card.name}
-                        age={card.age}
-                        male={card.male}
-                        image={card.image}
-                      />
-                    </li>
-                  );
-                })}
-              </CardsSlider>
-            </DetailsCard>
+            <li className='shelter-pets__pets-item' key={pets.id}>
+              <DetailsCard title={pets.pets} isOpen={false} textStyle='shelter-pets' iconType='arrow'>
+                <CardsSlider listLength={catsList.length}>
+                  {catsList.map((card) => {
+                    return (
+                      <li className='shelter-pets__card-item' key={card.id}>
+                        <PetCard
+                          id={card.id}
+                          name={card.name}
+                          age={card.age}
+                          male={card.male}
+                          image={card.image}
+                        />
+                      </li>
+                    );
+                  })}
+                </CardsSlider>
+              </DetailsCard>
+            </li>
           );
         })}
       </ul>
