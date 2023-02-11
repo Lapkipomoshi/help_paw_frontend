@@ -1,0 +1,4 @@
+.menu__link_active:hover {
+  opacity: 1;
+  cursor: default;
+}
