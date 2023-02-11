@@ -1,0 +1,18 @@
+.footer__title {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  color: var(--color-text-base);
+  text-decoration: none;
+  transition-duration: .5s;
+}
+
+.footer__title:hover {
+  color: var(--color-accent-hover);
+}
+
+.footer__title:focus {
+  color: var(--color-accent-pressed);
+}

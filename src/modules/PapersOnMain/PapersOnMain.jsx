@@ -20,7 +20,7 @@ const PapersOnMain = ({ papersList }) => {
           );
         })}
       </ul>
-      <Button className='margin-left_auto' to='/papers' link>Все статьи</Button>
+      <Button className='papers-on-main__button' to='/papers' link>Все статьи</Button>
     </section>
   );
 };

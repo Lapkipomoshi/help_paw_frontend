@@ -9,9 +9,11 @@ const Faq = ({ faqList }) => {
       <ul className='faq__list'>
         {faqList.map((card) => { // список карточек с часто задаваемыми вопросами
           return (
-            <DetailsCard id={card.id} title={card.question} isOpen={false} textStyle='faq' iconType='plus-minus'>
-              <p className='faq__text'>{card.answer}</p>
-            </DetailsCard>
+            <li className='faq__item' key={card.id}>
+              <DetailsCard title={card.question} isOpen={false} textStyle='faq' iconType='plus-minus'>
+                <p className='faq__text'>{card.answer}</p>
+              </DetailsCard>
+            </li>
           );
         })}
       </ul>
