@@ -3,4 +3,5 @@
   background-color: var(--color-background-base);
   box-sizing: border-box;
   font-family: 'Montserrat Alternates', 'Inter', Arial, sans-serif;
+  align-items: center;
 }

@@ -53,11 +53,11 @@
 
 .menu__link_active {
   color: var(--color-accent-base);
+  cursor: pointer;
 }
 
 .menu__link_active:hover {
   color: var(--color-accent-base);
-  cursor: default;
 }
 
 .menu__sign {
