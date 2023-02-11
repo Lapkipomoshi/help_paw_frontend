@@ -9,7 +9,7 @@
   fill: var(--color-text-base);
 }
 
-.details-card__details:hover .arrow path {
+.details-card:hover .arrow path {
   fill: var(--color-accent-hover);
 }
 
@@ -17,6 +17,6 @@
   fill: var(--color-accent-pressed);
 }
 
-.details-card__details[open] .arrow {
+.details-card[open] .arrow {
   transform: rotate(180deg);
 }

@@ -8,7 +8,7 @@
   stroke: var(--color-text-base);
 }
 
-.details-card__details:hover .plus-minus line {
+.details-card:hover .plus-minus line {
   stroke: var(--color-accent-hover);
 }
 
@@ -16,6 +16,6 @@
   stroke: var(--color-accent-pressed);
 }
 
-.details-card__details[open] .plus-minus .plus-minus__vertical {
+.details-card[open] .plus-minus .plus-minus__vertical {
   stroke: rgba(0,0,0,0);
 }
