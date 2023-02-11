@@ -5,5 +5,5 @@
   font-size: 40px;
   line-height: 49px;
   font-weight: 600;
-  font-family: 'Montserrat Alternates', 'Inter', Arial, sans-serif;
+  font-family: var(--font-family-title);
 }

@@ -1,7 +1,14 @@
-@import url('./blocks/page/page.css');
-@import url('./blocks/main/main.css');
+.page {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 1440px;
+  font-family: var(--font-family-base);
+  color: var(--color-text-base);
+}
 
-@import url('./blocks/margin/margin_column-center.css');
-@import url('./blocks/margin/margin-left_auto.css');
-@import url('./blocks/display/display_none.css');
-@import url('./blocks/color/color.css');
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

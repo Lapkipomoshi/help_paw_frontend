@@ -7,8 +7,7 @@ import Button from '../../ui/Button/Button';
 
 const SheltersOnMain = ({ loggedIn, sheltersList }) => {
   const [isActiveAnimation, setIsActiveAnimation] = React.useState(false); // отобразить анимацию?
-  const [isOpenPopup, setIsOpenPopup] = React.useState(false);
-  // отобразить вспылвающее окно с предложением зарегистрироваться?
+  const [isOpenPopup, setIsOpenPopup] = React.useState(false); // отобразить вспылвающее окно с предложением зарегистрироваться?
 
   const navigate = useNavigate(); // функция для программной навигации
 
@@ -51,7 +50,7 @@ const SheltersOnMain = ({ loggedIn, sheltersList }) => {
           );
         })}
       </ul>
-      <Button className='margin-left_auto' to='/shelters' link>Смотреть на карте</Button>
+      <Button className='shelters-on-main__map-button' to='/shelters' link>Приюты на карте</Button>
       <div
         className={
           `shelters-on-main__text-container ${isActiveAnimation ? 'shelters-on-main__text-container_animation' : ''}`
@@ -60,7 +59,7 @@ const SheltersOnMain = ({ loggedIn, sheltersList }) => {
       >
         <h3 className='shelters-on-main__text-title'>Вы владелец приюта?</h3>
         <p className='shelters-on-main__text-subtitle'>Можете добавить ваш приют на наш сайт прямо сейчас!</p>
-        <Button className={`margin_column-center ${!loggedIn && 'button_disabled'}`} onClick={handleAddShelterButton}>Добавить приют</Button>
+        <Button className={` ${!loggedIn && 'button_disabled'}`} onClick={handleAddShelterButton}>Добавить приют</Button>
         <div className={`shelters-on-main__popup ${isOpenPopup && 'shelters-on-main__popup_opened'}`}>
           <p className='shelters-on-main__popup-text'>Добавить приют на сайт можно только после регистрации</p>
           <Button className='margin_column-center' to='/sign-up' link>Зарегистрироваться</Button>
