@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/help_paw_frontend/static/css/main.ad47761c.css",
+    "main.css": "/help_paw_frontend/static/css/main.643969bf.css",
     "main.js": "/help_paw_frontend/static/js/main.89345840.js",
     "static/js/787.df3f365b.chunk.js": "/help_paw_frontend/static/js/787.df3f365b.chunk.js",
     "static/media/new-page_photo.jpg": "/help_paw_frontend/static/media/new-page_photo.e3fc355523addf7ea0b3.jpg",
@@ -49,12 +49,12 @@
     "static/media/footer__icon_telegram.svg": "/help_paw_frontend/static/media/footer__icon_telegram.64e980b8b25154680d1c578c1ac4c609.svg",
     "static/media/register__daw.svg": "/help_paw_frontend/static/media/register__daw.1d29b252981c5c5e4277.svg",
     "static/media/list-marker.svg": "/help_paw_frontend/static/media/list-marker.da283bb800f56777ef34.svg",
-    "main.ad47761c.css.map": "/help_paw_frontend/static/css/main.ad47761c.css.map",
+    "main.643969bf.css.map": "/help_paw_frontend/static/css/main.643969bf.css.map",
     "main.89345840.js.map": "/help_paw_frontend/static/js/main.89345840.js.map",
     "787.df3f365b.chunk.js.map": "/help_paw_frontend/static/js/787.df3f365b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ad47761c.css",
+    "static/css/main.643969bf.css",
     "static/js/main.89345840.js"
   ]
 }
