@@ -1,0 +1,41 @@
+.form__container {
+  background-color: var(--color-background-additional);
+  border-radius: 30px;
+  padding: 40px 58px 56px 60px;
+  max-width: 473px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form__image {
+  width: 105px;
+  height: 105px;
+}
+
+.form__text {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: var(--color-text-base);
+  margin-top: 36px;
+  margin-bottom: 12px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-confirm__button-submit {
+  margin-top: 44px;
+}
+
+.register-confirm__button-retry {
+  margin-top: 16px;
+}
