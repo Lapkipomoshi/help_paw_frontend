@@ -5,13 +5,13 @@ import shelterApi from './api';
 
 const ShelterPage = () => {
   const { id } = useParams(); // id статьи, получаемый из url-адреса текущей страницы
+  // eslint-disable-next-line no-unused-vars
   const [shelter, setShelter] = React.useState({}); // информация о приюте
 
   React.useEffect(() => {
     shelterApi
       .getShelter(id) // загрузка карточек с приютами на главной странице
       .then((res) => {
-        console.log(res);
         setShelter(res);
       })
       .catch((err) => {
@@ -65,7 +65,7 @@ const ShelterPage = () => {
           </NavLink>
         </nav>
       </section>
-      <Outlet shelter={shelter} />
+      <Outlet context={{ shelter }} />
     </main>
   );
 };
