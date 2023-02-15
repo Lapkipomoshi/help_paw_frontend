@@ -9,10 +9,6 @@ import telegramIcon from '../../images/icons/footer__icon_telegram.svg';
 const AboutShelter = () => {
   const { shelter } = useOutletContext();
 
-  React.useEffect(() => {
-    console.log(shelter);
-  }, [shelter]);
-
   return (
     <section className='shelter-section about-shelter'>
       <div className='shelter-info'>
