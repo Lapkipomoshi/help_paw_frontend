@@ -4,6 +4,7 @@
   object-position: center;
   object-fit: contain;
   transition-duration: .7s;
+  cursor: pointer;
 }
 
 .shelter-info__icon:hover {

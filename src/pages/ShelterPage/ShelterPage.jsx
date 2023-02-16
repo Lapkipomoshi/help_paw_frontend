@@ -1,8 +1,24 @@
 import React from 'react';
-import { Outlet, NavLink } from 'react-router-dom';
+import { Outlet, NavLink, useParams } from 'react-router-dom';
 import './ShelterPage.css';
+import shelterApi from './api';
 
 const ShelterPage = () => {
+  const { id } = useParams(); // id статьи, получаемый из url-адреса текущей страницы
+  // eslint-disable-next-line no-unused-vars
+  const [shelter, setShelter] = React.useState({}); // информация о приюте
+
+  React.useEffect(() => {
+    shelterApi
+      .getShelter(id) // загрузка карточек с приютами на главной странице
+      .then((res) => {
+        setShelter(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [id]);
+
   return (
     <main className='main'>
       <section className='shelter-menu'>
@@ -49,7 +65,7 @@ const ShelterPage = () => {
           </NavLink>
         </nav>
       </section>
-      <Outlet />
+      <Outlet context={{ shelter }} />
     </main>
   );
 };

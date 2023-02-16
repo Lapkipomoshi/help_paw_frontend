@@ -1,0 +1,4 @@
+.shelter-menu__link_active {
+  color: var(--color-accent-base);
+  list-style: url('../../../../../../images/list-marker.svg');
+}
