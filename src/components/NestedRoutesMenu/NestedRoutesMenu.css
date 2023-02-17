@@ -28,6 +28,7 @@
 }
 
 .nested-routes-menu__link_active {
+  margin-left: 28px;
   color: var(--color-accent-base);
   list-style: url('../../images/list-marker.svg');
   cursor: default;
@@ -35,4 +36,11 @@
 
 .nested-routes-menu__link_active:focus {
   color: var(--color-accent-base);
+}
+
+.nested-routes-menu__qiestion {
+  width: 16px;
+  height: 16px;
+  object-fit: fill;
+  margin-bottom: 13px;
 }

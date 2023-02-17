@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import './SheltersListPage.css';
+import NestedRoutesMenu from '../../components/NestedRoutesMenu/NestedRoutesMenu';
 import SearchInput from '../../components/SearchInput/SearchInput';
-import questionIcon from '../../images/icons/ic_question.svg';
+import { colorLinkList } from '../../utils/constants';
 
 const SheltersListPage = () => {
   return (
@@ -15,35 +16,7 @@ const SheltersListPage = () => {
           </div>
           <SearchInput />
         </div>
-        <nav className='nested-routes-menu'>
-          <NavLink
-            className={({ isActive }) => {
-              return `nested-routes-menu__link ${isActive ? 'nested-routes-menu__link_active' : ''}`;
-            }}
-            to='red'
-          >
-            Красные
-            <img className='color-menu__question' src={questionIcon} alt='?' />
-          </NavLink>
-          <NavLink
-            className={({ isActive }) => {
-              return `nested-routes-menu__link ${isActive ? 'nested-routes-menu__link_active' : ''}`;
-            }}
-            to='yellow'
-          >
-            Жёлтые
-            <img className='color-menu__question' src={questionIcon} alt='?' />
-          </NavLink>
-          <NavLink
-            className={({ isActive }) => {
-              return `nested-routes-menu__link ${isActive ? 'nested-routes-menu__link_active' : ''}`;
-            }}
-            to='green'
-          >
-            Зелёные
-            <img className='color-menu__question' src={questionIcon} alt='?' />
-          </NavLink>
-        </nav>
+        <NestedRoutesMenu linkList={colorLinkList} gap={56} />
       </section>
       <Outlet />
     </main>
