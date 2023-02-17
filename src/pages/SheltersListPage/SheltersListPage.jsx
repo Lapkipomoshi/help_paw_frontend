@@ -9,12 +9,12 @@ const SheltersListPage = () => {
     <main className='main shelters-list-page'>
       <section className='shelter-search'>
         <div className='shelter-search__head'>
-          <div className='shelter-search__caption'>
+          <div className='shelter-search__title-block'>
             <h2 className='shelter-search__title'>Все приюты</h2>
             <Link className='shelter-search__link' to='/shelters'>Показать приюты на карте</Link>
           </div>
-          <form className='search__form search-form' method='get' name='searchForm'>
-            <input className='search-form__input' id='searchInput' placeholder='Поиск...' />
+          <form className='search-form' noValidate>
+            <input className='search-form__input' name='shelter' placeholder='Поиск...' required />
             <Button onClick={() => {}} submit>Искать</Button>
           </form>
         </div>

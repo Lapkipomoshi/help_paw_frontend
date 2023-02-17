@@ -1,0 +1,12 @@
+@import url('./styles/shelter-search/shelter-search.css');
+@import url('./styles/shelter-search/__head/shelter-search__head.css');
+@import url('./styles/shelter-search/__title-block/shelter-search__title-block.css');
+@import url('./styles/shelter-search/__title/shelter-search__title.css');
+@import url('./styles/shelter-search/__link/shelter-search__link.css');
+
+@import url('./styles/search-form/search-from.css');
+@import url('./styles/search-form/__input/search-form__input.css');
+
+@import url('./styles/color-menu/color-menu.css');
+@import url('./styles/color-menu/__link/color-menu__link.css');
+@import url('./styles/color-menu/__link/_active/color-menu__link_active.css');
