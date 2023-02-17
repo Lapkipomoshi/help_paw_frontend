@@ -9,7 +9,10 @@ import SearchInput from '../../components/SearchInput/SearchInput';
 const MapPage = () => {
   return (
     <main>
-      <SearchInput />
+      <section className='search-section'>
+        <SearchInput />
+        <Link className='search-section__link' to='/shelters/list'>Показать приюты списком</Link>
+      </section>
       <section className='section section_with-background'>
         <YMaps>
           <div className='container container_flex-row section__content'>

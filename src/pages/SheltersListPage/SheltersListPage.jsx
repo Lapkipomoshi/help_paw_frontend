@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import './SheltersListPage.css';
-import Button from '../../ui/Button/Button';
+import SearchInput from '../../components/SearchInput/SearchInput';
 import questionIcon from '../../images/icons/ic_question.svg';
 
 const SheltersListPage = () => {
@@ -13,10 +13,7 @@ const SheltersListPage = () => {
             <h2 className='shelter-search__title'>Все приюты</h2>
             <Link className='shelter-search__link' to='/shelters'>Показать приюты на карте</Link>
           </div>
-          <form className='search-form' noValidate>
-            <input className='search-form__input' name='shelter' placeholder='Поиск...' required />
-            <Button onClick={() => {}} submit>Искать</Button>
-          </form>
+          <SearchInput />
         </div>
         <nav className='shelter-menu__menu'>
           <NavLink
