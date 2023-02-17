@@ -6,7 +6,7 @@ import Header from '../../modules/Header/Header';
 import Footer from '../../modules/Footer/Footer';
 import MainPage from '../../pages/MainPage/MainPage';
 import MapPage from '../../pages/MapPage/MapPage';
-import ShelterListPage from '../../pages/ShelterListPage/ShelterListPage';
+import SheltersListPage from '../../pages/SheltersListPage/SheltersListPage';
 
 import ShelterPage from '../../pages/ShelterPage/ShelterPage';
 import AboutShelter from '../../modules/AboutShelter/AboutShelter';
@@ -38,7 +38,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<MainPage loggedIn={loggedIn} />} />
         <Route path='/shelters' element={<MapPage />} />
-        <Route path='/shelters/list' element={<ShelterListPage />} />
+        <Route path='/shelters/list' element={<SheltersListPage />} />
         <Route path='/shelters/:id' element={<ShelterPage />}>
           <Route path='about' element={<AboutShelter />} />
           <Route path='how-to-help' element={<HelpToShelter />} />

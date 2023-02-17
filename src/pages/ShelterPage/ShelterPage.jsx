@@ -25,7 +25,7 @@ const ShelterPage = () => {
         <nav className='shelter-menu__menu'>
           <NavLink
             className={({ isActive }) => {
-              return `shelter-menu__link ${isActive ? 'shelter-menu__link_active' : ''}`;
+              return `shelter-menu__link ${isActive && 'shelter-menu__link_active'}`;
             }}
             to='about'
           >
@@ -33,7 +33,7 @@ const ShelterPage = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) => {
-              return `shelter-menu__link ${isActive ? 'shelter-menu__link_active' : ''}`;
+              return `shelter-menu__link ${isActive && 'shelter-menu__link_active'}`;
             }}
             to='how-to-help'
           >
@@ -41,7 +41,7 @@ const ShelterPage = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) => {
-              return `shelter-menu__link ${isActive ? 'shelter-menu__link_active' : ''}`;
+              return `shelter-menu__link ${isActive && 'shelter-menu__link_active'}`;
             }}
             to='news'
           >
@@ -49,7 +49,7 @@ const ShelterPage = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) => {
-              return `shelter-menu__link ${isActive ? 'shelter-menu__link_active' : ''}`;
+              return `shelter-menu__link ${isActive && 'shelter-menu__link_active'}`;
             }}
             to='pets'
           >
@@ -57,7 +57,7 @@ const ShelterPage = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) => {
-              return `shelter-menu__link ${isActive ? 'shelter-menu__link_active' : ''}`;
+              return `shelter-menu__link ${isActive && 'shelter-menu__link_active'}`;
             }}
             to='vacancies'
           >
