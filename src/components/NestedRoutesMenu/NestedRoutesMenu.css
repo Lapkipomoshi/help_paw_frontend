@@ -39,13 +39,6 @@
   color: var(--color-accent-base);
 }
 
-.nested-routes-menu__qiestion {
-  width: 16px;
-  height: 16px;
-  object-fit: fill;
-  margin-bottom: 13px;
-}
-
 .nested-routes-menu__explanation {
   display: flex;
   position: absolute;

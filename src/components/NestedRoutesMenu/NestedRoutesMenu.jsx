@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './NestedRoutesMenu.css';
-import questionIcon from '../../images/icons/ic_question.svg';
+import Question from './svg/Question';
 
 const NestedRoutesMenu = ({ linkList, gap = 56 }) => {
   return (
@@ -16,7 +16,7 @@ const NestedRoutesMenu = ({ linkList, gap = 56 }) => {
             key={item.to}
           >
             {item.caption}
-            {item.explanation && <img className='nested-routes-menu__qiestion' src={questionIcon} alt='?' />}
+            {item.explanation && <Question />}
             {item.explanation && <p className='nested-routes-menu__explanation'>{item.explanation}</p>}
           </NavLink>
         );
