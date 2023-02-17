@@ -1,0 +1,38 @@
+.nested-routes-menu {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+
+.nested-routes-menu__link {
+  display: list-item;
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 500;
+  font-family: var(--font-family-title);
+  color: var(--color-text-base);
+  text-decoration: none;
+  transition: color .5s;
+  cursor: pointer;
+}
+
+.nested-routes-menu__link:hover {
+  color: var(--color-accent-base);
+}
+
+.nested-routes-menu__link:focus {
+  color: var(--color-accent-pressed);
+  transition: color .2s;
+}
+
+.nested-routes-menu__link_active {
+  color: var(--color-accent-base);
+  list-style: url('../../images/list-marker.svg');
+  cursor: default;
+}
+
+.nested-routes-menu__link_active:focus {
+  color: var(--color-accent-base);
+}

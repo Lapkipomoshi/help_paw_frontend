@@ -15,10 +15,10 @@ const SheltersListPage = () => {
           </div>
           <SearchInput />
         </div>
-        <nav className='shelter-menu__menu'>
+        <nav className='nested-routes-menu'>
           <NavLink
             className={({ isActive }) => {
-              return `shelter-menu__link ${isActive ? 'shelter-menu__link_active' : ''}`;
+              return `nested-routes-menu__link ${isActive ? 'nested-routes-menu__link_active' : ''}`;
             }}
             to='red'
           >
@@ -27,7 +27,7 @@ const SheltersListPage = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) => {
-              return `shelter-menu__link ${isActive ? 'shelter-menu__link_active' : ''}`;
+              return `nested-routes-menu__link ${isActive ? 'nested-routes-menu__link_active' : ''}`;
             }}
             to='yellow'
           >
@@ -36,7 +36,7 @@ const SheltersListPage = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) => {
-              return `shelter-menu__link ${isActive ? 'shelter-menu__link_active' : ''}`;
+              return `nested-routes-menu__link ${isActive ? 'nested-routes-menu__link_active' : ''}`;
             }}
             to='green'
           >
