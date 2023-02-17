@@ -18,10 +18,10 @@ const SheltersListPage = () => {
             <Button onClick={() => {}} submit>Искать</Button>
           </form>
         </div>
-        <nav className='color-menu'>
+        <nav className='shelter-menu__menu'>
           <NavLink
             className={({ isActive }) => {
-              return `color-menu__link ${isActive ? 'color-menu__link_active' : ''}`;
+              return `shelter-menu__link ${isActive ? 'shelter-menu__link_active' : ''}`;
             }}
             to='red'
           >
@@ -30,7 +30,7 @@ const SheltersListPage = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) => {
-              return `color-menu__link ${isActive ? 'color-menu__link_active' : ''}`;
+              return `shelter-menu__link ${isActive ? 'shelter-menu__link_active' : ''}`;
             }}
             to='yellow'
           >
@@ -39,7 +39,7 @@ const SheltersListPage = () => {
           </NavLink>
           <NavLink
             className={({ isActive }) => {
-              return `color-menu__link ${isActive ? 'color-menu__link_active' : ''}`;
+              return `shelter-menu__link ${isActive ? 'shelter-menu__link_active' : ''}`;
             }}
             to='green'
           >
