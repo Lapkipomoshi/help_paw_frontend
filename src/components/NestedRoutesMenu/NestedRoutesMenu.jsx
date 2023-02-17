@@ -2,15 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './NestedRoutesMenu.css';
 
-const NestedRoutesMenu = ({ linkList, gap }) => {
+const NestedRoutesMenu = ({ linkList, gap = 56 }) => {
   return (
-    <nav className='nested-routes-menu'>
-      <style>
-        {`.nested-routes-menu {
-          column-gap: ${gap}px;
-        }`}
-      </style>
-      {linkList.map((item) => { // список карточек с часто задаваемыми вопросами
+    <nav className='nested-routes-menu' style={{ gap: `${gap}px` }}>
+      {linkList.map((item) => {
         return (
           <NavLink
             className={({ isActive }) => {
