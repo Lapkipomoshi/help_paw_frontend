@@ -17,6 +17,7 @@ const NestedRoutesMenu = ({ linkList, gap = 56 }) => {
           >
             {item.caption}
             {item.explanation && <img className='nested-routes-menu__qiestion' src={questionIcon} alt='?' />}
+            {item.explanation && <p className='nested-routes-menu__explanation'>{item.explanation}</p>}
           </NavLink>
         );
       })}
