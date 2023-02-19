@@ -1,17 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './SearchInput.css';
 import Button from '../../ui/Button/Button';
 
-const SearchInput = () => {
+const SearchInput = ({ onSubmit = (e) => { return e.preventDefault(); } }) => {
   return (
-    <section className='search'>
-      <form className='search__form search-form' method='get' name='searchForm'>
-        <input className='search-form__input' id='searchInput' placeholder='Поиск...' />
-        <Button onClick={() => {}} submit>Искать</Button>
-      </form>
-      <Link className='search__shelters-link' to='/shelters/list'>Показать приюты списком</Link>
-    </section>
+    <form className='search-form' method='get' onSubmit={onSubmit} name='searchForm' noValidate>
+      <input className='search-form__input' id='searchInput' placeholder='Поиск...' />
+      <Button onClick={() => {}} submit>Искать</Button>
+    </form>
   );
 };
 

@@ -31,8 +31,8 @@ class MainApi {
       });
   }
 
-  getFaq() { // загрузка часто задаваемых вопросов
-    return fetch(`${this._baseUrl}/v1/faq/`, {
+  getFaq(amount) { // загрузка часто задаваемых вопросов для главной страницы
+    return fetch(`${this._baseUrl}/v1/faq/?limit=${amount}`, {
       headers: this._headers,
     })
       .then((res) => {

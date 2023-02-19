@@ -32,9 +32,9 @@ const MainPage = ({ loggedIn }) => {
       });
 
     mainApi
-      .getFaq() // загрузка карточек с часто задаваемыми вопросами
+      .getFaq(4) // загрузка карточек с часто задаваемыми вопросами
       .then((faqs) => {
-        setFaqList(faqs);
+        setFaqList(faqs.results);
       })
       .catch((err) => {
         console.log(err);
