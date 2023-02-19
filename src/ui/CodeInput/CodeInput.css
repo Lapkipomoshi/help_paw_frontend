@@ -15,19 +15,16 @@
   margin: 0;
   border: none;
   padding: 0;
-  width: 120px;
+  width: 106px;
   background: repeating-linear-gradient(90deg,
   #818181 0, #818181 16px,
-  transparent 16px, transparent 18px,
-  #818181 18px, #818181 34px,
-  transparent 34px, transparent 36px,
-  #818181 36px, #818181 54px,
-  transparent 54px, transparent 62px)
-  0 100%/ 120px 1px no-repeat;
+  transparent 16px, transparent 18px)
+  0 100%/ 106px 1px no-repeat;
   font-family: 'Inter', monospace;
   font-weight: 300;
   font-size: 28px;
   line-height: 24px;
+  letter-spacing: 1px;
 }
 
 /*.code-input:valid {*/
