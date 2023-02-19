@@ -1,0 +1,6 @@
+.shelter-search__title-block {
+  display: flex;
+  width: 28%;
+  flex-direction: column;
+  row-gap: 12px;
+}
