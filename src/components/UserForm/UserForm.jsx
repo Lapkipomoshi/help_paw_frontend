@@ -11,7 +11,6 @@ function UserForm({
       <form
         className='user-form'
         onSubmit={onSubmit}
-        noValidate
       >
         {formChildren}
       </form>
