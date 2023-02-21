@@ -29,6 +29,7 @@ import RegisterPage from '../../pages/RegisterPage/RegisterPage';
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
 import PasswordRecovery from '../../pages/PasswordRecovery/PasswordRecovery';
 import NewPassword from '../../pages/NewPassword/NewPassword';
+import SignUpConfirm from '../../pages/SignUpConfirm/SignUpConfirm';
 
 const App = () => {
   // eslint-disable-next-line no-unused-vars
@@ -70,6 +71,13 @@ const App = () => {
           path='/sign-up'
           element={
             <ProtectedRoute loggedIn={!loggedIn} component={RegisterPage} />
+          }
+        />
+
+        <Route
+          path='/sign-up/confirm'
+          element={
+            <ProtectedRoute loggedIn={!loggedIn} component={SignUpConfirm} />
           }
         />
 
