@@ -3,6 +3,7 @@ import { baseUrl } from '../../utils/constants';
 const checkServerResponse = (res) => {
   return res.ok
     ? res.json()
+    // eslint-disable-next-line prefer-promise-reject-errors
     : Promise.reject(`Ошибка: ${res.status}`);
 };
 

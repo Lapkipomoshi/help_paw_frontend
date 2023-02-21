@@ -2,13 +2,13 @@ import React from 'react';
 import './Input.css';
 
 function Input({
-  labelText, inputName, inputType, spanText, onChange, minLength, maxLength, errorMessage,
+  labelText, inputName, inputType, spanText, onChange, minLength, maxLength, errorMessage, isValid,
 }) {
   return (
     <div className='input__wrapper'>
       <label className='input__label'>{labelText}</label>
       <input
-        className={`input ${errorMessage && 'input_invalid'}`}
+        className={`input ${errorMessage && 'input_invalid'} ${isValid && 'input_valid'}`}
         name={inputName}
         type={inputType}
         minLength={minLength}

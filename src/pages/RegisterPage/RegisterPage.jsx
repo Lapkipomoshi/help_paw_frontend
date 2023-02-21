@@ -11,7 +11,7 @@ import * as AuthApi from './AuthApi';
 const RegisterPage = () => {
   const navigate = useNavigate();
 
-  const [name, setName] = useState('');
+  const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
 
@@ -31,17 +31,17 @@ const RegisterPage = () => {
 
   function handleNameChange(e) {
     const input = e.target;
-    const validName = /^[a-zA-Zа-яА-Я- ]+$/.test(input.value);
+    const validName = /^[A-Za-zа-яА-ЯёЁ\d-\s]*$/.test(input.value);
     setIsValidName(validName);
-    setName(input.value);
-    if (input.value.length === 0) {
+    setUserName(input.value);
+    if (!validName) {
+      setNameError('Имя может содержать только буквы, пробел или дефис');
+    } else if (input.value.length === 0) {
       setNameError('Введите имя пользователя');
     } else if (input.value.length < 2) {
       setNameError('Длина имени должна быть не менее 2 символов');
     } else if (input.value.length > 20) {
       setNameError('Длина имени должна быть не более 20 символов');
-    } else if (!validName) {
-      setNameError('Имя может содержать только буквы, пробел или дефис');
     } else {
       setNameError('');
     }
@@ -49,27 +49,32 @@ const RegisterPage = () => {
 
   function handleEmailChange(e) {
     const input = e.target;
-    const validEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i.test(
-      input.value,
-    );
+    const validEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i.test(input.value);
     setIsValidEmail(validEmail);
     setUserEmail(input.value);
-    if (input.value.length === 0) {
-      setEmailError('Введите email');
-    }
     if (!validEmail) {
       setEmailError('Введен некорректный email');
     } else {
       setEmailError('');
     }
+    if (input.value.length === 0) {
+      setEmailError('Введите email');
+    }
   }
 
   function handlePasswordChange(e) {
     const input = e.target;
-    setUserPassword(input.value);
+    const validPassword = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,15}$/.test(input.value);
     setIsValidPassword(input.validity.valid);
-    if (input.value.length < 8) {
+    setUserPassword(input.value);
+    if (!validPassword) {
+      setPasswordError('Пароль должен содержать строчные и прописные буквы, цифры');
+    } else if (input.value.length < 8) {
       setPasswordError('Длина пароля должна быть не менее 8 символов');
+    } else if (input.value.length > 15) {
+      setPasswordError('Длина пароля должна быть не более 15 символов');
+    } else {
+      setPasswordError('');
     }
     if (input.value.length === 0) {
       setPasswordError('Введите пароль');
@@ -89,6 +94,7 @@ const RegisterPage = () => {
         navigate('/sign-in');
       })
       .catch((err) => {
+        // eslint-disable-next-line no-console
         console.log(`Ошибка ${err}`);
       });
   }
@@ -96,7 +102,7 @@ const RegisterPage = () => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     handleRegister({
-      username: name,
+      username: userName,
       password: userPassword,
       email: userEmail,
     });
@@ -127,7 +133,8 @@ const RegisterPage = () => {
                   spanText={nameError}
                   minLength='2'
                   maxLength='20'
-                  value={name.value || ''}
+                  pattern='[A-Za-zа-яА-ЯёЁ\d-\s]*$'
+                  value={userName.value || ''}
                   /* eslint-disable-next-line react/jsx-no-bind */
                   onChange={handleNameChange}
                 />
@@ -138,7 +145,7 @@ const RegisterPage = () => {
                   inputType='email'
                   errorMessage={emailError}
                   isValid={isValidEmail}
-                  pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'
+                  pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$'
                   value={userEmail.value || ''}
                   spanText={emailError}
                   /* eslint-disable-next-line react/jsx-no-bind */
@@ -146,11 +153,13 @@ const RegisterPage = () => {
                 />
 
                 <PasswordInput
-                  spanClass={isValid ? 'input__span' : 'input__error'}
-                  spanText={isValid ? 'Не менее 8 символов' : passwordError}
+                  spanText={passwordError}
                   errorMessage={passwordError}
                   value={userPassword.value || ''}
+                  pattern='^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,15}$'
                   minLength='8'
+                  maxLength='16'
+                  isValid={isValidPassword}
                   /* eslint-disable-next-line react/jsx-no-bind */
                   onChange={handlePasswordChange}
                 />
