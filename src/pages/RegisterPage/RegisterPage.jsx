@@ -7,6 +7,11 @@ import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import PasswordInput from '../../ui/PasswordInput/PasswordInput';
 import * as AuthApi from './AuthApi';
+import { EMAIL_REGEX, NAME_REGEX, PASSWORD_REGEX } from '../../utils/regex';
+import {
+  EMAIL_INVALID, EMAIL_NOT_FOUND, NAME_INVALID, NAME_NOT_FOUND, NAME_TOO_LONG,
+  NAME_TOO_SHORT, PASSWORD_INVALID, PASSWORD_NOT_FOUND, PASSWORD_TOO_LONG, PASSWORD_TOO_SHORT,
+} from '../../utils/errorMessage';
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -31,17 +36,17 @@ const RegisterPage = () => {
 
   function handleNameChange(e) {
     const input = e.target;
-    const validName = /^[A-Za-zа-яА-ЯёЁ\d-\s]*$/.test(input.value);
+    const validName = NAME_REGEX.test(input.value);
     setIsValidName(validName);
     setUserName(input.value);
     if (!validName) {
-      setNameError('Имя может содержать только буквы, пробел или дефис');
+      setNameError(NAME_INVALID);
     } else if (input.value.length === 0) {
-      setNameError('Введите имя пользователя');
+      setNameError(NAME_NOT_FOUND);
     } else if (input.value.length < 2) {
-      setNameError('Длина имени должна быть не менее 2 символов');
+      setNameError(NAME_TOO_SHORT);
     } else if (input.value.length > 20) {
-      setNameError('Длина имени должна быть не более 20 символов');
+      setNameError(NAME_TOO_LONG);
     } else {
       setNameError('');
     }
@@ -49,35 +54,35 @@ const RegisterPage = () => {
 
   function handleEmailChange(e) {
     const input = e.target;
-    const validEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i.test(input.value);
+    const validEmail = EMAIL_REGEX.test(input.value);
     setIsValidEmail(validEmail);
     setUserEmail(input.value);
     if (!validEmail) {
-      setEmailError('Введен некорректный email');
+      setEmailError(EMAIL_INVALID);
     } else {
       setEmailError('');
     }
     if (input.value.length === 0) {
-      setEmailError('Введите email');
+      setEmailError(EMAIL_NOT_FOUND);
     }
   }
 
   function handlePasswordChange(e) {
     const input = e.target;
-    const validPassword = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,15}$/.test(input.value);
+    const validPassword = PASSWORD_REGEX.test(input.value);
     setIsValidPassword(input.validity.valid);
     setUserPassword(input.value);
     if (!validPassword) {
-      setPasswordError('Пароль должен содержать строчные и прописные буквы, цифры');
+      setPasswordError(PASSWORD_INVALID);
     } else if (input.value.length < 8) {
-      setPasswordError('Длина пароля должна быть не менее 8 символов');
+      setPasswordError(PASSWORD_TOO_SHORT);
     } else if (input.value.length > 15) {
-      setPasswordError('Длина пароля должна быть не более 15 символов');
+      setPasswordError(PASSWORD_TOO_LONG);
     } else {
       setPasswordError('');
     }
     if (input.value.length === 0) {
-      setPasswordError('Введите пароль');
+      setPasswordError(PASSWORD_NOT_FOUND);
     }
   }
 
@@ -156,7 +161,7 @@ const RegisterPage = () => {
                   spanText={passwordError}
                   errorMessage={passwordError}
                   value={userPassword.value || ''}
-                  pattern='(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,15}$'
+                  pattern='(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])$'
                   minLength='8'
                   maxLength='16'
                   isValid={isValidPassword}
