@@ -161,7 +161,7 @@ const RegisterPage = () => {
                   spanText={passwordError}
                   errorMessage={passwordError}
                   value={userPassword.value || ''}
-                  pattern='(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])$'
+                  pattern='^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])$'
                   minLength='8'
                   maxLength='16'
                   isValid={isValidPassword}
