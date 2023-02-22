@@ -10,6 +10,9 @@ import SignUpBlock from '../../components/SignUpBlock/SignUpBlock';
 import { EMAIL_REGEX } from '../../utils/regex';
 import { EMAIL_INVALID, EMAIL_NOT_FOUND, PASSWORD_NOT_FOUND } from '../../utils/errorMessage';
 import { login } from '../../utils/auth';
+import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
+import imageSuccess from '../../images/icons/ic_success.svg';
+import imageError from '../../images/icons/ic_error.svg';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -26,6 +29,10 @@ const LoginPage = () => {
   const isValid = isValidEmail && isValidPassword;
 
   const [disabled, setDisabled] = useState(false);
+
+  const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
+  const [infoTooltipImage, setInfoTooltipImage] = useState(imageSuccess);
+  const [message, setMessage] = useState('');
 
   function handleEmailChange(e) {
     const input = e.target;
@@ -60,16 +67,29 @@ const LoginPage = () => {
     return setDisabled(true);
   }, [isValid]);
 
+  function closeInfoTooltip() {
+    setInfoTooltipOpen(false);
+  }
+
   function handleLogin({ password, email }) {
     login({ password, email })
       .then((res) => {
         if (res.access) {
-          navigate('/profile');
+          setInfoTooltipImage(imageSuccess);
+          setMessage('Добро пожаловать на сайт!');
+          setInfoTooltipOpen(true);
+          setTimeout(closeInfoTooltip, 3000);
+          setTimeout(() => { navigate('/profile'); }, 3000);
         }
       })
       .catch((err) => {
         // eslint-disable-next-line no-console
         console.log(`Ошибка ${err}`);
+
+        setInfoTooltipImage(imageError);
+        setMessage('Вы ввели неверный e-mail или пароль!');
+        setInfoTooltipOpen(true);
+        setTimeout(closeInfoTooltip, 3000);
       });
   }
 
@@ -126,6 +146,12 @@ const LoginPage = () => {
                 </div>
               </>
             )}
+          />
+
+          <InfoTooltip
+            isOpen={infoTooltipOpen}
+            image={infoTooltipImage}
+            message={message}
           />
         </UserContainer>
       </section>
