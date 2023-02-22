@@ -34,8 +34,8 @@ export const login = ({ password, email }) => {
 };
 
 export const checkToken = (token) => {
-  return fetch(`${baseUrl}/users/me`, {
-    method: 'GET',
+  return fetch(`${baseUrl}/auth/jwt/verify`, {
+    method: 'POST',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
