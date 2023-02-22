@@ -64,8 +64,7 @@ const LoginPage = () => {
     login({ password, email })
       .then((res) => {
         if (res.access) {
-          console.log('gg');
-          navigate('/sign-up');
+          navigate('/profile');
         }
       })
       .catch((err) => {
