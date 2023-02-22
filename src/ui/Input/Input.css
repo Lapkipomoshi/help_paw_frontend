@@ -1,5 +1,7 @@
 .input__wrapper {
-  margin-bottom: 21px;
+  margin-bottom: 2px;
+  display: flex;
+  flex-direction: column;
 }
 
 .input__wrapper:last-of-type {
@@ -44,6 +46,8 @@
   line-height: 17px;
   color: var(--color-text-additional);
   margin-top: 2px;
+  min-height: 34px;
+  max-width: 364px;
 }
 
 .input__error {
@@ -54,5 +58,6 @@
   line-height: 17px;
   color: var(--color-verify-invalid);
   margin-top: 2px;
-  min-height: 17px;
+  min-height: 34px;
+  max-width: 364px;
 }
