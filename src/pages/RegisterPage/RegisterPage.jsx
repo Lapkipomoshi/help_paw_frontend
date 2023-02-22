@@ -6,7 +6,7 @@ import UserContainer from '../../components/UserContainer/UserContainer';
 import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import PasswordInput from '../../ui/PasswordInput/PasswordInput';
-import * as AuthApi from './AuthApi';
+import { register } from '../../utils/auth';
 import { EMAIL_REGEX, NAME_REGEX, PASSWORD_REGEX } from '../../utils/regex';
 import {
   EMAIL_INVALID, EMAIL_NOT_FOUND, NAME_INVALID, NAME_NOT_FOUND, NAME_TOO_LONG,
@@ -94,7 +94,7 @@ const RegisterPage = () => {
   }, [isValid, isChecked]);
 
   function handleRegister({ username, password, email }) {
-    AuthApi.register(username, password, email)
+    register(username, password, email)
       .then(() => {
         navigate('/sign-in');
       })
