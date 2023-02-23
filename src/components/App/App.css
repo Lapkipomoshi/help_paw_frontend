@@ -1,8 +1,8 @@
 .page {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 0 auto;
-  width: 1440px;
   font-family: var(--font-family-base);
   color: var(--color-text-base);
 }
@@ -10,5 +10,6 @@
 .main {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
 }

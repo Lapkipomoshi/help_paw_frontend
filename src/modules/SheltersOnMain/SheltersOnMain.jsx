@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom'; // подключает хук для программной навигации
 import { useInView } from 'react-intersection-observer'; // подключает хук, нужный для настройки анимации при прокрутки
 import './SheltersOnMain.css';
+import MainContainer from '../../components/MainContainer/MainContainer';
 import ShelterCard from '../../components/ShelterCard/ShelterCard';
 import Button from '../../ui/Button/Button';
 
@@ -25,47 +26,50 @@ const SheltersOnMain = ({ loggedIn, sheltersList }) => {
   }, [inView]);
 
   return (
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-    <section
-      className='shelters-on-main'
-      onClick={() => {
-        // eslint-disable-next-line no-unused-expressions
-        isOpenPopup && setIsOpenPopup(false);
-      }}
-    >
-      <h2 className='section-title'>Приюты, которым очень нужна помощь</h2>
-      <ul className='shelters-on-main__shelters-container'>
-        {sheltersList.map((shelter) => {
-          return (
-            <li key={shelter.id}>
-              <ShelterCard
-                id={shelter.id}
-                name={shelter.name}
-                address={shelter.address}
-                workingHours={shelter.working_hours}
-                logo={shelter.logo}
-                profileImage={shelter.profile_image}
-              />
-            </li>
-          );
-        })}
-      </ul>
-      <Button className='shelters-on-main__map-button' to='/shelters' link>Приюты на карте</Button>
-      <div
-        className={
-          `shelters-on-main__text-container ${isActiveAnimation ? 'shelters-on-main__text-container_animation' : ''}`
-        }
-        ref={ref}
+    // eslint-disable-next-line react/jsx-no-comment-textnodes
+    <MainContainer theme='base'>
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
+      <section
+        className='shelters-on-main'
+        onClick={() => {
+          // eslint-disable-next-line no-unused-expressions
+          isOpenPopup && setIsOpenPopup(false);
+        }}
       >
-        <h3 className='shelters-on-main__text-title'>Вы владелец приюта?</h3>
-        <p className='shelters-on-main__text-subtitle'>Можете добавить ваш приют на наш сайт прямо сейчас!</p>
-        <Button className={` ${!loggedIn && 'button_disabled'}`} onClick={handleAddShelterButton}>Добавить приют</Button>
-        <div className={`shelters-on-main__popup ${isOpenPopup && 'shelters-on-main__popup_opened'}`}>
-          <p className='shelters-on-main__popup-text'>Добавить приют на сайт можно только после регистрации</p>
-          <Button className='margin_column-center' to='/sign-up' link>Зарегистрироваться</Button>
+        <h2 className='section-title'>Приюты, которым очень нужна помощь</h2>
+        <ul className='shelters-on-main__shelters-container'>
+          {sheltersList.map((shelter) => {
+            return (
+              <li key={shelter.id}>
+                <ShelterCard
+                  id={shelter.id}
+                  name={shelter.name}
+                  address={shelter.address}
+                  workingHours={shelter.working_hours}
+                  logo={shelter.logo}
+                  profileImage={shelter.profile_image}
+                />
+              </li>
+            );
+          })}
+        </ul>
+        <Button className='shelters-on-main__map-button' to='/shelters' link>Приюты на карте</Button>
+        <div
+          className={
+            `shelters-on-main__text-container ${isActiveAnimation ? 'shelters-on-main__text-container_animation' : ''}`
+          }
+          ref={ref}
+        >
+          <h3 className='shelters-on-main__text-title'>Вы владелец приюта?</h3>
+          <p className='shelters-on-main__text-subtitle'>Можете добавить ваш приют на наш сайт прямо сейчас!</p>
+          <Button className={` ${!loggedIn && 'button_disabled'}`} onClick={handleAddShelterButton}>Добавить приют</Button>
+          <div className={`shelters-on-main__popup ${isOpenPopup && 'shelters-on-main__popup_opened'}`}>
+            <p className='shelters-on-main__popup-text'>Добавить приют на сайт можно только после регистрации</p>
+            <Button className='margin_column-center' to='/sign-up' link>Зарегистрироваться</Button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </MainContainer>
   );
 };
 

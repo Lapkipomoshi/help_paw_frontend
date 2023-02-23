@@ -13,6 +13,7 @@ import { login } from '../../utils/auth';
 import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
 import imageSuccess from '../../images/icons/ic_success.svg';
 import imageError from '../../images/icons/ic_error.svg';
+import MainContainer from '../../components/MainContainer/MainContainer';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -102,61 +103,62 @@ const LoginPage = () => {
   };
 
   return (
-    <main className='main'>
-      <section className='login'>
-        <UserContainer
-          containerClass='login'
-        >
-          <UserForm
-            title='Вход'
-            formClass='login'
-            onSubmit={handleSubmit}
-            formChildren={(
-              <>
-                <Input
-                  labelText='E-mail'
-                  inputName='email'
-                  inputType='email'
-                  errorMessage={emailError}
-                  isValid={isValidEmail}
-                  pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$'
-                  value={userEmail.value || ''}
-                  spanText={emailError}
-                  /* eslint-disable-next-line react/jsx-no-bind */
-                  onChange={handleEmailChange}
-                />
+    <MainContainer theme='base'>
+      <main className='main'>
+        <section className='login'>
+          <UserContainer
+            containerClass='login'
+          >
+            <UserForm
+              title='Вход'
+              formClass='login'
+              onSubmit={handleSubmit}
+              formChildren={(
+                <>
+                  <Input
+                    labelText='E-mail'
+                    inputName='email'
+                    inputType='email'
+                    errorMessage={emailError}
+                    isValid={isValidEmail}
+                    pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$'
+                    value={userEmail.value || ''}
+                    spanText={emailError}
+                    /* eslint-disable-next-line react/jsx-no-bind */
+                    onChange={handleEmailChange}
+                  />
 
-                <PasswordInput
-                  spanText={passwordError}
-                  errorMessage={passwordError}
-                  value={userPassword.value || ''}
-                  pattern='(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])$'
-                  minLength='8'
-                  maxLength='16'
-                  isValid={isValidPassword}
-                  /* eslint-disable-next-line react/jsx-no-bind */
-                  onChange={handlePasswordChange}
-                />
+                  <PasswordInput
+                    spanText={passwordError}
+                    errorMessage={passwordError}
+                    value={userPassword.value || ''}
+                    pattern='(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])$'
+                    minLength='8'
+                    maxLength='16'
+                    isValid={isValidPassword}
+                    /* eslint-disable-next-line react/jsx-no-bind */
+                    onChange={handlePasswordChange}
+                  />
 
-                <Button className='user-form__button-submit_login' submit disabled={disabled}>Войти</Button>
+                  <Button className='user-form__button-submit_login' submit disabled={disabled}>Войти</Button>
 
-                <div className='login__authorization-container'>
-                  <Link className='login__link' to='/password-recovery'>Забыли пароль?</Link>
-                  <SignUpBlock className='login' />
-                </div>
-              </>
-            )}
-          />
+                  <div className='login__authorization-container'>
+                    <Link className='login__link' to='/password-recovery'>Забыли пароль?</Link>
+                    <SignUpBlock className='login' />
+                  </div>
+                </>
+              )}
+            />
 
-          <InfoTooltip
-            isOpen={infoTooltipOpen}
-            image={infoTooltipImage}
-            message={message}
-          />
-        </UserContainer>
-      </section>
-
-    </main>
+            <InfoTooltip
+              isOpen={infoTooltipOpen}
+              image={infoTooltipImage}
+              message={message}
+            />
+          </UserContainer>
+        </section>
+      </main>
+    </MainContainer>
   );
 };
 

@@ -1,7 +1,7 @@
 .violet-ball {
   width: 42px;
   height: 42px;
-  background: var(--color-violet-ball);
+  background: var(--color-ball-violet);
   border-radius: 50%;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .violet-ball_user {
-  position: fixed;
+  position: absolute;
   left: 695px;
-  top: 653px;
+  top: 565px;
 }

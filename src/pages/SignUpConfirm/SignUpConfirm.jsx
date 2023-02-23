@@ -2,19 +2,22 @@ import React from 'react';
 import './SignUpConfirm.css';
 import UserContainer from '../../components/UserContainer/UserContainer';
 import FormWithConfirm from '../../components/FormWithConfirm/FormWithConfirm';
+import MainContainer from '../../components/MainContainer/MainContainer';
 
 const SignUpConfirm = () => {
   return (
-    <main className='main'>
-      <section className='register-confirm'>
-        <UserContainer
-          containerClass='register'
-        >
-          <FormWithConfirm />
+    <MainContainer>
+      <main className='main'>
+        <section className='register-confirm'>
+          <UserContainer
+            containerClass='register-confirm'
+          >
+            <FormWithConfirm />
 
-        </UserContainer>
-      </section>
-    </main>
+          </UserContainer>
+        </section>
+      </main>
+    </MainContainer>
   );
 };
 

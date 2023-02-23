@@ -1,7 +1,7 @@
 .turquoise-ball {
   width: 49px;
   height: 49px;
-  background: var(--color-turquoise-ball);
+  background: var(--color-ball-turquoise);
   border-radius: 50%;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .turquoise-ball_user {
-  position: fixed;
+  position: absolute;
   left: 707px;
-  top: 158px;
+  top: 70px;
 }

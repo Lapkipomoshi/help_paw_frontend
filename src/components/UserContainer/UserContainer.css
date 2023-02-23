@@ -12,12 +12,19 @@
   padding-right: 132px;
 }
 
+.user-container_register-confirm {
+  padding-right: 132px;
+  padding-bottom: 240px;
+}
+
 .user-container_login {
   padding-right: 169px;
+  padding-bottom: 216px;
 }
 
 .user-container_recovery {
   padding-right: 151px;
+  padding-bottom: 291px;
 }
 
 .user-container__image {
