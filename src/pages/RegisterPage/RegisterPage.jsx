@@ -138,7 +138,7 @@ const RegisterPage = () => {
   }
 
   return (
-    <main className='main'>
+    <main className='main main_background'>
       <section className='register'>
         <UserContainer
           containerClass='register'

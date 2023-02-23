@@ -1,7 +1,7 @@
 .orange-ball {
   width: 42px;
   height: 42px;
-  background: var(--color-orange-ball);
+  background: var(--color-ball-orange);
   border-radius: 50%;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .orange-ball_user {
-  position: fixed;
+  position: absolute;
   left: 198px;
-  top: 165px;
+  top: 77px;
 }

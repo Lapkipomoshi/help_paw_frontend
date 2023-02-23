@@ -5,7 +5,7 @@ import ShelterCard from '../../components/ShelterCard/ShelterCard';
 
 const ProfilePage = () => {
   return (
-    <main className='main'>
+    <main className='main main_background'>
       <section className='profile'>
         <ProfileContainer>
           <h2 className='profile__title'>Здравствуйте, Александр!</h2>

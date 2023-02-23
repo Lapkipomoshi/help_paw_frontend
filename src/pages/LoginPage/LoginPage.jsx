@@ -102,7 +102,7 @@ const LoginPage = () => {
   };
 
   return (
-    <main className='main'>
+    <main className='main main_background'>
       <section className='login'>
         <UserContainer
           containerClass='login'
