@@ -5,7 +5,7 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 
 const Faq = ({ faqList }) => {
   return (
-    <MainContainer>
+    <MainContainer base='additional'>
       <section className='faq'>
         <h2 className='section-title'>Часто задаваемые вопросы</h2>
         <ul className='faq__list'>

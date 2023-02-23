@@ -2,9 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom'; // подключает хук для программной навигации
 import { useInView } from 'react-intersection-observer'; // подключает хук, нужный для настройки анимации при прокрутки
 import './SheltersOnMain.css';
+import MainContainer from '../../components/MainContainer/MainContainer';
 import ShelterCard from '../../components/ShelterCard/ShelterCard';
 import Button from '../../ui/Button/Button';
-import MainContainer from '../../components/MainContainer/MainContainer';
 
 const SheltersOnMain = ({ loggedIn, sheltersList }) => {
   const [isActiveAnimation, setIsActiveAnimation] = React.useState(false); // отобразить анимацию?
@@ -27,7 +27,7 @@ const SheltersOnMain = ({ loggedIn, sheltersList }) => {
 
   return (
     // eslint-disable-next-line react/jsx-no-comment-textnodes
-    <MainContainer>
+    <MainContainer theme='base'>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
       <section
         className='shelters-on-main'
