@@ -15,6 +15,7 @@ import {
 import imageSuccess from '../../images/icons/ic_success.svg';
 import imageError from '../../images/icons/ic_error.svg';
 import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
+import MainContainer from '../../components/MainContainer/MainContainer';
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -138,85 +139,87 @@ const RegisterPage = () => {
   }
 
   return (
-    <main className='main main_background'>
-      <section className='register'>
-        <UserContainer
-          containerClass='register'
-        >
-          <UserForm
-            title='Регистрация'
-            formClass='register'
-            onSubmit={handleSubmit}
-            formChildren={(
-              <>
-                <Input
-                  labelText='Имя'
-                  inputName='name'
-                  inputType='text'
-                  errorMessage={nameError}
-                  isValid={isValidName}
-                  spanText={nameError}
-                  minLength='2'
-                  maxLength='20'
-                  pattern='[A-Za-zа-яА-ЯёЁ\d-\s]*$'
-                  value={userName.value || ''}
-                  /* eslint-disable-next-line react/jsx-no-bind */
-                  onChange={handleNameChange}
-                />
+    <MainContainer theme='base'>
+      <main className='main'>
+        <section className='register'>
+          <UserContainer
+            containerClass='register'
+          >
+            <UserForm
+              title='Регистрация'
+              formClass='register'
+              onSubmit={handleSubmit}
+              formChildren={(
+                <>
+                  <Input
+                    labelText='Имя'
+                    inputName='name'
+                    inputType='text'
+                    errorMessage={nameError}
+                    isValid={isValidName}
+                    spanText={nameError}
+                    minLength='2'
+                    maxLength='20'
+                    pattern='[A-Za-zа-яА-ЯёЁ\d-\s]*$'
+                    value={userName.value || ''}
+                    /* eslint-disable-next-line react/jsx-no-bind */
+                    onChange={handleNameChange}
+                  />
 
-                <Input
-                  labelText='E-mail'
-                  inputName='email'
-                  inputType='email'
-                  errorMessage={emailError}
-                  isValid={isValidEmail}
-                  pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$'
-                  value={userEmail.value || ''}
-                  spanText={emailError}
-                  /* eslint-disable-next-line react/jsx-no-bind */
-                  onChange={handleEmailChange}
-                />
+                  <Input
+                    labelText='E-mail'
+                    inputName='email'
+                    inputType='email'
+                    errorMessage={emailError}
+                    isValid={isValidEmail}
+                    pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$'
+                    value={userEmail.value || ''}
+                    spanText={emailError}
+                    /* eslint-disable-next-line react/jsx-no-bind */
+                    onChange={handleEmailChange}
+                  />
 
-                <PasswordInput
-                  spanText={passwordError}
-                  errorMessage={passwordError}
-                  value={userPassword.value || ''}
-                  pattern='^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])$'
-                  minLength='8'
-                  maxLength='16'
-                  isValid={isValidPassword}
-                  /* eslint-disable-next-line react/jsx-no-bind */
-                  onChange={handlePasswordChange}
-                />
+                  <PasswordInput
+                    spanText={passwordError}
+                    errorMessage={passwordError}
+                    value={userPassword.value || ''}
+                    pattern='^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])$'
+                    minLength='8'
+                    maxLength='16'
+                    isValid={isValidPassword}
+                    /* eslint-disable-next-line react/jsx-no-bind */
+                    onChange={handlePasswordChange}
+                  />
 
-                <div className='register__privacy'>
-                  <label className='checkbox__container'>
-                    <input type='checkbox' className='checkbox__input' onClick={handleChangeCheckbox} />
-                    <span className='checkbox' />
-                  </label>
+                  <div className='register__privacy'>
+                    <label className='checkbox__container'>
+                      <input type='checkbox' className='checkbox__input' onClick={handleChangeCheckbox} />
+                      <span className='checkbox' />
+                    </label>
 
-                  <p className='register__agreement'>
-                    Я согласен с
-                    <Link className='register__privacy-link' to='/' target='_blank'> Политикой конфиденциальности</Link>
-                    {' '}
-                    и
-                    <Link className='register__privacy-link' to='/' target='_blank'> Условиями использования сервиса</Link>
-                  </p>
-                </div>
+                    <p className='register__agreement'>
+                      Я согласен с
+                      <Link className='register__privacy-link' to='/' target='_blank'> Политикой конфиденциальности</Link>
+                      {' '}
+                      и
+                      <Link className='register__privacy-link' to='/' target='_blank'> Условиями использования сервиса</Link>
+                    </p>
+                  </div>
 
-                <Button className='user-form__button-submit_register' submit disabled={disabled}>Зарегистрироваться</Button>
-              </>
-            )}
-          />
+                  <Button className='user-form__button-submit_register' submit disabled={disabled}>Зарегистрироваться</Button>
+                </>
+              )}
+            />
 
-          <InfoTooltip
-            isOpen={infoTooltipOpen}
-            image={infoTooltipImage}
-            message={message}
-          />
-        </UserContainer>
-      </section>
-    </main>
+            <InfoTooltip
+              isOpen={infoTooltipOpen}
+              image={infoTooltipImage}
+              message={message}
+            />
+          </UserContainer>
+        </section>
+      </main>
+    </MainContainer>
   );
 };
 

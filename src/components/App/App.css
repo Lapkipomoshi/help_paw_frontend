@@ -13,8 +13,3 @@
   align-items: center;
   width: 100%;
 }
-
-.main_background {
-  background-color: var(--color-background-base);
-  background-size: 100%;
-}
