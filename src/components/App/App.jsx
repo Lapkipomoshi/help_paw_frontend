@@ -30,6 +30,7 @@ import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
 import PasswordRecovery from '../../pages/PasswordRecovery/PasswordRecovery';
 import NewPassword from '../../pages/NewPassword/NewPassword';
 import SignUpConfirm from '../../pages/SignUpConfirm/SignUpConfirm';
+import ProfilePage from '../../pages/ProfilePage/ProfilePage';
 
 const App = () => {
   // eslint-disable-next-line no-unused-vars
@@ -94,6 +95,14 @@ const App = () => {
             <ProtectedRoute loggedIn={!loggedIn} component={NewPassword} />
           }
         />
+
+        <Route
+          path='/profile'
+          element={
+            <ProtectedRoute loggedIn={!loggedIn} component={ProfilePage} />
+          }
+        />
+
         <Route path='/help_paw_frontend' element={<Navigate to='/' replace />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>

@@ -1,0 +1,13 @@
+.profile-container {
+  background-color: var(--color-background-base);
+  padding: 44px 132px 199px;
+  position: relative;
+}
+
+.profile-container__image {
+  width: 282px;
+  height: 282px;
+  position: absolute;
+  right: 132px;
+  top: 137px;
+}
