@@ -11,6 +11,9 @@
   --color-verify-valid: #3ED872;
   --color-verify-invalid: #D83E3E;
   --color-shadow-base: rgba(23, 23, 23, .12); /* #171717 */
+  --color-violet-ball: #8D4BF5;
+  --color-orange-ball: #DDAA51;
+  --color-turquoise-ball: #8DE1D6;
 
   --font-family-title: 'Montserrat Alternates', 'Inter', Arial, sans-serif;
   --font-family-base: 'Inter', Arial, sans-serif;
