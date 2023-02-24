@@ -76,7 +76,6 @@ const App = () => {
         .catch((err) => {
           // eslint-disable-next-line no-console
           console.log(`Ошибка ${err}`);
-          setLoggedIn(true);
         });
     }
   }
