@@ -11,6 +11,7 @@
   align-items: center;
   background-color: var(--color-background-additional);
   box-sizing: border-box;
+  position: relative;
 }
 
 .header__logo-link {
