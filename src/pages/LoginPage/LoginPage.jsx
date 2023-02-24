@@ -120,7 +120,6 @@ const LoginPage = () => {
                     inputName='email'
                     inputType='email'
                     errorMessage={emailError}
-                    isValid={isValidEmail}
                     pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$'
                     value={userEmail.value || ''}
                     spanText={emailError}
@@ -135,7 +134,6 @@ const LoginPage = () => {
                     pattern='(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])$'
                     minLength='8'
                     maxLength='16'
-                    isValid={isValidPassword}
                     /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handlePasswordChange}
                   />
