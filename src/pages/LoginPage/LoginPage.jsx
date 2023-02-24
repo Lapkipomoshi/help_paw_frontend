@@ -1,23 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import './LoginPage.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import UserContainer from '../../components/UserContainer/UserContainer';
 import UserForm from '../../components/UserForm/UserForm';
 import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import PasswordInput from '../../ui/PasswordInput/PasswordInput';
 import SignUpBlock from '../../components/SignUpBlock/SignUpBlock';
-import { EMAIL_REGEX } from '../../utils/regex';
-import { EMAIL_INVALID, EMAIL_NOT_FOUND, PASSWORD_NOT_FOUND } from '../../utils/errorMessage';
-import { login } from '../../utils/auth';
-import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
-import imageSuccess from '../../images/icons/ic_success.svg';
-import imageError from '../../images/icons/ic_error.svg';
+import { EMAIL_NOT_FOUND, PASSWORD_NOT_FOUND } from '../../utils/errorMessage';
 import MainContainer from '../../components/MainContainer/MainContainer';
 
-const LoginPage = () => {
-  const navigate = useNavigate();
-
+const LoginPage = ({ onLogin }) => {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
 
@@ -31,22 +24,14 @@ const LoginPage = () => {
 
   const [disabled, setDisabled] = useState(false);
 
-  const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
-  const [infoTooltipImage, setInfoTooltipImage] = useState(imageSuccess);
-  const [message, setMessage] = useState('');
-
   function handleEmailChange(e) {
     const input = e.target;
-    const validEmail = EMAIL_REGEX.test(input.value);
-    setIsValidEmail(validEmail);
+    setIsValidEmail(true);
     setUserEmail(input.value);
-    if (!validEmail) {
-      setEmailError(EMAIL_INVALID);
-    } else {
-      setEmailError('');
-    }
     if (input.value.length === 0) {
       setEmailError(EMAIL_NOT_FOUND);
+    } else {
+      setEmailError('');
     }
   }
 
@@ -68,37 +53,9 @@ const LoginPage = () => {
     return setDisabled(true);
   }, [isValid]);
 
-  function closeInfoTooltip() {
-    setInfoTooltipOpen(false);
-  }
-
-  function handleLogin({ password, email }) {
-    login({ password, email })
-      .then((res) => {
-        if (res) {
-          localStorage.setItem('access', res.access);
-          localStorage.setItem('refresh', res.refresh);
-          setInfoTooltipImage(imageSuccess);
-          setMessage('Добро пожаловать на сайт!');
-          setInfoTooltipOpen(true);
-          setTimeout(closeInfoTooltip, 3000);
-          setTimeout(() => { navigate('/profile'); }, 3000);
-        }
-      })
-      .catch((err) => {
-        // eslint-disable-next-line no-console
-        console.log(`Ошибка ${err}`);
-
-        setInfoTooltipImage(imageError);
-        setMessage('Вы ввели неверный e-mail или пароль!');
-        setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 3000);
-      });
-  }
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    handleLogin({
+    onLogin({
       password: userPassword,
       email: userEmail,
     });
@@ -150,12 +107,6 @@ const LoginPage = () => {
                   </div>
                 </>
               )}
-            />
-
-            <InfoTooltip
-              isOpen={infoTooltipOpen}
-              image={infoTooltipImage}
-              message={message}
             />
           </UserContainer>
         </section>
