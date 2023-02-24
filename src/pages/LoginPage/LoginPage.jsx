@@ -75,7 +75,9 @@ const LoginPage = () => {
   function handleLogin({ password, email }) {
     login({ password, email })
       .then((res) => {
-        if (res.access) {
+        if (res) {
+          localStorage.setItem('access', res.access);
+          localStorage.setItem('refresh', res.refresh);
           setInfoTooltipImage(imageSuccess);
           setMessage('Добро пожаловать на сайт!');
           setInfoTooltipOpen(true);
@@ -100,6 +102,8 @@ const LoginPage = () => {
       password: userPassword,
       email: userEmail,
     });
+    setUserEmail('');
+    setUserPassword('');
   };
 
   return (
