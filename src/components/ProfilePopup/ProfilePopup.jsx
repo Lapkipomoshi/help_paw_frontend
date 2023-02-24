@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Button from '../../ui/Button/Button';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 
-function ProfilePopup({ isOpen, closeProfilePopup }) {
+function ProfilePopup({ isOpen, closeProfilePopup, onSignout }) {
   const currentUser = useContext(CurrentUserContext);
   const { username, email } = currentUser;
 
@@ -14,7 +14,7 @@ function ProfilePopup({ isOpen, closeProfilePopup }) {
       <p className='profile-popup__email'>{email}</p>
       <Link className='profile-popup__link' to='/profile/edit'>Редактировать</Link>
       <Link className='profile-popup__link' to='/profile/edit-password'>Изменить пароль</Link>
-      <Button className='profile-popup__button' submit>Выйти</Button>
+      <Button className='profile-popup__button' submit onClick={onSignout}>Выйти</Button>
       <button
         type='button'
         className='profile-popup__button-close'

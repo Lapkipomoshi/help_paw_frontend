@@ -3,9 +3,10 @@ import { Link, NavLink } from 'react-router-dom';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import './Header.css';
 import Paw from './svg/Paw';
+// eslint-disable-next-line import/no-named-as-default,import/no-named-as-default-member
 import ProfilePopup from '../../components/ProfilePopup/ProfilePopup';
 
-const Header = ({ loggedIn }) => {
+const Header = ({ loggedIn, onSignout }) => {
   const [profilePopupOpen, setProfilePopupOpen] = useState(false);
 
   function openProfilePopup() {
@@ -14,6 +15,11 @@ const Header = ({ loggedIn }) => {
 
   function closeProfilePopup() {
     setProfilePopupOpen(false);
+  }
+
+  function handleSignOut() {
+    setProfilePopupOpen(false);
+    onSignout();
   }
 
   return (
@@ -56,7 +62,7 @@ const Header = ({ loggedIn }) => {
         </nav>
 
         {/* eslint-disable-next-line react/jsx-no-bind */}
-        <ProfilePopup isOpen={profilePopupOpen} closeProfilePopup={closeProfilePopup} />
+        <ProfilePopup isOpen={profilePopupOpen} closeProfilePopup={closeProfilePopup} onSignout={handleSignOut} />
       </header>
     </MainContainer>
   );

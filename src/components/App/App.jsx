@@ -59,6 +59,13 @@ const App = () => {
     setInfoTooltipOpen(false);
   }
 
+  function handleSignOut() {
+    localStorage.clear();
+    setLoggedIn(false);
+    setCurrentUser({ username: '', email: '', id: '' });
+    navigate('/');
+  }
+
   function tokenCheck() {
     const token = localStorage.getItem('access');
     if (token) {
@@ -76,6 +83,11 @@ const App = () => {
         .catch((err) => {
           // eslint-disable-next-line no-console
           console.log(`Ошибка ${err}`);
+          if (err.status === 401) {
+            handleSignOut();
+          } else {
+            handleSignOut();
+          }
         });
     }
   }
@@ -137,6 +149,7 @@ const App = () => {
         <Header
           loggedIn={loggedIn}
           /* eslint-disable-next-line react/jsx-no-bind */
+          onSignout={handleSignOut}
         />
         <Routes>
           <Route path='/' element={<MainPage loggedIn={loggedIn} />} />
