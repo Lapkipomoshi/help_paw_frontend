@@ -17,7 +17,7 @@ const AboutShelter = () => {
           <h2 className='shelter-section__title'>{shelter.name}</h2>
           <ul className='shelter-info__list'>
             <InfoItem argument='Адрес'>{shelter.address}</InfoItem>
-            <InfoItem argument='Часы-работы'>{shelter.working_hours}</InfoItem>
+            <InfoItem argument='Часы-работы'>{`${shelter.working_from_hour} - ${shelter.working_to_hour}`}</InfoItem>
             <InfoItem argument='Номер телефона'>{shelter.phone_number}</InfoItem>
             <InfoItem argument='E-mail'>{shelter.email}</InfoItem>
             <InfoItem argument='Сайт'>
@@ -26,13 +26,13 @@ const AboutShelter = () => {
               </a>
             </InfoItem>
             <div className='shelter-info__icons'>
-              <a href={shelter.okLink} target='_blank' rel='noreferrer'>
+              <a href={shelter.ok_page} target='_blank' rel='noreferrer'>
                 <img className='shelter-info__icon' src={classmatesIcon} alt='OK.ru' />
               </a>
-              <a href={shelter.vkLink} target='_blank' rel='noreferrer'>
+              <a href={shelter.vk_page} target='_blank' rel='noreferrer'>
                 <img className='shelter-info__icon' src={vkIcon} alt='ВК' />
               </a>
-              <a href={shelter.telegramLink} target='_blank' rel='noreferrer'>
+              <a href={shelter.telegram} target='_blank' rel='noreferrer'>
                 <img className='shelter-info__icon' src={telegramIcon} alt='телеграм' />
               </a>
             </div>
@@ -44,12 +44,12 @@ const AboutShelter = () => {
       <p className='about-shelter__text'>
         Собрано денег за всё время:
         {' '}
-        <span className='color_text_additional'>{shelter.gettingAllMoney}</span>
+        <span className='color_text_additional'>{shelter.money_collected}</span>
       </p>
       <p className='about-shelter__text'>
         Забрали животных за всё время:
         {' '}
-        <span className='color_text_additional'>{shelter.takingAllPets}</span>
+        <span className='color_text_additional'>{shelter.animals_adopted}</span>
       </p>
     </section>
   );
