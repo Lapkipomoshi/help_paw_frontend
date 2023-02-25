@@ -43,7 +43,7 @@ import { register } from '../../utils/auth';
 
 const App = () => {
   const navigate = useNavigate();
-  // eslint-disable-next-line no-unused-vars
+
   const [loggedIn, setLoggedIn] = useState(false); // пользователь вошёл в учётную запись?
   const [currentUser, setCurrentUser] = useState({
     username: '',
@@ -59,35 +59,24 @@ const App = () => {
     setInfoTooltipOpen(false);
   }
 
-  function handleSignOut() {
+  const handleSignOut = () => {
     localStorage.clear();
     setLoggedIn(false);
     setCurrentUser({ username: '', email: '', id: '' });
     navigate('/');
-  }
+  };
 
   function tokenCheck() {
     const token = localStorage.getItem('access');
     if (token) {
       userApi.getUserInfo(token)
         .then((res) => {
-          if (res) {
-            setCurrentUser({
-              username: res.username,
-              email: res.email,
-              id: res.id,
-            });
-            setLoggedIn(true);
-          }
+          setCurrentUser(res);
+          setLoggedIn(true);
         })
-        .catch((err) => {
-          // eslint-disable-next-line no-console
-          console.log(`Ошибка ${err}`);
-          if (err.status === 401) {
-            handleSignOut();
-          } else {
-            handleSignOut();
-          }
+        .catch(() => {
+          setLoggedIn(false);
+          handleSignOut();
         });
     }
   }
@@ -96,59 +85,46 @@ const App = () => {
     tokenCheck();
   }, []);
 
-  function handleRegister({ username, password, email }) {
+  const handleRegister = ({ username, password, email }) => {
     register(username, password, email)
       .then(() => {
-        setInfoTooltipImage(imageSuccess);
-        setMessage('Спасибо за регистрацию и добро пожаловать на сайт!');
-        setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 3000);
-        setTimeout(() => { navigate('/sign-in'); }, 3000);
+        navigate('/sign-up/confirm');
       })
-      .catch((err) => {
-        // eslint-disable-next-line no-console
-        console.log(`Ошибка ${err}`);
-
+      .catch(() => {
         setInfoTooltipImage(imageError);
         setMessage('Что-то пошло не так! Попробуйте ещё раз.');
         setInfoTooltipOpen(true);
         setTimeout(closeInfoTooltip, 3000);
       });
-  }
+  };
 
-  function handleLogin({ password, email }) {
+  const handleLogin = ({ password, email }) => {
     auth.login({ password, email })
       .then((res) => {
-        if (res) {
-          setLoggedIn(true);
-          localStorage.setItem('access', res.access);
-          localStorage.setItem('refresh', res.refresh);
-          tokenCheck();
+        setLoggedIn(true);
+        localStorage.setItem('access', res.access);
+        localStorage.setItem('refresh', res.refresh);
+        tokenCheck();
 
-          setInfoTooltipImage(imageSuccess);
-          setMessage('Добро пожаловать на сайт!');
-          setInfoTooltipOpen(true);
-          setTimeout(closeInfoTooltip, 3000);
-          setTimeout(() => { navigate('/profile'); }, 3000);
-        }
+        setInfoTooltipImage(imageSuccess);
+        setMessage('Добро пожаловать на сайт!');
+        setInfoTooltipOpen(true);
+        setTimeout(closeInfoTooltip, 3000);
+        setTimeout(() => { navigate('/profile'); }, 3000);
       })
-      .catch((err) => {
-        // eslint-disable-next-line no-console
-        console.log(`Ошибка ${err}`);
-
+      .catch(() => {
         setInfoTooltipImage(imageError);
         setMessage('Вы ввели неверный e-mail или пароль!');
         setInfoTooltipOpen(true);
         setTimeout(closeInfoTooltip, 3000);
       });
-  }
+  };
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='page'>
         <Header
           loggedIn={loggedIn}
-          /* eslint-disable-next-line react/jsx-no-bind */
           onSignout={handleSignOut}
         />
         <Routes>
@@ -174,7 +150,6 @@ const App = () => {
           <Route
             path='/sign-in'
             element={
-              // eslint-disable-next-line react/jsx-no-bind
               <ProtectedRoute loggedIn={!loggedIn} component={LoginPage} onLogin={handleLogin} />
             }
           />
@@ -182,7 +157,6 @@ const App = () => {
           <Route
             path='/sign-up'
             element={
-              // eslint-disable-next-line react/jsx-no-bind
               <ProtectedRoute loggedIn={!loggedIn} component={RegisterPage} onRegister={handleRegister} />
             }
           />
