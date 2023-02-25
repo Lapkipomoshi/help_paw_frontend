@@ -3,7 +3,7 @@
   max-width: 281px;
   display: flex;
   flex-direction: column;
-  background: #FFFFFF;
+  background: var(--color-background-additional);
   box-shadow: 4px 4px 17px rgba(23, 23, 23, 0.12);
   border-radius: 30px;
   position: absolute;
@@ -24,7 +24,7 @@
 }
 
 .profile-popup__name {
-  font-family: 'Montserrat Alternates', Arial, sans-serif;
+  font-family: var(--font-family-title);
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
