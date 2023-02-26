@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/help_paw_frontend/static/css/main.050680f8.css",
-    "main.js": "/help_paw_frontend/static/js/main.9e27791c.js",
+    "main.css": "/help_paw_frontend/static/css/main.8c7fc8c9.css",
+    "main.js": "/help_paw_frontend/static/js/main.f8c48586.js",
     "static/js/787.df3f365b.chunk.js": "/help_paw_frontend/static/js/787.df3f365b.chunk.js",
     "static/media/new-page_photo.jpg": "/help_paw_frontend/static/media/new-page_photo.e3fc355523addf7ea0b3.jpg",
     "static/media/new-big-card.jpg": "/help_paw_frontend/static/media/new-big-card.716012dd524af312d52c.jpg",
@@ -38,6 +38,7 @@
     "static/media/ic_male.svg": "/help_paw_frontend/static/media/ic_male.17ad18746a158d7a1dbdb345fe17e877.svg",
     "static/media/ic_female.svg": "/help_paw_frontend/static/media/ic_female.a01191d8133d9c56587610bcfeb17831.svg",
     "static/media/slider__button.svg": "/help_paw_frontend/static/media/slider__button.7f7bafc95358c4209c08.svg",
+    "static/media/ic_button_close.svg": "/help_paw_frontend/static/media/ic_button_close.2342251102fd89789357.svg",
     "static/media/ic_paw.svg": "/help_paw_frontend/static/media/ic_paw.8b669e83b630cbc11034cec5e0dc6942.svg",
     "static/media/footer__icon_vk.svg": "/help_paw_frontend/static/media/footer__icon_vk.4322032db3b9fee96097b04a7a6439af.svg",
     "static/media/footer__icon_classmates.svg": "/help_paw_frontend/static/media/footer__icon_classmates.6e3c9c4902d0f3251f942e72980b1aff.svg",
@@ -50,12 +51,12 @@
     "static/media/footer__icon_telegram.svg": "/help_paw_frontend/static/media/footer__icon_telegram.64e980b8b25154680d1c578c1ac4c609.svg",
     "static/media/register__daw.svg": "/help_paw_frontend/static/media/register__daw.1d29b252981c5c5e4277.svg",
     "static/media/list-marker.svg": "/help_paw_frontend/static/media/list-marker.da283bb800f56777ef34.svg",
-    "main.050680f8.css.map": "/help_paw_frontend/static/css/main.050680f8.css.map",
-    "main.9e27791c.js.map": "/help_paw_frontend/static/js/main.9e27791c.js.map",
+    "main.8c7fc8c9.css.map": "/help_paw_frontend/static/css/main.8c7fc8c9.css.map",
+    "main.f8c48586.js.map": "/help_paw_frontend/static/js/main.f8c48586.js.map",
     "787.df3f365b.chunk.js.map": "/help_paw_frontend/static/js/787.df3f365b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.050680f8.css",
-    "static/js/main.9e27791c.js"
+    "static/css/main.8c7fc8c9.css",
+    "static/js/main.f8c48586.js"
   ]
 }
