@@ -1,25 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import './RegisterPage.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import UserForm from '../../components/UserForm/UserForm';
 import UserContainer from '../../components/UserContainer/UserContainer';
 import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import PasswordInput from '../../ui/PasswordInput/PasswordInput';
-import { register } from '../../utils/auth';
 import { EMAIL_REGEX, NAME_REGEX, PASSWORD_REGEX } from '../../utils/regex';
 import {
   EMAIL_INVALID, EMAIL_NOT_FOUND, NAME_INVALID, NAME_NOT_FOUND, NAME_TOO_LONG,
   NAME_TOO_SHORT, PASSWORD_INVALID, PASSWORD_NOT_FOUND, PASSWORD_TOO_LONG, PASSWORD_TOO_SHORT,
 } from '../../utils/errorMessage';
-import imageSuccess from '../../images/icons/ic_success.svg';
-import imageError from '../../images/icons/ic_error.svg';
-import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
 import MainContainer from '../../components/MainContainer/MainContainer';
 
-const RegisterPage = () => {
-  const navigate = useNavigate();
-
+const RegisterPage = ({ onRegister }) => {
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
@@ -37,10 +31,6 @@ const RegisterPage = () => {
   const [disabled, setDisabled] = useState(false);
 
   const [isChecked, setIsChecked] = useState(false);
-
-  const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
-  const [infoTooltipImage, setInfoTooltipImage] = useState(imageSuccess);
-  const [message, setMessage] = useState('');
 
   function handleNameChange(e) {
     const input = e.target;
@@ -101,33 +91,9 @@ const RegisterPage = () => {
     return setDisabled(true);
   }, [isValid, isChecked]);
 
-  function closeInfoTooltip() {
-    setInfoTooltipOpen(false);
-  }
-
-  function handleRegister({ username, password, email }) {
-    register(username, password, email)
-      .then(() => {
-        setInfoTooltipImage(imageSuccess);
-        setMessage('Спасибо за регистрацию и добро пожаловать на сайт!');
-        setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 3000);
-        setTimeout(() => { navigate('/sign-in'); }, 3000);
-      })
-      .catch((err) => {
-        // eslint-disable-next-line no-console
-        console.log(`Ошибка ${err}`);
-
-        setInfoTooltipImage(imageError);
-        setMessage('Что-то пошло не так! Попробуйте ещё раз.');
-        setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 3000);
-      });
-  }
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    handleRegister({
+    onRegister({
       username: userName,
       password: userPassword,
       email: userEmail,
@@ -209,12 +175,6 @@ const RegisterPage = () => {
                   <Button className='user-form__button-submit_register' submit disabled={disabled}>Зарегистрироваться</Button>
                 </>
               )}
-            />
-
-            <InfoTooltip
-              isOpen={infoTooltipOpen}
-              image={infoTooltipImage}
-              message={message}
             />
           </UserContainer>
         </section>

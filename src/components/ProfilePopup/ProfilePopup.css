@@ -1,0 +1,83 @@
+.profile-popup {
+  width: 100%;
+  max-width: 281px;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-background-additional);
+  box-shadow: 4px 4px 17px rgba(23, 23, 23, 0.12);
+  border-radius: 30px;
+  position: absolute;
+  right: 148px;
+  top: 88px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.5s, opacity 0.5s ease-in-out;
+  padding: 20px 24px;
+  z-index: 3;
+}
+
+.profile-popup_opened {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  z-index: 3;
+}
+
+.profile-popup__name {
+  font-family: var(--font-family-title);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: var(--color-text-base);
+  margin: 0;
+}
+
+.profile-popup__email {
+  font-family: var(--font-family-base);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-text-additional);
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+
+.profile-popup__link {
+  font-family: var(--font-family-base);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-text-base);
+  text-decoration: none;
+  margin-bottom: 16px;
+}
+
+.profile-popup__link:last-of-type {
+  margin-bottom: 20px;
+}
+
+.profile-popup__button {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.profile-popup__button-close {
+  background-image: url('../../images/icons/ic_button_close.svg');
+  background-size: contain;
+  background-color: transparent;
+  border: none;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  position: absolute;
+  top: 14px;
+  right: 19px;
+}
+
+.profile-popup__button-close:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

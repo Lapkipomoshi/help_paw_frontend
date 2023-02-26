@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import './Header.css';
 import Paw from './svg/Paw';
+// eslint-disable-next-line import/no-named-as-default,import/no-named-as-default-member
+import ProfilePopup from '../../components/ProfilePopup/ProfilePopup';
 
-const Header = ({ loggedIn }) => {
+const Header = ({ loggedIn, onSignout }) => {
+  const [profilePopupOpen, setProfilePopupOpen] = useState(false);
+
+  function openProfilePopup() {
+    setProfilePopupOpen(true);
+  }
+
+  function closeProfilePopup() {
+    setProfilePopupOpen(false);
+  }
+
+  function handleSignOut() {
+    setProfilePopupOpen(false);
+    onSignout();
+  }
+
   return (
     <MainContainer theme='additional'>
       <header className='header'>
@@ -40,8 +57,12 @@ const Header = ({ loggedIn }) => {
         <nav className='menu'>
           <NavLink className={`menu__sign menu__sign_in ${loggedIn ? 'display_none' : ''}`} to='/sign-in'>Вход</NavLink>
           <NavLink className={`menu__sign menu__sign_up ${loggedIn ? 'display_none' : ''}`} to='/sign-up'>Регистрация</NavLink>
-          <NavLink className={`menu__profile ${loggedIn ? '' : 'display_none'}`} to='/profile' />
+          {/* eslint-disable-next-line react/jsx-no-bind */}
+          <NavLink className={`menu__profile ${loggedIn ? '' : 'display_none'}`} to='/profile' onMouseEnter={openProfilePopup} />
         </nav>
+
+        {/* eslint-disable-next-line react/jsx-no-bind */}
+        <ProfilePopup isOpen={profilePopupOpen} closeProfilePopup={closeProfilePopup} onSignout={handleSignOut} />
       </header>
     </MainContainer>
   );
