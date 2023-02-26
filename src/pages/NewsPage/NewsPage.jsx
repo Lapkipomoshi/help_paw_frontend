@@ -1,5 +1,6 @@
 import React from 'react';
 import './NewsPage.css';
+import MainContainer from '../../components/MainContainer/MainContainer';
 import NewsSection from '../../components/NewsSection/NewsSection';
 import Button from '../../ui/Button/Button';
 import newPhoto from '../../images/new-big-card.jpg';
@@ -52,13 +53,15 @@ const NewsPage = () => {
   }, []);
 
   return (
-    <main className='main news'>
-      <div className='news__title-row'>
-        <h2 className='news__title'>Новости</h2>
-        <Button className='margin-left_auto' onClick={() => {}} disabled>Предложить новость</Button>
-      </div>
-      <NewsSection newsList={newsList} />
-    </main>
+    <MainContainer theme='base'>
+      <main className='main news'>
+        <div className='news__title-row'>
+          <h2 className='news__title'>Новости</h2>
+          <Button className='margin-left_auto' onClick={() => {}} disabled>Предложить новость</Button>
+        </div>
+        <NewsSection newsList={newsList} />
+      </main>
+    </MainContainer>
   );
 };
 

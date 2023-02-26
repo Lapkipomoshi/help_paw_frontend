@@ -1,1 +1,9 @@
-@import url('./section-title/section-title.css');
+.section-title {
+  margin: 64px auto 44px 0;
+  padding: 0;
+  width: 100%;
+  font-size: 40px;
+  line-height: 49px;
+  font-weight: 600;
+  font-family: var(--font-family-title);
+}

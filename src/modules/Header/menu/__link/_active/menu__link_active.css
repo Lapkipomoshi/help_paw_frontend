@@ -1,8 +1,0 @@
-.menu__link_active {
-  color: var(--color-accent-base);
-}
-
-.menu__link_active:hover {
-  opacity: 1;
-  cursor: default;
-}

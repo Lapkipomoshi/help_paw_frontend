@@ -1,0 +1,18 @@
+.turquoise-ball {
+  width: 49px;
+  height: 49px;
+  background: var(--color-ball-turquoise);
+  border-radius: 50%;
+}
+
+.turquoise-ball_profile {
+  position: absolute;
+  right: 507px;
+  top: 58px;
+}
+
+.turquoise-ball_user {
+  position: absolute;
+  left: 707px;
+  top: 70px;
+}

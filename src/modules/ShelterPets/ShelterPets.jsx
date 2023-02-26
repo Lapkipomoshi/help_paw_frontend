@@ -1,13 +1,29 @@
 import React from 'react';
 import './ShelterPets.css';
+import DetailsCard from '../../components/DetailsCard/DetailsCard';
 import CardsSlider from '../../components/CardsSlider/CardsSlider';
 import PetCard from '../../components/PetCard/PetCard';
 
 const ShelterPets = () => {
-  const [petsList, setPetsList] = React.useState([]); // список питомцев приюта
+  const [petsList, setPetsList] = React.useState([]); // список видов питомцев
+  const [catsList, setCatsList] = React.useState([]); // список кошек приюта
 
   React.useEffect(() => {
     setPetsList([ // будет запрашиваться с бэкенда
+      {
+        id: 1,
+        pets: 'Кошки',
+      },
+      {
+        id: 2,
+        pets: 'Собаки',
+      },
+      {
+        id: 3,
+        pets: 'Попугаи',
+      },
+    ]);
+    setCatsList([ // будет запрашиваться с бэкенда
       {
         id: 1,
         name: 'Пушистик',
@@ -78,47 +94,29 @@ const ShelterPets = () => {
     <section className='shelter-section shelter-pets'>
       <h2 className='shelter-section__title shelter-pets__title'>Наши животные</h2>
       <ul className='shelter-pets__list'>
-        <li className='shelter-pets__item'>
-          <details className='shelter-pets__detalis' open>
-            <summary className='shelter-pets__summary'>
-              <h3 className='shelter-pets__summary-title'>Кошки</h3>
-              <div className='shelter-pets__summary-icon' />
-            </summary>
-            <CardsSlider listLength={petsList.length}>
-              {petsList.map((card) => {
-                return (
-                  <li className='shelter-pets__card-item' key={card.id}>
-                    <PetCard
-                      id={card.id}
-                      name={card.name}
-                      age={card.age}
-                      male={card.male}
-                      image={card.image}
-                    />
-                  </li>
-                );
-              })}
-            </CardsSlider>
-          </details>
-        </li>
-        <li className='shelter-pets__item'>
-          <details className='shelter-pets__detalis'>
-            <summary className='shelter-pets__summary'>
-              <h3 className='shelter-pets__summary-title'>Собаки</h3>
-              <div className='shelter-pets__summary-icon' />
-            </summary>
-            <div className='shelter-pets__slider' />
-          </details>
-        </li>
-        <li className='shelter-pets__item'>
-          <details className='shelter-pets__detalis'>
-            <summary className='shelter-pets__summary'>
-              <h3 className='shelter-pets__summary-title'>Попугаи</h3>
-              <div className='shelter-pets__summary-icon' />
-            </summary>
-            <div className='shelter-pets__slider' />
-          </details>
-        </li>
+        {petsList.map((pets) => {
+          return (
+            <li className='shelter-pets__pets-item' key={pets.id}>
+              <DetailsCard title={pets.pets} isOpen={false} textStyle='shelter-pets' iconType='arrow'>
+                <CardsSlider listLength={catsList.length}>
+                  {catsList.map((card) => {
+                    return (
+                      <li className='shelter-pets__card-item' key={card.id}>
+                        <PetCard
+                          id={card.id}
+                          name={card.name}
+                          age={card.age}
+                          male={card.male}
+                          image={card.image}
+                        />
+                      </li>
+                    );
+                  })}
+                </CardsSlider>
+              </DetailsCard>
+            </li>
+          );
+        })}
       </ul>
     </section>
   );

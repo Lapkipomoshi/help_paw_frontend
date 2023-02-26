@@ -1,85 +1,47 @@
 import React from 'react';
 import './PapersPage.css';
+import MainContainer from '../../components/MainContainer/MainContainer';
 import Button from '../../ui/Button/Button';
 import PaperCard from '../../components/PaperCard/PaperCard';
-import paperPhoto1 from '../../images/paper-card__photo_1.jpg';
-import paperPhoto2 from '../../images/paper-card__photo_2.jpg';
-import paperPhoto3 from '../../images/paper-card__photo_3.jpg';
+import papersApi from './api';
 
 const PapersPage = () => {
   const [papersList, setPapersList] = React.useState([]); // список отображаемых карточек со статьями
 
   React.useEffect(() => {
-    setPapersList([ // будет запрашиваться с бэкенда
-      {
-        id: 1,
-        photo: paperPhoto1,
-        title: 'Животное из приюта: что надо знать перед тем, как взять его в дом?',
-      },
-      {
-        id: 2,
-        photo: paperPhoto2,
-        title: 'Как отучить собаку прыгать на вас при встрече',
-      },
-      {
-        id: 3,
-        photo: paperPhoto3,
-        title: 'Современные кинологи не применяют наказание. Почему?',
-      },
-      {
-        id: 4,
-        photo: paperPhoto1,
-        title: 'Животное из приюта: что надо знать перед тем, как взять его в дом?',
-      },
-      {
-        id: 5,
-        photo: paperPhoto2,
-        title: 'Как отучить собаку прыгать на вас при встрече',
-      },
-      {
-        id: 6,
-        photo: paperPhoto3,
-        title: 'Современные кинологи не применяют наказание. Почему?',
-      },
-      {
-        id: 7,
-        photo: paperPhoto1,
-        title: 'Животное из приюта: что надо знать перед тем, как взять его в дом?',
-      },
-      {
-        id: 8,
-        photo: paperPhoto2,
-        title: 'Как отучить собаку прыгать на вас при встрече',
-      },
-      {
-        id: 9,
-        photo: paperPhoto3,
-        title: 'Современные кинологи не применяют наказание. Почему?',
-      },
-    ]);
+    papersApi
+      .getPapers() // загрузка карточек с приютами на главной странице
+      .then((papers) => {
+        setPapersList(papers);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
-    <main className='main papers'>
-      <div className='papers__head-block'>
-        <h1 className='papers__title'>Полезные статьи</h1>
-        <Button className='margin-left_auto' to='/shelters' link>Хочу помогать</Button>
-      </div>
-      <ul className='papers__grid'>
-        {papersList.map((card) => {
-          return (
-            <li className='papers__grid-element' key={card.id}>
-              <PaperCard
-                id={card.id}
-                photo={card.photo}
-                title={card.title}
-              />
-            </li>
-          );
-        })}
-      </ul>
-      <button className='button margin_column-center' type='button'>Больше статей</button>
-    </main>
+    <MainContainer theme='base'>
+      <main className='main papers'>
+        <div className='papers__head-block'>
+          <h1 className='papers__title'>Полезные статьи</h1>
+          <Button className='margin-left_auto' to='/shelters' link>Хочу помогать</Button>
+        </div>
+        <ul className='papers__grid'>
+          {papersList.map((card) => {
+            return (
+              <li className='papers__grid-element' key={card.id}>
+                <PaperCard
+                  id={card.id}
+                  photo={card.profile_image}
+                  title={card.header}
+                />
+              </li>
+            );
+          })}
+        </ul>
+        <button className='button margin_column-center' type='button'>Больше статей</button>
+      </main>
+    </MainContainer>
   );
 };
 

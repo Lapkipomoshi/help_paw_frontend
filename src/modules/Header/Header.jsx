@@ -1,46 +1,70 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import MainContainer from '../../components/MainContainer/MainContainer';
 import './Header.css';
-import logo from '../../images/icons/ic_paw.svg';
+import Paw from './svg/Paw';
+// eslint-disable-next-line import/no-named-as-default,import/no-named-as-default-member
+import ProfilePopup from '../../components/ProfilePopup/ProfilePopup';
 
-const Header = ({ loggedIn }) => {
+const Header = ({ loggedIn, onSignout }) => {
+  const [profilePopupOpen, setProfilePopupOpen] = useState(false);
+
+  function openProfilePopup() {
+    setProfilePopupOpen(true);
+  }
+
+  function closeProfilePopup() {
+    setProfilePopupOpen(false);
+  }
+
+  function handleSignOut() {
+    setProfilePopupOpen(false);
+    onSignout();
+  }
+
   return (
-    <header className='header'>
-      <Link className='header__logo-link' to='/'>
-        <img className='header__logo' src={logo} alt='лого' />
-      </Link>
-      <nav className='menu menu_items_links'>
-        <NavLink
-          className={({ isActive }) => {
-            return `menu__link ${isActive ? 'menu__link_active' : ''}`;
-          }}
-          to='/papers'
-        >
-          Полезные статьи
-        </NavLink>
-        <NavLink
-          className={({ isActive }) => {
-            return `menu__link ${isActive ? 'menu__link_active' : ''}`;
-          }}
-          to='/shelters'
-        >
-          Карта приютов
-        </NavLink>
-        <NavLink
-          className={({ isActive }) => {
-            return `menu__link ${isActive ? 'menu__link_active' : ''}`;
-          }}
-          to='/news'
-        >
-          Новости
-        </NavLink>
-      </nav>
-      <nav className='menu'>
-        <NavLink className={`menu__sign-in ${loggedIn ? 'display_none' : ''}`} to='/sign-in'>Войти</NavLink>
-        <NavLink className={`menu__sign-up ${loggedIn ? 'display_none' : ''}`} to='/sign-up'>Регистрация</NavLink>
-        <NavLink className={`menu__profile ${loggedIn ? '' : 'display_none'}`} to='/profile' />
-      </nav>
-    </header>
+    <MainContainer theme='additional'>
+      <header className='header'>
+        <Link className='header__logo-link' to='/'>
+          <Paw className='header__logo' />
+        </Link>
+        <nav className='menu menu_items_links'>
+          <NavLink
+            className={({ isActive }) => {
+              return `menu__link ${isActive ? 'menu__link_active' : ''}`;
+            }}
+            to='/papers'
+          >
+            Полезные статьи
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => {
+              return `menu__link ${isActive ? 'menu__link_active' : ''}`;
+            }}
+            to='/shelters'
+          >
+            Карта приютов
+          </NavLink>
+          <NavLink
+            className={({ isActive }) => {
+              return `menu__link ${isActive ? 'menu__link_active' : ''}`;
+            }}
+            to='/news'
+          >
+            Новости
+          </NavLink>
+        </nav>
+        <nav className='menu'>
+          <NavLink className={`menu__sign menu__sign_in ${loggedIn ? 'display_none' : ''}`} to='/sign-in'>Вход</NavLink>
+          <NavLink className={`menu__sign menu__sign_up ${loggedIn ? 'display_none' : ''}`} to='/sign-up'>Регистрация</NavLink>
+          {/* eslint-disable-next-line react/jsx-no-bind */}
+          <NavLink className={`menu__profile ${loggedIn ? '' : 'display_none'}`} to='/profile' onMouseEnter={openProfilePopup} />
+        </nav>
+
+        {/* eslint-disable-next-line react/jsx-no-bind */}
+        <ProfilePopup isOpen={profilePopupOpen} closeProfilePopup={closeProfilePopup} onSignout={handleSignOut} />
+      </header>
+    </MainContainer>
   );
 };
 

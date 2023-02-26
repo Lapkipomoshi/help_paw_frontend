@@ -1,0 +1,32 @@
+.question {
+  width: 16px;
+  height: 16px;
+  object-fit: fill;
+  margin-bottom: 13px;
+}
+
+.question path {
+  transition-duration: .5s;
+  fill: var(--color-text-base);
+}
+
+.nested-routes-menu__link:hover path {
+  fill: var(--color-accent-hover);
+}
+
+.nested-routes-menu__link:focus:focus path {
+  fill: var(--color-accent-pressed);
+  transition: color .2s;
+}
+
+.nested-routes-menu__link_active path {
+  fill: var(--color-accent-base);
+}
+
+.nested-routes-menu__link_active:hover path {
+  fill: var(--color-accent-base);
+}
+
+.nested-routes-menu__link_active:focus path {
+  fill: var(--color-accent-base);
+}

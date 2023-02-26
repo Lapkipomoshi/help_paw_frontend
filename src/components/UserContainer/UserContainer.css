@@ -1,12 +1,38 @@
 .user-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: var(--color-background-base);
-    padding: 62px 99px 147px 134px;
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: var(--color-background-base);
+  padding-left: 134px;
+  padding-top: 62px;
+  padding-bottom: 147px;
+  position: relative;
+}
+
+.user-container_register {
+  padding-right: 132px;
+}
+
+.user-container_register-confirm {
+  padding-right: 132px;
+  padding-bottom: 240px;
 }
 
 .user-container_login {
-    padding-right: 169px;
+  padding-right: 169px;
+  padding-bottom: 216px;
+}
+
+.user-container_recovery {
+  padding-right: 151px;
+  padding-bottom: 291px;
+}
+
+.user-container__image {
+  width: 561px;
+  height: 561px;
+  margin-right: 140px;
+  position: absolute;
+  left: 134px;
+  top: 62px;
 }
 

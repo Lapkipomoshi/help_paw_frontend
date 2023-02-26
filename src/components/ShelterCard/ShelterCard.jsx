@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import './ShelterCard.css';
 
 const ShelterCard = ({
-  image, logo, title, address, workingHours, linkID,
+  id, name, address, workingHours, logo, profileImage,
 }) => {
   return (
-    <Link className='shelter-card' to={linkID}>
-      <img className='shelter-card__image' src={image} alt='лого приюта' />
-      <h3 className='shelter-card__title'>{title}</h3>
+    <Link className='shelter-card' to={`/shelters/${id}/about`}>
+      <img className='shelter-card__image' src={profileImage} alt='фото' />
+      <h3 className='shelter-card__title'>{name}</h3>
       <p className='shelter-card__address'>{address}</p>
       <p className='shelter-card__working-hours'>
         Часы работы:
@@ -17,7 +17,7 @@ const ShelterCard = ({
           {workingHours}
         </span>
       </p>
-      <img className='shelter-card__logo' src={logo} alt='ЧП' />
+      <img className='shelter-card__logo' src={logo} alt='логотип' />
     </Link>
   );
 };

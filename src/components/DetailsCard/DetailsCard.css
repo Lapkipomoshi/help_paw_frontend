@@ -1,5 +1,3 @@
-@import url('./details-card/details-card.css');
-@import url('./details-card/__details/details-card__details.css');
-@import url('./details-card/__row/details-card__row.css');
-@import url('./details-card/__title/details-card__title.css');
-@import url('./details-card/__icon/details-card__icon.css');
+@import url('./styles/details-card.css');
+@import url('./styles/__summary/details-card__summary.css');
+@import url('./styles/__title/details-card__title.css');
