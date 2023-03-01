@@ -1,29 +1,32 @@
 import React, { useState, useEffect } from 'react';
+import { useOutletContext } from 'react-router-dom';
 import './ShelterPets.css';
-import DetailsCard from '../../components/DetailsCard/DetailsCard';
-import CardsSlider from '../../components/CardsSlider/CardsSlider';
-import PetCard from '../../components/PetCard/PetCard';
+import PetTypeCard from '../../components/PetTypeCard/PetTypeCard';
 
 const ShelterPets = () => {
+  const { shelter } = useOutletContext();
   const [petsList, setPetsList] = useState([]); // список видов питомцев
-  const [catsList, setCatsList] = useState([]); // список кошек приюта
 
   useEffect(() => {
     setPetsList([ // будет запрашиваться с бэкенда
       {
         id: 1,
-        pets: 'Кошки',
+        type: 'Кошки',
       },
       {
         id: 2,
-        pets: 'Собаки',
+        type: 'Собаки',
       },
       {
         id: 3,
-        pets: 'Попугаи',
+        type: 'Попугаи',
+      },
+      {
+        id: 4,
+        type: 'Хомяки',
       },
     ]);
-    setCatsList([ // будет запрашиваться с бэкенда
+    /* setCatsList([ // будет запрашиваться с бэкенда
       {
         id: 1,
         name: 'Пушистик',
@@ -87,33 +90,17 @@ const ShelterPets = () => {
         male: false,
         image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
       },
-    ]);
+    ]); */
   }, []);
 
   return (
     <section className='shelter-section shelter-pets'>
       <h2 className='shelter-section__title shelter-pets__title'>Наши животные</h2>
       <ul className='shelter-pets__list'>
-        {petsList.map((pets) => {
+        {petsList.map((type) => {
           return (
-            <li className='shelter-pets__pets-item' key={pets.id}>
-              <DetailsCard title={pets.pets} isOpen={false} textStyle='shelter-pets' iconType='arrow'>
-                <CardsSlider listLength={catsList.length} columnGap={24} cardWidth={176}>
-                  {catsList.map((card) => {
-                    return (
-                      <li className='shelter-pets__card-item' key={card.id}>
-                        <PetCard
-                          id={card.id}
-                          name={card.name}
-                          age={card.age}
-                          male={card.male}
-                          image={card.image}
-                        />
-                      </li>
-                    );
-                  })}
-                </CardsSlider>
-              </DetailsCard>
+            <li className='shelter-pets__pets-item' key={type.id}>
+              <PetTypeCard shelterId={shelter.id} type={type.type} />
             </li>
           );
         })}

@@ -3,7 +3,6 @@
   width: 1048px;
   margin: 32px 0 0;
   padding: 0;
-  flex-direction: column;
-  row-gap: 16px;
+  column-gap: 32px;
   list-style-type: none;
 }

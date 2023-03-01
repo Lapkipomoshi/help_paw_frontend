@@ -1,6 +1,9 @@
 .pet-type-card {
   display: flex;
   width: 224px;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--color-text-base);
   background-color: var(--color-background-additional);
   border-radius: 40px;
   overflow: hidden;
