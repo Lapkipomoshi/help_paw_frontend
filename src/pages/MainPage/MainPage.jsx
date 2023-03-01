@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './MainPage.css';
 import Banner from '../../modules/Banner/Banner';
 import Promo from '../../modules/Promo/Promo';
@@ -8,18 +8,18 @@ import Faq from '../../modules/Faq/Faq';
 import mainApi from './api';
 
 const MainPage = ({ loggedIn }) => {
-  const [sheltersList, setSheltersList] = React.useState([]); // список приютов на главной странице
-  const [papersList, setPapersList] = React.useState([]); // список полезных статей на главной странице
-  const [faqList, setFaqList] = React.useState([]); // список часто задаваемых вопросов
+  const [sheltersList, setSheltersList] = useState([]); // список приютов на главной странице
+  const [papersList, setPapersList] = useState([]); // список полезных статей на главной странице
+  const [faqList, setFaqList] = useState([]); // список часто задаваемых вопросов
 
-  React.useEffect(() => {
+  useEffect(() => {
     mainApi
       .getSheltersOnMain(3) // загрузка карточек с приютами на главной странице
       .then((shelters) => {
         setSheltersList(shelters.results);
       })
       .catch((err) => {
-        console.log(err);
+        throw new Error(err);
       });
 
     mainApi
@@ -28,7 +28,7 @@ const MainPage = ({ loggedIn }) => {
         setPapersList(papers.results);
       })
       .catch((err) => {
-        console.log(err);
+        throw new Error(err);
       });
 
     mainApi
@@ -37,7 +37,7 @@ const MainPage = ({ loggedIn }) => {
         setFaqList(faqs.results);
       })
       .catch((err) => {
-        console.log(err);
+        throw new Error(err);
       });
   }, []);
 

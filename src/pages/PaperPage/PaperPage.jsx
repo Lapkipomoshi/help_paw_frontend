@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './PaperPage.css';
 import MainContainer from '../../components/MainContainer/MainContainer';
@@ -6,16 +6,16 @@ import paperApi from './api';
 
 const PaperPage = () => {
   const { id } = useParams(); // id статьи, получаемый из url-адреса текущей страницы
-  const [paper, setPaper] = React.useState({}); // информация о статье
+  const [paper, setPaper] = useState({}); // информация о статье
 
-  React.useEffect(() => {
+  useEffect(() => {
     paperApi
       .getPaper(id) // загрузка карточек с приютами на главной странице
       .then((res) => {
         setPaper(res);
       })
       .catch((err) => {
-        console.log(err);
+        throw new Error(err);
       });
   }, [id]);
 
