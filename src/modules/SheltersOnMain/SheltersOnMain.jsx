@@ -45,6 +45,8 @@ const SheltersOnMain = ({ loggedIn, sheltersList }) => {
                   id={shelter.id}
                   name={shelter.name}
                   address={shelter.address}
+                  workingFromHour={shelter.working_from_hour}
+                  workingToHour={shelter.working_to_hour}
                   workingHours={shelter.working_hours}
                   logo={shelter.logo}
                   profileImage={shelter.profile_image}
