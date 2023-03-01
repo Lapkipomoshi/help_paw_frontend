@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // подключает хук для программной навигации
 import { useInView } from 'react-intersection-observer'; // подключает хук, нужный для настройки анимации при прокрутки
 import './SheltersOnMain.css';
@@ -7,8 +7,8 @@ import ShelterCard from '../../components/ShelterCard/ShelterCard';
 import Button from '../../ui/Button/Button';
 
 const SheltersOnMain = ({ loggedIn, sheltersList }) => {
-  const [isActiveAnimation, setIsActiveAnimation] = React.useState(false); // отобразить анимацию?
-  const [isOpenPopup, setIsOpenPopup] = React.useState(false); // отобразить вспылвающее окно с предложением зарегистрироваться?
+  const [isActiveAnimation, setIsActiveAnimation] = useState(false); // отобразить анимацию?
+  const [isOpenPopup, setIsOpenPopup] = useState(false); // отобразить вспылвающее окно с предложением зарегистрироваться?
 
   const navigate = useNavigate(); // функция для программной навигации
 
@@ -21,12 +21,11 @@ const SheltersOnMain = ({ loggedIn, sheltersList }) => {
     loggedIn ? navigate('/profile') : setIsOpenPopup(true);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     setIsActiveAnimation(inView); // включать анимацию, когда объект полностью виден и убирать, когда скрывается
   }, [inView]);
 
   return (
-    // eslint-disable-next-line react/jsx-no-comment-textnodes
     <MainContainer theme='base'>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
       <section
@@ -57,9 +56,7 @@ const SheltersOnMain = ({ loggedIn, sheltersList }) => {
         </ul>
         <Button className='shelters-on-main__map-button' to='/shelters' link>Приюты на карте</Button>
         <div
-          className={
-            `shelters-on-main__text-container ${isActiveAnimation ? 'shelters-on-main__text-container_animation' : ''}`
-          }
+          className={`shelters-on-main__text-container ${isActiveAnimation ? 'shelters-on-main__text-container_animation' : ''}`}
           ref={ref}
         >
           <h3 className='shelters-on-main__text-title'>Вы владелец приюта?</h3>

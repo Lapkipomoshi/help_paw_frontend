@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './ShelterPets.css';
 import DetailsCard from '../../components/DetailsCard/DetailsCard';
 import CardsSlider from '../../components/CardsSlider/CardsSlider';
 import PetCard from '../../components/PetCard/PetCard';
 
 const ShelterPets = () => {
-  const [petsList, setPetsList] = React.useState([]); // список видов питомцев
-  const [catsList, setCatsList] = React.useState([]); // список кошек приюта
+  const [petsList, setPetsList] = useState([]); // список видов питомцев
+  const [catsList, setCatsList] = useState([]); // список кошек приюта
 
-  React.useEffect(() => {
+  useEffect(() => {
     setPetsList([ // будет запрашиваться с бэкенда
       {
         id: 1,
