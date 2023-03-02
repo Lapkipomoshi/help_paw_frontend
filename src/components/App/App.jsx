@@ -19,6 +19,7 @@ import AboutShelter from '../../modules/AboutShelter/AboutShelter';
 import HelpToShelter from '../../modules/HelpToShelter/HelpToShelter';
 import ShelterNews from '../../modules/ShelterNews/ShelterNews';
 import ShelterPets from '../../modules/ShelterPets/ShelterPets';
+import ShelterSamePets from '../../modules/ShelterSamePets/ShelterSamePets';
 import ShelterVacancies from '../../modules/ShelterVacancies/ShelterVacancies';
 
 import PetPage from '../../pages/PetPage/PetPage';
@@ -140,6 +141,7 @@ const App = () => {
             <Route path='how-to-help' element={<HelpToShelter />} />
             <Route path='news' element={<ShelterNews />} />
             <Route path='pets' element={<ShelterPets />} />
+            <Route path='pets/:type' element={<ShelterSamePets />} />
             <Route path='vacancies' element={<ShelterVacancies />} />
           </Route>
           <Route path='/pets/:id' element={<PetPage />} />

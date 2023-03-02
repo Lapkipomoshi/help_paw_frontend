@@ -6,7 +6,7 @@ import DogType from '../../images/type_dog.jpg';
 import ParrotType from '../../images/type_parrot.jpg';
 import HamsterType from '../../images/type_hamster.jpg';
 
-const PetTypeCard = ({ shelterId, type }) => {
+const PetTypeCard = ({ type }) => {
   const [animalTypeImage, setAnimalTypeImage] = useState('');
   const [typeOnRussian, setTypeOnRussian] = useState('');
 
@@ -35,7 +35,7 @@ const PetTypeCard = ({ shelterId, type }) => {
   }, []);
 
   return (
-    <Link className='pet-type-card' to={`/shelters/${shelterId}/pets/${type.toLowerCase()}`}>
+    <Link className='pet-type-card' to={`${type.toLowerCase()}`}>
       <h3 className='pet-type-card__title'>{typeOnRussian}</h3>
       <img className='pet-type-card__image' src={animalTypeImage} alt={typeOnRussian} />
     </Link>
