@@ -18,15 +18,15 @@ const PetTypeCard = ({ shelterId, type }) => {
       break;
     case 'dog':
       setAnimalTypeImage(DogType);
-      setTypeOnRussian('Кошки');
+      setTypeOnRussian('Собаки');
       break;
     case 'parrot':
       setAnimalTypeImage(ParrotType);
-      setTypeOnRussian('Кошки');
+      setTypeOnRussian('Попугаи');
       break;
     case 'hamster':
       setAnimalTypeImage(HamsterType);
-      setTypeOnRussian('Кошки');
+      setTypeOnRussian('Хомяки');
       break;
     default:
       setAnimalTypeImage(CatType);
