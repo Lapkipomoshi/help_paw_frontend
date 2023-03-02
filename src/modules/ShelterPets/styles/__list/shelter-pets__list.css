@@ -1,8 +1,0 @@
-.shelter-pets__list {
-  display: flex;
-  width: 1048px;
-  margin: 32px 0 0;
-  padding: 0;
-  column-gap: 32px;
-  list-style-type: none;
-}

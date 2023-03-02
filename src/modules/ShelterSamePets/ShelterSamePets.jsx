@@ -1,93 +1,33 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import shelterApi from '../../pages/ShelterPage/api';
 import './ShelterSamePets.css';
-// import PetTypeCard from '../../components/PetTypeCard/PetTypeCard';
+import PetCard from '../../components/PetCard/PetCard';
 
 const ShelterSamePets = () => {
-  const { type } = useParams();
+  const { id, type } = useParams();
+  const [pets, setPets] = useState([]);
 
   useEffect(() => {
-    console.log(type);
-    /* setCatsList([ // будет запрашиваться с бэкенда
-      {
-        id: 1,
-        name: 'Пушистик',
-        age: '2 года',
-        male: true,
-        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
-      },
-      {
-        id: 2,
-        name: 'Пушистик',
-        age: '2 года',
-        male: true,
-        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
-      },
-      {
-        id: 3,
-        name: 'Пушистик',
-        age: '2 года',
-        male: false,
-        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
-      },
-      {
-        id: 4,
-        name: 'Пушистик',
-        age: '2 года',
-        male: true,
-        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
-      },
-      {
-        id: 5,
-        name: 'Пушистик',
-        age: '2 года',
-        male: true,
-        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
-      },
-      {
-        id: 6,
-        name: 'Пушистик',
-        age: '2 года',
-        male: false,
-        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
-      },
-      {
-        id: 7,
-        name: 'Пушистик',
-        age: '2 года',
-        male: true,
-        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
-      },
-      {
-        id: 8,
-        name: 'Пушистик',
-        age: '2 года',
-        male: true,
-        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
-      },
-      {
-        id: 9,
-        name: 'Пушистик',
-        age: '2 года',
-        male: false,
-        image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
-      },
-    ]); */
+    shelterApi.getPets(id, type, 24, 0)
+      .then((res) => { setPets(res); })
+      .catch((err) => { throw new Error(err); });
   }, [type]);
 
   return (
     <section className='shelter-section shelter-same-pets'>
       <Link className='shelter-same-pets__link' to='../pets'>Назад</Link>
-      {/* <h2 className='shelter-section__title'>Наши животные</h2>
+      <h2 className='shelter-section__title'>Наши животные</h2>
       <ul className='shelter-same-pets__list'>
-        {shelter.animal_types && shelter.animal_types.map((type) => {
+        {pets.map((card) => {
           return (
-            <li className='shelter-same-pets__pets-item' key={type}>
-              <PetTypeCard shelterId={shelter.id} type={type} />
+            <li className='shelter-same-pets__pets-item' key={card.id}>
+              <PetCard id={card.id} name={card.name} age={card.age} male={card.male} photo={card.photo} />
             </li>
           );
         })}
-      </ul> */}
+      </ul>
+      <button className='shelter-same-pets__button' type='button'>Загрузить ещё</button>
     </section>
   );
 };

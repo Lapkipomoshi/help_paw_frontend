@@ -7,7 +7,7 @@
   background-color: var(--color-background-additional);
   border-radius: 40px;
   overflow: hidden;
-  transition-duration: .7s;
+  transition-duration: .5s;
 }
 
 .pet-type-card:hover {
