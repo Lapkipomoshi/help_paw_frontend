@@ -11,7 +11,7 @@
 }
 
 .pet-type-card:hover {
-  transform: scale(1.11);
+  transform: translateY(-20px);
 }
 
 .pet-type-card__title {
