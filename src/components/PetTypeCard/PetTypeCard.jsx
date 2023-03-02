@@ -7,31 +7,37 @@ import ParrotType from '../../images/type_parrot.jpg';
 import HamsterType from '../../images/type_hamster.jpg';
 
 const PetTypeCard = ({ shelterId, type }) => {
-  const [animalType, setAnimalType] = useState('');
+  const [animalTypeImage, setAnimalTypeImage] = useState('');
+  const [typeOnRussian, setTypeOnRussian] = useState('');
 
   useEffect(() => {
     switch (type.toLowerCase()) {
-    case 'кошки':
-      setAnimalType(CatType);
+    case 'cat':
+      setAnimalTypeImage(CatType);
+      setTypeOnRussian('Кошки');
       break;
-    case 'собаки':
-      setAnimalType(DogType);
+    case 'dog':
+      setAnimalTypeImage(DogType);
+      setTypeOnRussian('Кошки');
       break;
-    case 'попугаи':
-      setAnimalType(ParrotType);
+    case 'parrot':
+      setAnimalTypeImage(ParrotType);
+      setTypeOnRussian('Кошки');
       break;
-    case 'хомяки':
-      setAnimalType(HamsterType);
+    case 'hamster':
+      setAnimalTypeImage(HamsterType);
+      setTypeOnRussian('Кошки');
       break;
     default:
-      setAnimalType(CatType);
+      setAnimalTypeImage(CatType);
+      setTypeOnRussian(type);
     }
   }, []);
 
   return (
     <Link className='pet-type-card' to={`/shelters/${shelterId}/pets/${type.toLowerCase()}`}>
-      <h3 className='pet-type-card__title'>{type}</h3>
-      <img className='pet-type-card__image' src={animalType} alt={type} />
+      <h3 className='pet-type-card__title'>{typeOnRussian}</h3>
+      <img className='pet-type-card__image' src={animalTypeImage} alt={typeOnRussian} />
     </Link>
   );
 };

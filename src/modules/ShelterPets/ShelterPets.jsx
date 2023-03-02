@@ -1,31 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import './ShelterPets.css';
 import PetTypeCard from '../../components/PetTypeCard/PetTypeCard';
 
 const ShelterPets = () => {
   const { shelter } = useOutletContext();
-  const [petsList, setPetsList] = useState([]); // список видов питомцев
 
   useEffect(() => {
-    setPetsList([ // будет запрашиваться с бэкенда
-      {
-        id: 1,
-        type: 'Кошки',
-      },
-      {
-        id: 2,
-        type: 'Собаки',
-      },
-      {
-        id: 3,
-        type: 'Попугаи',
-      },
-      {
-        id: 4,
-        type: 'Хомяки',
-      },
-    ]);
     /* setCatsList([ // будет запрашиваться с бэкенда
       {
         id: 1,
@@ -91,16 +72,16 @@ const ShelterPets = () => {
         image: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
       },
     ]); */
-  }, []);
+  }, [shelter]);
 
   return (
     <section className='shelter-section shelter-pets'>
       <h2 className='shelter-section__title shelter-pets__title'>Наши животные</h2>
       <ul className='shelter-pets__list'>
-        {petsList.map((type) => {
+        {shelter.animal_types && shelter.animal_types.map((type) => {
           return (
-            <li className='shelter-pets__pets-item' key={type.id}>
-              <PetTypeCard shelterId={shelter.id} type={type.type} />
+            <li className='shelter-pets__pets-item' key={type}>
+              <PetTypeCard shelterId={shelter.id} type={type} />
             </li>
           );
         })}
