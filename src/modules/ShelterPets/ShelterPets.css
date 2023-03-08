@@ -1,5 +1,18 @@
-@import url('./shelter-pets/shelter-pets.css');
-@import url('./shelter-pets/__title/shelter-pets__title.css');
-@import url('./shelter-pets/__list/shelter-pets__list.css');
-@import url('./shelter-pets/__pets-item/shelter-pets__pets-item.css');
-@import url('./shelter-pets/__card-item/shelter-pets__card-item.css');
+.shelter-pets {
+  padding: 0 132px 80px;
+}
+
+.shelter-pets__list {
+  display: flex;
+  width: 100%;
+  margin: 32px 0 0;
+  padding: 0;
+  flex-wrap: wrap;
+  gap: 32px;
+  list-style-type: none;
+}
+
+.shelter-pets__pets-item {
+  margin: 0;
+  padding: 0;
+}

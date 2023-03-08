@@ -6,7 +6,7 @@
   text-decoration: none;
   border-radius: 30px;
   background-size: contain;
-  transition-duration: .7s;
+  transition-duration: .5s;
   color: var(--color-background-additional);
 }
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './ShelterCard.css';
 
 const ShelterCard = ({
-  id, name, address, workingHours, logo, profileImage,
+  id, name, address, workingFromHour, workingToHour, logo, profileImage,
 }) => {
   return (
     <Link className='shelter-card' to={`/shelters/${id}/about`}>
@@ -14,7 +14,7 @@ const ShelterCard = ({
         Часы работы:
         {' '}
         <span className='shelter-card__hours'>
-          {workingHours}
+          {`${workingFromHour} - ${workingToHour}`}
         </span>
       </p>
       <img className='shelter-card__logo' src={logo} alt='логотип' />

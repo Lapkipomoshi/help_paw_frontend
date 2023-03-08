@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './CardsSlider.css';
 
-const CardsSlider = ({ children, listLength }) => {
-  const slider = React.useRef(null); // элемент слайдера
+const CardsSlider = ({
+  children, listLength, columnGap = 24, cardWidth = 200,
+}) => {
+  const slider = useRef(null); // элемент слайдера
 
   let position = 0; // смещение карточек в слайдере при листании
 
@@ -14,7 +16,7 @@ const CardsSlider = ({ children, listLength }) => {
   };
 
   const handleNext = () => { // показать следующие карточки
-    if (position >= (-(listLength - 7) * 200)) position -= 200;
+    if (position >= (-(listLength - 7) * (columnGap + cardWidth))) position -= (columnGap + cardWidth);
     slider.current.childNodes.forEach((element) => {
       element.style = `transform: translateX(${position}px)`;
     });
@@ -22,7 +24,7 @@ const CardsSlider = ({ children, listLength }) => {
 
   return (
     <>
-      <ul className='cards-slider' ref={slider}>
+      <ul className='cards-slider' ref={slider} style={{ columnGap: `${columnGap}px` }}>
         {children}
       </ul>
       <div className='cards-slider__buttons'>

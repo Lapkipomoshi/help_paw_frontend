@@ -5,13 +5,13 @@ import maleIcon from '../../images/icons/ic_male.svg';
 import femaleIcon from '../../images/icons/ic_female.svg';
 
 const PetCard = ({
-  id, name, age, male, image,
+  id, name, age, male, photo,
 }) => {
   return (
     <Link
       className='pet-card'
       to={`/pets/${id}`}
-      style={{ background: `linear-gradient(rgba(217,217,217,0.1), rgba(164,164,164,.8)), url(${image})` }}
+      style={{ background: `linear-gradient(rgba(217,217,217,0.1), rgba(164,164,164,.8)), url(${photo}) center / cover no-repeat` }}
     >
       <img className='pet-card__icon' src={male ? maleIcon : femaleIcon} alt={male ? 'самец' : 'самка'} />
       <p className='pet-card__name'>{name}</p>

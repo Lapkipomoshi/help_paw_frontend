@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './PapersPage.css';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import Button from '../../ui/Button/Button';
@@ -6,16 +6,16 @@ import PaperCard from '../../components/PaperCard/PaperCard';
 import papersApi from './api';
 
 const PapersPage = () => {
-  const [papersList, setPapersList] = React.useState([]); // список отображаемых карточек со статьями
+  const [papersList, setPapersList] = useState([]); // список отображаемых карточек со статьями
 
-  React.useEffect(() => {
+  useEffect(() => {
     papersApi
       .getPapers() // загрузка карточек с приютами на главной странице
       .then((papers) => {
         setPapersList(papers);
       })
       .catch((err) => {
-        console.log(err);
+        throw new Error(err);
       });
   }, []);
 
