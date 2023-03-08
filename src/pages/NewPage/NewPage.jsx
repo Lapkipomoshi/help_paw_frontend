@@ -36,7 +36,6 @@ const NewPage = () => {
         </p>
         <p className='new-page__text'>
           Ребята подарили нашим подопечным лакомства и корм. Собачки и кошечки остались довольны!
-
         </p>
       </main>
     </MainContainer>

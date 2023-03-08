@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import './ShelterPage.css';
 import MainContainer from '../../components/MainContainer/MainContainer';
@@ -8,16 +8,16 @@ import { shelterLinkList } from '../../utils/constants';
 
 const ShelterPage = () => {
   const { id } = useParams(); // id статьи, получаемый из url-адреса текущей страницы
-  const [shelter, setShelter] = React.useState({}); // информация о приюте
+  const [shelter, setShelter] = useState({}); // информация о приюте
 
-  React.useEffect(() => {
+  useEffect(() => {
     shelterApi
       .getShelter(id) // загрузка карточек с приютами на главной странице
       .then((res) => {
         setShelter(res);
       })
       .catch((err) => {
-        console.log(err);
+        throw new Error(err);
       });
   }, [id]);
 

@@ -22,8 +22,8 @@ class ShelterApi {
       });
   }
 
-  getFaq() { // загрузка часто задаваемых вопросов
-    return fetch(`${this._baseUrl}/v1/faq/`, {
+  getPets(id, type, limit, offset) { // загрузка карточек приютов для главной страницы
+    return fetch(`${this._baseUrl}/v1/pets/?shelter=${id}&animal_type=${type}&?limit=${limit}&?offset=${offset}`, {
       headers: this._headers,
     })
       .then((res) => {
