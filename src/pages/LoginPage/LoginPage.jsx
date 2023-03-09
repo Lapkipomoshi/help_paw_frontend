@@ -30,6 +30,7 @@ const LoginPage = ({ onLogin }) => {
     setUserEmail(input.value);
     if (input.value.length === 0) {
       setEmailError(EMAIL_NOT_FOUND);
+      setIsValidEmail(false);
     } else {
       setEmailError('');
     }
@@ -92,9 +93,6 @@ const LoginPage = ({ onLogin }) => {
                     spanText={passwordError}
                     errorMessage={passwordError}
                     value={userPassword.value || ''}
-                    pattern='(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])$'
-                    minLength='8'
-                    maxLength='16'
                     /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handlePasswordChange}
                   />
