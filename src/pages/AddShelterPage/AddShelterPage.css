@@ -7,8 +7,8 @@
 @import url('./styles/add-shelter-form/add-shelter-form.css');
 @import url('./styles/add-shelter-form/__caption/add-shelter-form__caption.css');
 @import url('./styles/add-shelter-form/__input/add-shelter-form__input.css');
-@import url('./styles/add-shelter-form/__next-button/add-shelter-form__next-button.css');
-@import url('./styles/add-shelter-form/__back-button/add-shelter-form__back-button.css');
+@import url('./styles/add-shelter-form/__buttons/add-shelter-form__buttons.css');
+@import url('./styles/add-shelter-form/__logo/add-shelter-form__logo.css');
 @import url('./styles/add-shelter-form/__clock/add-shelter-form__clock.css');
 @import url('./styles/add-shelter-form/__time-input/add-shelter-form__time-input.css');
 @import url('./styles/add-shelter-form/__dash/add-shelter-form__dash.css');

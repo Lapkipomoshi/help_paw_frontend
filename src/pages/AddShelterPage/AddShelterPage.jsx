@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './AddShelterPage.css';
 import MainContainer from '../../components/MainContainer/MainContainer';
+import Button from '../../ui/Button/Button';
 
 const AddShelterPage = ({ currentUser }) => {
   const [step, setStep] = useState(1);
@@ -39,14 +40,16 @@ const AddShelterPage = ({ currentUser }) => {
               <input className='add-shelter-form__input' type='tel' name='phone' />
               <p className='add-shelter-form__caption'>E-mail*</p>
               <input className='add-shelter-form__input' type='email' name='email' />
-              <button className='add-shelter-form__next-button' type='submit'>Далее</button>
-              <button className='add-shelter-form__back-button' type='button'>Отменить</button>
+              <div className='add-shelter-form__buttons'>
+                <Button submit>Далее</Button>
+                <Button theme='transparent'>Отменить</Button>
+              </div>
             </>
           )}
           {step === 2 && (
             <>
               <p className='add-shelter-form__caption'>Логотип приюта</p>
-              <input className='add-shelter-form__input' type='file' name='logo' />
+              <input className='add-shelter-form__logo' type='file' name='logo' />
               <p className='add-shelter-form__caption'>Часы приюта*</p>
               <div className='add-shelter-form__clock'>
                 <input className='add-shelter-form__time-input' type='time' name='working_from_hour' />
@@ -89,8 +92,10 @@ const AddShelterPage = ({ currentUser }) => {
                   <Link className='register__privacy-link' to='/' target='_blank'> Условиями использования сервиса</Link>
                 </p>
               </div>
-              <button className='add-shelter-form__next-button' type='submit'>Добавить приют</button>
-              <button className='add-shelter-form__back-button' type='button' onClick={() => { setStep(1); }}>Назад</button>
+              <div className='add-shelter-form__buttons'>
+                <Button submit>Добавить приют</Button>
+                <Button theme='transparent' onClick={() => { setStep(1); }}>Назад</Button>
+              </div>
             </>
           )}
         </form>
