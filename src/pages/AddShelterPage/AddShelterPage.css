@@ -3,3 +3,15 @@
 @import url('./styles/add-shelter/__title/add-shelter__title.css');
 @import url('./styles/add-shelter/__step/add-shelter__step.css');
 @import url('./styles/add-shelter/__subtitle/add-shelter__subtitle.css');
+
+@import url('./styles/add-shelter-form/add-shelter-form.css');
+@import url('./styles/add-shelter-form/__caption/add-shelter-form__caption.css');
+@import url('./styles/add-shelter-form/__input/add-shelter-form__input.css');
+@import url('./styles/add-shelter-form/__next-button/add-shelter-form__next-button.css');
+@import url('./styles/add-shelter-form/__back-button/add-shelter-form__back-button.css');
+@import url('./styles/add-shelter-form/__clock/add-shelter-form__clock.css');
+@import url('./styles/add-shelter-form/__time-input/add-shelter-form__time-input.css');
+@import url('./styles/add-shelter-form/__dash/add-shelter-form__dash.css');
+@import url('./styles/add-shelter-form/__flex/add-shelter-form__flex.css');
+@import url('./styles/add-shelter-form/__column/add-shelter-form__column.css');
+@import url('./styles/add-shelter-form/__textarea/add-shelter-form__textarea.css');
