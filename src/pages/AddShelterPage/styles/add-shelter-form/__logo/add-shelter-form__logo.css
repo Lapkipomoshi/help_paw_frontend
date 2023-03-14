@@ -1,0 +1,28 @@
+.personal-image {
+  text-align: center;
+  width: 148px;
+  height: 148px;
+  margin-bottom: 20px;
+}
+
+.personal-image input[type="file"] {
+  display: none;
+}
+
+.add-shelter-form__logo {
+  position: relative;
+  margin: 0 0 20px;
+  padding: 0;
+  width: 148px;
+  height: 148px;
+  box-sizing: border-box;
+}
+
+.personal-avatar {
+  cursor: pointer;
+  width: 148px;
+  height: 148px;
+  border: 2px dashed var(--color-accent-base);
+  border-radius: 16px;
+  box-sizing: border-box;
+}

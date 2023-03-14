@@ -1,0 +1,8 @@
+.add-shelter-form__clock {
+  display: flex;
+  margin-bottom: 20px;
+  column-gap: 8px;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--color-text-base);
+}

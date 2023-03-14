@@ -1,5 +1,6 @@
 .add-shelter-form {
   display: flex;
-  width: 100%;
+  width: 1012px;
+  margin-right: auto;
   flex-direction: column;
 }
