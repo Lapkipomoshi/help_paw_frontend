@@ -6,7 +6,7 @@ import Paw from './svg/Paw';
 // eslint-disable-next-line import/no-named-as-default,import/no-named-as-default-member
 import ProfilePopup from '../../components/ProfilePopup/ProfilePopup';
 
-const Header = ({ loggedIn, onSignout }) => {
+const Header = ({ loggedIn }) => {
   const [profilePopupOpen, setProfilePopupOpen] = useState(false);
 
   function openProfilePopup() {
@@ -15,11 +15,6 @@ const Header = ({ loggedIn, onSignout }) => {
 
   function closeProfilePopup() {
     setProfilePopupOpen(false);
-  }
-
-  function handleSignOut() {
-    setProfilePopupOpen(false);
-    onSignout();
   }
 
   return (
@@ -58,11 +53,11 @@ const Header = ({ loggedIn, onSignout }) => {
           <NavLink className={`menu__sign menu__sign_in ${loggedIn ? 'display_none' : ''}`} to='/sign-in'>Вход</NavLink>
           <NavLink className={`menu__sign menu__sign_up ${loggedIn ? 'display_none' : ''}`} to='/sign-up'>Регистрация</NavLink>
           {/* eslint-disable-next-line react/jsx-no-bind */}
-          <NavLink className={`menu__profile ${loggedIn ? '' : 'display_none'}`} to='/profile' onMouseEnter={openProfilePopup} />
+          <button className={`menu__profile ${loggedIn ? '' : 'display_none'}`} type='button' onClick={openProfilePopup} />
         </nav>
 
         {/* eslint-disable-next-line react/jsx-no-bind */}
-        <ProfilePopup isOpen={profilePopupOpen} closeProfilePopup={closeProfilePopup} onSignout={handleSignOut} />
+        <ProfilePopup isOpen={profilePopupOpen} closeProfilePopup={closeProfilePopup} />
       </header>
     </MainContainer>
   );

@@ -101,6 +101,9 @@
   background-position: center;
   background-size: cover;
   transition-duration: .5s;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .menu__profile:hover {

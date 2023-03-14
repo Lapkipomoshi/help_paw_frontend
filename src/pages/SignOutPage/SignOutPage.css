@@ -1,0 +1,22 @@
+.sign-out {
+  width: 100%;
+  max-width: 1440px;
+}
+
+.sign-out__text {
+  font-family: var(--font-family-base);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--color-text-additional);
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+
+.sign-out__buttons {
+  display: flex;
+  flex-direction: row;
+  column-gap: 28px;
+  max-height: 52px;
+}

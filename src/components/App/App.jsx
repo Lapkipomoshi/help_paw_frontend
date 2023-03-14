@@ -41,6 +41,8 @@ import imageError from '../../images/icons/ic_error.svg';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import * as userApi from '../../utils/userApi';
 import { register } from '../../utils/auth';
+import EditProfilePage from '../../pages/EditProfilePage/EditProfilePage';
+import SignOutPage from '../../pages/SignOutPage/SignOutPage';
 
 const App = () => {
   const navigate = useNavigate();
@@ -95,7 +97,7 @@ const App = () => {
         setInfoTooltipImage(imageError);
         setMessage('Что-то пошло не так! Попробуйте ещё раз.');
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 3000);
+        setTimeout(closeInfoTooltip, 2000);
       });
   };
 
@@ -110,14 +112,14 @@ const App = () => {
         setInfoTooltipImage(imageSuccess);
         setMessage('Добро пожаловать на сайт!');
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 3000);
-        setTimeout(() => { navigate('/profile'); }, 3000);
+        setTimeout(closeInfoTooltip, 2000);
+        setTimeout(() => { navigate('/profile'); }, 2000);
       })
       .catch(() => {
         setInfoTooltipImage(imageError);
         setMessage('Вы ввели неверный e-mail или пароль!');
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 3000);
+        setTimeout(closeInfoTooltip, 2000);
       });
   };
 
@@ -126,7 +128,6 @@ const App = () => {
       <div className='page'>
         <Header
           loggedIn={loggedIn}
-          onSignout={handleSignOut}
         />
         <Routes>
           <Route path='/' element={<MainPage loggedIn={loggedIn} />} />
@@ -188,6 +189,20 @@ const App = () => {
             path='/profile'
             element={
               <ProtectedRoute loggedIn={loggedIn} component={ProfilePage} />
+            }
+          />
+
+          <Route
+            path='/profile/edit'
+            element={
+              <ProtectedRoute loggedIn={loggedIn} component={EditProfilePage} />
+            }
+          />
+
+          <Route
+            path='/profile/sign-out'
+            element={
+              <ProtectedRoute loggedIn={loggedIn} component={SignOutPage} onSignOut={handleSignOut} />
             }
           />
 
