@@ -127,7 +127,7 @@ const RegisterPage = ({ onRegister }) => {
                     minLength='2'
                     maxLength='20'
                     pattern='[A-Za-zа-яА-ЯёЁ\d-\s]*$'
-                    value={userName.value || ''}
+                    value={userName || ''}
                     /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handleNameChange}
                   />
@@ -139,7 +139,7 @@ const RegisterPage = ({ onRegister }) => {
                     errorMessage={emailError}
                     isValid={isValidEmail}
                     pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$'
-                    value={userEmail.value || ''}
+                    value={userEmail || ''}
                     spanText={emailError}
                     /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handleEmailChange}
@@ -148,7 +148,7 @@ const RegisterPage = ({ onRegister }) => {
                   <PasswordInput
                     spanText={passwordError}
                     errorMessage={passwordError}
-                    value={userPassword.value || ''}
+                    value={userPassword || ''}
                     pattern='^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])$'
                     minLength='8'
                     maxLength='16'

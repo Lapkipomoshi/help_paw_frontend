@@ -50,6 +50,7 @@ const Header = ({ loggedIn }) => {
           </NavLink>
         </nav>
         <nav className='menu'>
+          {/* eslint-disable-next-line react/jsx-no-bind */}
           <NavLink className={`menu__sign menu__sign_in ${loggedIn ? 'display_none' : ''}`} to='/sign-in'>Вход</NavLink>
           <NavLink className={`menu__sign menu__sign_up ${loggedIn ? 'display_none' : ''}`} to='/sign-up'>Регистрация</NavLink>
           {/* eslint-disable-next-line react/jsx-no-bind */}

@@ -123,6 +123,29 @@ const App = () => {
       });
   };
 
+  function handleUpdateUser({ username, email }) {
+    userApi.updateUserInfo({ username, email })
+      .then((res) => {
+        setCurrentUser({
+          username: res.username,
+          email: res.email,
+        });
+
+        setInfoTooltipImage(imageSuccess);
+        setMessage('Вы успешно изменили данные!');
+        setInfoTooltipOpen(true);
+        setTimeout(closeInfoTooltip, 2000);
+      })
+      .catch((err) => {
+        console.log(`Ошибка ${err}`);
+
+        setInfoTooltipImage(imageError);
+        setMessage('Что-то пошло не так! Попробуйте ещё раз.');
+        setInfoTooltipOpen(true);
+        setTimeout(closeInfoTooltip, 2000);
+      });
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='page'>
@@ -176,7 +199,8 @@ const App = () => {
           <Route
             path='/profile/edit'
             element={
-              <ProtectedRoute loggedIn={loggedIn} component={EditProfilePage} />
+              // eslint-disable-next-line react/jsx-no-bind
+              <ProtectedRoute loggedIn={loggedIn} component={EditProfilePage} onEditProfile={handleUpdateUser} />
             }
           />
 
