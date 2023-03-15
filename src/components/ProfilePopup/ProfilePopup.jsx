@@ -12,7 +12,7 @@ function ProfilePopup({ isOpen, closeProfilePopup }) {
       <Link className='profile-popup__name' to='/profile' onClick={closeProfilePopup}>{username}</Link>
       <p className='profile-popup__email'>{email}</p>
       <Link className='profile-popup__link' to='/profile/edit' onClick={closeProfilePopup}>Редактировать</Link>
-      <Link className='profile-popup__link' to='/profile/edit-password' onClick={closeProfilePopup}>Изменить пароль</Link>
+      <Link className='profile-popup__link' to='/profile/edit/password' onClick={closeProfilePopup}>Изменить пароль</Link>
       <Link className='profile-popup__button' to='/profile/sign-out' onClick={closeProfilePopup}>Выйти</Link>
       <button
         type='button'

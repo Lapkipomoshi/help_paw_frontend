@@ -30,6 +30,12 @@
   margin-top: 44px;
 }
 
+.user-form__container_change-password {
+  width: 427px;
+  padding: 40px 32px;
+  margin-top: 44px;
+}
+
 .user-form__title {
   font-family: 'Montserrat Alternates', Arial, sans-serif;
   font-style: normal;
@@ -42,6 +48,10 @@
 
 .user-form__title_edit-profile {
   margin-bottom: 8px;
+}
+
+.user-form__title_change-password {
+  margin-bottom: 12px;
 }
 
 .user-form {

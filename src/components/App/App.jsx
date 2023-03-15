@@ -43,6 +43,7 @@ import * as userApi from '../../utils/userApi';
 import { register } from '../../utils/auth';
 import EditProfilePage from '../../pages/EditProfilePage/EditProfilePage';
 import SignOutPage from '../../pages/SignOutPage/SignOutPage';
+import ChangePasswordPage from '../../pages/ChangePasswordPage/ChangePasswordPage';
 
 const App = () => {
   const navigate = useNavigate();
@@ -208,6 +209,13 @@ const App = () => {
             path='/profile/sign-out'
             element={
               <ProtectedRoute loggedIn={loggedIn} component={SignOutPage} onSignOut={handleSignOut} />
+            }
+          />
+
+          <Route
+            path='/profile/edit/password'
+            element={
+              <ProtectedRoute loggedIn={loggedIn} component={ChangePasswordPage} />
             }
           />
 

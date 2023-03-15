@@ -51,7 +51,7 @@ const EditProfilePage = ({ onEditProfile }) => {
     setUserEmail(email);
   }, [username, email]);
 
-  function handleChange(e) {
+  const handleChange = (e) => {
     const input = e.target;
 
     if (input.name === 'name') {
@@ -91,7 +91,12 @@ const EditProfilePage = ({ onEditProfile }) => {
     } else {
       setIsSameValue(false);
     }
-  }
+  };
+
+  const cancelEdit = () => {
+    setUserName(username);
+    setUserEmail(email);
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -111,7 +116,7 @@ const EditProfilePage = ({ onEditProfile }) => {
               modifier='edit-profile'
               formChildren={(
                 <>
-                  <UserLink modifier='change-password' linkAddress='/' linkText='Изменить пароль' />
+                  <UserLink modifier='change-password' linkAddress='/profile/edit/password' linkText='Изменить пароль' />
                   <Input
                     labelText='Имя'
                     inputName='name'
@@ -122,7 +127,6 @@ const EditProfilePage = ({ onEditProfile }) => {
                     maxLength='20'
                     pattern='[A-Za-zа-яА-ЯёЁ\d-\s]*$'
                     value={userName || ''}
-                    /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handleChange}
                   />
 
@@ -134,13 +138,12 @@ const EditProfilePage = ({ onEditProfile }) => {
                     pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$'
                     value={userEmail || ''}
                     spanText={emailError}
-                    /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handleChange}
                   />
 
                   <div className='edit-profile__buttons'>
                     <Button className='' submit disabled={isSameValue || disabled}>Сохранить изменения</Button>
-                    <SecondaryButton className='' disabled={disabled}>Отменить</SecondaryButton>
+                    <SecondaryButton className='' onClick={cancelEdit}>Отменить</SecondaryButton>
                   </div>
                 </>
               )}
