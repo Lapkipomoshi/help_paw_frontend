@@ -150,33 +150,14 @@ const App = () => {
           <Route path='/papers/:id' element={<PaperPage />} />
           <Route path='/news' element={<NewsPage />} />
           <Route path='/news/:id' element={<NewPage />} />
-          <Route
-            path='/sign-in'
-            element={
-              <ProtectedRoute loggedIn={!loggedIn} component={LoginPage} onLogin={handleLogin} />
-            }
-          />
 
-          <Route
-            path='/sign-up'
-            element={
-              <ProtectedRoute loggedIn={!loggedIn} component={RegisterPage} onRegister={handleRegister} />
-            }
-          />
+          <Route exact path='/sign-in' element={loggedIn ? <Navigate to='/' /> : <LoginPage onLogin={handleLogin} />} />
 
-          <Route
-            path='/sign-up/confirm'
-            element={
-              <ProtectedRoute loggedIn={!loggedIn} component={SignUpConfirm} />
-            }
-          />
+          <Route exact path='/sign-up' element={loggedIn ? <Navigate to='/' /> : <RegisterPage onRegister={handleRegister} />} />
 
-          <Route
-            path='/password-recovery'
-            element={
-              <ProtectedRoute loggedIn={loggedIn} component={PasswordRecovery} />
-            }
-          />
+          <Route exact path='/sign-up/confirm' element={loggedIn ? <Navigate to='/' /> : <SignUpConfirm />} />
+
+          <Route exact path='/password-recovery' element={loggedIn ? <Navigate to='/' /> : <PasswordRecovery />} />
 
           <Route
             path='/new-password'
