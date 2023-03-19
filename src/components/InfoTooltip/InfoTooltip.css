@@ -23,7 +23,7 @@
 .popup__container {
   width: 100%;
   max-width: 636px;
-  max-height: 375px;
+  height: fit-content;
   background-color: var(--color-background-additional);
   border-radius: 30px;
   display: flex;

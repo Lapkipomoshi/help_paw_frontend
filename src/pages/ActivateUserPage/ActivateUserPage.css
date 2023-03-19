@@ -1,0 +1,19 @@
+.activate-user {
+  width: 100%;
+  max-width: 1440px;
+}
+
+.activate-user__image {
+  width: 105px;
+  height: 105px;
+}
+
+.activate-user__text {
+  font-family: var(--font-family-base);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: var(--color-text-base);
+}

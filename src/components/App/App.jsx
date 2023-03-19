@@ -44,6 +44,7 @@ import { register } from '../../utils/auth';
 import EditProfilePage from '../../pages/EditProfilePage/EditProfilePage';
 import SignOutPage from '../../pages/SignOutPage/SignOutPage';
 import ChangePasswordPage from '../../pages/ChangePasswordPage/ChangePasswordPage';
+import ActivateUserPage from '../../pages/ActivateUserPage/ActivateUserPage';
 
 const App = () => {
   const navigate = useNavigate();
@@ -92,7 +93,11 @@ const App = () => {
   const handleRegister = ({ username, password, email }) => {
     register(username, password, email)
       .then(() => {
-        navigate('/sign-up/confirm');
+        setInfoTooltipImage(imageSuccess);
+        setMessage('Спасибо за регистрацию! Для активации аккаунта перейдите по ссылке, отправленной на вашу почту.');
+        setInfoTooltipOpen(true);
+        setTimeout(closeInfoTooltip, 2000);
+        setTimeout(() => { navigate('/'); }, 2000);
       })
       .catch(() => {
         setInfoTooltipImage(imageError);
@@ -137,9 +142,7 @@ const App = () => {
         setInfoTooltipOpen(true);
         setTimeout(closeInfoTooltip, 2000);
       })
-      .catch((err) => {
-        console.log(`Ошибка ${err}`);
-
+      .catch(() => {
         setInfoTooltipImage(imageError);
         setMessage('Что-то пошло не так! Попробуйте ещё раз.');
         setInfoTooltipOpen(true);
@@ -183,12 +186,9 @@ const App = () => {
 
           <Route exact path='/password-recovery' element={loggedIn ? <Navigate to='/' /> : <PasswordRecovery />} />
 
-          <Route
-            path='/new-password'
-            element={
-              <ProtectedRoute loggedIn={loggedIn} component={NewPassword} />
-            }
-          />
+          <Route exact path='/new-password' element={loggedIn ? <Navigate to='/' /> : <NewPassword />} />
+
+          <Route exact path='/activate/:uid/:token/' element={<ActivateUserPage />} />
 
           <Route
             path='/profile'

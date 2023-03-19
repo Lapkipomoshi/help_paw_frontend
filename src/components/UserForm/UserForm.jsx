@@ -9,7 +9,7 @@ function UserForm({
       <h2 className={`user-form__title user-form__title_${modifier}`}>{title}</h2>
 
       <form
-        className='user-form'
+        className={`user-form user-form_${formClass}`}
         onSubmit={onSubmit}
         noValidate
       >

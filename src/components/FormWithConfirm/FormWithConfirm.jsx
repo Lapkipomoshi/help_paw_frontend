@@ -4,7 +4,7 @@ import Button from '../../ui/Button/Button';
 import CodeInput from '../../ui/CodeInput/CodeInput';
 import Paw from '../../images/icons/ic_paw.svg';
 
-function FormWithConfirm(onSubmit) {
+function FormWithConfirm({ onSubmit, userEmail }) {
   const [loading, setLoading] = useState(false);
   const [otp, setOtp] = useState('');
   const [minutes, setMinutes] = useState(1);
@@ -39,7 +39,9 @@ function FormWithConfirm(onSubmit) {
   return (
     <div className='form__container'>
       <img className='form__image' src={Paw} alt='Лапка' />
-      <p className='form__text'>Введите код, отправленный на почту gfudhfs@gmail.com</p>
+      <p className='form__text'>
+        Введите код, отправленный на почту {userEmail}
+      </p>
 
       <form
         className='form'
