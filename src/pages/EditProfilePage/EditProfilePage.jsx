@@ -23,32 +23,21 @@ const EditProfilePage = ({ onEditProfile }) => {
   const [emailError, setEmailError] = useState('');
   const [isValidName, setIsValidName] = useState(false);
   const [isValidEmail, setIsValidEmail] = useState(false);
-  const [isSameValue, setIsSameValue] = useState(false);
+  const [isSameName, setIsSameName] = useState(false);
+  const [isSameEmail, setIsSameEmail] = useState(false);
   const isValid = isValidName && isValidEmail;
-
-  useEffect(() => {
-    if (isValid) {
-      return setDisabled(false);
-    }
-    return setDisabled(true);
-  }, [isValid]);
-
-  useEffect(() => {
-    if (
-      username === userName
-      && email === userEmail
-    ) {
-      setDisabled(true);
-    } else if (isValid) {
-      setDisabled(false);
-    } else if (!isValid) {
-      setDisabled(true);
-    }
-  }, [username, email, isValid]);
+  const isSame = isSameName && isSameEmail;
 
   useEffect(() => {
     setUserName(username);
     setUserEmail(email);
+
+    if (userName === username && userEmail === email) {
+      setIsSameName(true);
+      setIsSameEmail(true);
+      setIsValidName(true);
+      setIsValidEmail(true);
+    }
   }, [username, email]);
 
   const handleChange = (e) => {
@@ -58,16 +47,25 @@ const EditProfilePage = ({ onEditProfile }) => {
       const validName = NAME_REGEX.test(input.value);
       setIsValidName(validName);
       setUserName(input.value);
+      setIsSameName(false);
       if (!validName) {
         setNameError(NAME_INVALID);
       } else if (input.value.length === 0) {
         setNameError(NAME_NOT_FOUND);
+        setIsValidName(false);
       } else if (input.value.length < 2) {
         setNameError(NAME_TOO_SHORT);
+        setIsValidName(false);
       } else if (input.value.length > 20) {
         setNameError(NAME_TOO_LONG);
+        setIsValidName(false);
+      } else if (input.value === username) {
+        setIsSameName(true);
       } else {
         setNameError('');
+      }
+      if (isValidName && isSameEmail) {
+        setDisabled(false);
       }
     }
 
@@ -75,28 +73,42 @@ const EditProfilePage = ({ onEditProfile }) => {
       const validEmail = EMAIL_REGEX.test(input.value);
       setIsValidEmail(validEmail);
       setUserEmail(input.value);
+      setIsSameEmail(false);
       if (!validEmail) {
         setEmailError(EMAIL_INVALID);
+      } else if (input.value === email) {
+        setIsSameEmail(true);
       } else {
         setEmailError('');
       }
       if (input.value.length === 0) {
         setEmailError(EMAIL_NOT_FOUND);
       }
-    }
-
-    if (input.value === userName
-      && input.value === userEmail) {
-      setIsSameValue(true);
-    } else {
-      setIsSameValue(false);
+      if (isValidEmail && isSameName) {
+        setDisabled(false);
+      }
     }
   };
 
   const cancelEdit = () => {
     setUserName(username);
     setUserEmail(email);
+    setIsSameName(true);
+    setIsSameEmail(true);
+    setNameError('');
+    setEmailError('');
   };
+
+  const handleDisableButton = () => {
+    if (isValid) {
+      return setDisabled(false);
+    }
+    return setDisabled(true);
+  };
+
+  useEffect(() => {
+    handleDisableButton();
+  }, [isValid]);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -142,7 +154,7 @@ const EditProfilePage = ({ onEditProfile }) => {
                   />
 
                   <div className='edit-profile__buttons'>
-                    <Button className='' submit disabled={isSameValue || disabled}>Сохранить изменения</Button>
+                    <Button className='' submit disabled={disabled || isSame}>Сохранить изменения</Button>
                     <SecondaryButton className='' onClick={cancelEdit}>Отменить</SecondaryButton>
                   </div>
                 </>
