@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './PasswordRecovery.css';
+import { useNavigate } from 'react-router-dom';
 import UserContainer from '../../components/UserContainer/UserContainer';
 import UserForm from '../../components/UserForm/UserForm';
 import Button from '../../ui/Button/Button';
@@ -11,6 +12,7 @@ import { EMAIL_REGEX } from '../../utils/regex';
 import * as auth from '../../utils/auth';
 
 const PasswordRecovery = () => {
+  const navigate = useNavigate();
   const [disabled, setDisabled] = useState(false);
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [emailError, setEmailError] = useState('');
@@ -42,10 +44,10 @@ const PasswordRecovery = () => {
     evt.preventDefault();
     auth.resetPassword({ email: userEmail })
       .then(() => {
-        console.log('success');
+        navigate('/');
       })
-      .catch(() => {
-        console.log('fail');
+      .catch((err) => {
+        console.log(err);
       });
   };
 

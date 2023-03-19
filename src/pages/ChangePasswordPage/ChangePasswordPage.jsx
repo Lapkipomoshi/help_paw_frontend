@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './ChangePasswordPage.css';
 import ProfileContainer from '../../components/ProfileContainer/ProfileContainer';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import Button from '../../ui/Button/Button';
 import UserForm from '../../components/UserForm/UserForm';
 import UserLink from '../../ui/UserLink/UserLink';
+import * as auth from '../../utils/auth';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 const ChangePasswordPage = () => {
+  const currentUser = useContext(CurrentUserContext);
+  const { email } = currentUser;
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    auth.resetPassword({ email })
+      .then(() => {
+        console.log('success');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -25,7 +36,7 @@ const ChangePasswordPage = () => {
               formChildren={(
                 <>
                   <p className='change-password__text'>Вы уверены, что хотите изменить пароль?</p>
-                  <p className='change-password__text'>После нажатия на кнопку, на вашу почту прийдет письмо со ссылкой для сброса пароля</p>
+                  <p className='change-password__text'>После нажатия на кнопку, на вашу почту придет письмо со ссылкой для сброса пароля</p>
                   <Button className='' submit>Сбросить пароль</Button>
                 </>
               )}
