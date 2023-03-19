@@ -36,18 +36,6 @@ export const login = ({ password, email }) => {
     .then(checkServerResponse);
 };
 
-export const checkToken = (token) => {
-  return fetch(`${baseUrl}/auth/jwt/verify`, {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
-    },
-  })
-    .then(checkServerResponse);
-};
-
 export const activateUser = ({ uid, token }) => {
   return fetch(`${baseUrl}/auth/users/activation/`, {
     method: 'POST',
@@ -56,6 +44,18 @@ export const activateUser = ({ uid, token }) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ uid, token }),
+  })
+    .then(checkServerResponse);
+};
+
+export const resetPassword = ({ email }) => {
+  return fetch(`${baseUrl}/auth/users/reset_password/`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email }),
   })
     .then(checkServerResponse);
 };
