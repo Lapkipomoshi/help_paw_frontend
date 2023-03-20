@@ -1,10 +1,13 @@
 import { baseUrl } from './constants';
 
 const checkServerResponse = (res) => {
-  return res.ok
-    ? res.json()
-    // eslint-disable-next-line prefer-promise-reject-errors
-    : Promise.reject(`Ошибка: ${res.status}`);
+  if (res.status === 204) {
+    return Promise.resolve({});
+  }
+  if (res.status >= 200 && res.status < 300) {
+    return res.json();
+  }
+  return Promise.reject(`Ошибка: ${res.status}`);
 };
 
 // eslint-disable-next-line import/prefer-default-export
@@ -33,14 +36,40 @@ export const login = ({ password, email }) => {
     .then(checkServerResponse);
 };
 
-export const checkToken = (token) => {
-  return fetch(`${baseUrl}/auth/jwt/verify`, {
+export const activateUser = ({ uid, token }) => {
+  return fetch(`${baseUrl}/auth/users/activation/`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`,
     },
+    body: JSON.stringify({ uid, token }),
+  })
+    .then(checkServerResponse);
+};
+
+export const resetPassword = ({ email }) => {
+  return fetch(`${baseUrl}/auth/users/reset_password/`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email }),
+  })
+    .then(checkServerResponse);
+};
+
+// eslint-disable-next-line camelcase
+export const resetPasswordConfirm = ({ uid, token, new_password }) => {
+  return fetch(`${baseUrl}/auth/users/reset_password/`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    // eslint-disable-next-line camelcase
+    body: JSON.stringify({ uid, token, new_password }),
   })
     .then(checkServerResponse);
 };

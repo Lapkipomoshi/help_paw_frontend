@@ -2,7 +2,7 @@ import React from 'react';
 import './Input.css';
 
 function Input({
-  labelText, inputName, inputType, spanText, onChange, minLength, maxLength, errorMessage, isValid,
+  labelText, inputName, inputType, spanText, onChange, minLength, maxLength, errorMessage, isValid, value,
 }) {
   return (
     <div className='input__wrapper'>
@@ -13,6 +13,7 @@ function Input({
         type={inputType}
         minLength={minLength}
         maxLength={maxLength}
+        value={value}
         required
         onChange={onChange}
       />

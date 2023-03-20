@@ -18,3 +18,15 @@ export const getUserInfo = (token) => {
   })
     .then(checkServerResponse);
 };
+
+export const updateUserInfo = ({ username, email }) => {
+  return fetch(`${baseUrl}/auth/users/me`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('access')}`,
+    },
+    body: JSON.stringify({ username, email }),
+  })
+    .then(checkServerResponse);
+};
