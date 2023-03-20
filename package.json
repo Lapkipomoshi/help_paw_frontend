@@ -1,7 +1,6 @@
 {
   "name": "help_paw_frontend",
   "version": "0.1.0",
-  "homepage": "https://lapkipomoshi.github.io/help_paw_frontend/",
   "private": true,
   "dependencies": {
     "@pbe/react-yandex-maps": "^1.2.2",
