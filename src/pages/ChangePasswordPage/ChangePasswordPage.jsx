@@ -37,7 +37,7 @@ const ChangePasswordPage = () => {
                 <>
                   <p className='change-password__text'>Вы уверены, что хотите изменить пароль?</p>
                   <p className='change-password__text'>После нажатия на кнопку, на вашу почту придет письмо со ссылкой для сброса пароля</p>
-                  <Button className='' submit>Сбросить пароль</Button>
+                  <Button submit>Сбросить пароль</Button>
                 </>
               )}
             />
