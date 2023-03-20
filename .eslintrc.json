@@ -48,6 +48,7 @@
         "react/jsx-props-no-spreading": "off",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "class-methods-use-this": "warn",
-        "prefer-promise-reject-errors": "warn"
+        "prefer-promise-reject-errors": "warn",
+        "react/jsx-one-expression-per-line": "off"
     }
 }

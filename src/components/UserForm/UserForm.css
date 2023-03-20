@@ -18,6 +18,37 @@
   max-height: 337px;
 }
 
+.user-form__container_profile {
+  width: 574px;
+  padding: 40px 32px;
+  margin-top: 44px;
+}
+
+.user-form__container_sign-out {
+  width: 504px;
+  padding: 40px 32px;
+  margin-top: 44px;
+}
+
+.user-form__container_change-password {
+  width: 427px;
+  padding: 40px 32px;
+  margin-top: 44px;
+}
+
+.user-form_activate-user {
+  align-items: center;
+}
+
+.user-form__container_activate-user {
+  width: 474px;
+  padding: 40px 32px;
+  margin-top: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .user-form__title {
   font-family: 'Montserrat Alternates', Arial, sans-serif;
   font-style: normal;
@@ -26,6 +57,18 @@
   line-height: 49px;
   color: var(--color-text-base);
   margin: 0 0 24px;
+}
+
+.user-form__title_edit-profile {
+  margin-bottom: 8px;
+}
+
+.user-form__title_activate-user {
+  display: none;
+}
+
+.user-form__title_change-password {
+  margin-bottom: 12px;
 }
 
 .user-form {

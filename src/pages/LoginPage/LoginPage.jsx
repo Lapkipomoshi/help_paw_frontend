@@ -83,7 +83,7 @@ const LoginPage = ({ onLogin }) => {
                     inputType='email'
                     errorMessage={emailError}
                     pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$'
-                    value={userEmail.value || ''}
+                    value={userEmail || ''}
                     spanText={emailError}
                     /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handleEmailChange}
@@ -92,7 +92,7 @@ const LoginPage = ({ onLogin }) => {
                   <PasswordInput
                     spanText={passwordError}
                     errorMessage={passwordError}
-                    value={userPassword.value || ''}
+                    value={userPassword || ''}
                     /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handlePasswordChange}
                   />

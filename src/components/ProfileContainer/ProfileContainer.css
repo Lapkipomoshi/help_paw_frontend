@@ -11,3 +11,11 @@
   right: 132px;
   top: 137px;
 }
+
+.profile-container_edit-profile {
+  padding-bottom: 85px;
+}
+
+.profile-container_sign-out {
+  min-height: 375px;
+}

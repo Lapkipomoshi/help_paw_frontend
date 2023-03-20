@@ -41,6 +41,10 @@ import imageError from '../../images/icons/ic_error.svg';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import * as userApi from '../../utils/userApi';
 import { register } from '../../utils/auth';
+import EditProfilePage from '../../pages/EditProfilePage/EditProfilePage';
+import SignOutPage from '../../pages/SignOutPage/SignOutPage';
+import ChangePasswordPage from '../../pages/ChangePasswordPage/ChangePasswordPage';
+import ActivateUserPage from '../../pages/ActivateUserPage/ActivateUserPage';
 
 const App = () => {
   const navigate = useNavigate();
@@ -89,13 +93,17 @@ const App = () => {
   const handleRegister = ({ username, password, email }) => {
     register(username, password, email)
       .then(() => {
-        navigate('/sign-up/confirm');
+        setInfoTooltipImage(imageSuccess);
+        setMessage('Спасибо за регистрацию! Для активации аккаунта перейдите по ссылке, отправленной на вашу почту.');
+        setInfoTooltipOpen(true);
+        setTimeout(closeInfoTooltip, 2000);
+        setTimeout(() => { navigate('/'); }, 2000);
       })
       .catch(() => {
         setInfoTooltipImage(imageError);
         setMessage('Что-то пошло не так! Попробуйте ещё раз.');
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 3000);
+        setTimeout(closeInfoTooltip, 2000);
       });
   };
 
@@ -110,23 +118,43 @@ const App = () => {
         setInfoTooltipImage(imageSuccess);
         setMessage('Добро пожаловать на сайт!');
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 3000);
-        setTimeout(() => { navigate('/profile'); }, 3000);
+        setTimeout(closeInfoTooltip, 2000);
+        setTimeout(() => { navigate('/profile'); }, 2000);
       })
       .catch(() => {
         setInfoTooltipImage(imageError);
         setMessage('Вы ввели неверный e-mail или пароль!');
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 3000);
+        setTimeout(closeInfoTooltip, 2000);
       });
   };
+
+  function handleUpdateUser({ username, email }) {
+    userApi.updateUserInfo({ username, email })
+      .then((res) => {
+        setCurrentUser({
+          username: res.username,
+          email: res.email,
+        });
+
+        setInfoTooltipImage(imageSuccess);
+        setMessage('Вы успешно изменили данные!');
+        setInfoTooltipOpen(true);
+        setTimeout(closeInfoTooltip, 2000);
+      })
+      .catch(() => {
+        setInfoTooltipImage(imageError);
+        setMessage('Что-то пошло не так! Попробуйте ещё раз.');
+        setInfoTooltipOpen(true);
+        setTimeout(closeInfoTooltip, 2000);
+      });
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='page'>
         <Header
           loggedIn={loggedIn}
-          onSignout={handleSignOut}
         />
         <Routes>
           <Route path='/' element={<MainPage loggedIn={loggedIn} />} />
@@ -149,45 +177,45 @@ const App = () => {
           <Route path='/papers/:id' element={<PaperPage />} />
           <Route path='/news' element={<NewsPage />} />
           <Route path='/news/:id' element={<NewPage />} />
-          <Route
-            path='/sign-in'
-            element={
-              <ProtectedRoute loggedIn={!loggedIn} component={LoginPage} onLogin={handleLogin} />
-            }
-          />
 
-          <Route
-            path='/sign-up'
-            element={
-              <ProtectedRoute loggedIn={!loggedIn} component={RegisterPage} onRegister={handleRegister} />
-            }
-          />
+          <Route exact path='/sign-in' element={loggedIn ? <Navigate to='/' /> : <LoginPage onLogin={handleLogin} />} />
 
-          <Route
-            path='/sign-up/confirm'
-            element={
-              <ProtectedRoute loggedIn={!loggedIn} component={SignUpConfirm} />
-            }
-          />
+          <Route exact path='/sign-up' element={loggedIn ? <Navigate to='/' /> : <RegisterPage onRegister={handleRegister} />} />
 
-          <Route
-            path='/password-recovery'
-            element={
-              <ProtectedRoute loggedIn={loggedIn} component={PasswordRecovery} />
-            }
-          />
+          <Route exact path='/sign-up/confirm' element={loggedIn ? <Navigate to='/' /> : <SignUpConfirm />} />
 
-          <Route
-            path='/new-password'
-            element={
-              <ProtectedRoute loggedIn={loggedIn} component={NewPassword} />
-            }
-          />
+          <Route exact path='/password-recovery' element={loggedIn ? <Navigate to='/' /> : <PasswordRecovery />} />
+
+          <Route exact path='/new-password' element={loggedIn ? <Navigate to='/' /> : <NewPassword />} />
+
+          <Route exact path='/activate/:uid/:token/' element={<ActivateUserPage />} />
 
           <Route
             path='/profile'
             element={
               <ProtectedRoute loggedIn={loggedIn} component={ProfilePage} />
+            }
+          />
+
+          <Route
+            path='/profile/edit'
+            element={
+              // eslint-disable-next-line react/jsx-no-bind
+              <ProtectedRoute loggedIn={loggedIn} component={EditProfilePage} onEditProfile={handleUpdateUser} />
+            }
+          />
+
+          <Route
+            path='/profile/sign-out'
+            element={
+              <ProtectedRoute loggedIn={loggedIn} component={SignOutPage} onSignOut={handleSignOut} />
+            }
+          />
+
+          <Route
+            path='/profile/edit/password'
+            element={
+              <ProtectedRoute loggedIn={loggedIn} component={ChangePasswordPage} />
             }
           />
 
