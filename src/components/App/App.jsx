@@ -186,7 +186,7 @@ const App = () => {
 
           <Route exact path='/password-recovery' element={loggedIn ? <Navigate to='/' /> : <PasswordRecovery />} />
 
-          <Route exact path='/new-password' element={loggedIn ? <Navigate to='/' /> : <NewPassword />} />
+          <Route exact path='/password-reset/:uid/:token/' element={<NewPassword />} />
 
           <Route exact path='/activate/:uid/:token/' element={<ActivateUserPage />} />
 
