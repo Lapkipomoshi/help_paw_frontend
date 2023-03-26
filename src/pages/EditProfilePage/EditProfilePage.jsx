@@ -112,7 +112,7 @@ const EditProfilePage = ({ onEditProfile }) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    onEditProfile({ userName, userEmail });
+    onEditProfile({ username: userName, email: userEmail });
   };
 
   return (
