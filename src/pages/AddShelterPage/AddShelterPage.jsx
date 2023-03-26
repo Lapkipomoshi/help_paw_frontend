@@ -7,6 +7,7 @@ import Button from '../../ui/Button/Button';
 const AddShelterPage = ({ currentUser }) => {
   const [step, setStep] = useState(1);
   const [isChecked, setIsChecked] = useState(false);
+  const [logo, setLogo] = useState();
 
   const handleChangeCheckbox = () => { setIsChecked(!isChecked); };
 
@@ -17,6 +18,15 @@ const AddShelterPage = ({ currentUser }) => {
     } else {
       console.log('отправить форму');
     }
+  };
+
+  const handleLogo = (e) => {
+    const { target } = e;
+    const fileReader = new FileReader();
+    fileReader.onload = () => {
+      setLogo(fileReader.result);
+    };
+    fileReader.readAsDataURL(target.files[0]);
   };
 
   useEffect(() => {
@@ -34,11 +44,11 @@ const AddShelterPage = ({ currentUser }) => {
         <form className='add-shelter-form' name='add-shelter' onSubmit={handleSubmitForm} noValidate>
           {step === 1 && (
             <>
-              <p className='add-shelter-form__caption'>ФИО владельца приюта*</p>
+              <label className='add-shelter-form__caption'>ФИО владельца приюта*</label>
               <input className='add-shelter-form__input' type='text' name='owner' required />
-              <p className='add-shelter-form__caption'>Номер телефона*</p>
+              <label className='add-shelter-form__caption'>Номер телефона*</label>
               <input className='add-shelter-form__input' type='tel' name='phone' required />
-              <p className='add-shelter-form__caption'>E-mail*</p>
+              <label className='add-shelter-form__caption'>E-mail*</label>
               <input className='add-shelter-form__input' type='email' name='email' required />
               <div className='add-shelter-form__buttons'>
                 <Button submit>Далее</Button>
@@ -48,16 +58,14 @@ const AddShelterPage = ({ currentUser }) => {
           )}
           {step === 2 && (
             <>
-              <p className='add-shelter-form__caption'>Логотип приюта</p>
-              <div className='personal-image'>
+              <label className='add-shelter-form__caption'>Логотип приюта</label>
+              <div className='add-shelter-form__photo-block'>
                 <label>
-                  <input type='file' name='logo' />
-                  <figure className='add-shelter-form__logo'>
-                    <div className='personal-avatar' />
-                  </figure>
+                  <input onChange={handleLogo} id='photo-input' type='file' name='logo' accept='.jpg, .jpeg, .png' />
+                  <img className={`add-shelter-form__logo ${!logo && 'add-shelter-form__logo_hidden'}`} src={logo} alt='' />
                 </label>
               </div>
-              <p className='add-shelter-form__caption'>Часы приюта*</p>
+              <label className='add-shelter-form__caption'>Часы приюта*</label>
               <div className='add-shelter-form__clock'>
                 <input className='add-shelter-form__time-input' type='text' name='working_from_hour' placeholder='00:00' required />
                 <p>-</p>
@@ -65,27 +73,27 @@ const AddShelterPage = ({ currentUser }) => {
               </div>
               <div className='add-shelter-form__flex'>
                 <div className='add-shelter-form__column'>
-                  <p className='add-shelter-form__caption'>Название приюта*</p>
+                  <label className='add-shelter-form__caption'>Название приюта*</label>
                   <input className='add-shelter-form__input' type='text' name='name' required />
-                  <p className='add-shelter-form__caption'>ИНН*</p>
+                  <label className='add-shelter-form__caption'>ИНН*</label>
                   <input className='add-shelter-form__input' type='number' name='INN' required />
-                  <p className='add-shelter-form__caption'>Ссылка на сайт приюта</p>
+                  <label className='add-shelter-form__caption'>Ссылка на сайт приюта</label>
                   <input className='add-shelter-form__input' type='url' name='web_site' />
-                  <p className='add-shelter-form__caption'>Ссылка на канал приюта в &laquo;Telegram&raquo;</p>
+                  <label className='add-shelter-form__caption'>Ссылка на канал приюта в &laquo;Telegram&raquo;</label>
                   <input className='add-shelter-form__input' type='url' name='telegram' />
                 </div>
                 <div className='add-shelter-form__column'>
-                  <p className='add-shelter-form__caption'>Виды животных*</p>
+                  <label className='add-shelter-form__caption'>Виды животных*</label>
                   <input className='add-shelter-form__input' type='text' name='animal' required />
-                  <p className='add-shelter-form__caption'>Адрес приюта*</p>
+                  <label className='add-shelter-form__caption'>Адрес приюта*</label>
                   <input className='add-shelter-form__input' type='text' name='address' required />
-                  <p className='add-shelter-form__caption'>Ссылка на группу приюта в &laquo;Одноклассники&raquo;</p>
+                  <label className='add-shelter-form__caption'>Ссылка на группу приюта в &laquo;Одноклассники&raquo;</label>
                   <input className='add-shelter-form__input' type='url' name='ok_page' />
-                  <p className='add-shelter-form__caption'>Ссылка на группу приюта в &laquo;VK&raquo;</p>
+                  <label className='add-shelter-form__caption'>Ссылка на группу приюта в &laquo;VK&raquo;</label>
                   <input className='add-shelter-form__input' type='url' name='vk_page' />
                 </div>
               </div>
-              <p className='add-shelter-form__caption'>Описание приюта*</p>
+              <label className='add-shelter-form__caption'>Описание приюта*</label>
               <textarea className='add-shelter-form__textarea' name='description' required />
               <div className='register__privacy'>
                 <label className='checkbox__container'>

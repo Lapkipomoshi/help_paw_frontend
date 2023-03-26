@@ -1,28 +1,29 @@
-.personal-image {
+.add-shelter-form__photo-block {
   text-align: center;
   width: 148px;
   height: 148px;
   margin-bottom: 20px;
+  border: 2px dashed var(--color-accent-base);
+  border-radius: 16px;
+  overflow: hidden;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
-.personal-image input[type="file"] {
+.add-shelter-form__photo-block input[type="file"] {
   display: none;
 }
 
-.add-shelter-form__logo {
-  position: relative;
-  margin: 0 0 20px;
-  padding: 0;
-  width: 148px;
-  height: 148px;
+.add-shelter-form__photo-block .add-shelter-form__logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border: none;
   box-sizing: border-box;
+  z-index: 2;
+  cursor: pointer;
 }
 
-.personal-avatar {
-  cursor: pointer;
-  width: 148px;
-  height: 148px;
-  border: 2px dashed var(--color-accent-base);
-  border-radius: 16px;
-  box-sizing: border-box;
+.add-shelter-form__logo_hidden {
+  opacity: 0;
 }
