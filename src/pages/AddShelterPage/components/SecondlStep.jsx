@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../../ui/Button/Button';
 
-const StepAdditional = ({
+const SecondlStep = ({
   handleChangeCheckbox, logo, handleLogo, handleBack,
 }) => {
   return (
@@ -64,4 +64,4 @@ const StepAdditional = ({
   );
 };
 
-export default StepAdditional;
+export default SecondlStep;

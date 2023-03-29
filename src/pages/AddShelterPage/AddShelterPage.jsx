@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './AddShelterPage.css';
-import StepMain from './components/StepMain';
-import StepAdditional from './components/StepAdditional';
+import MainStep from './components/MainStep';
+import SecondlStep from './components/SecondlStep';
 import MainContainer from '../../components/MainContainer/MainContainer';
 
 const AddShelterPage = ({ currentUser }) => {
@@ -43,10 +43,12 @@ const AddShelterPage = ({ currentUser }) => {
         <p className='add-shelter__subtitle'>Чтобы добавить приют, заполните, пожалуйста, данные о владельце приюта.</p>
         <form className='add-shelter-form' name='add-shelter' onSubmit={handleSubmitForm} noValidate>
           {step === 1 && (
-            <StepMain />
+            <MainStep
+              currentUser={currentUser}
+            />
           )}
           {step === 2 && (
-            <StepAdditional
+            <SecondlStep
               handleChangeCheckbox={handleChangeCheckbox}
               logo={logo}
               handleLogo={handleLogo}
