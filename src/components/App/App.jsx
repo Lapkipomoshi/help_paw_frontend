@@ -46,10 +46,10 @@ import { register } from '../../utils/auth';
 const App = () => {
   const navigate = useNavigate();
 
-  const [loggedIn, setLoggedIn] = useState(false); // пользователь вошёл в учётную запись?
+  const [loggedIn, setLoggedIn] = useState(true); // пользователь вошёл в учётную запись?
   const [currentUser, setCurrentUser] = useState({
-    username: '',
-    email: '',
+    username: 'art',
+    email: 'art@bk.ru',
     id: '',
   });
 
