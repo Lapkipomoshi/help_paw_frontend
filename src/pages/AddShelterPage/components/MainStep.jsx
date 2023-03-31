@@ -4,7 +4,7 @@ import useInput from '../../../hooks/useInput';
 import * as regex from '../../../utils/regex';
 import * as errorMessage from '../../../utils/errorMessage';
 
-const MainStep = ({ currentUser }) => {
+const MainStep = ({ currentUser, setShelter }) => {
   const username = useInput(currentUser.username, true, {
     empty: true, minLength: 4, maxLength: 50, regex: regex.NAME_REGEX,
   }, errorMessage.FIO);
@@ -13,8 +13,16 @@ const MainStep = ({ currentUser }) => {
   const [formValid, setFormValid] = useState(false);
 
   useEffect(() => {
-    // eslint-disable-next-line no-unused-expressions
-    (username.invalidText || tel.invalidText || email.invalidText) ? setFormValid(false) : setFormValid(true);
+    if (username.invalidText || tel.invalidText || email.invalidText) {
+      setFormValid(false);
+    } else {
+      setFormValid(true);
+      setShelter({
+        legal_owner_name: username.value,
+        phone_number: tel.value,
+        email: email.value,
+      });
+    }
   }, [username.invalidText, tel.invalidText, email.invalidText]);
 
   return (

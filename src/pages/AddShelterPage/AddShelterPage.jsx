@@ -8,11 +8,13 @@ const AddShelterPage = ({ currentUser }) => {
   const [step, setStep] = useState(1);
   const [isChecked, setIsChecked] = useState(false);
   const [logo, setLogo] = useState();
+  const [shelter, setShelter] = useState({});
 
   const handleChangeCheckbox = () => { setIsChecked(!isChecked); };
 
   const handleSubmitForm = (evt) => {
     evt.preventDefault();
+    console.log(shelter);
     if (step === 1) {
       setStep(2);
     } else {
@@ -45,6 +47,7 @@ const AddShelterPage = ({ currentUser }) => {
           {step === 1 && (
             <MainStep
               currentUser={currentUser}
+              setShelter={setShelter}
             />
           )}
           {step === 2 && (
