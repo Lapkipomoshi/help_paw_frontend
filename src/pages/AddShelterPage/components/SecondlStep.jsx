@@ -1,10 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useInput from '../../../hooks/useInput';
 import Button from '../../../ui/Button/Button';
+import * as regex from '../../../utils/regex';
+import * as errorMessage from '../../../utils/errorMessage';
 
 const SecondlStep = ({
   handleChangeCheckbox, logo, handleLogo, handleBack,
 }) => {
+  const startTime = useInput('', false, { empty: true, regex: regex.TIME }, errorMessage.TIME);
+  const finishTime = useInput('', false, { empty: true, regex: regex.TIME }, errorMessage.TIME);
+  const shelterName = useInput('', false, { empty: true, maxLength: 50 }, errorMessage.SHELTER);
+
   return (
     <>
       <label className='add-shelter-form__caption'>Логотип приюта</label>
@@ -16,18 +23,48 @@ const SecondlStep = ({
       </div>
       <label className='add-shelter-form__caption'>Часы приюта*</label>
       <div className='add-shelter-form__clock'>
-        <input className='add-shelter-form__time-input' type='text' name='working_from_hour' placeholder='00:00' required />
+        <input
+          className='add-shelter-form__time-input'
+          value={startTime.value}
+          onChange={(e) => { startTime.onChange(e); }}
+          onBlur={startTime.onBlur}
+          type='text'
+          name='startTime'
+          placeholder='00:00'
+          required
+        />
         <p>-</p>
-        <input className='add-shelter-form__time-input' type='text' name='working_from_hour' placeholder='00:00' required />
+        <input
+          className='add-shelter-form__time-input'
+          value={finishTime.value}
+          onChange={(e) => { finishTime.onChange(e); }}
+          onBlur={finishTime.onBlur}
+          type='text'
+          name='finishTime'
+          placeholder='00:00'
+          required
+        />
       </div>
+      <p className='add-shelter-form__error'>
+        {(startTime.dirty || finishTime.dirty) && (startTime.invalidText ? startTime.invalidText : finishTime.invalidText)}
+      </p>
       <div className='add-shelter-form__flex'>
         <div className='add-shelter-form__column'>
           <label className='add-shelter-form__caption'>Название приюта*</label>
-          <input className='add-shelter-form__input' type='text' name='name' required />
+          <input
+            className='add-shelter-form__input'
+            value={shelterName.value}
+            onChange={(e) => { shelterName.onChange(e); }}
+            onBlur={shelterName.onBlur}
+            type='text'
+            name='shelterName'
+            required
+          />
+          <p className='add-shelter-form__error'>{shelterName.dirty && shelterName.invalidText}</p>
           <label className='add-shelter-form__caption'>ИНН*</label>
           <input className='add-shelter-form__input' type='number' name='INN' required />
           <label className='add-shelter-form__caption'>Ссылка на сайт приюта</label>
-          <input className='add-shelter-form__input' type='url' name='web_site' />
+          <input className='add-shelter-form__input' type='url' name='webSite' />
           <label className='add-shelter-form__caption'>Ссылка на канал приюта в &laquo;Telegram&raquo;</label>
           <input className='add-shelter-form__input' type='url' name='telegram' />
         </div>
@@ -37,9 +74,9 @@ const SecondlStep = ({
           <label className='add-shelter-form__caption'>Адрес приюта*</label>
           <input className='add-shelter-form__input' type='text' name='address' required />
           <label className='add-shelter-form__caption'>Ссылка на группу приюта в &laquo;Одноклассники&raquo;</label>
-          <input className='add-shelter-form__input' type='url' name='ok_page' />
+          <input className='add-shelter-form__input' type='url' name='okPage' />
           <label className='add-shelter-form__caption'>Ссылка на группу приюта в &laquo;VK&raquo;</label>
-          <input className='add-shelter-form__input' type='url' name='vk_page' />
+          <input className='add-shelter-form__input' type='url' name='vkPage' />
         </div>
       </div>
       <label className='add-shelter-form__caption'>Описание приюта*</label>
