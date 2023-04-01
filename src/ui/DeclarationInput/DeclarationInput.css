@@ -24,6 +24,10 @@
   color: var(--color-text-additional);
 }
 
+.declaration-input__input_invalid {
+  border-color: var(--color-verify-invalid);
+}
+
 .declaration-input__error {
   display: flex;
   width: 482px;

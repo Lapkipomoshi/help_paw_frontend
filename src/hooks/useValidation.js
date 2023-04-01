@@ -11,9 +11,10 @@ const useValidation = (value, validations, errorValidateMessage) => {
   const [regexError, setRegexError] = useState(false);
 
   useEffect(() => {
+    if (!validations.notEmpty && !value) { setErrorText(''); return; }
     for (const validation in validations) {
       switch (validation) {
-      case 'empty':
+      case 'notEmpty':
         value ? setEmptyError(false) : setEmptyError(true);
         break;
       case 'minLength':

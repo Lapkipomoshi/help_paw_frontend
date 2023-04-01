@@ -36,15 +36,55 @@ export const FIO = {
   INVALID: 'ФИО может содержать только буквы, пробел или дефис',
 };
 
-// Время
+// время
 export const TIME = {
   NOT_FOUND: 'Укажите время',
   INVALID: 'Укажите время в формате 24:00',
 };
 
-// Название приюта
-export const SHELTER = {
+// название приюта
+export const SHELTER_NAME = {
   NOT_FOUND: 'Введите название приюта',
   INVALID: 'В название могут быть только кириллица, латиница, пробел и знаки: "-", "_"',
   TOO_LONG: 'Название приюта не может превышать 50 симоволов',
+};
+
+// ИНН
+export const INN = {
+  NOT_FOUND: 'Введите ИНН',
+  TOO_SHORT: 'ИНН состоит из 12 цифр',
+  TOO_LONG: 'ИНН состоит из 12 цифр',
+  INVALID: 'ИНН состоит только из цифр',
+};
+
+// страница приюта
+export const SHELTER_SITE = {
+  INVALID: 'Неправильная ссылка',
+};
+
+// адрес приюта
+export const ADDRESS = {
+  NOT_FOUND: 'Введите адрес приюта',
+};
+
+// Телеграм
+export const TELEGRAM = {
+  INVALID: 'Неверная ссылка на Телеграм',
+};
+
+// Одноклассники
+export const OK = {
+  INVALID: 'Введён не URL-адрес',
+};
+
+// ВК
+export const VK = {
+  INVALID: 'Введён не URL-адрес',
+};
+
+// описание приюта
+export const DESCRIPTION = {
+  NOT_FOUND: 'Опишите приюта',
+  TOO_LONG: 'Превышено ограничение по количеству символов',
+  INVALID: 'Использваны недопустимые символы',
 };

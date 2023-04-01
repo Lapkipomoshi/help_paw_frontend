@@ -1,39 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './AddShelterPage.css';
-import MainStep from './components/MainStep';
-import SecondlStep from './components/SecondlStep';
+import OwnerStep from './components/OwnerStep';
+import ShelterStep from './components/ShelterStep';
 import MainContainer from '../../components/MainContainer/MainContainer';
 
 const AddShelterPage = ({ currentUser }) => {
   const [step, setStep] = useState(1);
-  const [isChecked, setIsChecked] = useState(false);
-  const [logo, setLogo] = useState();
+  const [shelterOwner, setShelterOwner] = useState({});
   const [shelter, setShelter] = useState({});
-
-  const handleChangeCheckbox = () => { setIsChecked(!isChecked); };
 
   const handleSubmitForm = (evt) => {
     evt.preventDefault();
-    console.log(shelter);
     if (step === 1) {
+      console.log(shelterOwner);
       setStep(2);
     } else {
-      console.log('отправить форму');
+      console.log(shelter);
     }
   };
-
-  const handleLogo = (e) => {
-    const { target } = e;
-    const fileReader = new FileReader();
-    fileReader.onload = () => {
-      setLogo(fileReader.result);
-    };
-    fileReader.readAsDataURL(target.files[0]);
-  };
-
-  useEffect(() => {
-    console.log(currentUser);
-  }, []);
 
   return (
     <MainContainer theme='base'>
@@ -45,17 +29,15 @@ const AddShelterPage = ({ currentUser }) => {
         <p className='add-shelter__subtitle'>Чтобы добавить приют, заполните, пожалуйста, данные о владельце приюта.</p>
         <form className='add-shelter-form' name='add-shelter' onSubmit={handleSubmitForm} noValidate>
           {step === 1 && (
-            <MainStep
+            <OwnerStep
               currentUser={currentUser}
-              setShelter={setShelter}
+              setShelterOwner={setShelterOwner}
             />
           )}
           {step === 2 && (
-            <SecondlStep
-              handleChangeCheckbox={handleChangeCheckbox}
-              logo={logo}
-              handleLogo={handleLogo}
+            <ShelterStep
               handleBack={() => { setStep(1); }}
+              setShelter={setShelter}
             />
           )}
         </form>
