@@ -7,9 +7,7 @@ import * as regex from '../../../utils/regex';
 import * as errorMessage from '../../../utils/errorMessage';
 
 // шаг в форме добавления приюта с анкетой о самом приюте
-const ShelterStep = ({
-  handleBack, setShelter,
-}) => {
+const ShelterStep = ({ handleBack, setShelter }) => {
   const [logo, setLogo] = useState();
   const startTime = useInput('', { notEmpty: true, regex: regex.TIME }, errorMessage.TIME);
   const finishTime = useInput('', { notEmpty: true, regex: regex.TIME }, errorMessage.TIME);
@@ -23,17 +21,21 @@ const ShelterStep = ({
   const addressPlaceHolder = 'Москва, Профсоюзная улица, 56, стр. 1, помещение 2';
   const okGroup = useInput('', { regex: regex.URL }, errorMessage.OK);
   const vkGroup = useInput('', { regex: regex.URL }, errorMessage.VK);
-  const description = useInput('', { notEmpty: true, maxLength: 1000, regex: regex.TEXT }, errorMessage.DESCRIPTION);
+  const description = useInput('', { notEmpty: true, maxLength: 3000, regex: regex.TEXT }, errorMessage.DESCRIPTION);
   const [isChecked, setIsChecked] = useState(false);
   const [formValid, setFormValid] = useState(false);
 
   const handleLogo = (e) => {
-    const { target } = e;
-    const fileReader = new FileReader();
-    fileReader.onload = () => {
-      setLogo(fileReader.result);
-    };
-    fileReader.readAsDataURL(target.files[0]);
+    const sizeLimit = 5 * 1024 * 1024; // ограничение для размера картинки - 5 МБ
+    if (e.target.files[0].size < sizeLimit) {
+      const fileReader = new FileReader();
+      fileReader.onload = () => {
+        setLogo(fileReader.result);
+      };
+      fileReader.readAsDataURL(e.target.files[0]);
+    } else {
+      setLogo('');
+    }
   };
 
   const handleChangeCheckbox = () => { setIsChecked(!isChecked); };
@@ -45,6 +47,7 @@ const ShelterStep = ({
     } else {
       setFormValid(true);
       setShelter({
+        logo,
         working_from_hour: startTime.value,
         working_to_hour: finishTime.value,
         name: shelterName.value,
@@ -57,15 +60,17 @@ const ShelterStep = ({
         description: description.value,
       });
     }
-  }, [startTime.invalidText, finishTime.invalidText, shelterName.invalidText, INN.invalidText, webSite.invalidText,
-    telegram.invalidText, address.invalidText, okGroup.invalidText, vkGroup.invalidText, description.invalidText]);
+  }, [
+    startTime.invalidText, finishTime.invalidText, shelterName.invalidText, INN.invalidText, webSite.invalidText,
+    telegram.invalidText, address.invalidText, okGroup.invalidText, vkGroup.invalidText, description.invalidText,
+  ]);
 
   return (
     <>
       <label className='add-shelter-form__caption'>Логотип приюта</label>
       <div className='add-shelter-form__photo-block'>
         <label>
-          <input onChange={handleLogo} id='photo-input' type='file' name='logo' accept='.jpg, .jpeg, .png' />
+          <input onChange={handleLogo} type='file' name='logo' accept='.jpg, .jpeg, .png, .bmp' />
           <img className={`add-shelter-form__logo ${!logo && 'add-shelter-form__logo_hidden'}`} src={logo} alt='' />
         </label>
       </div>
@@ -79,6 +84,7 @@ const ShelterStep = ({
           type='text'
           name='startTime'
           placeholder='00:00'
+          required
         />
         <p>-</p>
         <input
@@ -89,10 +95,11 @@ const ShelterStep = ({
           type='text'
           name='finishTime'
           placeholder='00:00'
+          required
         />
       </div>
       <p className='add-shelter-form__error'>
-        {(startTime.dirty || finishTime.dirty) && (startTime.invalidText ? startTime.invalidText : finishTime.invalidText)}
+        {(startTime.dirty && startTime.invalidText) ? startTime.invalidText : (finishTime.dirty && finishTime.invalidText)}
       </p>
       <div className='add-shelter-form__flex'>
         <div className='add-shelter-form__column'>
