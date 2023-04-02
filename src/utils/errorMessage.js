@@ -10,7 +10,7 @@ export const EMAIL_NOT_FOUND = 'Введите email';
 
 export const EMAIL = {
   NOT_FOUND: 'Введите email',
-  INVALID: 'Введён неправильный email',
+  INVALID: 'Введён некорректный email',
   TOO_LONG: 'Слишком длинный email',
 };
 
