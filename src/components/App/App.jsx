@@ -23,6 +23,7 @@ import ShelterSamePets from '../../modules/ShelterSamePets/ShelterSamePets';
 import ShelterVacancies from '../../modules/ShelterVacancies/ShelterVacancies';
 
 import PetPage from '../../pages/PetPage/PetPage';
+import AddShelterPage from '../../pages/AddShelterPage/AddShelterPage';
 import PapersPage from '../../pages/PapersPage/PapersPage';
 import PaperPage from '../../pages/PaperPage/PaperPage';
 import NewsPage from '../../pages/NewsPage/NewsPage';
@@ -172,6 +173,7 @@ const App = () => {
             <Route path='pets/:type' element={<ShelterSamePets />} />
             <Route path='vacancies' element={<ShelterVacancies />} />
           </Route>
+          <Route path='/add-shelter' element={<ProtectedRoute loggedIn={loggedIn} component={AddShelterPage} currentUser={currentUser} />} />
           <Route path='/pets/:id' element={<PetPage />} />
           <Route path='/papers' element={<PapersPage />} />
           <Route path='/papers/:id' element={<PaperPage />} />

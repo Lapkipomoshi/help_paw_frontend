@@ -18,7 +18,7 @@ const SheltersOnMain = ({ loggedIn, sheltersList }) => {
 
   const handleAddShelterButton = () => {
     // eslint-disable-next-line no-unused-expressions
-    loggedIn ? navigate('/profile') : setIsOpenPopup(true);
+    loggedIn ? navigate('/add-shelter') : setIsOpenPopup(true);
   };
 
   useEffect(() => {

@@ -1,0 +1,5 @@
+.add-shelter-form__buttons {
+  display: flex;
+  margin-top: 20px;
+  column-gap: 32px;
+}
