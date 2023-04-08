@@ -19,8 +19,8 @@
 }
 
 .input {
-  width: 340px;
-  height: 28px;
+  width: 338px;
+  height: 26px;
   border: 1px solid var(--color-text-additional);
   border-radius: 5px;
   padding: 6px 12px;
