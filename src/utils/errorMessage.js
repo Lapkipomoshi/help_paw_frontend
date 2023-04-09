@@ -25,7 +25,6 @@ export const TEL = {
   NOT_FOUND: 'Введите номер телефона',
   TOO_SHORT: 'Слишком короткий номер телефона',
   TOO_LONG: 'Слишком длинный номер телефона',
-  INVALID: 'Введён некорректный номер телефона',
 };
 
 // ФИО владельца приюта
@@ -52,34 +51,39 @@ export const SHELTER_NAME = {
 // ИНН
 export const INN = {
   NOT_FOUND: 'Введите ИНН',
-  TOO_SHORT: 'ИНН состоит из 12 цифр',
-  TOO_LONG: 'ИНН состоит из 12 цифр',
+  TOO_SHORT: 'ИНН состоит из 10 цифр',
+  TOO_LONG: 'ИНН состоит из 10 цифр',
   INVALID: 'ИНН состоит только из цифр',
 };
 
 // страница приюта
 export const SHELTER_SITE = {
-  INVALID: 'Неправильная ссылка',
+  INVALID: 'Введён неправильный url-адрес',
+  TOO_LONG: 'Слишком длинная ссылка',
 };
 
 // адрес приюта
 export const ADDRESS = {
   NOT_FOUND: 'Введите адрес приюта',
+  TOO_LONG: 'Слишком длинный адрес',
 };
 
 // Телеграм
 export const TELEGRAM = {
-  INVALID: 'Неверная ссылка на Телеграм',
+  INVALID: 'Введена неправильная ссылка. Попробуйте начать с t.me/',
+  TOO_LONG: 'Слишком длинная ссылка',
 };
 
 // Одноклассники
-export const OK = {
-  INVALID: 'Введён не URL-адрес',
+export const ODNOKLASSNIKI = {
+  INVALID: 'Введена неправильная ссылка. Попробуйте начать с ok.ru/',
+  TOO_LONG: 'Слишком длинная ссылка',
 };
 
 // ВК
-export const VK = {
-  INVALID: 'Введён не URL-адрес',
+export const VKONTAKTE = {
+  INVALID: 'Введена неправильная ссылка. Попробуйте начать с vk.com/',
+  TOO_LONG: 'Слишком длинная ссылка',
 };
 
 // описание приюта

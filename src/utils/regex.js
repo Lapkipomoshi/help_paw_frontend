@@ -7,4 +7,6 @@ export const URL = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9(
 export const TEL = /^([+]?[0-9\s-()]{10,20})*$/i;
 export const TIME = /([01][0-9]|2[0-3]):[0-5][0-9]/;
 export const TELEGRAM = /(https?:\/\/)?(www[.])?(telegram|t)\.me\/([a-zA-Z0-9_-]*)\/?$/;
-export const TEXT = /[\wа-яА-яеЁ\s\n.?!+%$*@,]+/;
+export const ODNOKLASSNIKI = /(https?:\/\/)?(www[.])?(ok)\.ru\/([a-zA-Z0-9_-]*)\/?$/;
+export const VKONTAKTE = /(https?:\/\/)?(www[.])?(vk)\.com\/([a-zA-Z0-9_-]*)\/?$/;
+export const TEXT = /[\wа-яА-ЯёЁ\s\n.?!+%$*@,]+/;

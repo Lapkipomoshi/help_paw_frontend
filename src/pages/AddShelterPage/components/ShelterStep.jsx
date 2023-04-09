@@ -14,14 +14,14 @@ const ShelterStep = ({ handleBack, setShelter }) => {
   const finishTime = useInput('', { notEmpty: true, regex: regex.TIME }, errorMessage.TIME);
   const shelterName = useInput('', { notEmpty: true, maxLength: 50, regex: regex.NAME_REGEX }, errorMessage.SHELTER_NAME);
   const INN = useInput('', {
-    notEmpty: true, minLength: 12, maxLength: 12, regex: regex.NUMBER,
+    notEmpty: true, minLength: 10, maxLength: 10, regex: regex.NUMBER,
   }, errorMessage.INN);
-  const webSite = useInput('', { regex: regex.URL }, errorMessage.SHELTER_SITE);
-  const telegram = useInput('', { regex: regex.TELEGRAM }, errorMessage.TELEGRAM);
-  const address = useInput('', { notEmpty: true }, errorMessage.ADDRESS);
+  const webSite = useInput('', { regex: regex.URL, maxLength: 200 }, errorMessage.SHELTER_SITE);
+  const telegram = useInput('', { regex: regex.TELEGRAM, maxLength: 200 }, errorMessage.TELEGRAM);
+  const address = useInput('', { notEmpty: true, maxLength: 100 }, errorMessage.ADDRESS);
   const addressPlaceHolder = 'Москва, Профсоюзная улица, 56, стр. 1, помещение 2';
-  const okGroup = useInput('', { regex: regex.URL }, errorMessage.OK);
-  const vkGroup = useInput('', { regex: regex.URL }, errorMessage.VK);
+  const okGroup = useInput('', { regex: regex.ODNOKLASSNIKI, maxLength: 200 }, errorMessage.ODNOKLASSNIKI);
+  const vkGroup = useInput('', { regex: regex.VKONTAKTE, maxLength: 200 }, errorMessage.VKONTAKTE);
   const description = useInput('', { notEmpty: true, maxLength: 3000, regex: regex.TEXT }, errorMessage.DESCRIPTION);
   const [isChecked, setIsChecked] = useState(false);
   const isInvalid = startTime.invalidText || finishTime.invalidText || shelterName.invalidText || INN.invalidText || webSite.invalidText
@@ -60,10 +60,9 @@ const ShelterStep = ({ handleBack, setShelter }) => {
     }
   }, [isInvalid]);
 
-  useEffect(() => { // добавить маску для полей времени работы приюта
-    const clockInput = document.querySelectorAll('.add-shelter-form__time-input');
+  useEffect(() => { // добавить маску для полей времени работы приюта - TODO: перенести в будущем в DeclarationInput
     const maskOptions = { mask: '00:00' };
-    clockInput.forEach((el) => { IMask(el, maskOptions); });
+    document.querySelectorAll('.add-shelter-form__time-input').forEach((el) => { IMask(el, maskOptions); });
   }, []);
 
   return (
@@ -105,17 +104,17 @@ const ShelterStep = ({ handleBack, setShelter }) => {
       <div className='add-shelter-form__flex'>
         <div className='add-shelter-form__column'>
           <DeclarationInput caption='Название приюта*' inputState={shelterName} type='text' name='shelterName' required />
-          <DeclarationInput caption='ИНН*' inputState={INN} type='number' name='INN' required />
+          <DeclarationInput caption='ИНН*' inputState={INN} type='number' name='INN' placeholder='10 цифр' required />
           <DeclarationInput caption='Ссылка на сайт приюта*' inputState={webSite} type='url' name='webSite' />
-          <DeclarationInput caption='Ссылка на канал приюта в &laquo;Telegram&raquo;' inputState={telegram} type='url' name='telegram' />
+          <DeclarationInput caption='Ссылка на канал приюта в &laquo;Telegram&raquo;' inputState={telegram} type='url' name='telegram' placeholder='t.me/' />
         </div>
         <div className='add-shelter-form__column'>
           <label className='add-shelter-form__caption'>Виды животных*</label>
           <input className='add-shelter-form__input' type='text' name='animal' required />
           <p className='add-shelter-form__error'> </p>
           <DeclarationInput caption='Адрес приюта*' inputState={address} type='text' name='address' placeholder={addressPlaceHolder} required />
-          <DeclarationInput caption='Ссылка на группу приюта в &laquo;Одноклассники&raquo;' inputState={okGroup} type='url' name='okPage' />
-          <DeclarationInput caption='Ссылка на группу приюта в &laquo;VK&raquo;' inputState={vkGroup} type='url' name='vkPage' />
+          <DeclarationInput caption='Ссылка на группу приюта в &laquo;Одноклассники&raquo;' inputState={okGroup} type='url' name='okRu' placeholder='ok.ru/' />
+          <DeclarationInput caption='Ссылка на группу приюта в &laquo;VK&raquo;' inputState={vkGroup} type='url' name='vk' placeholder='vk.com/' />
         </div>
       </div>
       <label className='add-shelter-form__caption'>Описание приюта*</label>

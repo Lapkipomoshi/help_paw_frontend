@@ -11,7 +11,7 @@ const OwnerStep = ({ currentUser, setShelterOwner }) => {
   const username = useInput(currentUser.username, {
     notEmpty: true, minLength: 4, maxLength: 50, regex: regex.NAME_REGEX,
   }, errorMessage.FIO, true);
-  const tel = useInput('', { notEmpty: true, minLength: 18, maxLength: 18 }, errorMessage.TEL);
+  const tel = useInput('+7', { notEmpty: true, minLength: 18, maxLength: 18 }, errorMessage.TEL);
   const email = useInput(currentUser.email, { notEmpty: true, maxLength: 100, regex: regex.EMAIL_REGEX }, errorMessage.EMAIL, true);
   const isInvalid = username.invalidText || tel.invalidText || email.invalidText;
 
@@ -25,16 +25,16 @@ const OwnerStep = ({ currentUser, setShelterOwner }) => {
     }
   }, [isInvalid]);
 
-  useEffect(() => { // добавить маску для телефона
+  useEffect(() => { // добавить маску для телефона - TODO: перенести в будущем в DeclarationInput
     const telInput = document.querySelector('.declaration-input__input[name="tel"]');
-    const maskOptions = { mask: '+{7} (000) 000-00-00' };
+    const maskOptions = { mask: '+7 (000) 000-00-00' };
     IMask(telInput, maskOptions);
   }, []);
 
   return (
     <>
       <DeclarationInput caption='ФИО владельца приюта*' inputState={username} type='text' name='username' required />
-      <DeclarationInput caption='Номер телефона*' inputState={tel} type='tel' name='tel' required />
+      <DeclarationInput caption='Номер телефона*' inputState={tel} type='tel' name='tel' placeholder='+7 (9XX) XXX-XX-XX' required />
       <DeclarationInput caption='E-mail*' inputState={email} type='email' name='email' required />
       <div className='add-shelter-form__buttons'>
         <Button disabled={isInvalid} submit>Далее</Button>

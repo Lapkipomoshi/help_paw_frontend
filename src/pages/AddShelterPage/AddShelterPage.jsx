@@ -16,8 +16,6 @@ const AddShelterPage = ({ currentUser }) => {
       setStep(2);
     } else {
       const token = localStorage.getItem('access');
-      console.log(token);
-      console.log({ ...shelterOwner, ...shelter });
       addShelterApi.postShelter(token, { ...shelterOwner, ...shelter })
         .then((res) => { console.log(res); })
         .catch((err) => {
