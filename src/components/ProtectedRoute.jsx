@@ -6,7 +6,7 @@ const ProtectedRoute = ({ component: Component, ...props }) => {
 
   useEffect(() => {
     if (!localStorage.getItem('access')) {
-      setLoggedIn(true);
+      setLoggedIn(false);
     }
   }, []);
 
