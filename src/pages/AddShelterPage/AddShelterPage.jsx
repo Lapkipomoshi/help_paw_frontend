@@ -3,6 +3,7 @@ import './AddShelterPage.css';
 import OwnerStep from './components/OwnerStep';
 import ShelterStep from './components/ShelterStep';
 import MainContainer from '../../components/MainContainer/MainContainer';
+import addShelterApi from './api';
 
 const AddShelterPage = ({ currentUser }) => {
   const [step, setStep] = useState(1);
@@ -12,10 +13,16 @@ const AddShelterPage = ({ currentUser }) => {
   const handleSubmitForm = (evt) => {
     evt.preventDefault();
     if (step === 1) {
-      console.log(shelterOwner);
       setStep(2);
     } else {
-      console.log(shelter);
+      const token = localStorage.getItem('access');
+      console.log(token);
+      console.log({ ...shelterOwner, ...shelter });
+      addShelterApi.postShelter(token, { ...shelterOwner, ...shelter })
+        .then((res) => { console.log(res); })
+        .catch((err) => {
+          throw new Error(err);
+        });
     }
   };
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import IMask from 'imask';
 import DeclarationInput from '../../../ui/DeclarationInput/DeclarationInput';
 import Button from '../../../ui/Button/Button';
 import useInput from '../../../hooks/useInput';
@@ -23,7 +24,8 @@ const ShelterStep = ({ handleBack, setShelter }) => {
   const vkGroup = useInput('', { regex: regex.URL }, errorMessage.VK);
   const description = useInput('', { notEmpty: true, maxLength: 3000, regex: regex.TEXT }, errorMessage.DESCRIPTION);
   const [isChecked, setIsChecked] = useState(false);
-  const [formValid, setFormValid] = useState(false);
+  const isInvalid = startTime.invalidText || finishTime.invalidText || shelterName.invalidText || INN.invalidText || webSite.invalidText
+    || telegram.invalidText || address.invalidText || okGroup.invalidText || vkGroup.invalidText || description.invalidText || !isChecked;
 
   const handleLogo = (e) => {
     const sizeLimit = 5 * 1024 * 1024; // ограничение для размера картинки - 5 МБ
@@ -41,11 +43,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
   const handleChangeCheckbox = () => { setIsChecked(!isChecked); };
 
   useEffect(() => {
-    if (startTime.invalidText || finishTime.invalidText || shelterName.invalidText || INN.invalidText || webSite.invalidText
-      || telegram.invalidText || address.invalidText || okGroup.invalidText || vkGroup.invalidText || description.invalidText || !isChecked) {
-      setFormValid(false);
-    } else {
-      setFormValid(true);
+    if (!isInvalid) {
       setShelter({
         logo,
         working_from_hour: startTime.value,
@@ -60,17 +58,20 @@ const ShelterStep = ({ handleBack, setShelter }) => {
         description: description.value,
       });
     }
-  }, [
-    startTime.invalidText, finishTime.invalidText, shelterName.invalidText, INN.invalidText, webSite.invalidText,
-    telegram.invalidText, address.invalidText, okGroup.invalidText, vkGroup.invalidText, description.invalidText,
-  ]);
+  }, [isInvalid]);
+
+  useEffect(() => { // добавить маску для полей времени работы приюта
+    const clockInput = document.querySelectorAll('.add-shelter-form__time-input');
+    const maskOptions = { mask: '00:00' };
+    clockInput.forEach((el) => { IMask(el, maskOptions); });
+  }, []);
 
   return (
     <>
       <label className='add-shelter-form__caption'>Логотип приюта</label>
       <div className='add-shelter-form__photo-block'>
         <label>
-          <input onChange={handleLogo} type='file' name='logo' accept='.jpg, .jpeg, .png, .bmp' />
+          <input onChange={handleLogo} type='file' name='logo' accept='.jpg, .jpeg, .png, .bmp' multiple={false} />
           <img className={`add-shelter-form__logo ${!logo && 'add-shelter-form__logo_hidden'}`} src={logo} alt='' />
         </label>
       </div>
@@ -81,7 +82,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
           value={startTime.value}
           onChange={(e) => { startTime.onChange(e); }}
           onBlur={startTime.onBlur}
-          type='text'
+          type='tel'
           name='startTime'
           placeholder='00:00'
           required
@@ -92,7 +93,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
           value={finishTime.value}
           onChange={(e) => { finishTime.onChange(e); }}
           onBlur={finishTime.onBlur}
-          type='text'
+          type='tel'
           name='finishTime'
           placeholder='00:00'
           required
@@ -140,7 +141,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
         </p>
       </div>
       <div className='add-shelter-form__buttons'>
-        <Button disabled={!formValid} submit>Добавить приют</Button>
+        <Button disabled={isInvalid} submit>Добавить приют</Button>
         <Button theme='transparent' onClick={handleBack}>Назад</Button>
       </div>
     </>
