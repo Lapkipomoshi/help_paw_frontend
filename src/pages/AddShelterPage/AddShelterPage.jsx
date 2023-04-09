@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './AddShelterPage.css';
 import OwnerStep from './components/OwnerStep';
 import ShelterStep from './components/ShelterStep';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import addShelterApi from './api';
+import imageSuccess from '../../images/icons/ic_success.svg';
+import imageError from '../../images/icons/ic_error.svg';
 
-const AddShelterPage = ({ currentUser }) => {
+const AddShelterPage = ({
+  currentUser, openPopup, setPopupImage, setMessage,
+}) => {
+  const navigate = useNavigate(); // подключение программной навигации
+
   const [step, setStep] = useState(1);
   const [shelterOwner, setShelterOwner] = useState({});
   const [shelter, setShelter] = useState({});
@@ -17,8 +24,18 @@ const AddShelterPage = ({ currentUser }) => {
     } else {
       const token = localStorage.getItem('access');
       addShelterApi.postShelter(token, { ...shelterOwner, ...shelter })
-        .then((res) => { console.log(res); })
+        .then(() => {
+          setPopupImage(imageSuccess);
+          setMessage('Заявка на добавление приюта успешно добавлена! Её состояние можно отслеживать в личном кабинете.');
+          openPopup(true);
+          setTimeout(() => { openPopup(false); }, 2000);
+          setTimeout(() => { navigate('/profile'); }, 2000);
+        })
         .catch((err) => {
+          setPopupImage(imageError);
+          setMessage('На запрос получена ошибка. Проверьте, пожалуйста, поля ввода и попробуйте ещё раз или обратитесь в поддержку.');
+          openPopup(true);
+          setTimeout(() => { openPopup(false); }, 2000);
           throw new Error(err);
         });
     }

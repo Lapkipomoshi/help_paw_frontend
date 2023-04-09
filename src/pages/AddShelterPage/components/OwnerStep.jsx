@@ -32,15 +32,15 @@ const OwnerStep = ({ currentUser, setShelterOwner }) => {
   }, []);
 
   return (
-    <>
-      <DeclarationInput caption='ФИО владельца приюта*' inputState={username} type='text' name='username' required />
+    <ul className='add-shelter-form__column'>
+      <DeclarationInput caption='ФИО владельца приюта*' inputState={username} type='text' name='username' placeholder={currentUser.username} required />
       <DeclarationInput caption='Номер телефона*' inputState={tel} type='tel' name='tel' placeholder='+7 (9XX) XXX-XX-XX' required />
-      <DeclarationInput caption='E-mail*' inputState={email} type='email' name='email' required />
+      <DeclarationInput caption='E-mail*' inputState={email} type='email' name='email' placeholder={currentUser.email} required />
       <div className='add-shelter-form__buttons'>
         <Button disabled={isInvalid} submit>Далее</Button>
         <Button theme='transparent' to={-1} link>Отменить</Button>
       </div>
-    </>
+    </ul>
   );
 };
 

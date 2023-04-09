@@ -52,6 +52,8 @@ const ShelterStep = ({ handleBack, setShelter }) => {
         tin: INN.value,
         web_site: webSite.value,
         telegram: telegram.value,
+        // eslint-disable-next-line quotes
+        animal_types: ["dog"],
         address: address.value,
         ok_page: okGroup.value,
         vk_page: vkGroup.value,
@@ -102,20 +104,20 @@ const ShelterStep = ({ handleBack, setShelter }) => {
         {(startTime.dirty && startTime.invalidText) ? startTime.invalidText : (finishTime.dirty && finishTime.invalidText)}
       </p>
       <div className='add-shelter-form__flex'>
-        <div className='add-shelter-form__column'>
+        <ul className='add-shelter-form__column'>
           <DeclarationInput caption='Название приюта*' inputState={shelterName} type='text' name='shelterName' required />
           <DeclarationInput caption='ИНН*' inputState={INN} type='number' name='INN' placeholder='10 цифр' required />
           <DeclarationInput caption='Ссылка на сайт приюта*' inputState={webSite} type='url' name='webSite' />
           <DeclarationInput caption='Ссылка на канал приюта в &laquo;Telegram&raquo;' inputState={telegram} type='url' name='telegram' placeholder='t.me/' />
-        </div>
-        <div className='add-shelter-form__column'>
+        </ul>
+        <ul className='add-shelter-form__column'>
           <label className='add-shelter-form__caption'>Виды животных*</label>
           <input className='add-shelter-form__input' type='text' name='animal' required />
           <p className='add-shelter-form__error'> </p>
           <DeclarationInput caption='Адрес приюта*' inputState={address} type='text' name='address' placeholder={addressPlaceHolder} required />
           <DeclarationInput caption='Ссылка на группу приюта в &laquo;Одноклассники&raquo;' inputState={okGroup} type='url' name='okRu' placeholder='ok.ru/' />
           <DeclarationInput caption='Ссылка на группу приюта в &laquo;VK&raquo;' inputState={vkGroup} type='url' name='vk' placeholder='vk.com/' />
-        </div>
+        </ul>
       </div>
       <label className='add-shelter-form__caption'>Описание приюта*</label>
       <textarea

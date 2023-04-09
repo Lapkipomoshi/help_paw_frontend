@@ -1,3 +1,12 @@
+.declaration-input {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  list-style-type: none;
+}
+
 .declaration-input__caption {
   width: 482px;
   margin: 0 0 8px;
