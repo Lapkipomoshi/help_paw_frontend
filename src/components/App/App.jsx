@@ -173,7 +173,19 @@ const App = () => {
             <Route path='pets/:type' element={<ShelterSamePets />} />
             <Route path='vacancies' element={<ShelterVacancies />} />
           </Route>
-          <Route path='/add-shelter' element={<ProtectedRoute loggedIn={loggedIn} component={AddShelterPage} currentUser={currentUser} />} />
+          <Route
+            path='/add-shelter'
+            element={(
+              <ProtectedRoute
+                loggedIn={loggedIn}
+                component={AddShelterPage}
+                currentUser={currentUser}
+                openPopup={setInfoTooltipOpen}
+                setPopupImage={setInfoTooltipImage}
+                setMessage={setMessage}
+              />
+            )}
+          />
           <Route path='/pets/:id' element={<PetPage />} />
           <Route path='/papers' element={<PapersPage />} />
           <Route path='/papers/:id' element={<PaperPage />} />

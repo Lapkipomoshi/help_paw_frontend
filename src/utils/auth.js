@@ -10,7 +10,6 @@ const checkServerResponse = (res) => {
   return Promise.reject(`Ошибка: ${res.status}`);
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export const register = (username, password, email) => {
   return fetch(`${baseUrl}/auth/users/`, {
     method: 'POST',
@@ -23,7 +22,6 @@ export const register = (username, password, email) => {
     .then(checkServerResponse);
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export const login = ({ password, email }) => {
   return fetch(`${baseUrl}/auth/jwt/create`, {
     method: 'POST',
