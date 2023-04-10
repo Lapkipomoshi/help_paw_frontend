@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './PasswordInput.css';
 
 function PasswordInput({
   spanText, minLength, maxLength, onChange, errorMessage, isValid,
 }) {
+  const [isOpen, setIsOpen] = useState(false);
   function showPassword() {
     const passwordInput = document.querySelector('.password__input');
     if (passwordInput.getAttribute('type') === 'password') {
+      setIsOpen(true);
       passwordInput.setAttribute('type', 'text');
     } else {
+      setIsOpen(false);
       passwordInput.setAttribute('type', 'password');
     }
   }
@@ -18,7 +21,7 @@ function PasswordInput({
       <label className='input__label'>Пароль</label>
       <div className='password__container'>
         <input
-          className={`password__input ${errorMessage && 'password__input_invalid'} ${isValid && 'password__input_valid'}`}
+          className={`password__input ${isOpen && 'password__input_opened'} ${errorMessage && 'password__input_invalid'} ${isValid && 'password__input_valid'}`}
           name='password'
           type='password'
           required
