@@ -22,6 +22,8 @@ const RegisterPage = ({ onRegister }) => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
+  const [promptText, setPromptText] = useState('Не менее 8 символов');
+
   const [isValidName, setIsValidName] = useState(false);
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
@@ -78,6 +80,7 @@ const RegisterPage = ({ onRegister }) => {
       setPasswordError(PASSWORD_TOO_LONG);
     } else {
       setPasswordError('');
+      setPromptText('');
     }
     if (input.value.length === 0) {
       setPasswordError(PASSWORD_NOT_FOUND);
@@ -147,6 +150,7 @@ const RegisterPage = ({ onRegister }) => {
 
                   <PasswordInput
                     spanText={passwordError}
+                    spanPrompt={promptText}
                     errorMessage={passwordError}
                     value={userPassword || ''}
                     pattern='^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])$'

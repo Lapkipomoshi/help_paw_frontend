@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './PasswordInput.css';
 
 function PasswordInput({
-  spanText, minLength, maxLength, onChange, errorMessage, isValid,
+  spanText, minLength, maxLength, onChange, errorMessage, isValid, spanPrompt,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   function showPassword() {
@@ -31,7 +31,7 @@ function PasswordInput({
         />
         <button className='password-visibility' type='button' onClick={showPassword} />
       </div>
-      <span className='input__error'>{spanText}</span>
+      <span className={`input__span ${errorMessage && 'input__error'}`}>{errorMessage ? spanText : spanPrompt}</span>
     </>
   );
 }
