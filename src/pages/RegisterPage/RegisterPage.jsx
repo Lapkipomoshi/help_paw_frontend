@@ -41,12 +41,16 @@ const RegisterPage = ({ onRegister }) => {
     setUserName(input.value);
     if (!validName) {
       setNameError(NAME_INVALID);
-    } else if (input.value.length === 0) {
+    }
+    if (input.value.length === 0) {
       setNameError(NAME_NOT_FOUND);
+      setIsValidName(false);
     } else if (input.value.length < 2) {
       setNameError(NAME_TOO_SHORT);
-    } else if (input.value.length > 20) {
+      setIsValidName(false);
+    } else if (input.value.length === 20) {
       setNameError(NAME_TOO_LONG);
+      setIsValidName(false);
     } else {
       setNameError('');
     }
