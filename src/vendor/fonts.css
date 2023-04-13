@@ -80,3 +80,27 @@
     src: url("./fonts/Inter/Inter-Bold.woff2") format("woff2"),
     url("./fonts/Inter/Inter-Bold.woff") format("woff");
 }
+
+@font-face {
+  font-family: 'FontelloWebkit';
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/Fontello/Webkit/fontello.eot?0000");
+  src: url("./fonts/Fontello/Webkit/fontello.eot?0000#iefix") format("embedded-opentype"),
+  url("./fonts/Fontello/Webkit/fontello.woff2?0000") format("woff2"),
+  url("./fonts/Fontello/Webkit/fontello.woff?0000") format("woff"),
+  url("./fonts/Fontello/Webkit/fontello.ttf?0000") format("truetype"),
+  url("./fonts/Fontello/Webkit/fontello.svg?0000#fontello") format("svg");
+}
+
+@font-face {
+  font-family: 'FontelloMozOsx';
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/Fontello/MozOsx/fontello.eot?0000");
+  src: url("./fonts/Fontello/MozOsx/fontello.eot?0000#iefix") format("embedded-opentype"),
+  url("./fonts/Fontello/MozOsx/fontello.woff2?0000") format("woff2"),
+  url("./fonts/Fontello/MozOsx/fontello.woff?0000") format("woff"),
+  url("./fonts/Fontello/MozOsx/fontello.ttf?0000") format("truetype"),
+  url("./fonts/Fontello/MozOsx/fontello.svg?0000#fontello") format("svg");
+}
