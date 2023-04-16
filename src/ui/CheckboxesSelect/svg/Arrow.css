@@ -1,0 +1,23 @@
+.arrow {
+  width: 37px;
+  height: 22px;
+  transition: transform .7s;
+  cursor: pointer;
+}
+
+.arrow path {
+  transition-duration: .3s;
+  fill: var(--color-text-base);
+}
+
+.arrow:hover path {
+  fill: var(--color-accent-hover);
+}
+
+.arrow:focus path {
+  fill: var(--color-accent-pressed);
+}
+
+.arrow_rotate {
+  transform: rotate(180deg);
+}

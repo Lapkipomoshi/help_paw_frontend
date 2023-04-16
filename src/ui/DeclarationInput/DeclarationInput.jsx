@@ -1,10 +1,9 @@
-/* eslint-disable react/no-unknown-property */
 import React from 'react';
 import './DeclarationInput.css';
 
-function DeclarationInput({
+const DeclarationInput = ({
   caption, inputState, type, name, placeholder, required,
-}) {
+}) => {
   return (
     <li className='declaration-input'>
       <label className='declaration-input__caption' htmlFor={name}>{caption}</label>
@@ -22,6 +21,6 @@ function DeclarationInput({
       <p className='declaration-input__error'>{inputState.dirty && inputState.invalidText}</p>
     </li>
   );
-}
+};
 
 export default DeclarationInput;

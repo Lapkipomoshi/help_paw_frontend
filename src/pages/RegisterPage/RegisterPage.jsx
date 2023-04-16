@@ -159,7 +159,7 @@ const RegisterPage = ({ onRegister }) => {
 
                   <div className='register__privacy'>
                     <label className='checkbox__container'>
-                      <input type='checkbox' className='checkbox__input' onClick={handleChangeCheckbox} />
+                      <input className='checkbox__input' type='checkbox' onClick={handleChangeCheckbox} />
                       <span className='checkbox' />
                     </label>
 

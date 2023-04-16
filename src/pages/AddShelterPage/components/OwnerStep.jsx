@@ -25,7 +25,7 @@ const OwnerStep = ({ currentUser, setShelterOwner }) => {
     }
   }, [isInvalid]);
 
-  useEffect(() => { // добавить маску для телефона - TODO: перенести в будущем в DeclarationInput
+  useEffect(() => { // добавить маску для телефона
     const telInput = document.querySelector('.declaration-input__input[name="tel"]');
     const maskOptions = { mask: '+7 (000) 000-00-00' };
     IMask(telInput, maskOptions);
