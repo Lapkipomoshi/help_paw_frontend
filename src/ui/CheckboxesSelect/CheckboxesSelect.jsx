@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import './CheckboxesSelect.css';
 import Arrow from './svg/Arrow';
 
-const CheckboxesSelect = ({ caption }) => {
+const CheckboxesSelect = ({ caption, setInputValue }) => {
   const [items, setItems] = useState([]);
   const [openedSelect, setOpenedSelect] = useState(false);
   const catType = { caption: 'Кошки', name: 'cats' };
@@ -70,6 +70,12 @@ const CheckboxesSelect = ({ caption }) => {
     if (isParrot) { newSet.push(parrotType.caption); }
     if (isHamster) { newSet.push(hamsterType.caption); }
     setItems([...newSet]);
+    const newInputValue = [];
+    if (isCat) { newInputValue.push(catType.name); }
+    if (isDog) { newInputValue.push(dogType.name); }
+    if (isParrot) { newInputValue.push(parrotType.name); }
+    if (isHamster) { newInputValue.push(hamsterType.name); }
+    setInputValue([...newInputValue]);
   }, [isCat, isDog, isParrot, isHamster]);
 
   return (
