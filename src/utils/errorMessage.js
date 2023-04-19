@@ -15,7 +15,7 @@ export const EMAIL = {
 };
 
 // пароль
-export const PASSWORD_INVALID = 'Пароль должен содержать строчные и прописные буквы, цифры';
+export const PASSWORD_INVALID = 'Введён недопустимый символ';
 export const PASSWORD_TOO_SHORT = 'Длина пароля должна быть не менее 8 символов';
 export const PASSWORD_TOO_LONG = 'Длина пароля должна быть не более 15 символов';
 export const PASSWORD_NOT_FOUND = 'Введите пароль';

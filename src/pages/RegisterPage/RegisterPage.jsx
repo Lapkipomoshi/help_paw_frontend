@@ -78,10 +78,12 @@ const RegisterPage = ({ onRegister }) => {
     setUserPassword(input.value);
     if (!validPassword) {
       setPasswordError(PASSWORD_INVALID);
+      setIsValidPassword(false);
     } else if (input.value.length < 8) {
       setPasswordError(PASSWORD_TOO_SHORT);
     } else if (input.value.length > 15) {
       setPasswordError(PASSWORD_TOO_LONG);
+      setIsValidPassword(false);
     } else {
       setPasswordError('');
       setPromptText('');
