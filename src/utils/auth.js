@@ -7,7 +7,7 @@ const checkServerResponse = (res) => {
   if (res.status >= 200 && res.status < 300) {
     return res.json();
   }
-  return Promise.reject(`Ошибка: ${res.status}`);
+  return Promise.reject(new Error(res.status));
 };
 
 export const register = (username, password, email) => {
