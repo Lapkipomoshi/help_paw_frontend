@@ -4,6 +4,7 @@ import IMask from 'imask';
 import DeclarationInput from '../../../ui/DeclarationInput/DeclarationInput';
 import Button from '../../../ui/Button/Button';
 import useInput from '../../../hooks/useInput';
+import CheckboxesSelect from '../../../ui/CheckboxesSelect/CheckboxesSelect';
 import * as regex from '../../../utils/regex';
 import * as errorMessage from '../../../utils/errorMessage';
 
@@ -18,14 +19,15 @@ const ShelterStep = ({ handleBack, setShelter }) => {
   }, errorMessage.INN);
   const webSite = useInput('', { regex: regex.URL, maxLength: 200 }, errorMessage.SHELTER_SITE);
   const telegram = useInput('', { regex: regex.TELEGRAM, maxLength: 200 }, errorMessage.TELEGRAM);
+  const [animalTypes, setAnimalTypes] = useState([]);
   const address = useInput('', { notEmpty: true, maxLength: 100 }, errorMessage.ADDRESS);
   const addressPlaceHolder = 'Москва, Профсоюзная улица, 56, стр. 1, помещение 2';
   const okGroup = useInput('', { regex: regex.ODNOKLASSNIKI, maxLength: 200 }, errorMessage.ODNOKLASSNIKI);
   const vkGroup = useInput('', { regex: regex.VKONTAKTE, maxLength: 200 }, errorMessage.VKONTAKTE);
   const description = useInput('', { notEmpty: true, maxLength: 3000, regex: regex.TEXT }, errorMessage.DESCRIPTION);
   const [isChecked, setIsChecked] = useState(false);
-  const isInvalid = startTime.invalidText || finishTime.invalidText || shelterName.invalidText || INN.invalidText || webSite.invalidText
-    || telegram.invalidText || address.invalidText || okGroup.invalidText || vkGroup.invalidText || description.invalidText || !isChecked;
+  const isInvalid = startTime.invalidText || finishTime.invalidText || shelterName.invalidText || INN.invalidText || webSite.invalidText || telegram.invalidText
+  || address.invalidText || okGroup.invalidText || vkGroup.invalidText || description.invalidText || !isChecked || animalTypes.length === 0;
 
   const handleLogo = (e) => {
     const sizeLimit = 5 * 1024 * 1024; // ограничение для размера картинки - 5 МБ
@@ -40,8 +42,6 @@ const ShelterStep = ({ handleBack, setShelter }) => {
     }
   };
 
-  const handleChangeCheckbox = () => { setIsChecked(!isChecked); };
-
   useEffect(() => {
     if (!isInvalid) {
       setShelter({
@@ -52,8 +52,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
         tin: INN.value,
         web_site: webSite.value,
         telegram: telegram.value,
-        // eslint-disable-next-line quotes
-        animal_types: ["dog"],
+        animal_types: animalTypes,
         address: address.value,
         ok_page: okGroup.value,
         vk_page: vkGroup.value,
@@ -62,7 +61,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
     }
   }, [isInvalid]);
 
-  useEffect(() => { // добавить маску для полей времени работы приюта - TODO: перенести в будущем в DeclarationInput
+  useEffect(() => { // добавить маску для полей времени работы приюта
     const maskOptions = { mask: '00:00' };
     document.querySelectorAll('.add-shelter-form__time-input').forEach((el) => { IMask(el, maskOptions); });
   }, []);
@@ -111,9 +110,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
           <DeclarationInput caption='Ссылка на канал приюта в &laquo;Telegram&raquo;' inputState={telegram} type='url' name='telegram' placeholder='t.me/' />
         </ul>
         <ul className='add-shelter-form__column'>
-          <label className='add-shelter-form__caption'>Виды животных*</label>
-          <input className='add-shelter-form__input' type='text' name='animal' required />
-          <p className='add-shelter-form__error'> </p>
+          <CheckboxesSelect caption='Виды животных*' setInputValue={setAnimalTypes} />
           <DeclarationInput caption='Адрес приюта*' inputState={address} type='text' name='address' placeholder={addressPlaceHolder} required />
           <DeclarationInput caption='Ссылка на группу приюта в &laquo;Одноклассники&raquo;' inputState={okGroup} type='url' name='okRu' placeholder='ok.ru/' />
           <DeclarationInput caption='Ссылка на группу приюта в &laquo;VK&raquo;' inputState={vkGroup} type='url' name='vk' placeholder='vk.com/' />
@@ -131,7 +128,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
       <p className='add-shelter-form__error'>{description.dirty && description.invalidText}</p>
       <div className='register__privacy'>
         <label className='checkbox__container'>
-          <input type='checkbox' className='checkbox__input' onClick={handleChangeCheckbox} />
+          <input className='checkbox__input' name='agreement' type='checkbox' onClick={() => { setIsChecked(!isChecked); }} />
           <span className='checkbox' />
         </label>
         <p className='register__agreement'>

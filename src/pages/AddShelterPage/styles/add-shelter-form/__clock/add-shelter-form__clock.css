@@ -1,7 +1,13 @@
 .add-shelter-form__clock {
   display: flex;
   column-gap: 8px;
+  color: var(--color-text-base);
+}
+
+.add-shelter-form__clock p {
+  margin: auto 0;
+  padding: 0;
   font-size: 16px;
   line-height: 19px;
-  color: var(--color-text-base);
+  font-weight: 400;
 }
