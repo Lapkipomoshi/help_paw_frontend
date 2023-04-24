@@ -9,7 +9,7 @@ import PasswordInput from '../../ui/PasswordInput/PasswordInput';
 import { EMAIL_REGEX, NAME_REGEX, PASSWORD_REGEX } from '../../utils/regex';
 import {
   EMAIL_INVALID, EMAIL_NOT_FOUND, NAME_INVALID, NAME_NOT_FOUND, NAME_TOO_LONG,
-  NAME_TOO_SHORT, PASSWORD_INVALID, PASSWORD_NOT_FOUND, PASSWORD_TOO_LONG, PASSWORD_TOO_SHORT,
+  NAME_TOO_SHORT, PASSWORD_INVALID, PASSWORD_NOT_FOUND, PASSWORD_ONLY_NUMBERS, PASSWORD_TOO_LONG, PASSWORD_TOO_SHORT,
 } from '../../utils/errorMessage';
 import MainContainer from '../../components/MainContainer/MainContainer';
 
@@ -74,6 +74,7 @@ const RegisterPage = ({ onRegister }) => {
   function handlePasswordChange(e) {
     const input = e.target;
     const validPassword = PASSWORD_REGEX.test(input.value);
+    const passwordOnlyNumbers = /^[0-9]/.test(input.value);
     setIsValidPassword(input.validity.valid);
     setUserPassword(input.value);
     if (!validPassword) {
@@ -84,6 +85,8 @@ const RegisterPage = ({ onRegister }) => {
     } else if (input.value.length > 15) {
       setPasswordError(PASSWORD_TOO_LONG);
       setIsValidPassword(false);
+    } else if (input.value.length >= 8 && passwordOnlyNumbers) {
+      setPasswordError(PASSWORD_ONLY_NUMBERS);
     } else {
       setPasswordError('');
       setPromptText('');
