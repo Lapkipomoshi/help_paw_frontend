@@ -7,7 +7,7 @@ const checkServerResponse = (res) => {
   if (res.ok) {
     return res.json();
   }
-  return Promise.reject(new Error(res.status));
+  return Promise.reject(new Error(res));
 };
 
 export const register = (username, password, email) => {
