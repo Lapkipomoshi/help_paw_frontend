@@ -100,9 +100,16 @@ const App = () => {
         setTimeout(closeInfoTooltip, 2000);
         setTimeout(() => { navigate('/'); }, 2000);
       })
-      .catch(() => {
+      .then((res) => {
+        return res.json();
+      })
+      .catch((res) => {
         setInfoTooltipImage(imageError);
-        setMessage('Что-то пошло не так! Попробуйте ещё раз.');
+        if (res.status === 400) {
+          setMessage('Пользователь с таким e-mail уже зарегистрирован.');
+        } else {
+          setMessage('Что-то пошло не так! Попробуйте ещё раз.');
+        }
         setInfoTooltipOpen(true);
         setTimeout(closeInfoTooltip, 2000);
       });
