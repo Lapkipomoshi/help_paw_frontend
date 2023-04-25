@@ -1,11 +1,11 @@
 .user-form__container {
   background-color: var(--color-background-additional);
   border-radius: 30px;
-  padding: 36px 36px 40px;
+  padding: 40px 36px;
 }
 
 .user-form__container_register {
-  width: 402px;
+  width: 401px;
 }
 
 .user-form__container_login {

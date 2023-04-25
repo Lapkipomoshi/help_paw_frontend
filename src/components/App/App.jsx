@@ -23,6 +23,7 @@ import ShelterSamePets from '../../modules/ShelterSamePets/ShelterSamePets';
 import ShelterVacancies from '../../modules/ShelterVacancies/ShelterVacancies';
 
 import PetPage from '../../pages/PetPage/PetPage';
+import AddShelterPage from '../../pages/AddShelterPage/AddShelterPage';
 import PapersPage from '../../pages/PapersPage/PapersPage';
 import PaperPage from '../../pages/PaperPage/PaperPage';
 import NewsPage from '../../pages/NewsPage/NewsPage';
@@ -99,9 +100,16 @@ const App = () => {
         setTimeout(closeInfoTooltip, 2000);
         setTimeout(() => { navigate('/'); }, 2000);
       })
-      .catch(() => {
+      .then((res) => {
+        return res.json();
+      })
+      .catch((res) => {
         setInfoTooltipImage(imageError);
-        setMessage('Что-то пошло не так! Попробуйте ещё раз.');
+        if (res.status === 400) {
+          setMessage('Пользователь с таким e-mail уже зарегистрирован.');
+        } else {
+          setMessage('Что-то пошло не так! Попробуйте ещё раз.');
+        }
         setInfoTooltipOpen(true);
         setTimeout(closeInfoTooltip, 2000);
       });
@@ -172,6 +180,19 @@ const App = () => {
             <Route path='pets/:type' element={<ShelterSamePets />} />
             <Route path='vacancies' element={<ShelterVacancies />} />
           </Route>
+          <Route
+            path='/add-shelter'
+            element={(
+              <ProtectedRoute
+                loggedIn={loggedIn}
+                component={AddShelterPage}
+                currentUser={currentUser}
+                openPopup={setInfoTooltipOpen}
+                setPopupImage={setInfoTooltipImage}
+                setMessage={setMessage}
+              />
+            )}
+          />
           <Route path='/pets/:id' element={<PetPage />} />
           <Route path='/papers' element={<PapersPage />} />
           <Route path='/papers/:id' element={<PaperPage />} />
@@ -186,7 +207,7 @@ const App = () => {
 
           <Route exact path='/password-recovery' element={loggedIn ? <Navigate to='/' /> : <PasswordRecovery />} />
 
-          <Route exact path='/new-password' element={loggedIn ? <Navigate to='/' /> : <NewPassword />} />
+          <Route exact path='/password-reset/:uid/:token/' element={<NewPassword />} />
 
           <Route exact path='/activate/:uid/:token/' element={<ActivateUserPage />} />
 

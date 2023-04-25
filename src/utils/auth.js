@@ -4,13 +4,12 @@ const checkServerResponse = (res) => {
   if (res.status === 204) {
     return Promise.resolve({});
   }
-  if (res.status >= 200 && res.status < 300) {
+  if (res.ok) {
     return res.json();
   }
-  return Promise.reject(`Ошибка: ${res.status}`);
+  return Promise.reject(new Error(res));
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export const register = (username, password, email) => {
   return fetch(`${baseUrl}/auth/users/`, {
     method: 'POST',
@@ -23,7 +22,6 @@ export const register = (username, password, email) => {
     .then(checkServerResponse);
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export const login = ({ password, email }) => {
   return fetch(`${baseUrl}/auth/jwt/create`, {
     method: 'POST',
@@ -62,7 +60,7 @@ export const resetPassword = ({ email }) => {
 
 // eslint-disable-next-line camelcase
 export const resetPasswordConfirm = ({ uid, token, new_password }) => {
-  return fetch(`${baseUrl}/auth/users/reset_password/`, {
+  return fetch(`${baseUrl}/auth/users/reset_password_confirm/`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',

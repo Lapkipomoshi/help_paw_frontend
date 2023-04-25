@@ -9,7 +9,7 @@ import PasswordInput from '../../ui/PasswordInput/PasswordInput';
 import { EMAIL_REGEX, NAME_REGEX, PASSWORD_REGEX } from '../../utils/regex';
 import {
   EMAIL_INVALID, EMAIL_NOT_FOUND, NAME_INVALID, NAME_NOT_FOUND, NAME_TOO_LONG,
-  NAME_TOO_SHORT, PASSWORD_INVALID, PASSWORD_NOT_FOUND, PASSWORD_TOO_LONG, PASSWORD_TOO_SHORT,
+  NAME_TOO_SHORT, PASSWORD_INVALID, PASSWORD_NOT_FOUND, PASSWORD_ONLY_NUMBERS, PASSWORD_TOO_LONG, PASSWORD_TOO_SHORT,
 } from '../../utils/errorMessage';
 import MainContainer from '../../components/MainContainer/MainContainer';
 
@@ -21,6 +21,8 @@ const RegisterPage = ({ onRegister }) => {
   const [nameError, setNameError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+
+  const [promptText, setPromptText] = useState('Не менее 8 символов');
 
   const [isValidName, setIsValidName] = useState(false);
   const [isValidEmail, setIsValidEmail] = useState(false);
@@ -39,12 +41,16 @@ const RegisterPage = ({ onRegister }) => {
     setUserName(input.value);
     if (!validName) {
       setNameError(NAME_INVALID);
-    } else if (input.value.length === 0) {
+    }
+    if (input.value.length === 0) {
       setNameError(NAME_NOT_FOUND);
+      setIsValidName(false);
     } else if (input.value.length < 2) {
       setNameError(NAME_TOO_SHORT);
-    } else if (input.value.length > 20) {
+      setIsValidName(false);
+    } else if (input.value.length === 20) {
       setNameError(NAME_TOO_LONG);
+      setIsValidName(false);
     } else {
       setNameError('');
     }
@@ -68,16 +74,22 @@ const RegisterPage = ({ onRegister }) => {
   function handlePasswordChange(e) {
     const input = e.target;
     const validPassword = PASSWORD_REGEX.test(input.value);
+    const passwordOnlyNumbers = /^[0-9]/.test(input.value);
     setIsValidPassword(input.validity.valid);
     setUserPassword(input.value);
     if (!validPassword) {
       setPasswordError(PASSWORD_INVALID);
+      setIsValidPassword(false);
     } else if (input.value.length < 8) {
       setPasswordError(PASSWORD_TOO_SHORT);
     } else if (input.value.length > 15) {
       setPasswordError(PASSWORD_TOO_LONG);
+      setIsValidPassword(false);
+    } else if (input.value.length >= 8 && passwordOnlyNumbers) {
+      setPasswordError(PASSWORD_ONLY_NUMBERS);
     } else {
       setPasswordError('');
+      setPromptText('');
     }
     if (input.value.length === 0) {
       setPasswordError(PASSWORD_NOT_FOUND);
@@ -147,6 +159,7 @@ const RegisterPage = ({ onRegister }) => {
 
                   <PasswordInput
                     spanText={passwordError}
+                    spanPrompt={promptText}
                     errorMessage={passwordError}
                     value={userPassword || ''}
                     pattern='^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])$'
@@ -159,7 +172,7 @@ const RegisterPage = ({ onRegister }) => {
 
                   <div className='register__privacy'>
                     <label className='checkbox__container'>
-                      <input type='checkbox' className='checkbox__input' onClick={handleChangeCheckbox} />
+                      <input className='checkbox__input' type='checkbox' onClick={handleChangeCheckbox} />
                       <span className='checkbox' />
                     </label>
 

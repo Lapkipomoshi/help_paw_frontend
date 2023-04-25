@@ -5,8 +5,8 @@
 .register__privacy {
     display: flex;
     flex-direction: row;
-    margin-top: 18px;
-    max-width: 402px;
+    margin-top: 16px;
+    max-width: 401px;
     position: relative;
 }
 

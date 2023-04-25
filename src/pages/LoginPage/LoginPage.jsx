@@ -7,8 +7,9 @@ import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import PasswordInput from '../../ui/PasswordInput/PasswordInput';
 import SignUpBlock from '../../components/SignUpBlock/SignUpBlock';
-import { EMAIL_NOT_FOUND, PASSWORD_NOT_FOUND } from '../../utils/errorMessage';
+import { EMAIL_INVALID, EMAIL_NOT_FOUND, PASSWORD_NOT_FOUND } from '../../utils/errorMessage';
 import MainContainer from '../../components/MainContainer/MainContainer';
+import { EMAIL_REGEX } from '../../utils/regex';
 
 const LoginPage = ({ onLogin }) => {
   const [userEmail, setUserEmail] = useState('');
@@ -26,13 +27,16 @@ const LoginPage = ({ onLogin }) => {
 
   function handleEmailChange(e) {
     const input = e.target;
-    setIsValidEmail(true);
+    const validEmail = EMAIL_REGEX.test(input.value);
+    setIsValidEmail(validEmail);
     setUserEmail(input.value);
-    if (input.value.length === 0) {
-      setEmailError(EMAIL_NOT_FOUND);
-      setIsValidEmail(false);
+    if (!validEmail) {
+      setEmailError(EMAIL_INVALID);
     } else {
       setEmailError('');
+    }
+    if (input.value.length === 0) {
+      setEmailError(EMAIL_NOT_FOUND);
     }
   }
 

@@ -1,0 +1,5 @@
+.add-shelter-form__flex {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
