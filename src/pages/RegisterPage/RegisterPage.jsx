@@ -74,7 +74,7 @@ const RegisterPage = ({ onRegister }) => {
   function handlePasswordChange(e) {
     const input = e.target;
     const validPassword = PASSWORD_REGEX.test(input.value);
-    const passwordOnlyNumbers = /^[0-9]/.test(input.value);
+    const passwordOnlyNumbers = /^[0-9]+$/.test(input.value);
     setIsValidPassword(input.validity.valid);
     setUserPassword(input.value);
     if (!validPassword) {
