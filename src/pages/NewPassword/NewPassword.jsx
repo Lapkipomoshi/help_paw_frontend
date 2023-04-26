@@ -17,6 +17,7 @@ import imageError from '../../images/icons/ic_error.svg';
 const NewPassword = () => {
   const [userPassword, setUserPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [promptText, setPromptText] = useState('Не менее 8 символов');
   const [isValidPassword, setIsValidPassword] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const { uid, token } = useParams();
@@ -40,6 +41,7 @@ const NewPassword = () => {
       setPasswordError(PASSWORD_TOO_LONG);
     } else {
       setPasswordError('');
+      setPromptText('');
     }
     if (input.value.length === 0) {
       setPasswordError(PASSWORD_NOT_FOUND);
@@ -92,6 +94,7 @@ const NewPassword = () => {
                 <PasswordInput
                   spanText={passwordError}
                   errorMessage={passwordError}
+                  spanPrompt={promptText}
                   value={userPassword || ''}
                   pattern='^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])$'
                   minLength='8'
