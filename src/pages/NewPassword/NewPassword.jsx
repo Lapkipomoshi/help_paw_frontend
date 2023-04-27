@@ -17,7 +17,7 @@ import imageError from '../../images/icons/ic_error.svg';
 const NewPassword = () => {
   const [userPassword, setUserPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  const [promptText, setPromptText] = useState('Не менее 8 символов');
+  const [promptText, setPromptText] = useState('Не менее 10 символов');
   const [isValidPassword, setIsValidPassword] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const { uid, token } = useParams();
@@ -39,9 +39,9 @@ const NewPassword = () => {
     } else
     if (!validPassword) {
       setPasswordError(PASSWORD_INVALID);
-    } else if (input.value.length < 8) {
+    } else if (input.value.length < 10) {
       setPasswordError(PASSWORD_TOO_SHORT);
-    } else if (input.value.length > 15) {
+    } else if (input.value.length > 100) {
       setPasswordError(PASSWORD_TOO_LONG);
     } else if (passwordOnlyNumbers) {
       setPasswordError(PASSWORD_ONLY_NUMBERS);
@@ -100,8 +100,8 @@ const NewPassword = () => {
                   spanPrompt={promptText}
                   value={userPassword || ''}
                   pattern='^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])$'
-                  minLength='8'
-                  maxLength='16'
+                  minLength='10'
+                  maxLength='101'
                   isValid={isValidPassword}
                   onChange={handlePasswordChange}
                 />

@@ -16,8 +16,8 @@ export const EMAIL = {
 
 // пароль
 export const PASSWORD_INVALID = 'Введён недопустимый символ';
-export const PASSWORD_TOO_SHORT = 'Длина пароля должна быть не менее 8 символов';
-export const PASSWORD_TOO_LONG = 'Длина пароля должна быть не более 15 символов';
+export const PASSWORD_TOO_SHORT = 'Длина пароля должна быть не менее 10 символов';
+export const PASSWORD_TOO_LONG = 'Длина пароля должна быть не более 100 символов';
 export const PASSWORD_NOT_FOUND = 'Введите пароль';
 export const PASSWORD_ONLY_NUMBERS = 'Пароль не должен содержать только цифры';
 

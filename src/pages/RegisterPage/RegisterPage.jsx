@@ -24,7 +24,7 @@ const RegisterPage = ({ onRegister }) => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  const [promptText, setPromptText] = useState('Не менее 8 символов');
+  const [promptText, setPromptText] = useState('Не менее 10 символов');
 
   const [isValidName, setIsValidName] = useState(false);
   const [isValidEmail, setIsValidEmail] = useState(false);
@@ -82,9 +82,9 @@ const RegisterPage = ({ onRegister }) => {
     } else if (!validPassword) {
       setPasswordError(PASSWORD_INVALID);
       setIsValidPassword(false);
-    } else if (input.value.length < 8) {
+    } else if (input.value.length < 10) {
       setPasswordError(PASSWORD_TOO_SHORT);
-    } else if (input.value.length > 15) {
+    } else if (input.value.length > 100) {
       setPasswordError(PASSWORD_TOO_LONG);
       setIsValidPassword(false);
     } else if (passwordOnlyNumbers) {
@@ -162,8 +162,8 @@ const RegisterPage = ({ onRegister }) => {
                     errorMessage={passwordError}
                     value={userPassword || ''}
                     pattern='^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])$'
-                    minLength='8'
-                    maxLength='16'
+                    minLength='10'
+                    maxLength='101'
                     isValid={isValidPassword}
                     /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handlePasswordChange}
