@@ -77,6 +77,7 @@ const RegisterPage = ({ onRegister }) => {
       setEmailError(EMAIL_NOT_FOUND);
     } else if (input.value === userPassword) {
       setPasswordError(PASSWORD_SAME_EMAIL);
+      setIsValidPassword(false);
     } else if (!validEmail) {
       setEmailError(EMAIL_INVALID);
     } else {
@@ -94,6 +95,7 @@ const RegisterPage = ({ onRegister }) => {
       setPasswordError(PASSWORD_NOT_FOUND);
     } else if (input.value === userEmail) {
       setPasswordError(PASSWORD_SAME_EMAIL);
+      setIsValidPassword(false);
     } else if (!validPassword) {
       setPasswordError(PASSWORD_INVALID);
       setIsValidPassword(false);
