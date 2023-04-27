@@ -21,7 +21,6 @@ import {
   PASSWORD_ONLY_NUMBERS,
   PASSWORD_TOO_LONG,
   PASSWORD_TOO_SHORT,
-  // eslint-disable-next-line import/named
   PASSWORD_SAME_EMAIL,
 } from '../../utils/errorMessage';
 import MainContainer from '../../components/MainContainer/MainContainer';
