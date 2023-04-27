@@ -39,12 +39,11 @@ const RegisterPage = ({ onRegister }) => {
     const validName = NAME_REGEX.test(input.value);
     setIsValidName(validName);
     setUserName(input.value);
-    if (!validName) {
-      setNameError(NAME_INVALID);
-    }
     if (input.value.length === 0) {
       setNameError(NAME_NOT_FOUND);
       setIsValidName(false);
+    } else if (!validName) {
+      setNameError(NAME_INVALID);
     } else if (input.value.length < 2) {
       setNameError(NAME_TOO_SHORT);
       setIsValidName(false);
@@ -61,13 +60,12 @@ const RegisterPage = ({ onRegister }) => {
     const validEmail = EMAIL_REGEX.test(input.value);
     setIsValidEmail(validEmail);
     setUserEmail(input.value);
-    if (!validEmail) {
+    if (input.value.length === 0) {
+      setEmailError(EMAIL_NOT_FOUND);
+    } else if (!validEmail) {
       setEmailError(EMAIL_INVALID);
     } else {
       setEmailError('');
-    }
-    if (input.value.length === 0) {
-      setEmailError(EMAIL_NOT_FOUND);
     }
   }
 
@@ -77,7 +75,9 @@ const RegisterPage = ({ onRegister }) => {
     const passwordOnlyNumbers = /^[0-9]+$/.test(input.value);
     setIsValidPassword(input.validity.valid);
     setUserPassword(input.value);
-    if (!validPassword) {
+    if (input.value.length === 0) {
+      setPasswordError(PASSWORD_NOT_FOUND);
+    } else if (!validPassword) {
       setPasswordError(PASSWORD_INVALID);
       setIsValidPassword(false);
     } else if (input.value.length < 8) {
@@ -85,14 +85,11 @@ const RegisterPage = ({ onRegister }) => {
     } else if (input.value.length > 15) {
       setPasswordError(PASSWORD_TOO_LONG);
       setIsValidPassword(false);
-    } else if (input.value.length >= 8 && passwordOnlyNumbers) {
+    } else if (passwordOnlyNumbers) {
       setPasswordError(PASSWORD_ONLY_NUMBERS);
     } else {
       setPasswordError('');
       setPromptText('');
-    }
-    if (input.value.length === 0) {
-      setPasswordError(PASSWORD_NOT_FOUND);
     }
   }
 

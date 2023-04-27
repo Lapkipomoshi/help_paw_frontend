@@ -7,7 +7,7 @@ import PasswordInput from '../../ui/PasswordInput/PasswordInput';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import { PASSWORD_REGEX } from '../../utils/regex';
 import {
-  PASSWORD_INVALID, PASSWORD_NOT_FOUND, PASSWORD_TOO_LONG, PASSWORD_TOO_SHORT,
+  PASSWORD_INVALID, PASSWORD_NOT_FOUND, PASSWORD_ONLY_NUMBERS, PASSWORD_TOO_LONG, PASSWORD_TOO_SHORT,
 } from '../../utils/errorMessage';
 import * as auth from '../../utils/auth';
 import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
@@ -31,20 +31,23 @@ const NewPassword = () => {
   const handlePasswordChange = (e) => {
     const input = e.target;
     const validPassword = PASSWORD_REGEX.test(input.value);
+    const passwordOnlyNumbers = /^[0-9]+$/.test(input.value);
     setIsValidPassword(input.validity.valid);
     setUserPassword(input.value);
+    if (input.value.length === 0) {
+      setPasswordError(PASSWORD_NOT_FOUND);
+    } else
     if (!validPassword) {
       setPasswordError(PASSWORD_INVALID);
     } else if (input.value.length < 8) {
       setPasswordError(PASSWORD_TOO_SHORT);
     } else if (input.value.length > 15) {
       setPasswordError(PASSWORD_TOO_LONG);
+    } else if (passwordOnlyNumbers) {
+      setPasswordError(PASSWORD_ONLY_NUMBERS);
     } else {
       setPasswordError('');
       setPromptText('');
-    }
-    if (input.value.length === 0) {
-      setPasswordError(PASSWORD_NOT_FOUND);
     }
   };
 
