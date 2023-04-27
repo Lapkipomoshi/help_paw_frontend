@@ -10,8 +10,19 @@ import {
   EMAIL_REGEX, NAME_REGEX, NUMBER, PASSWORD_REGEX,
 } from '../../utils/regex';
 import {
-  EMAIL_INVALID, EMAIL_NOT_FOUND, NAME_INVALID, NAME_NOT_FOUND, NAME_TOO_LONG,
-  NAME_TOO_SHORT, PASSWORD_INVALID, PASSWORD_NOT_FOUND, PASSWORD_ONLY_NUMBERS, PASSWORD_TOO_LONG, PASSWORD_TOO_SHORT,
+  EMAIL_INVALID,
+  EMAIL_NOT_FOUND,
+  NAME_INVALID,
+  NAME_NOT_FOUND,
+  NAME_TOO_LONG,
+  NAME_TOO_SHORT,
+  PASSWORD_INVALID,
+  PASSWORD_NOT_FOUND,
+  PASSWORD_ONLY_NUMBERS,
+  PASSWORD_TOO_LONG,
+  PASSWORD_TOO_SHORT,
+  // eslint-disable-next-line import/named
+  PASSWORD_SAME_EMAIL,
 } from '../../utils/errorMessage';
 import MainContainer from '../../components/MainContainer/MainContainer';
 
@@ -64,6 +75,8 @@ const RegisterPage = ({ onRegister }) => {
     setUserEmail(input.value);
     if (input.value.length === 0) {
       setEmailError(EMAIL_NOT_FOUND);
+    } else if (input.value === userPassword) {
+      setPasswordError(PASSWORD_SAME_EMAIL);
     } else if (!validEmail) {
       setEmailError(EMAIL_INVALID);
     } else {
@@ -79,6 +92,8 @@ const RegisterPage = ({ onRegister }) => {
     setUserPassword(input.value);
     if (input.value.length === 0) {
       setPasswordError(PASSWORD_NOT_FOUND);
+    } else if (input.value === userEmail) {
+      setPasswordError(PASSWORD_SAME_EMAIL);
     } else if (!validPassword) {
       setPasswordError(PASSWORD_INVALID);
       setIsValidPassword(false);

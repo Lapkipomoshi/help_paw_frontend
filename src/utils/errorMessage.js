@@ -20,6 +20,7 @@ export const PASSWORD_TOO_SHORT = 'Длина пароля должна быть
 export const PASSWORD_TOO_LONG = 'Длина пароля должна быть не более 100 символов';
 export const PASSWORD_NOT_FOUND = 'Введите пароль';
 export const PASSWORD_ONLY_NUMBERS = 'Пароль не должен содержать только цифры';
+export const PASSWORD_SAME_EMAIL = 'Пароль не должен совпадать с email';
 
 // телефон
 export const TEL = {
