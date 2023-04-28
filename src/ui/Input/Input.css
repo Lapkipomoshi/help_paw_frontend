@@ -24,6 +24,9 @@
   border: 1px solid var(--color-text-additional);
   border-radius: 5px;
   padding: 6px 12px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
 }
 
 .input:focus {
