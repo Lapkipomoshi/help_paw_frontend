@@ -6,10 +6,22 @@ import UserContainer from '../../components/UserContainer/UserContainer';
 import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import PasswordInput from '../../ui/PasswordInput/PasswordInput';
-import { EMAIL_REGEX, NAME_REGEX, PASSWORD_REGEX } from '../../utils/regex';
 import {
-  EMAIL_INVALID, EMAIL_NOT_FOUND, NAME_INVALID, NAME_NOT_FOUND, NAME_TOO_LONG,
-  NAME_TOO_SHORT, PASSWORD_INVALID, PASSWORD_NOT_FOUND, PASSWORD_ONLY_NUMBERS, PASSWORD_TOO_LONG, PASSWORD_TOO_SHORT,
+  EMAIL_REGEX, NAME_REGEX, NUMBER, PASSWORD_REGEX,
+} from '../../utils/regex';
+import {
+  EMAIL_INVALID,
+  EMAIL_NOT_FOUND,
+  NAME_INVALID,
+  NAME_NOT_FOUND,
+  NAME_TOO_LONG,
+  NAME_TOO_SHORT,
+  PASSWORD_INVALID,
+  PASSWORD_NOT_FOUND,
+  PASSWORD_ONLY_NUMBERS,
+  PASSWORD_TOO_LONG,
+  PASSWORD_TOO_SHORT,
+  PASSWORD_SAME_EMAIL,
 } from '../../utils/errorMessage';
 import MainContainer from '../../components/MainContainer/MainContainer';
 
@@ -22,7 +34,7 @@ const RegisterPage = ({ onRegister }) => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  const [promptText, setPromptText] = useState('Не менее 8 символов');
+  const [promptText, setPromptText] = useState('Не менее 10 символов');
 
   const [isValidName, setIsValidName] = useState(false);
   const [isValidEmail, setIsValidEmail] = useState(false);
@@ -39,12 +51,11 @@ const RegisterPage = ({ onRegister }) => {
     const validName = NAME_REGEX.test(input.value);
     setIsValidName(validName);
     setUserName(input.value);
-    if (!validName) {
-      setNameError(NAME_INVALID);
-    }
     if (input.value.length === 0) {
       setNameError(NAME_NOT_FOUND);
       setIsValidName(false);
+    } else if (!validName) {
+      setNameError(NAME_INVALID);
     } else if (input.value.length < 2) {
       setNameError(NAME_TOO_SHORT);
       setIsValidName(false);
@@ -61,38 +72,42 @@ const RegisterPage = ({ onRegister }) => {
     const validEmail = EMAIL_REGEX.test(input.value);
     setIsValidEmail(validEmail);
     setUserEmail(input.value);
-    if (!validEmail) {
+    if (input.value.length === 0) {
+      setEmailError(EMAIL_NOT_FOUND);
+    } else if (input.value === userPassword) {
+      setPasswordError(PASSWORD_SAME_EMAIL);
+      setIsValidPassword(false);
+    } else if (!validEmail) {
       setEmailError(EMAIL_INVALID);
     } else {
       setEmailError('');
-    }
-    if (input.value.length === 0) {
-      setEmailError(EMAIL_NOT_FOUND);
     }
   }
 
   function handlePasswordChange(e) {
     const input = e.target;
     const validPassword = PASSWORD_REGEX.test(input.value);
-    const passwordOnlyNumbers = /^[0-9]/.test(input.value);
+    const passwordOnlyNumbers = NUMBER.test(input.value);
     setIsValidPassword(input.validity.valid);
     setUserPassword(input.value);
-    if (!validPassword) {
+    if (input.value.length === 0) {
+      setPasswordError(PASSWORD_NOT_FOUND);
+    } else if (input.value === userEmail) {
+      setPasswordError(PASSWORD_SAME_EMAIL);
+      setIsValidPassword(false);
+    } else if (!validPassword) {
       setPasswordError(PASSWORD_INVALID);
       setIsValidPassword(false);
-    } else if (input.value.length < 8) {
+    } else if (input.value.length < 10) {
       setPasswordError(PASSWORD_TOO_SHORT);
-    } else if (input.value.length > 15) {
+    } else if (input.value.length > 100) {
       setPasswordError(PASSWORD_TOO_LONG);
       setIsValidPassword(false);
-    } else if (input.value.length >= 8 && passwordOnlyNumbers) {
+    } else if (passwordOnlyNumbers) {
       setPasswordError(PASSWORD_ONLY_NUMBERS);
     } else {
       setPasswordError('');
       setPromptText('');
-    }
-    if (input.value.length === 0) {
-      setPasswordError(PASSWORD_NOT_FOUND);
     }
   }
 
@@ -163,8 +178,8 @@ const RegisterPage = ({ onRegister }) => {
                     errorMessage={passwordError}
                     value={userPassword || ''}
                     pattern='^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])$'
-                    minLength='8'
-                    maxLength='16'
+                    minLength='10'
+                    maxLength='101'
                     isValid={isValidPassword}
                     /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handlePasswordChange}

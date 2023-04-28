@@ -29,7 +29,7 @@ function PasswordInput({
           maxLength={maxLength}
           onChange={onChange}
         />
-        <button className='password-visibility' type='button' onClick={showPassword} />
+        <button className={`password-visibility ${isOpen && 'password-visibility_opened'}`} type='button' onClick={showPassword} />
       </div>
       <span className={`input__span ${errorMessage && 'input__error'}`}>{errorMessage ? spanText : spanPrompt}</span>
     </>

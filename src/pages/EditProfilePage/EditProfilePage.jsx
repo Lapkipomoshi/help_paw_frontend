@@ -48,11 +48,11 @@ const EditProfilePage = ({ onEditProfile }) => {
       setIsValidName(validName);
       setUserName(input.value);
       setIsSameName(false);
-      if (!validName) {
-        setNameError(NAME_INVALID);
-      } else if (input.value.length === 0) {
+      if (input.value.length === 0) {
         setNameError(NAME_NOT_FOUND);
         setIsValidName(false);
+      } else if (!validName) {
+        setNameError(NAME_INVALID);
       } else if (input.value.length < 2) {
         setNameError(NAME_TOO_SHORT);
         setIsValidName(false);
@@ -74,15 +74,14 @@ const EditProfilePage = ({ onEditProfile }) => {
       setIsValidEmail(validEmail);
       setUserEmail(input.value);
       setIsSameEmail(false);
-      if (!validEmail) {
+      if (input.value.length === 0) {
+        setEmailError(EMAIL_NOT_FOUND);
+      } else if (!validEmail) {
         setEmailError(EMAIL_INVALID);
       } else if (input.value === email) {
         setIsSameEmail(true);
       } else {
         setEmailError('');
-      }
-      if (input.value.length === 0) {
-        setEmailError(EMAIL_NOT_FOUND);
       }
       if (isValidEmail && isSameName) {
         setDisabled(false);

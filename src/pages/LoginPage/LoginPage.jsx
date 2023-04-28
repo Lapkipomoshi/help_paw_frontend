@@ -30,13 +30,12 @@ const LoginPage = ({ onLogin }) => {
     const validEmail = EMAIL_REGEX.test(input.value);
     setIsValidEmail(validEmail);
     setUserEmail(input.value);
-    if (!validEmail) {
+    if (input.value.length === 0) {
+      setEmailError(EMAIL_NOT_FOUND);
+    } else if (!validEmail) {
       setEmailError(EMAIL_INVALID);
     } else {
       setEmailError('');
-    }
-    if (input.value.length === 0) {
-      setEmailError(EMAIL_NOT_FOUND);
     }
   }
 

@@ -10,6 +10,9 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 import { EMAIL_INVALID, EMAIL_NOT_FOUND } from '../../utils/errorMessage';
 import { EMAIL_REGEX } from '../../utils/regex';
 import * as auth from '../../utils/auth';
+import imageSuccess from '../../images/icons/ic_success.svg';
+import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
+import imageError from '../../images/icons/ic_error.svg';
 
 const PasswordRecovery = () => {
   const navigate = useNavigate();
@@ -17,6 +20,9 @@ const PasswordRecovery = () => {
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [emailError, setEmailError] = useState('');
   const [userEmail, setUserEmail] = useState('');
+  const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
+  const [infoTooltipImage, setInfoTooltipImage] = useState(imageSuccess);
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     if (isValidEmail) {
@@ -30,13 +36,12 @@ const PasswordRecovery = () => {
     const validEmail = EMAIL_REGEX.test(input.value);
     setIsValidEmail(validEmail);
     setUserEmail(input.value);
-    if (!validEmail) {
+    if (input.value.length === 0) {
+      setEmailError(EMAIL_NOT_FOUND);
+    } else if (!validEmail) {
       setEmailError(EMAIL_INVALID);
     } else {
       setEmailError('');
-    }
-    if (input.value.length === 0) {
-      setEmailError(EMAIL_NOT_FOUND);
     }
   };
 
@@ -44,10 +49,21 @@ const PasswordRecovery = () => {
     evt.preventDefault();
     auth.resetPassword({ email: userEmail })
       .then(() => {
-        navigate('/');
+        setInfoTooltipImage(imageSuccess);
+        setMessage('Ссылка для восстановления пароля отправлена на указанную почту!');
+        setInfoTooltipOpen(true);
+        setTimeout(() => {
+          setInfoTooltipOpen(false);
+        }, 2000);
+        setTimeout(() => { navigate('/'); }, 2000);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        setInfoTooltipImage(imageError);
+        setMessage('Что-то пошло не так! Попробуйте ещё раз.');
+        setInfoTooltipOpen(true);
+        setTimeout(() => {
+          setInfoTooltipOpen(false);
+        }, 2000);
       });
   };
 
@@ -85,6 +101,11 @@ const PasswordRecovery = () => {
           </UserContainer>
         </section>
       </main>
+      <InfoTooltip
+        isOpen={infoTooltipOpen}
+        image={infoTooltipImage}
+        message={message}
+      />
     </MainContainer>
   );
 };
