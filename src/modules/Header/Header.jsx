@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import './Header.css';
+import './Header.scss';
 import Paw from './svg/Paw';
 // eslint-disable-next-line import/no-named-as-default,import/no-named-as-default-member
 import ProfilePopup from '../../components/ProfilePopup/ProfilePopup';

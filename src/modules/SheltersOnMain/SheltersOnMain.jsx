@@ -61,7 +61,7 @@ const SheltersOnMain = ({ loggedIn, sheltersList }) => {
         >
           <h3 className='shelters-on-main__text-title'>Вы владелец приюта?</h3>
           <p className='shelters-on-main__text-subtitle'>Можете добавить ваш приют на наш сайт прямо сейчас!</p>
-          <Button className={` ${!loggedIn && 'button_disabled'}`} onClick={handleAddShelterButton}>Добавить приют</Button>
+          <Button className={` ${!loggedIn && 'button__accent_disabled'}`} onClick={handleAddShelterButton}>Добавить приют</Button>
           <div className={`shelters-on-main__popup ${isOpenPopup && 'shelters-on-main__popup_opened'}`}>
             <p className='shelters-on-main__popup-text'>Добавить приют на сайт можно только после регистрации</p>
             <Button className='margin_column-center' to='/sign-up' link>Зарегистрироваться</Button>
