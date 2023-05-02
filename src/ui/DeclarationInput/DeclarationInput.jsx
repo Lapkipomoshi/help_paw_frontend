@@ -1,5 +1,5 @@
 import React from 'react';
-import './DeclarationInput.css';
+import './DeclarationInput.scss';
 
 const DeclarationInput = ({
   caption, inputState, type, name, placeholder, required,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // подключает хук для программной навигации
-import './Button.css';
+import './Button.scss';
 
 const Button = ({
   children, className = '', theme = 'accent', onClick = () => {}, to = '', submit, link, disabled,

@@ -5,6 +5,10 @@
   padding: 0;
   flex-direction: column;
   list-style-type: none;
+
+  &::placeholder {
+    color: var(--color-text-additional);
+  }
 }
 
 .declaration-input__caption {
@@ -27,14 +31,10 @@
   border: 1px solid var(--color-text-additional);
   border-radius: 8px;
   box-sizing: border-box;
-}
 
-.declaration-input::placeholder {
-  color: var(--color-text-additional);
-}
-
-.declaration-input__input_invalid {
-  border-color: var(--color-verify-invalid);
+  &_invalid {
+    border-color: var(--color-verify-invalid);
+  }
 }
 
 .declaration-input__error {

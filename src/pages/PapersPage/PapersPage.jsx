@@ -39,7 +39,7 @@ const PapersPage = () => {
             );
           })}
         </ul>
-        <button className='button margin_column-center' type='button'>Больше статей</button>
+        <Button className='margin_column-center'>Больше статей</Button>
       </main>
     </MainContainer>
   );
