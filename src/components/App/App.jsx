@@ -240,7 +240,6 @@ const App = () => {
             }
           />
 
-          <Route path='/help_paw_frontend' element={<Navigate to='/' replace />} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
         <Footer />
