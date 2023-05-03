@@ -7,7 +7,7 @@ import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import PasswordInput from '../../ui/PasswordInput/PasswordInput';
 import {
-  EMAIL_REGEX, NAME_REGEX, NUMBER, PASSWORD_REGEX,
+  EMAIL_REGEX, NAME_REGEX, PASSWORD_NUMBERS, PASSWORD_REGEX,
 } from '../../utils/regex';
 import {
   EMAIL_INVALID,
@@ -87,7 +87,7 @@ const RegisterPage = ({ onRegister }) => {
   function handlePasswordChange(e) {
     const input = e.target;
     const validPassword = PASSWORD_REGEX.test(input.value);
-    const passwordOnlyNumbers = NUMBER.test(input.value);
+    const passwordOnlyNumbers = PASSWORD_NUMBERS.test(input.value);
     setIsValidPassword(input.validity.valid);
     setUserPassword(input.value);
     if (input.value.length === 0) {
