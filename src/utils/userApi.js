@@ -20,7 +20,7 @@ export const getUserInfo = (token) => {
 };
 
 export const updateUserInfo = ({ username, email }) => {
-  return fetch(`${baseUrl}/auth/users/me`, {
+  return fetch(`${baseUrl}/auth/users/me/`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
