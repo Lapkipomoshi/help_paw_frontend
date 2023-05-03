@@ -100,9 +100,6 @@ const App = () => {
         setTimeout(closeInfoTooltip, 2000);
         setTimeout(() => { navigate('/'); }, 2000);
       })
-      .then((res) => {
-        return res.json();
-      })
       .catch((res) => {
         setInfoTooltipImage(imageError);
         if (res.status === 400) {
