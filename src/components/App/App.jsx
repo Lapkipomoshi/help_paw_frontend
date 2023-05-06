@@ -58,11 +58,12 @@ const App = () => {
   });
 
   const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
-  const [infoTooltipImage, setInfoTooltipImage] = useState(imageSuccess);
+  const [infoTooltipImage, setInfoTooltipImage] = useState(null);
   const [message, setMessage] = useState('');
 
   function closeInfoTooltip() {
     setInfoTooltipOpen(false);
+    setInfoTooltipImage(null);
   }
 
   const handleSignOut = () => {
