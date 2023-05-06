@@ -8,13 +8,13 @@ import Arrow from './svg/Arrow';
 const CheckboxesSelect = ({ caption, setInputValue }) => {
   const [items, setItems] = useState([]);
   const [openedSelect, setOpenedSelect] = useState(false);
-  const catType = { caption: 'Кошки', name: 'cats' };
+  const catType = { caption: 'Кошки', name: 'cat' };
   const [isCat, setCat] = useState(false);
-  const dogType = { caption: 'Собаки', name: 'dogs' };
+  const dogType = { caption: 'Собаки', name: 'dog' };
   const [isDog, setDog] = useState(false);
-  const parrotType = { caption: 'Попугаи', name: 'parrots' };
+  const parrotType = { caption: 'Попугаи', name: 'parrot' };
   const [isParrot, setParrot] = useState(false);
-  const hamsterType = { caption: 'Хомяки', name: 'hamsters' };
+  const hamsterType = { caption: 'Хомяки', name: 'hamster' };
   const [isHamster, setHamster] = useState(false);
 
   const handleCheckbox = (e) => {
