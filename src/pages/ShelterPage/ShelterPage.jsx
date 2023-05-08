@@ -12,7 +12,7 @@ const ShelterPage = () => {
 
   useEffect(() => {
     shelterApi
-      .getShelter(id) // загрузка карточек с приютами на главной странице
+      .getShelterById(id) // загрузка карточек с приютами на главной странице
       .then((res) => {
         setShelter(res);
       })

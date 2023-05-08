@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './PapersPage.css';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import Button from '../../ui/Button/Button';
 import PaperCard from '../../components/PaperCard/PaperCard';
+import Button from '../../ui/Button/Button';
 import papersApi from './api';
 
 const PapersPage = () => {
@@ -10,9 +10,9 @@ const PapersPage = () => {
 
   useEffect(() => {
     papersApi
-      .getPapers() // загрузка карточек с приютами на главной странице
+      .getPapers(9) // загрузка статей
       .then((papers) => {
-        setPapersList(papers);
+        setPapersList(papers.results);
       })
       .catch((err) => {
         throw new Error(err);
@@ -27,17 +27,19 @@ const PapersPage = () => {
           <Button className='margin-left_auto' to='/shelters' link>Хочу помогать</Button>
         </div>
         <ul className='papers__grid'>
-          {papersList.map((card) => {
-            return (
-              <li className='papers__grid-element' key={card.id}>
-                <PaperCard
-                  id={card.id}
-                  photo={card.profile_image}
-                  title={card.header}
-                />
-              </li>
-            );
-          })}
+          {(papersList && papersList.length !== 0)
+            ? papersList.map((card) => {
+              return (
+                <li className='papers__grid-element' key={card.id}>
+                  <PaperCard
+                    id={card.id}
+                    photo={card.profile_image}
+                    title={card.header}
+                  />
+                </li>
+              );
+            })
+            : <p>Не удалось загрузить статьи</p>}
         </ul>
         <Button className='margin_column-center'>Больше статей</Button>
       </main>

@@ -1,24 +1,18 @@
+import BaseApi from '../../utils/BaseApi';
 import { baseUrl, apiHeaders } from '../../utils/constants';
 
-class PaperApi {
-  constructor(options) {
-    this._baseUrl = options._baseUrl;
-    this._headers = options._headers;
+class PaperApi extends BaseApi {
+  constructor({ _baseUrl, _headers }) {
+    super({ _baseUrl });
+    this._headers = _headers;
   }
 
-  _processTheResponse(res) {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-  }
-
-  getPaper(id) { // загрузка часто задаваемых вопросов
+  getPaperById(id) { // загрузка статьи с указанным id
     return fetch(`${this._baseUrl}/v1/help-articles/${id}`, {
       headers: this._headers,
     })
       .then((res) => {
-        return this._processTheResponse(res);
+        return super._processTheResponse(res);
       });
   }
 }

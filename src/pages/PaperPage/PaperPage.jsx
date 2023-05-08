@@ -10,7 +10,7 @@ const PaperPage = () => {
 
   useEffect(() => {
     paperApi
-      .getPaper(id) // загрузка карточек с приютами на главной странице
+      .getPaperById(id) // загрузка статьи с указанным id
       .then((res) => {
         setPaper(res);
       })

@@ -37,22 +37,24 @@ const SheltersOnMain = ({ loggedIn, sheltersList }) => {
       >
         <h2 className='section-title'>Приюты, которым очень нужна помощь</h2>
         <ul className='shelters-on-main__shelters-container'>
-          {sheltersList.map((shelter) => {
-            return (
-              <li key={shelter.id}>
-                <ShelterCard
-                  id={shelter.id}
-                  name={shelter.name}
-                  address={shelter.address}
-                  workingFromHour={shelter.working_from_hour}
-                  workingToHour={shelter.working_to_hour}
-                  workingHours={shelter.working_hours}
-                  logo={shelter.logo}
-                  profileImage={shelter.profile_image}
-                />
-              </li>
-            );
-          })}
+          {(sheltersList && sheltersList.length !== 0)
+            ? sheltersList.map((shelter) => {
+              return (
+                <li key={shelter.id}>
+                  <ShelterCard
+                    id={shelter.id}
+                    name={shelter.name}
+                    address={shelter.address}
+                    workingFromHour={shelter.working_from_hour}
+                    workingToHour={shelter.working_to_hour}
+                    workingHours={shelter.working_hours}
+                    logo={shelter.logo}
+                    profileImage={shelter.profile_image}
+                  />
+                </li>
+              );
+            })
+            : <p>Не удалось загрузить приюты</p>}
         </ul>
         <Button className='shelters-on-main__map-button' to='/shelters' link>Приюты на карте</Button>
         <div

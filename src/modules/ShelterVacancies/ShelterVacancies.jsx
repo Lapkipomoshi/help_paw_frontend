@@ -1,5 +1,5 @@
 import React from 'react';
-import './ShelterVacancies.css';
+import './ShelterVacancies.scss';
 import VacancyCard from '../../components/VacancyCard/VacancyCard';
 
 const ShelterVacancies = () => {
@@ -35,17 +35,19 @@ const ShelterVacancies = () => {
     <section className='shelter-section shelter-vacancies'>
       <h2 className='shelter-section__title'>Наши вакансии</h2>
       <ul className='vacancies-list'>
-        {vacanciesList.map((card) => {
-          return (
-            <VacancyCard
-              id={card.id}
-              title={card.title}
-              salary={card.salary}
-              workSchedule={card.workSchedule}
-              charge={card.charge}
-            />
-          );
-        })}
+        {(vacanciesList && vacanciesList.length !== 0)
+          ? vacanciesList.map((card) => {
+            return (
+              <VacancyCard
+                id={card.id}
+                title={card.title}
+                salary={card.salary}
+                workSchedule={card.workSchedule}
+                charge={card.charge}
+              />
+            );
+          })
+          : <p>У приюта нет активных вакансий</p>}
       </ul>
     </section>
   );
