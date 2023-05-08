@@ -1,9 +1,23 @@
-import React from 'react';
-import './NewsSection.css';
-import NewBigCard from '../NewBigCard/NewBigCard';
-import NewCard from '../NewCard/NewCard';
+import React, { useState, useEffect } from 'react';
+import './NewsSection.scss';
+import NewBigCard from '../../components/NewBigCard/NewBigCard';
+import NewCard from '../../components/NewCard/NewCard';
+import newsApi from './api';
 
-const NewsSection = ({ newsList }) => {
+const NewsSection = ({ shelterId }) => {
+  const [newsList, setNewsList] = useState([]); // список новостей
+
+  useEffect(() => {
+    newsApi
+      .getNews({ shelterId, amount: 4 }) // загрузка статей
+      .then((res) => {
+        setNewsList(res.results);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+  }, []);
+
   return (
     <div className='news-section'>
       {(newsList && newsList.length !== 0)
@@ -19,7 +33,7 @@ const NewsSection = ({ newsList }) => {
         )
         : <p>Новостей нет</p>}
       <ul className='news-section__column'>
-        {newsList && newsList.map((card, index) => {
+        {newsList && newsList.length > 1 && newsList.map((card, index) => {
           return (
             (index !== 0 && index < 4) && (
               <li className='news-section__item' key={card.id}>

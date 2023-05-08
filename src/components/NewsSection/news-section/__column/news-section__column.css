@@ -1,9 +1,0 @@
-.news-section__column {
-  display: flex;
-  width: 476px;
-  margin: 0;
-  padding: 0;
-  flex-direction: column;
-  row-gap: 16px;
-  list-style-type: none;
-}
