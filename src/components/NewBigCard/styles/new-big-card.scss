@@ -7,9 +7,9 @@
   box-sizing: border-box;
   text-decoration: none;
   overflow: hidden;
-  transition-duration: 1s;
-}
+  transition-duration: .7s;
 
-.new-big-card:hover {
-  opacity: .77;
+  &:hover {
+    opacity: .77;
+  }
 }

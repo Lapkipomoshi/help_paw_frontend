@@ -6,28 +6,29 @@ import NewCard from '../NewCard/NewCard';
 const NewsSection = ({ newsList }) => {
   return (
     <div className='news-section'>
-      {newsList[0]
-      && (
-        <NewBigCard
-          id={newsList[0].id}
-          title={newsList[0].title}
-          data={newsList[0].data}
-          shelter={newsList[0].shelter}
-          description={newsList[0].description}
-          mainPhoto={newsList[0].mainPhoto}
-        />
-      )}
+      {(newsList && newsList.length !== 0)
+        ? (
+          <NewBigCard
+            id={newsList[0].id}
+            header={newsList[0].header}
+            data={newsList[0].pub_date}
+            shelter={newsList[0].shelter}
+            description={newsList[0].description}
+            mainPhoto={newsList[0].profile_image}
+          />
+        )
+        : <p>Новостей нет</p>}
       <ul className='news-section__column'>
-        {newsList.map((card, index) => {
+        {newsList && newsList.map((card, index) => {
           return (
             (index !== 0 && index < 4) && (
               <li className='news-section__item' key={card.id}>
                 <NewCard
                   id={card.id}
-                  title={card.title}
-                  data={card.data}
+                  header={card.header}
+                  data={card.pub_date}
                   shelter={card.shelter}
-                  image={card.mainPhoto}
+                  image={card.profile_image}
                 />
               </li>
             )

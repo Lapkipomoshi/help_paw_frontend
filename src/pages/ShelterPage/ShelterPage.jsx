@@ -22,7 +22,7 @@ const ShelterPage = () => {
   }, [id]);
 
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main'>
         <section className='shelter-menu-section'>
           <NestedRoutesMenu linkList={shelterLinkList} gap={72} />

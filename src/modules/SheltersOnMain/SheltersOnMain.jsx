@@ -26,7 +26,7 @@ const SheltersOnMain = ({ loggedIn, sheltersList }) => {
   }, [inView]);
 
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
       <section
         className='shelters-on-main'

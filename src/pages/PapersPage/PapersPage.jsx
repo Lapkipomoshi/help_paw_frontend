@@ -11,8 +11,8 @@ const PapersPage = () => {
   useEffect(() => {
     papersApi
       .getPapers(9) // загрузка статей
-      .then((papers) => {
-        setPapersList(papers.results);
+      .then((res) => {
+        setPapersList(res.results);
       })
       .catch((err) => {
         throw new Error(err);
@@ -20,7 +20,7 @@ const PapersPage = () => {
   }, []);
 
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main papers'>
         <div className='papers__head-block'>
           <h1 className='papers__title'>Полезные статьи</h1>

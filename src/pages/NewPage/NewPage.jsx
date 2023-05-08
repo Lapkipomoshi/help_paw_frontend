@@ -8,7 +8,7 @@ import newPagePhoto from '../../images/new-page_photo.jpg';
 
 const NewPage = () => {
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main new-page'>
         <h2 className='new-page__title'>В приюте Бирюлево побывали школьники</h2>
         <div className='new-page__row'>

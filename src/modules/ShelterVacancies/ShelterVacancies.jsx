@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './ShelterVacancies.scss';
 import VacancyCard from '../../components/VacancyCard/VacancyCard';
 
 const ShelterVacancies = () => {
-  const [vacanciesList, setVacanciesList] = React.useState([]); // список вакансий
+  const [vacanciesList, setVacanciesList] = useState([]); // список вакансий
 
-  React.useEffect(() => {
+  useEffect(() => {
     setVacanciesList([ // будет запрашиваться с бэкенда
       {
         id: 1,

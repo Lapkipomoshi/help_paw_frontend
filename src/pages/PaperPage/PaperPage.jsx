@@ -20,7 +20,7 @@ const PaperPage = () => {
   }, [id]);
 
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main paper'>
         <h1 className='paper__title'>{paper.header}</h1>
         <img className='paper__image' src={paper.profile_image} alt='фото' />
