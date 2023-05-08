@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import './PaperPage.css';
+import './PaperPage.scss';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import paperApi from './api';
 

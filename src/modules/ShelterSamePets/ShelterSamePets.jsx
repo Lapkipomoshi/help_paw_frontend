@@ -20,7 +20,7 @@ const ShelterSamePets = () => {
       <Link className='shelter-same-pets__link' to='../pets'>Назад</Link>
       <h2 className='shelter-section__title'>Наши животные</h2>
       <ul className='shelter-same-pets__list'>
-        {(pets && pets.length !== 0)
+        {pets && pets.length !== 0
           ? pets.map((card) => {
             return (
               <li className='shelter-same-pets__pets-item' key={card.id}>

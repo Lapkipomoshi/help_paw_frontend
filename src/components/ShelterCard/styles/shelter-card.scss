@@ -13,13 +13,12 @@
   text-decoration: none;
   transition-duration: 1.5s;
   box-sizing: border-box;
-}
 
-.shelter-card:hover {
-  transform: scale(1.12);
-  border-color: var(--color-accent-hover);
-}
-
-.shelter-card:focus {
-  border-color: var(--color-accent-pressed);
+  &:hover {
+    transform: scale(1.12);
+    border-color: var(--color-accent-hover);
+  }
+  &:focus {
+    border-color: var(--color-accent-pressed);
+  }
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './PapersPage.css';
+import './PapersPage.scss';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import PaperCard from '../../components/PaperCard/PaperCard';
 import Button from '../../ui/Button/Button';
@@ -27,7 +27,7 @@ const PapersPage = () => {
           <Button className='margin-left_auto' to='/shelters' link>Хочу помогать</Button>
         </div>
         <ul className='papers__grid'>
-          {(papersList && papersList.length !== 0)
+          {papersList && papersList.length !== 0
             ? papersList.map((card) => {
               return (
                 <li className='papers__grid-element' key={card.id}>

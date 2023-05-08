@@ -35,7 +35,7 @@ const ShelterVacancies = () => {
     <section className='shelter-section shelter-vacancies'>
       <h2 className='shelter-section__title'>Наши вакансии</h2>
       <ul className='vacancies-list'>
-        {(vacanciesList && vacanciesList.length !== 0)
+        {vacanciesList && vacanciesList.length !== 0
           ? vacanciesList.map((card) => {
             return (
               <VacancyCard

@@ -9,7 +9,7 @@ const Button = ({
 
   return (
     <button
-      className={`button button__${theme} ${className}`}
+      className={`button button_theme_${theme} ${className}`}
       type={submit ? 'submit' : 'button'}
       onClick={link ? () => { return navigate(to); } : onClick}
       disabled={disabled}

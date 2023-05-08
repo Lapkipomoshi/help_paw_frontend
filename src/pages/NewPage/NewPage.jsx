@@ -1,42 +1,49 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './NewPage.css';
+import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import './NewPage.scss';
 import MainContainer from '../../components/MainContainer/MainContainer';
+import newApi from './api';
 import dataIcon from '../../images/icons/ic_data_dark.svg';
 import selfIcon from '../../images/icons/ic_self_dark.svg';
-import newPagePhoto from '../../images/new-page_photo.jpg';
 
 const NewPage = () => {
+  const { id } = useParams(); // id новости, получаемый из url-адреса текущей страницы
+  const [newInfo, setNewInfo] = useState({}); // данные о новости
+
+  useEffect(() => {
+    newApi
+      .getNewById(id) // загрузка статьи с указанным id
+      .then((res) => {
+        setNewInfo(res);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+  }, [id]);
+
   return (
     <MainContainer>
       <main className='main new-page'>
-        <h2 className='new-page__title'>В приюте Бирюлево побывали школьники</h2>
+        <h2 className='new-page__title'>{newInfo && newInfo.header ? newInfo.header : 'Новость не найдена'}</h2>
         <div className='new-page__row'>
           <div className='new-page__info-block'>
             <img className='new-page__icon' src={dataIcon} alt='дата' />
-            <p className='new-page__info'>12.12.2022</p>
+            <p className='new-page__info'>{newInfo.pub_date}</p>
           </div>
-          <Link className='new-page__info-block new-page__info-block_link' to='/shelters/1/news'>
+          <Link className='new-page__info-block new-page__info-block_link' to={`/shelters/${newInfo.shelter}/news`}>
             <img className='new-page__icon' src={selfIcon} alt='приют' />
-            <p className='new-page__info'>Приют Бирюлево</p>
+            <p className='new-page__info'>{newInfo.shelter}</p>
           </Link>
         </div>
         <div className='new-page__photos'>
-          <img className='new-page__main-photo' src={newPagePhoto} alt='главное фото' />
+          <img className='new-page__main-photo' src={newInfo.profile_image} alt='главное фото' />
           <div className='new-page__photo-column'>
-            <img className='new-page__additional-photo' src={newPagePhoto} alt='фото' />
-            <img className='new-page__additional-photo' src={newPagePhoto} alt='фото' />
-            <img className='new-page__additional-photo' src={newPagePhoto} alt='фото' />
+            <img className='new-page__additional-photo' src={newInfo.image_1} alt='фото 1' />
+            <img className='new-page__additional-photo' src={newInfo.image_2} alt='фото 2' />
+            <img className='new-page__additional-photo' src={newInfo.image_3} alt='фото 3' />
           </div>
         </div>
-        <p className='new-page__text'>
-          Выражаем большую благодарность ученикам 4 &quot;Е&quot; класса московской школы №2010 за подарки для наших
-          подопечных! А также благодарим преподавательницу Людмилу и её супруга Александра за организацию транспортировки
-          помощи в приют.
-        </p>
-        <p className='new-page__text'>
-          Ребята подарили нашим подопечным лакомства и корм. Собачки и кошечки остались довольны!
-        </p>
+        <p className='new-page__text'>{newInfo.text}</p>
       </main>
     </MainContainer>
   );

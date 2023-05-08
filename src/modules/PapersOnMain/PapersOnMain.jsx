@@ -10,7 +10,7 @@ const PapersOnMain = ({ papersList }) => {
       <section className='papers-on-main'>
         <h2 className='section-title'>Полезные статьи</h2>
         <ul className='papers-on-main__flex-container'>
-          {(papersList && papersList.length !== 0)
+          {papersList && papersList.length !== 0
             ? papersList.map((card) => {
               return (
                 <li className='papers-on-main__flex-element' key={card.id}>

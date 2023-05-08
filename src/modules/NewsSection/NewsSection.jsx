@@ -20,7 +20,7 @@ const NewsSection = ({ shelterId }) => {
 
   return (
     <div className='news-section'>
-      {(newsList && newsList.length !== 0)
+      {newsList && newsList.length !== 0
         ? (
           <NewBigCard
             id={newsList[0].id}
