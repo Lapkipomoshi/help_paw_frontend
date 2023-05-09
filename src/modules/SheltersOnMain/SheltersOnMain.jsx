@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; // подключает хук для программной навигации
 import { useInView } from 'react-intersection-observer'; // подключает хук, нужный для настройки анимации при прокрутки
 import './SheltersOnMain.css';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import ShelterCard from '../../components/ShelterCard/ShelterCard';
 import Button from '../../ui/Button/Button';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
-const SheltersOnMain = ({ loggedIn, sheltersList }) => {
+const SheltersOnMain = ({ sheltersList }) => {
+  const navigate = useNavigate(); // функция для программной навигации
+  const { username } = useContext(CurrentUserContext);
   const [isActiveAnimation, setIsActiveAnimation] = useState(false); // отобразить анимацию?
   const [isOpenPopup, setIsOpenPopup] = useState(false); // отобразить вспылвающее окно с предложением зарегистрироваться?
-
-  const navigate = useNavigate(); // функция для программной навигации
 
   const { ref, inView } = useInView({
     threshold: 1, //  отображать анимацию, когда объект на экране на 100%
@@ -18,7 +19,7 @@ const SheltersOnMain = ({ loggedIn, sheltersList }) => {
 
   const handleAddShelterButton = () => {
     // eslint-disable-next-line no-unused-expressions
-    loggedIn ? navigate('/add-shelter') : setIsOpenPopup(true);
+    username ? navigate('/add-shelter') : setIsOpenPopup(true);
   };
 
   useEffect(() => {
@@ -63,7 +64,7 @@ const SheltersOnMain = ({ loggedIn, sheltersList }) => {
         >
           <h3 className='shelters-on-main__text-title'>Вы владелец приюта?</h3>
           <p className='shelters-on-main__text-subtitle'>Можете добавить ваш приют на наш сайт прямо сейчас!</p>
-          <Button className={` ${!loggedIn && 'button_disabled'}`} onClick={handleAddShelterButton}>Добавить приют</Button>
+          <Button className={` ${!username && 'button_disabled'}`} onClick={handleAddShelterButton}>Добавить приют</Button>
           <div className={`shelters-on-main__popup ${isOpenPopup && 'shelters-on-main__popup_opened'}`}>
             <p className='shelters-on-main__popup-text'>Добавить приют на сайт можно только после регистрации</p>
             <Button className='margin_column-center' to='/sign-up' link>Зарегистрироваться</Button>

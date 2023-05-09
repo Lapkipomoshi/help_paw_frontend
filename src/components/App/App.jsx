@@ -149,11 +149,9 @@ const App = () => {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='page'>
-        <Header
-          loggedIn={loggedIn}
-        />
+        <Header />
         <Routes>
-          <Route path='/' element={<MainPage loggedIn={loggedIn} />} />
+          <Route path='/' element={<MainPage />} />
           <Route path='/shelters' element={<MapPage />} />
           <Route path='/shelters/list' element={<SheltersListPage />}>
             <Route path='red' element={<sheltersListModules.RedShelters />} />
