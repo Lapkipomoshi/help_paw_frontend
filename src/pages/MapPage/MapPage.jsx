@@ -9,7 +9,7 @@ import SearchInput from '../../components/SearchInput/SearchInput';
 
 const MapPage = () => {
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main>
         <section className='search-section'>
           <SearchInput />

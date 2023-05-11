@@ -1,14 +1,14 @@
 import BaseApi from '../../utils/BaseApi';
 import { baseUrl, apiHeaders } from '../../utils/constants';
 
-class PapersApi extends BaseApi {
+class NewsApi extends BaseApi {
   constructor({ _baseUrl, _headers }) {
     super({ _baseUrl });
     this._headers = _headers;
   }
 
-  getPapers(amount) { // загрузка указанного количества статей
-    return fetch(`${this._baseUrl}/v1/help-articles/?limit=${amount}`, {
+  getNews({ shelterId, amount }) { // загрузка новостей с параметрами у запроса
+    return fetch(`${this._baseUrl}/v1/news/?${shelterId ? `shelter=${shelterId}&` : ''}limit=${amount}`, {
       headers: this._headers,
     })
       .then((res) => {
@@ -17,9 +17,9 @@ class PapersApi extends BaseApi {
   }
 }
 
-const papersApi = new PapersApi({
+const newsApi = new NewsApi({
   _baseUrl: baseUrl,
   _headers: apiHeaders,
 });
 
-export default papersApi;
+export default newsApi;

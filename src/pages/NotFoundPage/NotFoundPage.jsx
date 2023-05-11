@@ -6,7 +6,7 @@ import errorImage from '../../images/error-404.svg';
 
 const NotFoundPage = () => {
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main not-found'>
         <img className='not-found__404' src={errorImage} alt='ошибка 404' />
         <p className='not-found__text'>Кажется, что то пошло не так :(</p>

@@ -1,16 +1,10 @@
+import BaseApi from '../../utils/BaseApi';
 import { baseUrl, apiHeaders } from '../../utils/constants';
 
-class MainApi {
-  constructor(options) {
-    this._baseUrl = options._baseUrl;
-    this._headers = options._headers;
-  }
-
-  _processTheResponse(res) {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
+class MainApi extends BaseApi {
+  constructor({ _baseUrl, _headers }) {
+    super({ _baseUrl });
+    this._headers = _headers;
   }
 
   getSheltersOnMain(amount) { // загрузка карточек приютов для главной страницы
@@ -18,7 +12,7 @@ class MainApi {
       headers: this._headers,
     })
       .then((res) => {
-        return this._processTheResponse(res);
+        return super._processTheResponse(res);
       });
   }
 
@@ -27,7 +21,7 @@ class MainApi {
       headers: this._headers,
     })
       .then((res) => {
-        return this._processTheResponse(res);
+        return super._processTheResponse(res);
       });
   }
 
@@ -36,7 +30,7 @@ class MainApi {
       headers: this._headers,
     })
       .then((res) => {
-        return this._processTheResponse(res);
+        return super._processTheResponse(res);
       });
   }
 }

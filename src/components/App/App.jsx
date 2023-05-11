@@ -8,20 +8,10 @@ import Header from '../../modules/Header/Header';
 import Footer from '../../modules/Footer/Footer';
 import MainPage from '../../pages/MainPage/MainPage';
 import MapPage from '../../pages/MapPage/MapPage';
-
 import SheltersListPage from '../../pages/SheltersListPage/SheltersListPage';
-import RedShelters from '../../modules/RedShelters/RedShelters';
-import YellowShelters from '../../modules/YellowShelters/YellowShelters';
-import GreenShelters from '../../modules/GreenShelters/GreenShelters';
-
+import * as sheltersListModules from '../../pages/SheltersListPage/modules';
 import ShelterPage from '../../pages/ShelterPage/ShelterPage';
-import AboutShelter from '../../modules/AboutShelter/AboutShelter';
-import HelpToShelter from '../../modules/HelpToShelter/HelpToShelter';
-import ShelterNews from '../../modules/ShelterNews/ShelterNews';
-import ShelterPets from '../../modules/ShelterPets/ShelterPets';
-import ShelterSamePets from '../../modules/ShelterSamePets/ShelterSamePets';
-import ShelterVacancies from '../../modules/ShelterVacancies/ShelterVacancies';
-
+import * as shelterModules from '../../pages/ShelterPage/modules';
 import PetPage from '../../pages/PetPage/PetPage';
 import AddShelterPage from '../../pages/AddShelterPage/AddShelterPage';
 import PapersPage from '../../pages/PapersPage/PapersPage';
@@ -159,24 +149,22 @@ const App = () => {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='page'>
-        <Header
-          loggedIn={loggedIn}
-        />
+        <Header />
         <Routes>
-          <Route path='/' element={<MainPage loggedIn={loggedIn} />} />
+          <Route path='/' element={<MainPage />} />
           <Route path='/shelters' element={<MapPage />} />
           <Route path='/shelters/list' element={<SheltersListPage />}>
-            <Route path='red' element={<RedShelters />} />
-            <Route path='yellow' element={<YellowShelters />} />
-            <Route path='green' element={<GreenShelters />} />
+            <Route path='red' element={<sheltersListModules.RedShelters />} />
+            <Route path='yellow' element={<sheltersListModules.YellowShelters />} />
+            <Route path='green' element={<sheltersListModules.GreenShelters />} />
           </Route>
           <Route path='/shelters/:id' element={<ShelterPage />}>
-            <Route path='about' element={<AboutShelter />} />
-            <Route path='how-to-help' element={<HelpToShelter />} />
-            <Route path='news' element={<ShelterNews />} />
-            <Route path='pets' element={<ShelterPets />} />
-            <Route path='pets/:type' element={<ShelterSamePets />} />
-            <Route path='vacancies' element={<ShelterVacancies />} />
+            <Route path='about' element={<shelterModules.AboutShelter />} />
+            <Route path='how-to-help' element={<shelterModules.HelpToShelter />} />
+            <Route path='news' element={<shelterModules.ShelterNews />} />
+            <Route path='pets' element={<shelterModules.ShelterPets />} />
+            <Route path='pets/:type' element={<shelterModules.ShelterSamePets />} />
+            <Route path='vacancies' element={<shelterModules.ShelterVacancies />} />
           </Route>
           <Route
             path='/add-shelter'
