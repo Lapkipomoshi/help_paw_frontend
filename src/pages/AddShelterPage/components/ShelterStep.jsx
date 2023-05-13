@@ -106,7 +106,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
         <ul className='add-shelter-form__column'>
           <DeclarationInput caption='Название приюта*' inputState={shelterName} type='text' name='shelterName' required />
           <DeclarationInput caption='ИНН*' inputState={INN} type='number' name='INN' placeholder='10 цифр' required />
-          <DeclarationInput caption='Ссылка на сайт приюта*' inputState={webSite} type='url' name='webSite' />
+          <DeclarationInput caption='Ссылка на сайт приюта' inputState={webSite} type='url' name='webSite' />
           <DeclarationInput caption='Ссылка на канал приюта в &laquo;Telegram&raquo;' inputState={telegram} type='url' name='telegram' placeholder='t.me/' />
         </ul>
         <ul className='add-shelter-form__column'>
