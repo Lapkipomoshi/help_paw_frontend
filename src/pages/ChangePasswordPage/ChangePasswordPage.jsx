@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './ChangePasswordPage.css';
+import { useNavigate } from 'react-router-dom';
 import ProfileContainer from '../../components/ProfileContainer/ProfileContainer';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import Button from '../../ui/Button/Button';
@@ -7,18 +8,37 @@ import UserForm from '../../components/UserForm/UserForm';
 import UserLink from '../../ui/UserLink/UserLink';
 import * as auth from '../../utils/auth';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
+import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
+import imageSuccess from '../../images/icons/ic_success.svg';
+import imageError from '../../images/icons/ic_error.svg';
 
 const ChangePasswordPage = () => {
+  const navigate = useNavigate();
   const currentUser = useContext(CurrentUserContext);
   const { email } = currentUser;
+  const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
+  const [infoTooltipImage, setInfoTooltipImage] = useState(imageSuccess);
+  const [message, setMessage] = useState('');
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     auth.resetPassword({ email })
       .then(() => {
-        console.log('success');
+        setInfoTooltipImage(imageSuccess);
+        setMessage('Ссылка для сброса пароля отправлена на вашу почту!');
+        setInfoTooltipOpen(true);
+        setTimeout(() => {
+          setInfoTooltipOpen(false);
+        }, 2000);
+        setTimeout(() => { navigate('/'); }, 2000);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        setInfoTooltipImage(imageError);
+        setMessage('Что-то пошло не так! Попробуйте ещё раз.');
+        setInfoTooltipOpen(true);
+        setTimeout(() => {
+          setInfoTooltipOpen(false);
+        }, 2000);
       });
   };
 
@@ -44,6 +64,11 @@ const ChangePasswordPage = () => {
           </ProfileContainer>
         </section>
       </main>
+      <InfoTooltip
+        isOpen={infoTooltipOpen}
+        image={infoTooltipImage}
+        message={message}
+      />
     </MainContainer>
   );
 };
