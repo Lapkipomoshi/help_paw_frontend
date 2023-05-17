@@ -17,8 +17,13 @@ const ChangePasswordPage = () => {
   const currentUser = useContext(CurrentUserContext);
   const { email } = currentUser;
   const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
-  const [infoTooltipImage, setInfoTooltipImage] = useState(imageSuccess);
+  const [infoTooltipImage, setInfoTooltipImage] = useState(null);
   const [message, setMessage] = useState('');
+
+  function closeInfoTooltip() {
+    setInfoTooltipOpen(false);
+    setInfoTooltipImage(null);
+  }
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -27,18 +32,14 @@ const ChangePasswordPage = () => {
         setInfoTooltipImage(imageSuccess);
         setMessage('Ссылка для сброса пароля отправлена на вашу почту!');
         setInfoTooltipOpen(true);
-        setTimeout(() => {
-          setInfoTooltipOpen(false);
-        }, 2000);
+        setTimeout(closeInfoTooltip, 2000);
         setTimeout(() => { navigate('/'); }, 2000);
       })
       .catch(() => {
         setInfoTooltipImage(imageError);
         setMessage('Что-то пошло не так! Попробуйте ещё раз.');
         setInfoTooltipOpen(true);
-        setTimeout(() => {
-          setInfoTooltipOpen(false);
-        }, 2000);
+        setTimeout(closeInfoTooltip, 2000);
       });
   };
 

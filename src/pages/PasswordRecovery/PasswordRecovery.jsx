@@ -21,7 +21,7 @@ const PasswordRecovery = () => {
   const [emailError, setEmailError] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
-  const [infoTooltipImage, setInfoTooltipImage] = useState(imageSuccess);
+  const [infoTooltipImage, setInfoTooltipImage] = useState(null);
   const [message, setMessage] = useState('');
 
   useEffect(() => {
@@ -45,6 +45,11 @@ const PasswordRecovery = () => {
     }
   };
 
+  function closeInfoTooltip() {
+    setInfoTooltipOpen(false);
+    setInfoTooltipImage(null);
+  }
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     auth.resetPassword({ email: userEmail })
@@ -52,9 +57,7 @@ const PasswordRecovery = () => {
         setInfoTooltipImage(imageSuccess);
         setMessage('Ссылка для восстановления пароля отправлена на указанную почту!');
         setInfoTooltipOpen(true);
-        setTimeout(() => {
-          setInfoTooltipOpen(false);
-        }, 2000);
+        setTimeout(closeInfoTooltip, 2000);
         setTimeout(() => { navigate('/'); }, 2000);
       })
       .catch((res) => {
@@ -65,9 +68,7 @@ const PasswordRecovery = () => {
           setMessage('Что-то пошло не так! Попробуйте ещё раз.');
         }
         setInfoTooltipOpen(true);
-        setTimeout(() => {
-          setInfoTooltipOpen(false);
-        }, 2000);
+        setTimeout(closeInfoTooltip, 2000);
       });
   };
 
