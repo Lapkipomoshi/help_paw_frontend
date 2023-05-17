@@ -115,7 +115,7 @@ const App = () => {
         setMessage('Добро пожаловать на сайт!');
         setInfoTooltipOpen(true);
         setTimeout(closeInfoTooltip, 2000);
-        setTimeout(() => { navigate('/profile'); }, 2000);
+        setTimeout(() => { navigate('/'); }, 2000);
       })
       .catch(() => {
         setInfoTooltipImage(imageError);
