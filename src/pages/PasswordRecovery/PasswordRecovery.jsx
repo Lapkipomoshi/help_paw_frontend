@@ -57,9 +57,13 @@ const PasswordRecovery = () => {
         }, 2000);
         setTimeout(() => { navigate('/'); }, 2000);
       })
-      .catch(() => {
+      .catch((res) => {
         setInfoTooltipImage(imageError);
-        setMessage('Что-то пошло не так! Попробуйте ещё раз.');
+        if (res.status === 400) {
+          setMessage('Пользователь с таким e-mail не зарегистрирован.');
+        } else {
+          setMessage('Что-то пошло не так! Попробуйте ещё раз.');
+        }
         setInfoTooltipOpen(true);
         setTimeout(() => {
           setInfoTooltipOpen(false);
