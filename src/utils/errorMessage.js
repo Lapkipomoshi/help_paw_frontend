@@ -2,7 +2,7 @@
 export const NAME_INVALID = 'Имя может содержать только буквы, пробел или дефис';
 export const NAME_NOT_FOUND = 'Введите имя пользователя';
 export const NAME_TOO_SHORT = 'Длина имени должна быть не менее 2 символов';
-export const NAME_TOO_LONG = 'Длина имени должна быть не более 20 символов';
+export const NAME_TOO_LONG = 'Длина имени должна быть не более 50 символов';
 
 // почта
 export const EMAIL_INVALID = 'Введен некорректный email';
