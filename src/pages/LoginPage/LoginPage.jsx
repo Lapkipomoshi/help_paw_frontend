@@ -50,14 +50,14 @@ const LoginPage = ({ onLogin }) => {
     }
   };
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
+  const handleSubmit = (e) => {
+    const input = e.target;
+    e.preventDefault();
     onLogin({
       password: userPassword,
       email: userEmail,
     });
-    setUserEmail('');
-    setUserPassword('');
+    input.reset();
   };
 
   useEffect(() => {
