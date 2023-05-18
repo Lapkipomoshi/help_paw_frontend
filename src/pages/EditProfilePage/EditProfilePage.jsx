@@ -11,7 +11,6 @@ import {
   EMAIL_INVALID, EMAIL_NOT_FOUND, NAME_INVALID, NAME_NOT_FOUND, NAME_TOO_LONG, NAME_TOO_SHORT,
 } from '../../utils/errorMessage';
 import UserLink from '../../ui/UserLink/UserLink';
-import SecondaryButton from '../../ui/SecondaryButton/SecondaryButton';
 
 const EditProfilePage = ({ onEditProfile }) => {
   const currentUser = useContext(CurrentUserContext);
@@ -153,8 +152,8 @@ const EditProfilePage = ({ onEditProfile }) => {
                   />
 
                   <div className='edit-profile__buttons'>
-                    <Button className='' submit disabled={disabled || isSame}>Сохранить изменения</Button>
-                    <SecondaryButton className='' onClick={cancelEdit}>Отменить</SecondaryButton>
+                    <Button submit disabled={disabled || isSame}>Сохранить изменения</Button>
+                    <Button theme='transparent' onClick={cancelEdit}>Отменить</Button>
                   </div>
                 </>
               )}
