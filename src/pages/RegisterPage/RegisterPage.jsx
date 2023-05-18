@@ -56,10 +56,10 @@ const RegisterPage = ({ onRegister }) => {
       setIsValidName(false);
     } else if (!validName) {
       setNameError(NAME_INVALID);
-    } else if (input.value.length < 2) {
+    } else if (input.value.length < input.minLength) {
       setNameError(NAME_TOO_SHORT);
       setIsValidName(false);
-    } else if (input.value.length === 20) {
+    } else if (input.value.length > input.maxLength) {
       setNameError(NAME_TOO_LONG);
       setIsValidName(false);
     } else {
@@ -152,7 +152,7 @@ const RegisterPage = ({ onRegister }) => {
                     isValid={isValidName}
                     spanText={nameError}
                     minLength='2'
-                    maxLength='20'
+                    maxLength='50'
                     pattern='[A-Za-zа-яА-ЯёЁ\d-\s]*$'
                     value={userName || ''}
                     /* eslint-disable-next-line react/jsx-no-bind */
