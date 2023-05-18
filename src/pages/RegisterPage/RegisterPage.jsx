@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './RegisterPage.css';
 import { Link } from 'react-router-dom';
+import './RegisterPage.css';
 import UserForm from '../../components/UserForm/UserForm';
 import UserContainer from '../../components/UserContainer/UserContainer';
+import MainContainer from '../../components/MainContainer/MainContainer';
 import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import PasswordInput from '../../ui/PasswordInput/PasswordInput';
@@ -23,7 +24,6 @@ import {
   PASSWORD_TOO_SHORT,
   PASSWORD_SAME_EMAIL,
 } from '../../utils/errorMessage';
-import MainContainer from '../../components/MainContainer/MainContainer';
 
 const RegisterPage = ({ onRegister }) => {
   const [userName, setUserName] = useState('');
@@ -46,7 +46,7 @@ const RegisterPage = ({ onRegister }) => {
 
   const [isChecked, setIsChecked] = useState(false);
 
-  function handleNameChange(e) {
+  const handleNameChange = (e) => {
     const input = e.target;
     const validName = NAME_REGEX.test(input.value);
     setIsValidName(validName);
@@ -56,18 +56,18 @@ const RegisterPage = ({ onRegister }) => {
       setIsValidName(false);
     } else if (!validName) {
       setNameError(NAME_INVALID);
-    } else if (input.value.length < 2) {
+    } else if (input.value.length < input.minLength) {
       setNameError(NAME_TOO_SHORT);
       setIsValidName(false);
-    } else if (input.value.length === 20) {
+    } else if (input.value.length > input.maxLength) {
       setNameError(NAME_TOO_LONG);
       setIsValidName(false);
     } else {
       setNameError('');
     }
-  }
+  };
 
-  function handleEmailChange(e) {
+  const handleEmailChange = (e) => {
     const input = e.target;
     const validEmail = EMAIL_REGEX.test(input.value);
     setIsValidEmail(validEmail);
@@ -82,9 +82,9 @@ const RegisterPage = ({ onRegister }) => {
     } else {
       setEmailError('');
     }
-  }
+  };
 
-  function handlePasswordChange(e) {
+  const handlePasswordChange = (e) => {
     const input = e.target;
     const validPassword = PASSWORD_REGEX.test(input.value);
     const passwordOnlyNumbers = NUMBER.test(input.value);
@@ -109,14 +109,7 @@ const RegisterPage = ({ onRegister }) => {
       setPasswordError('');
       setPromptText('');
     }
-  }
-
-  useEffect(() => {
-    if (isValid && isChecked) {
-      return setDisabled(false);
-    }
-    return setDisabled(true);
-  }, [isValid, isChecked]);
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -127,9 +120,16 @@ const RegisterPage = ({ onRegister }) => {
     });
   };
 
-  function handleChangeCheckbox() {
+  const handleChangeCheckbox = () => {
     setIsChecked(!isChecked);
-  }
+  };
+
+  useEffect(() => {
+    if (isValid && isChecked) {
+      return setDisabled(false);
+    }
+    return setDisabled(true);
+  }, [isValid, isChecked]);
 
   return (
     <MainContainer theme='base'>
@@ -152,10 +152,9 @@ const RegisterPage = ({ onRegister }) => {
                     isValid={isValidName}
                     spanText={nameError}
                     minLength='2'
-                    maxLength='20'
+                    maxLength='50'
                     pattern='[A-Za-zа-яА-ЯёЁ\d-\s]*$'
                     value={userName || ''}
-                    /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handleNameChange}
                   />
 
@@ -168,7 +167,6 @@ const RegisterPage = ({ onRegister }) => {
                     pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$'
                     value={userEmail || ''}
                     spanText={emailError}
-                    /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handleEmailChange}
                   />
 
@@ -181,7 +179,6 @@ const RegisterPage = ({ onRegister }) => {
                     minLength='10'
                     maxLength='101'
                     isValid={isValidPassword}
-                    /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handlePasswordChange}
                   />
 

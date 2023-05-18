@@ -41,6 +41,7 @@
     }
 
     &_transparent {
+      padding: 15px 31px;
       color: var(--color-accent-base);
       background-color: rgba(0,0,0,0);
       border: 1px solid var(--color-accent-base);
@@ -52,6 +53,11 @@
       &:focus {
         color: var(--color-accent-pressed);
         border-color: var(--color-accent-pressed);
+      }
+      &:disabled {
+        color: var(--color-accent-disabled);
+        border-color: var(--color-accent-disabled);
+        cursor: default;
       }
     }
   }
