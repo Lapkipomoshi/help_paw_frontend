@@ -125,7 +125,7 @@ const App = () => {
       });
   };
 
-  function handleUpdateUser({ username, email }) {
+  const handleUpdateUser = ({ username, email }) => {
     userApi.updateUserInfo({ username, email })
       .then((res) => {
         setCurrentUser({
@@ -144,7 +144,7 @@ const App = () => {
         setInfoTooltipOpen(true);
         setTimeout(closeInfoTooltip, 2000);
       });
-  }
+  };
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -207,7 +207,6 @@ const App = () => {
           <Route
             path='/profile/edit'
             element={
-              // eslint-disable-next-line react/jsx-no-bind
               <ProtectedRoute loggedIn={loggedIn} component={EditProfilePage} onEditProfile={handleUpdateUser} />
             }
           />

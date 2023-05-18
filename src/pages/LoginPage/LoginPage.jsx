@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import './LoginPage.css';
 import { Link } from 'react-router-dom';
+import './LoginPage.css';
 import UserContainer from '../../components/UserContainer/UserContainer';
 import UserForm from '../../components/UserForm/UserForm';
+import SignUpBlock from '../../components/SignUpBlock/SignUpBlock';
+import MainContainer from '../../components/MainContainer/MainContainer';
 import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import PasswordInput from '../../ui/PasswordInput/PasswordInput';
-import SignUpBlock from '../../components/SignUpBlock/SignUpBlock';
 import { EMAIL_INVALID, EMAIL_NOT_FOUND, PASSWORD_NOT_FOUND } from '../../utils/errorMessage';
-import MainContainer from '../../components/MainContainer/MainContainer';
 import { EMAIL_REGEX } from '../../utils/regex';
 
 const LoginPage = ({ onLogin }) => {
@@ -25,7 +25,7 @@ const LoginPage = ({ onLogin }) => {
 
   const [disabled, setDisabled] = useState(false);
 
-  function handleEmailChange(e) {
+  const handleEmailChange = (e) => {
     const input = e.target;
     const validEmail = EMAIL_REGEX.test(input.value);
     setIsValidEmail(validEmail);
@@ -37,9 +37,9 @@ const LoginPage = ({ onLogin }) => {
     } else {
       setEmailError('');
     }
-  }
+  };
 
-  function handlePasswordChange(e) {
+  const handlePasswordChange = (e) => {
     const input = e.target;
     setIsValidPassword(input.validity.valid);
     setUserPassword(input.value);
@@ -48,14 +48,7 @@ const LoginPage = ({ onLogin }) => {
     } else {
       setPasswordError('');
     }
-  }
-
-  useEffect(() => {
-    if (isValid) {
-      return setDisabled(false);
-    }
-    return setDisabled(true);
-  }, [isValid]);
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -66,6 +59,13 @@ const LoginPage = ({ onLogin }) => {
     setUserEmail('');
     setUserPassword('');
   };
+
+  useEffect(() => {
+    if (isValid) {
+      return setDisabled(false);
+    }
+    return setDisabled(true);
+  }, [isValid]);
 
   return (
     <MainContainer theme='base'>
@@ -88,7 +88,6 @@ const LoginPage = ({ onLogin }) => {
                     pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$'
                     value={userEmail || ''}
                     spanText={emailError}
-                    /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handleEmailChange}
                   />
 
@@ -96,7 +95,6 @@ const LoginPage = ({ onLogin }) => {
                     spanText={passwordError}
                     errorMessage={passwordError}
                     value={userPassword || ''}
-                    /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handlePasswordChange}
                   />
 
