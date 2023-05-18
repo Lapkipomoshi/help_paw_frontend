@@ -56,16 +56,12 @@
   margin-bottom: 16px;
 }
 
-.profile-popup__link:last-of-type {
-  margin-bottom: 20px;
-}
-
 .profile-popup__button {
   padding: 12px 26px;
   font-size: 16px;
   line-height: 20px;
   font-weight: 600;
-  font-family: 'Montserrat Alternates', 'Inter', Arial, sans-serif;
+  font-family: var(--font-family-title);
   color: var(--color-text-light);
   text-decoration: none;
   text-align: center;
