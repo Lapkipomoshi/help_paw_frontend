@@ -153,7 +153,7 @@ const EditProfilePage = ({ onEditProfile }) => {
 
                   <div className='edit-profile__buttons'>
                     <Button submit disabled={disabled || isSame}>Сохранить изменения</Button>
-                    <Button theme='transparent' onClick={cancelEdit}>Отменить</Button>
+                    <Button theme='transparent' onClick={cancelEdit} disabled={isSame}>Отменить</Button>
                   </div>
                 </>
               )}

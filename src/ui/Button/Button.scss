@@ -54,6 +54,11 @@
         color: var(--color-accent-pressed);
         border-color: var(--color-accent-pressed);
       }
+      &:disabled {
+        color: var(--color-accent-disabled);
+        border-color: var(--color-accent-disabled);
+        cursor: default;
+      }
     }
   }
 }
