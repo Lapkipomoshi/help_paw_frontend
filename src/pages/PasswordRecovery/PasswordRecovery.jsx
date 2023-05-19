@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import './PasswordRecovery.css';
 import { useNavigate } from 'react-router-dom';
+import './PasswordRecovery.css';
 import UserContainer from '../../components/UserContainer/UserContainer';
 import UserForm from '../../components/UserForm/UserForm';
 import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import SignUpBlock from '../../components/SignUpBlock/SignUpBlock';
 import MainContainer from '../../components/MainContainer/MainContainer';
+import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
 import { EMAIL_INVALID, EMAIL_NOT_FOUND } from '../../utils/errorMessage';
 import { EMAIL_REGEX } from '../../utils/regex';
-import * as auth from '../../utils/auth';
+import * as auth from '../../components/App/api/auth';
 import imageSuccess from '../../images/icons/ic_success.svg';
-import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
 import imageError from '../../images/icons/ic_error.svg';
 
 const PasswordRecovery = () => {
@@ -45,10 +45,10 @@ const PasswordRecovery = () => {
     }
   };
 
-  function closeInfoTooltip() {
+  const closeInfoTooltip = () => {
     setInfoTooltipOpen(false);
     setInfoTooltipImage(null);
-  }
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -73,7 +73,7 @@ const PasswordRecovery = () => {
   };
 
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main'>
         <section className='recovery'>
           <UserContainer

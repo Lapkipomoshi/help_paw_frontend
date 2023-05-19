@@ -10,7 +10,7 @@ const ProfilePage = () => {
   const { username } = currentUser;
 
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main'>
         <section className='profile'>
           <ProfileContainer>

@@ -13,7 +13,7 @@ const SignOutPage = ({ onSignOut }) => {
   };
 
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main'>
         <section className='sign-out'>
           <ProfileContainer containerClass='sign-out'>

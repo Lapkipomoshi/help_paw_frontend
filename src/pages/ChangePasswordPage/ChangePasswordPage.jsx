@@ -1,14 +1,14 @@
 import React, { useContext, useState } from 'react';
-import './ChangePasswordPage.css';
 import { useNavigate } from 'react-router-dom';
+import './ChangePasswordPage.css';
 import ProfileContainer from '../../components/ProfileContainer/ProfileContainer';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import Button from '../../ui/Button/Button';
 import UserForm from '../../components/UserForm/UserForm';
 import UserLink from '../../ui/UserLink/UserLink';
-import * as auth from '../../utils/auth';
-import CurrentUserContext from '../../contexts/CurrentUserContext';
 import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
+import * as auth from '../../components/App/api/auth';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 import imageSuccess from '../../images/icons/ic_success.svg';
 import imageError from '../../images/icons/ic_error.svg';
 
@@ -20,10 +20,10 @@ const ChangePasswordPage = () => {
   const [infoTooltipImage, setInfoTooltipImage] = useState(null);
   const [message, setMessage] = useState('');
 
-  function closeInfoTooltip() {
+  const closeInfoTooltip = () => {
     setInfoTooltipOpen(false);
     setInfoTooltipImage(null);
-  }
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -44,7 +44,7 @@ const ChangePasswordPage = () => {
   };
 
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main'>
         <section className='change-password'>
           <ProfileContainer containerClass='change-password'>

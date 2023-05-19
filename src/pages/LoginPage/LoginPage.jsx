@@ -68,7 +68,7 @@ const LoginPage = ({ onLogin }) => {
   }, [isValid]);
 
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main'>
         <section className='login'>
           <UserContainer
