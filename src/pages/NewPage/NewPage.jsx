@@ -24,15 +24,15 @@ const NewPage = () => {
   return (
     <MainContainer>
       <main className='main new-page'>
-        <h2 className='new-page__title'>{newInfo && newInfo.header ? newInfo.header : 'Новость не найдена'}</h2>
+        <h2 className='new-page__title'>{newInfo.header || 'Новость не найдена'}</h2>
         <div className='new-page__row'>
           <div className='new-page__info-block'>
             <img className='new-page__icon' src={dataIcon} alt='дата' />
             <p className='new-page__info'>{newInfo.pub_date}</p>
           </div>
-          <Link className='new-page__info-block new-page__info-block_link' to={`/shelters/${newInfo.shelter}/news`}>
+          <Link className='new-page__info-block new-page__info-block_link' to={newInfo.shelter ? `/shelters/${newInfo.shelter}/news` : '/'}>
             <img className='new-page__icon' src={selfIcon} alt='приют' />
-            <p className='new-page__info'>{newInfo.shelter}</p>
+            <p className='new-page__info'>{newInfo.shelter && newInfo.shelter.name}</p>
           </Link>
         </div>
         <div className='new-page__photos'>
