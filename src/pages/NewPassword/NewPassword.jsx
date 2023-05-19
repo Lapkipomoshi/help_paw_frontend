@@ -10,7 +10,7 @@ import { NUMBER, PASSWORD_REGEX } from '../../utils/regex';
 import {
   PASSWORD_INVALID, PASSWORD_NOT_FOUND, PASSWORD_ONLY_NUMBERS, PASSWORD_TOO_LONG, PASSWORD_TOO_SHORT,
 } from '../../utils/errorMessage';
-import * as auth from '../../utils/auth';
+import * as auth from '../../components/App/api/auth';
 import imageSuccess from '../../images/icons/ic_success.svg';
 import imageError from '../../images/icons/ic_error.svg';
 

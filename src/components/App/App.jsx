@@ -26,12 +26,12 @@ import NewPassword from '../../pages/NewPassword/NewPassword';
 import SignUpConfirm from '../../pages/SignUpConfirm/SignUpConfirm';
 import ProfilePage from '../../pages/ProfilePage/ProfilePage';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
-import * as auth from '../../utils/auth';
+import * as auth from './api/auth';
 import imageSuccess from '../../images/icons/ic_success.svg';
 import imageError from '../../images/icons/ic_error.svg';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
-import * as userApi from '../../utils/userApi';
-import { register } from '../../utils/auth';
+import * as userApi from './api/userApi';
+import { register } from './api/auth';
 import EditProfilePage from '../../pages/EditProfilePage/EditProfilePage';
 import SignOutPage from '../../pages/SignOutPage/SignOutPage';
 import ChangePasswordPage from '../../pages/ChangePasswordPage/ChangePasswordPage';
@@ -115,7 +115,7 @@ const App = () => {
         setMessage('Добро пожаловать на сайт!');
         setInfoTooltipOpen(true);
         setTimeout(closeInfoTooltip, 2000);
-        setTimeout(() => { navigate('/profile'); }, 2000);
+        setTimeout(() => { navigate('/'); }, 2000);
       })
       .catch(() => {
         setInfoTooltipImage(imageError);

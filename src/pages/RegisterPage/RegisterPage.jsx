@@ -132,7 +132,7 @@ const RegisterPage = ({ onRegister }) => {
   }, [isValid, isChecked]);
 
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main'>
         <section className='register'>
           <UserContainer
