@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import './PaperPage.css';
+import './PaperPage.scss';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import paperApi from './api';
 
@@ -10,7 +10,7 @@ const PaperPage = () => {
 
   useEffect(() => {
     paperApi
-      .getPaper(id) // загрузка карточек с приютами на главной странице
+      .getPaperById(id) // загрузка статьи с указанным id
       .then((res) => {
         setPaper(res);
       })
@@ -20,7 +20,7 @@ const PaperPage = () => {
   }, [id]);
 
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main paper'>
         <h1 className='paper__title'>{paper.header}</h1>
         <img className='paper__image' src={paper.profile_image} alt='фото' />

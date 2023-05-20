@@ -1,0 +1,16 @@
+.new-page__info-block {
+  display: flex;
+  column-gap: 8px;
+  flex-wrap: nowrap;
+
+  &_link {
+    text-decoration: none;
+    transition-duration: .7s;
+    color: var(--color-text-additional);
+
+    &:hover {
+      color: var(--color-accent-base);
+      transform: scale(1.1);
+    }
+  }
+}

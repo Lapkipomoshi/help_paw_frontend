@@ -6,7 +6,7 @@ import bannerImage from '../../images/main__banner.png';
 
 const Banner = () => {
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <section className='banner'>
         <img className='banner__image' src={bannerImage} alt='питомцы' />
         <h1 className='banner__title'>Помогаем тем, кто в этом нуждается</h1>

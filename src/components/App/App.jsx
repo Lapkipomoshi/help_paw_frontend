@@ -8,20 +8,10 @@ import Header from '../../modules/Header/Header';
 import Footer from '../../modules/Footer/Footer';
 import MainPage from '../../pages/MainPage/MainPage';
 import MapPage from '../../pages/MapPage/MapPage';
-
 import SheltersListPage from '../../pages/SheltersListPage/SheltersListPage';
-import RedShelters from '../../modules/RedShelters/RedShelters';
-import YellowShelters from '../../modules/YellowShelters/YellowShelters';
-import GreenShelters from '../../modules/GreenShelters/GreenShelters';
-
+import * as sheltersListModules from '../../pages/SheltersListPage/modules';
 import ShelterPage from '../../pages/ShelterPage/ShelterPage';
-import AboutShelter from '../../modules/AboutShelter/AboutShelter';
-import HelpToShelter from '../../modules/HelpToShelter/HelpToShelter';
-import ShelterNews from '../../modules/ShelterNews/ShelterNews';
-import ShelterPets from '../../modules/ShelterPets/ShelterPets';
-import ShelterSamePets from '../../modules/ShelterSamePets/ShelterSamePets';
-import ShelterVacancies from '../../modules/ShelterVacancies/ShelterVacancies';
-
+import * as shelterModules from '../../pages/ShelterPage/modules';
 import PetPage from '../../pages/PetPage/PetPage';
 import AddShelterPage from '../../pages/AddShelterPage/AddShelterPage';
 import PapersPage from '../../pages/PapersPage/PapersPage';
@@ -36,12 +26,12 @@ import NewPassword from '../../pages/NewPassword/NewPassword';
 import SignUpConfirm from '../../pages/SignUpConfirm/SignUpConfirm';
 import ProfilePage from '../../pages/ProfilePage/ProfilePage';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
-import * as auth from '../../utils/auth';
+import * as auth from './api/auth';
 import imageSuccess from '../../images/icons/ic_success.svg';
 import imageError from '../../images/icons/ic_error.svg';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
-import * as userApi from '../../utils/userApi';
-import { register } from '../../utils/auth';
+import * as userApi from './api/userApi';
+import { register } from './api/auth';
 import EditProfilePage from '../../pages/EditProfilePage/EditProfilePage';
 import SignOutPage from '../../pages/SignOutPage/SignOutPage';
 import ChangePasswordPage from '../../pages/ChangePasswordPage/ChangePasswordPage';
@@ -125,7 +115,7 @@ const App = () => {
         setMessage('Добро пожаловать на сайт!');
         setInfoTooltipOpen(true);
         setTimeout(closeInfoTooltip, 2000);
-        setTimeout(() => { navigate('/profile'); }, 2000);
+        setTimeout(() => { navigate('/'); }, 2000);
       })
       .catch(() => {
         setInfoTooltipImage(imageError);
@@ -135,7 +125,7 @@ const App = () => {
       });
   };
 
-  function handleUpdateUser({ username, email }) {
+  const handleUpdateUser = ({ username, email }) => {
     userApi.updateUserInfo({ username, email })
       .then((res) => {
         setCurrentUser({
@@ -154,29 +144,27 @@ const App = () => {
         setInfoTooltipOpen(true);
         setTimeout(closeInfoTooltip, 2000);
       });
-  }
+  };
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='page'>
-        <Header
-          loggedIn={loggedIn}
-        />
+        <Header />
         <Routes>
-          <Route path='/' element={<MainPage loggedIn={loggedIn} />} />
+          <Route path='/' element={<MainPage />} />
           <Route path='/shelters' element={<MapPage />} />
           <Route path='/shelters/list' element={<SheltersListPage />}>
-            <Route path='red' element={<RedShelters />} />
-            <Route path='yellow' element={<YellowShelters />} />
-            <Route path='green' element={<GreenShelters />} />
+            <Route path='red' element={<sheltersListModules.RedShelters />} />
+            <Route path='yellow' element={<sheltersListModules.YellowShelters />} />
+            <Route path='green' element={<sheltersListModules.GreenShelters />} />
           </Route>
           <Route path='/shelters/:id' element={<ShelterPage />}>
-            <Route path='about' element={<AboutShelter />} />
-            <Route path='how-to-help' element={<HelpToShelter />} />
-            <Route path='news' element={<ShelterNews />} />
-            <Route path='pets' element={<ShelterPets />} />
-            <Route path='pets/:type' element={<ShelterSamePets />} />
-            <Route path='vacancies' element={<ShelterVacancies />} />
+            <Route path='about' element={<shelterModules.AboutShelter />} />
+            <Route path='how-to-help' element={<shelterModules.HelpToShelter />} />
+            <Route path='news' element={<shelterModules.ShelterNews />} />
+            <Route path='pets' element={<shelterModules.ShelterPets />} />
+            <Route path='pets/:type' element={<shelterModules.ShelterSamePets />} />
+            <Route path='vacancies' element={<shelterModules.ShelterVacancies />} />
           </Route>
           <Route
             path='/add-shelter'
@@ -219,7 +207,6 @@ const App = () => {
           <Route
             path='/profile/edit'
             element={
-              // eslint-disable-next-line react/jsx-no-bind
               <ProtectedRoute loggedIn={loggedIn} component={EditProfilePage} onEditProfile={handleUpdateUser} />
             }
           />

@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import './PasswordRecovery.css';
 import { useNavigate } from 'react-router-dom';
+import './PasswordRecovery.css';
 import UserContainer from '../../components/UserContainer/UserContainer';
 import UserForm from '../../components/UserForm/UserForm';
 import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import SignUpBlock from '../../components/SignUpBlock/SignUpBlock';
 import MainContainer from '../../components/MainContainer/MainContainer';
+import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
 import { EMAIL_INVALID, EMAIL_NOT_FOUND } from '../../utils/errorMessage';
 import { EMAIL_REGEX } from '../../utils/regex';
-import * as auth from '../../utils/auth';
+import * as auth from '../../components/App/api/auth';
 import imageSuccess from '../../images/icons/ic_success.svg';
-import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
 import imageError from '../../images/icons/ic_error.svg';
 
 const PasswordRecovery = () => {
@@ -21,7 +21,7 @@ const PasswordRecovery = () => {
   const [emailError, setEmailError] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
-  const [infoTooltipImage, setInfoTooltipImage] = useState(imageSuccess);
+  const [infoTooltipImage, setInfoTooltipImage] = useState(null);
   const [message, setMessage] = useState('');
 
   useEffect(() => {
@@ -45,6 +45,11 @@ const PasswordRecovery = () => {
     }
   };
 
+  const closeInfoTooltip = () => {
+    setInfoTooltipOpen(false);
+    setInfoTooltipImage(null);
+  };
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     auth.resetPassword({ email: userEmail })
@@ -52,23 +57,23 @@ const PasswordRecovery = () => {
         setInfoTooltipImage(imageSuccess);
         setMessage('Ссылка для восстановления пароля отправлена на указанную почту!');
         setInfoTooltipOpen(true);
-        setTimeout(() => {
-          setInfoTooltipOpen(false);
-        }, 2000);
+        setTimeout(closeInfoTooltip, 2000);
         setTimeout(() => { navigate('/'); }, 2000);
       })
-      .catch(() => {
+      .catch((res) => {
         setInfoTooltipImage(imageError);
-        setMessage('Что-то пошло не так! Попробуйте ещё раз.');
+        if (res.status === 400) {
+          setMessage('Пользователь с таким e-mail не зарегистрирован.');
+        } else {
+          setMessage('Что-то пошло не так! Попробуйте ещё раз.');
+        }
         setInfoTooltipOpen(true);
-        setTimeout(() => {
-          setInfoTooltipOpen(false);
-        }, 2000);
+        setTimeout(closeInfoTooltip, 2000);
       });
   };
 
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main'>
         <section className='recovery'>
           <UserContainer

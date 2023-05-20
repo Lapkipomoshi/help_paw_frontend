@@ -1,62 +1,64 @@
 .button {
+  display: inline-block;
+  width: fit-content;
   padding: 16px 32px;
   font-size: 18px;
   line-height: 20px;
   font-weight: 600;
-  font-family: 'Montserrat Alternates', 'Inter', Arial, sans-serif;
+  font-family: var(--font-family-title);
   text-decoration: none;
   text-align: center;
   border: none;
   border-radius: 12px;
-  cursor: pointer;
-  transition-duration: .7s;
-  display: inline-block;
-  width: fit-content;
   box-sizing: border-box;
-}
+  transition-duration: .7s;
+  cursor: pointer;
 
-.button__accent {
-  color: var(--color-text-light);
-  background-color: var(--color-accent-base);
+  &_theme {
+    &_accent {
+      color: var(--color-text-light);
+      background-color: var(--color-accent-base);
 
-  &:hover {
-    background-color: var(--color-accent-hover);
-  }
+      &:hover {
+        background-color: var(--color-accent-hover);
+      }
+      &:focus {
+        background-color: var(--color-accent-pressed);
+      }
+      &:disabled {
+        background-color: var(--color-accent-disabled);
+        cursor: default;
+      }
 
-  &:focus {
-    background-color: var(--color-accent-pressed);
-  }
+      &.button_disabled {
+        background-color: var(--color-accent-disabled);
 
-  &:disabled {
-    background-color: var(--color-accent-disabled);
-    cursor: default;
-  }
-
-  &_disabled {
-    background-color: var(--color-accent-disabled);
-
-    &:hover {
-      background-color: var(--color-accent-disabled);
+        &:hover,
+        &:focus {
+          background-color: var(--color-accent-disabled);
+        }
+      }
     }
 
-    &:focus {
-      background-color: var(--color-accent-disabled);
+    &_transparent {
+      padding: 15px 31px;
+      color: var(--color-accent-base);
+      background-color: rgba(0,0,0,0);
+      border: 1px solid var(--color-accent-base);
+
+      &:hover {
+        color: var(--color-accent-hover);
+        border-color: var(--color-accent-hover);
+      }
+      &:focus {
+        color: var(--color-accent-pressed);
+        border-color: var(--color-accent-pressed);
+      }
+      &:disabled {
+        color: var(--color-accent-disabled);
+        border-color: var(--color-accent-disabled);
+        cursor: default;
+      }
     }
-  }
-}
-
-.button__transparent {
-  color: var(--color-accent-base);
-  background-color: rgba(0,0,0,0);
-  border: 1px solid var(--color-accent-base);
-
-  &:hover {
-    color: var(--color-accent-hover);
-    border-color: var(--color-accent-hover);
-  }
-
-  &:focus {
-    color: var(--color-accent-pressed);
-    border-color: var(--color-accent-pressed);
   }
 }

@@ -6,6 +6,7 @@
   background: var(--color-background-additional);
   box-shadow: 4px 4px 17px rgba(23, 23, 23, 0.12);
   border-radius: 30px;
+  overflow-wrap: break-word;
   position: absolute;
   right: 148px;
   top: 88px;
@@ -56,16 +57,12 @@
   margin-bottom: 16px;
 }
 
-.profile-popup__link:last-of-type {
-  margin-bottom: 20px;
-}
-
 .profile-popup__button {
   padding: 12px 26px;
   font-size: 16px;
   line-height: 20px;
   font-weight: 600;
-  font-family: 'Montserrat Alternates', 'Inter', Arial, sans-serif;
+  font-family: var(--font-family-title);
   color: var(--color-text-light);
   text-decoration: none;
   text-align: center;

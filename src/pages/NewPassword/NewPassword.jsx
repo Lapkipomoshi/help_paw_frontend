@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import './NewPassword.css';
 import { useNavigate, useParams } from 'react-router-dom';
+import './NewPassword.css';
 import UserForm from '../../components/UserForm/UserForm';
+import MainContainer from '../../components/MainContainer/MainContainer';
+import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
 import Button from '../../ui/Button/Button';
 import PasswordInput from '../../ui/PasswordInput/PasswordInput';
-import MainContainer from '../../components/MainContainer/MainContainer';
 import { NUMBER, PASSWORD_REGEX } from '../../utils/regex';
 import {
   PASSWORD_INVALID, PASSWORD_NOT_FOUND, PASSWORD_ONLY_NUMBERS, PASSWORD_TOO_LONG, PASSWORD_TOO_SHORT,
 } from '../../utils/errorMessage';
-import * as auth from '../../utils/auth';
-import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
+import * as auth from '../../components/App/api/auth';
 import imageSuccess from '../../images/icons/ic_success.svg';
 import imageError from '../../images/icons/ic_error.svg';
 
@@ -51,13 +51,6 @@ const NewPassword = () => {
     }
   };
 
-  useEffect(() => {
-    if (isValidPassword) {
-      return setDisabled(false);
-    }
-    return setDisabled(true);
-  }, [isValidPassword]);
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
     auth.resetPasswordConfirm({
@@ -83,6 +76,13 @@ const NewPassword = () => {
         }, 2000);
       });
   };
+
+  useEffect(() => {
+    if (isValidPassword) {
+      return setDisabled(false);
+    }
+    return setDisabled(true);
+  }, [isValidPassword]);
 
   return (
     <MainContainer theme='base'>

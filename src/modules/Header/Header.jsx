@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import './Header.scss';
 import Paw from './svg/Paw';
-// eslint-disable-next-line import/no-named-as-default,import/no-named-as-default-member
 import ProfilePopup from '../../components/ProfilePopup/ProfilePopup';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
-const Header = ({ loggedIn }) => {
+const Header = () => {
+  const { username } = useContext(CurrentUserContext);
   const [profilePopupOpen, setProfilePopupOpen] = useState(false);
 
-  function openProfilePopup() {
+  const openProfilePopup = () => {
     setProfilePopupOpen(true);
-  }
+  };
 
-  function closeProfilePopup() {
+  const closeProfilePopup = () => {
     setProfilePopupOpen(false);
-  }
+  };
 
   return (
     <MainContainer theme='additional'>
@@ -50,14 +51,11 @@ const Header = ({ loggedIn }) => {
           </NavLink>
         </nav>
         <nav className='menu'>
-          {/* eslint-disable-next-line react/jsx-no-bind */}
-          <NavLink className={`menu__sign menu__sign_in ${loggedIn ? 'display_none' : ''}`} to='/sign-in'>Вход</NavLink>
-          <NavLink className={`menu__sign menu__sign_up ${loggedIn ? 'display_none' : ''}`} to='/sign-up'>Регистрация</NavLink>
-          {/* eslint-disable-next-line react/jsx-no-bind */}
-          <button className={`menu__profile ${loggedIn ? '' : 'display_none'}`} type='button' onClick={openProfilePopup} />
+          <NavLink className={`menu__sign menu__sign_in ${username ? 'display_none' : ''}`} to='/sign-in'>Вход</NavLink>
+          <NavLink className={`menu__sign menu__sign_up ${username ? 'display_none' : ''}`} to='/sign-up'>Регистрация</NavLink>
+          <button className={`menu__profile ${username ? '' : 'display_none'}`} type='button' onClick={openProfilePopup} />
         </nav>
 
-        {/* eslint-disable-next-line react/jsx-no-bind */}
         <ProfilePopup isOpen={profilePopupOpen} closeProfilePopup={closeProfilePopup} />
       </header>
     </MainContainer>
