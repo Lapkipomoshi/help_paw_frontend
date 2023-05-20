@@ -20,6 +20,7 @@
 
 .user-form__container_profile {
   width: 574px;
+  min-height: 345px;
   padding: 40px 32px;
   margin-top: 44px;
 }
