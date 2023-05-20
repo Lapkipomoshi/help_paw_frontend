@@ -5,7 +5,7 @@ import dataIcon from '../../images/icons/ic_data.svg';
 import selfIcon from '../../images/icons/ic_self.svg';
 
 const NewBigCard = ({
-  id, header, data, shelter, description, mainPhoto,
+  id, header, publicationDate, shelter, description, mainPhoto,
 }) => {
   return (
     <Link className='new-big-card' to={`/news/${id}`}>
@@ -14,11 +14,11 @@ const NewBigCard = ({
         <div className='new-big-card__row'>
           <div className='new-big-card__info-block'>
             <img className='new-big-card__icon' src={dataIcon} alt='дата' />
-            <p className='new-big-card__info'>{data}</p>
+            <p className='new-big-card__info'>{publicationDate}</p>
           </div>
           <div className='new-big-card__info-block'>
             <img className='new-big-card__icon' src={selfIcon} alt='приют' />
-            <p className='new-big-card__info'>{shelter}</p>
+            <p className='new-big-card__info'>{shelter.name}</p>
           </div>
         </div>
         <h3 className='new-big-card__header'>{header}</h3>

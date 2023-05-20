@@ -25,7 +25,7 @@ const NewsSection = ({ shelterId }) => {
           <NewBigCard
             id={newsList[0].id}
             header={newsList[0].header}
-            data={newsList[0].pub_date}
+            publicationDate={newsList[0].pub_date}
             shelter={newsList[0].shelter}
             description={newsList[0].description}
             mainPhoto={newsList[0].profile_image}
@@ -40,7 +40,7 @@ const NewsSection = ({ shelterId }) => {
                 <NewCard
                   id={card.id}
                   header={card.header}
-                  data={card.pub_date}
+                  publicationDate={card.pub_date}
                   shelter={card.shelter}
                   image={card.profile_image}
                 />
