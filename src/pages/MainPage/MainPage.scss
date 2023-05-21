@@ -1,8 +1,8 @@
 .section {
   display: flex;
   position: relative;
-  width: 100%;
-  padding: 64px 132px;
+  width: 320px;
+  padding: 36px 16px 40px;
   flex-direction: column;
   box-sizing: border-box;
 }
@@ -15,4 +15,18 @@
   line-height: 49px;
   font-weight: 600;
   font-family: var(--font-family-title);
+}
+
+@media (min-width: 768px) {
+  .section {
+    width: 768px;
+    padding: 80px 44px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .section {
+    width: 1440px;
+    padding: 64px 132px;
+  }
 }

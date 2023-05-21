@@ -1,3 +1,15 @@
 .banner {
-  padding: 85px 132px 163px;
+  padding-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .banner {
+    padding: 40px 344px 80px 44px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .banner {
+    padding: 85px 758px 163px 132px;
+  }
 }
