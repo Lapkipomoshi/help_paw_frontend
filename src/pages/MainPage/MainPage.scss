@@ -1,3 +1,12 @@
+.section {
+  display: flex;
+  position: relative;
+  width: 100%;
+  padding: 64px 132px;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
 .section-title {
   margin: 64px auto 44px 0;
   padding: 0;

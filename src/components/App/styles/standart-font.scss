@@ -1,0 +1,41 @@
+@mixin font-size-style($font-size, $line-height, $font-weight) {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}
+
+.standart-font {
+  margin: 0;
+  padding: 0;
+
+  &_type {
+    &_h1 {
+      @include font-size-style(60px, 73px, 600);
+      font-family: var(--font-family-title);
+    }
+    &_h2 {
+      @include font-size-style(40px, 49px, 600);
+      font-family: var(--font-family-title);
+    }
+    &_h3 {
+      @include font-size-style(24px, 29px, 500);
+      font-family: var(--font-family-title);
+    }
+    &_h4 {
+      @include font-size-style(20px, 24px, 500);
+      font-family: var(--font-family-base);
+    }
+    &_body {
+      @include font-size-style(18px, 28px, 400);
+      font-family: var(--font-family-base);
+    }
+    &_small {
+      @include font-size-style(16px, 19px, 400);
+      font-family: var(--font-family-base);
+    }
+    &_smallest {
+      @include font-size-style(14px, 17px, 400);
+      font-family: var(--font-family-base);
+    }
+  }
+}

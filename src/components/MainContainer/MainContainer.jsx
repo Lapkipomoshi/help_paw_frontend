@@ -1,5 +1,5 @@
 import React from 'react';
-import './MainContainer.css';
+import './MainContainer.scss';
 
 const MainContainer = ({ theme = 'base', children }) => {
   return (

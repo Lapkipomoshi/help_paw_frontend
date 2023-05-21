@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &_theme {
+    &_base {
+      background-color: var(--color-background-base);
+    }
+    &_additional {
+      background-color: var(--color-background-additional);
+    }
+  }
+}
+
+.container__content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin: 0 auto;
+}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {
   Navigate, Route, Routes, useNavigate,
 } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 import ProtectedRoute from '../ProtectedRoute';
 import Header from '../../modules/Header/Header';
 import Footer from '../../modules/Footer/Footer';
