@@ -1,8 +1,8 @@
 .paper-card__image {
   width: 100%;
-  min-width: 376px;
+  max-width: 376px;
   height: 252px;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   border-radius: 30px;
 }
