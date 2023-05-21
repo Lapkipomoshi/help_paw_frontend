@@ -1,10 +1,20 @@
 .banner {
-  padding-top: 20px;
+  padding:
+    calc(20px + (100vw - 320px) * .045)
+    calc(16px + (100vw - 320px) * .732)
+    calc(40px + (100vw - 320px) * .089)
+    calc(16px + (100vw - 320px) * .063)
+  ;
 }
 
 @media (min-width: 768px) {
   .banner {
-    padding: 40px 344px 80px 44px;
+    padding:
+      calc(40px + (100vw - 768px) * .067)
+      calc(344px + (100vw - 768px) * .616)
+      calc(80px + (100vw - 768px) * .124)
+      calc(44px + (100vw - 768px) * .131)
+    ;
   }
 }
 

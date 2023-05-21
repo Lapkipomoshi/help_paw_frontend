@@ -1,7 +1,18 @@
 .banner__title {
-  width: 550px;
   margin-block-start: 0;
   margin-block-end: 0;
-  margin-bottom: 32px;
+  margin-bottom: calc(20px + (100vw - 320px) * .018);
   z-index: 1;
+}
+
+@media (min-width: 1440px) {
+  .banner__title {
+    margin-bottom: calc(28px + (100vw - 768px) * .006);
+  }
+}
+
+@media (min-width: 1440px) {
+  .banner__title {
+    margin-bottom: 32px;
+  }
 }

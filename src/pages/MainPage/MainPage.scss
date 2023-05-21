@@ -1,8 +1,8 @@
 .section {
   display: flex;
   position: relative;
-  width: 320px;
-  padding: 36px 16px 40px;
+  margin: 0 auto;
+  padding: 36px calc(16px + (100vw - 320px) * .063) 40px;
   flex-direction: column;
   box-sizing: border-box;
 }
@@ -19,7 +19,6 @@
 
 @media (min-width: 768px) {
   .section {
-    width: 768px;
     padding: 80px 44px;
   }
 }

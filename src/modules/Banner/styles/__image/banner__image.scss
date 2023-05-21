@@ -1,8 +1,26 @@
 .banner__image {
-  position: absolute;
-  top: 41px;
-  right: 26px;
-  width: 712px;
-  height: 544px;
+  width: 286px;
+  height: 231px;
+  margin-bottom: 44px;
   object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .banner__image {
+    position: absolute;
+    top: calc(5px + (100vw - 768px) * .054);
+    right: calc(12px + (100vw - 768px) * .021);
+    margin-bottom: 0;
+    width: calc(356px + (100vw - 768px) * .53);
+    height: calc(378px + (100vw - 768px) * .247);
+  }
+}
+
+@media (min-width: 1440px) {
+  .banner__image {
+    top: 41px;
+    right: 26px;
+    width: 712px;
+    height: 544px;
+  }
 }

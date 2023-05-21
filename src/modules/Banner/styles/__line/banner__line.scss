@@ -1,8 +1,25 @@
 .banner__line {
-  width: 388px;
-  height: 22px;
-  background-color: #F9DE80;
+  display: none;
   position: absolute;
-  top: calc(80px + 194px);
+  top: calc((20px + (100vw - 768px) * .045) + 87px);
+  width: 181px;
+  height: 12px;
+  background-color: #F9DE80;
   border-radius: 30px;
+}
+
+@media (min-width: 768px) {
+  .banner__line {
+    display: none;
+    top: calc((40px + (100vw - 768px) * .067) + 126px);
+  }
+}
+
+@media (min-width: 1440px) {
+  .banner__line {
+    display: block;
+    top: calc(85px + 189px);
+    width: 388px;
+    height: 22px;
+  }
 }
