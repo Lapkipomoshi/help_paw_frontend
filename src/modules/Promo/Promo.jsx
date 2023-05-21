@@ -18,7 +18,7 @@ const Promo = () => {
 
   return (
     <MainContainer theme='additional'>
-      <section className='promo'>
+      <section className='promo' id='about'>
         <div className='promo__photo-container' ref={ref}>
           <img
             className={

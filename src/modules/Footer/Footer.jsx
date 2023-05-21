@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
+import { HashLink } from 'react-router-hash-link';
 import classmatesIcon from '../../images/icons/footer__icon_classmates.svg';
 import vkIcon from '../../images/icons/footer__icon_vk.svg';
 import telegramIcon from '../../images/icons/footer__icon_telegram.svg';
@@ -18,8 +19,8 @@ const Footer = () => {
           <Link className='footer__link' to='/shelters'>Карта приютов</Link>
           <Link className='footer__link' to='/news'>Новости</Link>
           <Link className='footer__link' to='/papers'>Полезные статьи</Link>
-          <Link className='footer__link' to='/'>О компании</Link>
-          <Link className='footer__link' to='/'>FAQ</Link>
+          <HashLink className='footer__link' to='/#about'>О компании</HashLink>
+          <HashLink className='footer__link' to='/#faq'>FAQ</HashLink>
         </div>
         <div className='footer__icons'>
           <Link className='footer__icon-link' to='/'>
