@@ -1,5 +1,5 @@
 // регулярные выражения для валидации инпутов
-export const NAME_REGEX = /^[A-Za-zа-яА-ЯёЁ\d-\s]+$/;
+export const NAME_REGEX = /^[A-Za-zа-яА-ЯёЁ\-_\s]+$/;
 export const EMAIL_REGEX = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/i;
 export const PASSWORD_REGEX = /^[a-zA-Z0-9[\]!@#$%^&amp;*()_+=}{<>:'"?/\\|.,~-]+$/;
 export const NUMBER = /^\d+$/;

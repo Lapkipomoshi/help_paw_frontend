@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './MainPage.css';
+import './MainPage.scss';
 import Banner from '../../modules/Banner/Banner';
 import Promo from '../../modules/Promo/Promo';
 import SheltersOnMain from '../../modules/SheltersOnMain/SheltersOnMain';

@@ -1,7 +1,7 @@
 .shelters-on-main {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 1440px;
   padding: 0 132px 64px;
   background-color: var(--color-background-base);
   box-sizing: border-box;
