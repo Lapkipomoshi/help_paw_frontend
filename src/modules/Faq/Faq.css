@@ -1,7 +1,8 @@
 .faq {
   display: flex;
-  flex-direction: column;
+  width: 1440px;
   padding: 0 262px 80px 126px;
+  flex-direction: column;
   background-color: var(--color-background-base);
   box-sizing: border-box;
 }

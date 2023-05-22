@@ -1,7 +1,8 @@
 .papers {
+  width: 1440px;
   padding: 0 132px 80px;
   background-color: var(--color-background-base);
   box-sizing: border-box;
-  font-family: 'Montserrat Alternates', 'Inter', Arial, sans-serif;
+  font-family: var(--font-family-title);
   align-items: center;
 }

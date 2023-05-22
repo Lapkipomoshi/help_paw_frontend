@@ -1,0 +1,31 @@
+.section {
+  display: flex;
+  position: relative;
+  margin: 0 auto;
+  padding: 36px calc(16px + (100vw - 320px) * .063) 40px;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.section-title {
+  margin: 64px auto 44px 0;
+  padding: 0;
+  width: 100%;
+  font-size: 40px;
+  line-height: 49px;
+  font-weight: 600;
+  font-family: var(--font-family-title);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 80px 44px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .section {
+    width: 1440px;
+    padding: 64px 132px;
+  }
+}
