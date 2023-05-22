@@ -5,7 +5,7 @@
   z-index: 1;
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 768px) {
   .banner__title {
     margin-bottom: calc(28px + (100vw - 768px) * .006);
   }
