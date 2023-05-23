@@ -6,7 +6,7 @@ import Button from '../../ui/Button/Button';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import ProfileContainer from '../../components/ProfileContainer/ProfileContainer';
 import Paw from '../../images/icons/ic_paw.svg';
-import * as auth from '../../components/App/api/auth';
+import * as auth from '../App/api/auth';
 
 const ActivateUserPage = () => {
   const { uid, token } = useParams();

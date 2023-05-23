@@ -10,7 +10,7 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
 import { EMAIL_INVALID, EMAIL_NOT_FOUND } from '../../utils/errorMessage';
 import { EMAIL_REGEX } from '../../utils/regex';
-import * as auth from '../../components/App/api/auth';
+import * as auth from '../App/api/auth';
 import imageSuccess from '../../images/icons/ic_success.svg';
 import imageError from '../../images/icons/ic_error.svg';
 
