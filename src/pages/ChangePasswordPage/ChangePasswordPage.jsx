@@ -7,7 +7,7 @@ import Button from '../../ui/Button/Button';
 import UserForm from '../../components/UserForm/UserForm';
 import UserLink from '../../ui/UserLink/UserLink';
 import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
-import * as auth from '../../components/App/api/auth';
+import * as auth from '../App/api/auth';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import imageSuccess from '../../images/icons/ic_success.svg';
 import imageError from '../../images/icons/ic_error.svg';
