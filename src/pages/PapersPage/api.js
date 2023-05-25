@@ -7,13 +7,13 @@ class PapersApi extends BaseApi {
     this._headers = _headers;
   }
 
-  getPapers(amount) { // загрузка указанного количества статей
-    return fetch(`${this._baseUrl}/v1/help-articles/?limit=${amount}`, {
+  getPapers(amount, offset = 0) {
+    // загрузка указанного количества статей
+    return fetch(`${this._baseUrl}/v1/help-articles/?limit=${amount}&offset=${offset}`, {
       headers: this._headers,
-    })
-      .then((res) => {
-        return super._processTheResponse(res);
-      });
+    }).then((res) => {
+      return super._processTheResponse(res);
+    });
   }
 }
 
