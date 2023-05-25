@@ -1,14 +1,29 @@
 .papers__grid-element {
-  min-width: 400px;
-  min-height: 416px;
+  min-width: 288px;
+  min-height: 192px;
   margin: 0;
-  padding: 8px 8px 24px;
-  transition: border-color .5s;
+  transition: border-color 0.5s;
   border-radius: 35px;
-  border: 2px solid var(--color-background-base);
   box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .papers__grid-element {
+    min-width: 205px;
+    min-height: 263px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .papers__grid-element {
+    min-width: 400px;
+    min-height: 416px;
+    padding: 8px 8px 24px;
+    border: 2px solid var(--color-background-base);
+  }
 }
 
 .papers__grid-element:hover {
   border-color: var(--color-accent-base);
 }
+
