@@ -63,18 +63,3 @@
   }
 }
 
-@media (max-width: 768px) {
-  .button--mobile-hidden {
-    display: none;
-  }
-}
-
-@media (max-width: 500px) {
-  .button--full-width {
-    width: 100%;
-    padding: 13px 0;
-    font-size: 14px;
-    line-height: 18px;
-  }
-}
-

@@ -7,3 +7,17 @@
   border-radius: 30px;
 }
 
+@media (min-width: 768px) {
+  .paper-card__image {
+    min-width: 211px;
+    height: 141px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .paper-card__image {
+    max-width: 376px;
+    height: 252px;
+  }
+}
+

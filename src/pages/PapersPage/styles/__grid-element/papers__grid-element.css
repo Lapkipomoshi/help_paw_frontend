@@ -19,7 +19,7 @@
     min-width: 400px;
     min-height: 416px;
     padding: 8px 8px 24px;
-    border: 2px solid var(--color-background-base);
+    border: 2px solid rgba(0,0,0,0);
   }
 }
 

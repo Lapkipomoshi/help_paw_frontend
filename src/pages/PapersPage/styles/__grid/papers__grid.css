@@ -10,17 +10,15 @@
 
 @media (min-width: 768px) {
   .papers__grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px 27.5px;
     margin: 0 auto 40px;
+    gap: 20px 27.5px;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (min-width: 1440px) {
   .papers__grid {
-    gap: 36px 24px;
     margin: 0 auto 60px;
-    padding: 0;
     gap: 36px 24px;
   }
 }
