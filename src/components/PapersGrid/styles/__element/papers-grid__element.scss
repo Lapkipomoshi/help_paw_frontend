@@ -1,4 +1,4 @@
-.papers__grid-element {
+.papers-grid__element {
   min-width: 288px;
   min-height: 192px;
   margin: 0;
@@ -8,22 +8,21 @@
 }
 
 @media (min-width: 768px) {
-  .papers__grid-element {
+  .papers-grid__element {
     min-width: 205px;
     min-height: 263px;
   }
 }
 
 @media (min-width: 1440px) {
-  .papers__grid-element {
+  .papers-grid__element {
     min-width: 400px;
     min-height: 416px;
     padding: 8px 8px 24px;
-    border: 2px solid rgba(0,0,0,0);
+    border: 2px solid rgba(0, 0, 0, 0);
   }
 }
 
-.papers__grid-element:hover {
+.papers-grid__element:hover {
   border-color: var(--color-accent-base);
 }
-

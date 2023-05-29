@@ -1,4 +1,4 @@
-.papers__grid {
+.papers-grid {
   display: grid;
   width: 100%;
   margin: 0 auto 32px;
@@ -9,17 +9,16 @@
 }
 
 @media (min-width: 768px) {
-  .papers__grid {
-    margin: 0 auto 40px;
+  .papers-grid {
+    margin-bottom: 40px;
     gap: 20px 27.5px;
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (min-width: 1440px) {
-  .papers__grid {
-    margin: 0 auto 60px;
+  .papers-grid {
+    margin-bottom: 60px;
     gap: 36px 24px;
   }
 }
-

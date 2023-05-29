@@ -3,7 +3,6 @@
   padding: 0 16px 32px;
   background-color: var(--color-background-base);
   box-sizing: border-box;
-  font-family: var(--font-family-title);
   align-items: center;
 }
 
@@ -18,4 +17,3 @@
     padding: 0 132px 80px;
   }
 }
-

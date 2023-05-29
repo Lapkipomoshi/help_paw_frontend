@@ -1,16 +1,18 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import './PapersPage.scss';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import PaperCard from '../../components/PaperCard/PaperCard';
 import Button from '../../ui/Button/Button';
 import papersApi from './api';
-
-const PapersAmountByBreakpoint = { mobile: 2, tablet: 4, desktop: 8 };
+import PapersContent from '../../components/PapersContent/PapersContent';
 
 const PapersPage = () => {
   const [papersList, setPapersList] = useState([]); // список отображаемых карточек со статьями
   const [hasMorePapers, setHasMorePapers] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
+  const papersAmountByBreakpoint = { mobile: 2, tablet: 4, desktop: 8 };
 
   const isMobile = useMediaQuery({
     maxWidth: 767,
@@ -21,22 +23,24 @@ const PapersPage = () => {
     minWidth: 768,
   });
 
-  const isDesktop = useMediaQuery({
-    minWidth: 1440,
-  });
-
-  const papersAmount = useMemo(() => {
-    switch (true) {
-    case isMobile:
-      return PapersAmountByBreakpoint.mobile;
-    case isTablet:
-      return PapersAmountByBreakpoint.tablet;
-    default:
-      return PapersAmountByBreakpoint.desktop;
+  const getPapersAmount = () => {
+    if (isMobile) {
+      return papersAmountByBreakpoint.mobile;
     }
-  }, [isMobile, isTablet, isDesktop]);
+    if (isTablet) {
+      return papersAmountByBreakpoint.tablet;
+    }
+    return papersAmountByBreakpoint.desktop;
+  };
+
+  const papersAmount = getPapersAmount();
 
   const fetchPapers = () => {
+    if (isLoading) return;
+
+    setIsLoading(true);
+    setIsError(false);
+
     papersApi
       .getPapers(papersAmount, papersList.length)
       .then((res) => {
@@ -45,6 +49,9 @@ const PapersPage = () => {
       })
       .catch((err) => {
         throw new Error(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -61,32 +68,13 @@ const PapersPage = () => {
       <main className='main papers'>
         <div className='papers__head-block'>
           <h1 className='papers__title standart-font_type_h2'>Полезные статьи</h1>
-          <Button className='margin-left_auto papers__offer-button' to='/shelters' link>
+          <Button className='papers__offer-button' to='/shelters' link>
             Хочу помогать
           </Button>
         </div>
-        <ul className='papers__grid'>
-          {papersList && papersList.length !== 0 ? (
-            papersList.map((card) => {
-              return (
-                <li className='papers__grid-element' key={card.id}>
-                  <PaperCard
-                    id={card.id}
-                    photo={card.profile_image}
-                    title={card.header}
-                  />
-                </li>
-              );
-            })
-          ) : (
-            <p>Не удалось загрузить статьи</p>
-          )}
-        </ul>
+        <PapersContent isLoading={isLoading} isError={isError} papersList={papersList} />
         {hasMorePapers && (
-          <Button
-            className='papers__load-more-button'
-            onClick={handleClick}
-          >
+          <Button className='papers__load-more-button' onClick={handleClick}>
             Больше статей
           </Button>
         )}
