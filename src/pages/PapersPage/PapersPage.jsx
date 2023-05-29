@@ -6,13 +6,14 @@ import Button from '../../ui/Button/Button';
 import papersApi from './api';
 import PapersContent from '../../components/PapersContent/PapersContent';
 
+const initialPapersAmountByBreakpoint = { mobile: 3, tablet: 6, desktop: 9 };
+const papersAmount = 3;
+
 const PapersPage = () => {
   const [papersList, setPapersList] = useState([]); // список отображаемых карточек со статьями
   const [hasMorePapers, setHasMorePapers] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-
-  const papersAmountByBreakpoint = { mobile: 2, tablet: 4, desktop: 8 };
 
   const isMobile = useMediaQuery({
     maxWidth: 767,
@@ -25,15 +26,15 @@ const PapersPage = () => {
 
   const getPapersAmount = () => {
     if (isMobile) {
-      return papersAmountByBreakpoint.mobile;
+      return initialPapersAmountByBreakpoint.mobile;
     }
     if (isTablet) {
-      return papersAmountByBreakpoint.tablet;
+      return initialPapersAmountByBreakpoint.tablet;
     }
-    return papersAmountByBreakpoint.desktop;
+    return initialPapersAmountByBreakpoint.desktop;
   };
 
-  const papersAmount = getPapersAmount();
+  const initialPapersAmount = getPapersAmount();
 
   const fetchPapers = () => {
     if (isLoading) return;
@@ -41,13 +42,16 @@ const PapersPage = () => {
     setIsLoading(true);
     setIsError(false);
 
+    const amount = papersList.length === 0 ? initialPapersAmount : papersAmount;
+
     papersApi
-      .getPapers(papersAmount, papersList.length)
+      .getPapers(amount, papersList.length)
       .then((res) => {
         setPapersList([...papersList, ...res.results]);
         setHasMorePapers(Boolean(res.next));
       })
       .catch((err) => {
+        setIsError(true);
         throw new Error(err);
       })
       .finally(() => {
