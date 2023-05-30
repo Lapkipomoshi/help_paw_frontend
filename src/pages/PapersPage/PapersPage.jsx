@@ -3,8 +3,8 @@ import { useMediaQuery } from 'react-responsive';
 import './PapersPage.scss';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import Button from '../../ui/Button/Button';
-import papersApi from './api';
 import PapersContent from '../../components/PapersContent/PapersContent';
+import papersApi from './api';
 
 const initialPapersAmountByBreakpoint = { mobile: 3, tablet: 6, desktop: 9 };
 const papersAmount = 3;
@@ -71,7 +71,7 @@ const PapersPage = () => {
     <MainContainer>
       <main className='main papers'>
         <div className='papers__head-block'>
-          <h1 className='papers__title standart-font_type_h2'>Полезные статьи</h1>
+          <h2 className='papers__title standart-font_type_h2'>Полезные статьи</h2>
           <Button className='papers__offer-button' to='/shelters' link>
             Хочу помогать
           </Button>
