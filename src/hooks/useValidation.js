@@ -11,23 +11,26 @@ const useValidation = (value, validations, errorValidateMessage) => {
   const [regexError, setRegexError] = useState(false);
 
   useEffect(() => {
-    if (!validations.notEmpty && !value) { setErrorText(''); return; }
+    if (!validations.notEmpty && !value) {
+      setErrorText('');
+      return;
+    }
     for (const validation in validations) {
       switch (validation) {
-      case 'notEmpty':
-        value ? setEmptyError(false) : setEmptyError(true);
-        break;
-      case 'minLength':
-        value.length < validations[validation] ? setMinLengthError(true) : setMinLengthError(false);
-        break;
-      case 'maxLength':
-        value.length > validations[validation] ? setMaxLengthError(true) : setMaxLengthError(false);
-        break;
-      case 'regex':
-        validations[validation].test(value) ? setRegexError(false) : setRegexError(true);
-        break;
-      default:
-        break;
+        case 'notEmpty':
+          value ? setEmptyError(false) : setEmptyError(true);
+          break;
+        case 'minLength':
+          value.length < validations[validation] ? setMinLengthError(true) : setMinLengthError(false);
+          break;
+        case 'maxLength':
+          value.length > validations[validation] ? setMaxLengthError(true) : setMaxLengthError(false);
+          break;
+        case 'regex':
+          validations[validation].test(value) ? setRegexError(false) : setRegexError(true);
+          break;
+        default:
+          break;
       }
     }
   }, [value]);

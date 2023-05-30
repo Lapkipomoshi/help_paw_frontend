@@ -24,7 +24,7 @@
     "quotes": ["error", "single", { "avoidEscape": true }],
     "jsx-quotes": ["error", "prefer-single"],
     "semi": ["error", "always"],
-    "indent": ["error", 2],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
     "space-before-blocks": "error",
     "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }],
     "arrow-parens": ["error", "always"],

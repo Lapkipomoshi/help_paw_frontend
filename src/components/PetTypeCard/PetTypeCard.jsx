@@ -12,25 +12,25 @@ const PetTypeCard = ({ type }) => {
 
   useEffect(() => {
     switch (type.toLowerCase()) {
-    case 'cat':
-      setAnimalTypeImage(CatType);
-      setTypeOnRussian('Кошки');
-      break;
-    case 'dog':
-      setAnimalTypeImage(DogType);
-      setTypeOnRussian('Собаки');
-      break;
-    case 'parrot':
-      setAnimalTypeImage(ParrotType);
-      setTypeOnRussian('Попугаи');
-      break;
-    case 'hamster':
-      setAnimalTypeImage(HamsterType);
-      setTypeOnRussian('Хомяки');
-      break;
-    default:
-      setAnimalTypeImage(CatType);
-      setTypeOnRussian(type);
+      case 'cat':
+        setAnimalTypeImage(CatType);
+        setTypeOnRussian('Кошки');
+        break;
+      case 'dog':
+        setAnimalTypeImage(DogType);
+        setTypeOnRussian('Собаки');
+        break;
+      case 'parrot':
+        setAnimalTypeImage(ParrotType);
+        setTypeOnRussian('Попугаи');
+        break;
+      case 'hamster':
+        setAnimalTypeImage(HamsterType);
+        setTypeOnRussian('Хомяки');
+        break;
+      default:
+        setAnimalTypeImage(CatType);
+        setTypeOnRussian(type);
     }
   }, []);
 
