@@ -65,6 +65,14 @@
       );
       font-family: var(--font-family-base);
     }
+    &_password {
+      @include font-size-style(
+          calc(14px + (100vw - 320px) * .009),
+          calc(20px + (100vw - 320px) * .004),
+          400
+      );
+      font-family: var(--font-family-password);
+    }
   }
 }
 
@@ -100,6 +108,9 @@
       &_smallest {
         @include font-size-style(14px, 17px, 400);
       }
+      &_password {
+        @include font-size-style(18px, calc(22px + (100vw - 768px) * .009), 500);
+      }
     }
   }
 }
@@ -114,6 +125,9 @@
         @include font-size-style(40px, 49px, 600);
       }
       &_body {
+        line-height: 28px;
+      }
+      &_password {
         line-height: 28px;
       }
     }
