@@ -1,0 +1,11 @@
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &_items_links {
+    @media (min-width: 1200px) {
+      column-gap: 40px;
+    }
+  }
+}

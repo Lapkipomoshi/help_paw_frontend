@@ -1,0 +1,27 @@
+.menu__link {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--color-text-base);
+  transition: color 0.5s;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--color-accent-base);
+  }
+
+  &:focus {
+    color: var(--color-accent-pressed);
+  }
+
+  &_active {
+    color: var(--color-accent-base);
+
+    &:hover {
+      color: var(--color-accent-base);
+    }
+  }
+}

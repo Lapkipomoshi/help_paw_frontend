@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Navigate, Route, Routes, useNavigate,
-} from 'react-router-dom';
-import './App.scss';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 import ProtectedRoute from '../../components/ProtectedRoute';
 import Header from '../../modules/Header/Header';
 import Footer from '../../modules/Footer/Footer';
@@ -36,6 +33,7 @@ import EditProfilePage from '../EditProfilePage/EditProfilePage';
 import SignOutPage from '../SignOutPage/SignOutPage';
 import ChangePasswordPage from '../ChangePasswordPage/ChangePasswordPage';
 import ActivateUserPage from '../ActivateUserPage/ActivateUserPage';
+import './App.scss';
 
 const App = () => {
   const navigate = useNavigate();
@@ -66,7 +64,8 @@ const App = () => {
   function tokenCheck() {
     const token = localStorage.getItem('access');
     if (token) {
-      userApi.getUserInfo(token)
+      userApi
+        .getUserInfo(token)
         .then((res) => {
           setCurrentUser(res);
           setLoggedIn(true);
@@ -89,7 +88,9 @@ const App = () => {
         setMessage('Спасибо за регистрацию! Для активации аккаунта перейдите по ссылке, отправленной на вашу почту.');
         setInfoTooltipOpen(true);
         setTimeout(closeInfoTooltip, 2000);
-        setTimeout(() => { navigate('/'); }, 2000);
+        setTimeout(() => {
+          navigate('/');
+        }, 2000);
       })
       .catch((res) => {
         setInfoTooltipImage(imageError);
@@ -104,7 +105,8 @@ const App = () => {
   };
 
   const handleLogin = ({ password, email }) => {
-    auth.login({ password, email })
+    auth
+      .login({ password, email })
       .then((res) => {
         setLoggedIn(true);
         localStorage.setItem('access', res.access);
@@ -115,7 +117,9 @@ const App = () => {
         setMessage('Добро пожаловать на сайт!');
         setInfoTooltipOpen(true);
         setTimeout(closeInfoTooltip, 2000);
-        setTimeout(() => { navigate('/'); }, 2000);
+        setTimeout(() => {
+          navigate('/');
+        }, 2000);
       })
       .catch(() => {
         setInfoTooltipImage(imageError);
@@ -126,7 +130,8 @@ const App = () => {
   };
 
   const handleUpdateUser = ({ username, email }) => {
-    userApi.updateUserInfo({ username, email })
+    userApi
+      .updateUserInfo({ username, email })
       .then((res) => {
         setCurrentUser({
           username: res.username,
@@ -168,7 +173,7 @@ const App = () => {
           </Route>
           <Route
             path='/add-shelter'
-            element={(
+            element={
               <ProtectedRoute
                 loggedIn={loggedIn}
                 component={AddShelterPage}
@@ -177,7 +182,7 @@ const App = () => {
                 setPopupImage={setInfoTooltipImage}
                 setMessage={setMessage}
               />
-            )}
+            }
           />
           <Route path='/pets/:id' element={<PetPage />} />
           <Route path='/papers' element={<PapersPage />} />
@@ -197,43 +202,19 @@ const App = () => {
 
           <Route exact path='/activate/:uid/:token/' element={<ActivateUserPage />} />
 
-          <Route
-            path='/profile'
-            element={
-              <ProtectedRoute loggedIn={loggedIn} component={ProfilePage} />
-            }
-          />
+          <Route path='/profile' element={<ProtectedRoute loggedIn={loggedIn} component={ProfilePage} />} />
 
-          <Route
-            path='/profile/edit'
-            element={
-              <ProtectedRoute loggedIn={loggedIn} component={EditProfilePage} onEditProfile={handleUpdateUser} />
-            }
-          />
+          <Route path='/profile/edit' element={<ProtectedRoute loggedIn={loggedIn} component={EditProfilePage} onEditProfile={handleUpdateUser} />} />
 
-          <Route
-            path='/profile/sign-out'
-            element={
-              <ProtectedRoute loggedIn={loggedIn} component={SignOutPage} onSignOut={handleSignOut} />
-            }
-          />
+          <Route path='/profile/sign-out' element={<ProtectedRoute loggedIn={loggedIn} component={SignOutPage} onSignOut={handleSignOut} />} />
 
-          <Route
-            path='/profile/edit/password'
-            element={
-              <ProtectedRoute loggedIn={loggedIn} component={ChangePasswordPage} />
-            }
-          />
+          <Route path='/profile/edit/password' element={<ProtectedRoute loggedIn={loggedIn} component={ChangePasswordPage} />} />
 
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
         <Footer />
 
-        <InfoTooltip
-          isOpen={infoTooltipOpen}
-          image={infoTooltipImage}
-          message={message}
-        />
+        <InfoTooltip isOpen={infoTooltipOpen} image={infoTooltipImage} message={message} />
       </div>
     </CurrentUserContext.Provider>
   );
