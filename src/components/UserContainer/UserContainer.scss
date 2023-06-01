@@ -1,0 +1,68 @@
+.user-container {
+  display: flex;
+  flex-direction: row;
+  padding-left: 14px;
+  padding-top: 60px;
+  padding-bottom: 120px;
+}
+
+.user-container_register {
+  padding-right: 44px;
+}
+
+.user-container_register-confirm {
+  padding-right: 132px;
+  padding-bottom: 188px;
+}
+
+.user-container_login {
+  padding-right: 169px;
+}
+
+.user-container_recovery {
+  padding-right: 151px;
+  padding-bottom: 291px;
+}
+
+.user-container__container {
+  position: relative;
+  width: calc(284px + (100vw - 768px) * .5);
+  max-width: 622px;
+  height: calc(410px + (100vw - 768px) * .22);
+  max-height: 561px;
+  align-items: center;
+  display: none;
+}
+
+.user-container__image {
+  width: calc(284px + (100vw - 768px) * .41);
+  max-width: 561px;
+  height: auto;
+  position: absolute;
+  left: 0;
+  top: 67px;
+}
+
+@media (min-width: 768px) {
+  .user-container__container {
+    margin-right: 36px;
+    display: block;
+  }
+}
+
+@media (min-width: 1440px) {
+  .user-container {
+    padding-left: 134px;
+    padding-top: 62px;
+    padding-bottom: 147px;
+  }
+
+  .user-container_register {
+    padding-right: 132px;
+  }
+
+  .user-container__container {
+    margin-right: 79px;
+  }
+}
+

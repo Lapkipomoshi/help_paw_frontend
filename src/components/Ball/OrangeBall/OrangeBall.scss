@@ -13,6 +13,13 @@
 
 .orange-ball_user {
   position: absolute;
-  left: 198px;
-  top: 77px;
+  left: calc(52px + (100vw - 768px) * .017);
+  top: calc((100vw - 768px) * .022);
+}
+
+@media (min-width: 1440px) {
+  .orange-ball_user {
+    left: 64px;
+    top: 15px;
+  }
 }

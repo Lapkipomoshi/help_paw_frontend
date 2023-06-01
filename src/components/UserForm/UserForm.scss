@@ -1,11 +1,6 @@
-.user-form__container {
-  background-color: var(--color-background-additional);
-  border-radius: 30px;
-  padding: 36px 36px 40px;
-}
-
 .user-form__container_register {
-  width: 401px;
+  width: calc(288px + (100vw - 320px) * .1);
+  max-width: 401px;
 }
 
 .user-form__container_login {
@@ -51,12 +46,6 @@
 }
 
 .user-form__title {
-  font-family: 'Montserrat Alternates', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 40px;
-  line-height: 49px;
-  color: var(--color-text-base);
   margin: 0 0 24px;
 }
 
@@ -110,9 +99,21 @@
 
 .user-form__button-submit_login {
   margin-top: 17px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--color-accent-hover);
+  }
 }
 
-.user-form__button-submit:hover {
-  cursor: pointer;
-  background-color: var(--color-accent-hover);;
+@media (min-width: 768px) {
+  .user-form__container {
+    background-color: var(--color-background-additional);
+    border-radius: 30px;
+    padding: 36px 36px 40px;
+  }
+}
+
+@media (min-width: 1440px) {
+
 }
