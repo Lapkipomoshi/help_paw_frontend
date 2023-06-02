@@ -3,6 +3,9 @@
   align-items: center;
   justify-content: center;
 
+  &_hidden {
+    display: none;
+  }
   &_items_links {
     @media (min-width: 1200px) {
       column-gap: 40px;

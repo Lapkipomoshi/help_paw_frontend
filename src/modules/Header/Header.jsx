@@ -1,10 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import './Header.scss';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import BurgerMenu from '../../components/BurgerMenu/BurgerMenu';
 import ProfilePopup from '../../components/ProfilePopup/ProfilePopup';
-import './Header.scss';
+import MenuLink from '../../components/MenuLink/MenuLink';
 import Paw from './svg/Paw';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 
@@ -24,7 +25,7 @@ const Header = () => {
     minWidth: 1200,
   });
 
-  const isElementHidden = isScreenWide ? '' : 'display_none';
+  const isElementHidden = isScreenWide ? '' : 'menu_hidden';
 
   return (
     <MainContainer theme='additional'>
@@ -40,31 +41,9 @@ const Header = () => {
         )}
 
         <nav className={`menu menu_items_links ${isElementHidden}`}>
-          <NavLink
-            className={({ isActive }) => {
-              return `menu__link ${isActive ? 'menu__link_active' : ''}`;
-            }}
-            to='/papers'
-          >
-            Полезные статьи
-          </NavLink>
-          <NavLink
-            className={({ isActive }) => {
-              return `menu__link ${isActive ? 'menu__link_active' : ''}`;
-            }}
-            to='/shelters'
-          >
-            Карта приютов
-          </NavLink>
-
-          <NavLink
-            className={({ isActive }) => {
-              return `menu__link ${isActive ? 'menu__link_active' : ''}`;
-            }}
-            to='/news'
-          >
-            Новости
-          </NavLink>
+          <MenuLink url='/papers'>Полезные статьи</MenuLink>
+          <MenuLink url='/shelters'>Карта приютов</MenuLink>
+          <MenuLink url='/news'>Новости</MenuLink>
         </nav>
         <nav className='menu'>
           {!username && (

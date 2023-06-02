@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
+import './App.scss';
 import ProtectedRoute from '../../components/ProtectedRoute';
 import Header from '../../modules/Header/Header';
 import Footer from '../../modules/Footer/Footer';
@@ -33,7 +34,6 @@ import EditProfilePage from '../EditProfilePage/EditProfilePage';
 import SignOutPage from '../SignOutPage/SignOutPage';
 import ChangePasswordPage from '../ChangePasswordPage/ChangePasswordPage';
 import ActivateUserPage from '../ActivateUserPage/ActivateUserPage';
-import './App.scss';
 
 const App = () => {
   const navigate = useNavigate();

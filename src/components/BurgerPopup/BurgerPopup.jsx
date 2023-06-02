@@ -1,50 +1,25 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import '../../modules/Header/Header.scss';
 import './BurgerPopup.scss';
+import MenuLink from '../MenuLink/MenuLink';
 
 const BurgerPopup = ({ onNavLinkClick }) => {
   return (
     <div className='burger-popup__container' role='presentation'>
-      <NavLink
-        onClick={onNavLinkClick}
-        className={({ isActive }) => {
-          return `menu__link ${isActive ? 'menu__link_active' : ''}`;
-        }}
-        to='/'
-      >
+      <MenuLink url='/' onClick={onNavLinkClick}>
         Главная
-      </NavLink>
+      </MenuLink>
 
-      <NavLink
-        onClick={onNavLinkClick}
-        className={({ isActive }) => {
-          return `menu__link ${isActive ? 'menu__link_active' : ''}`;
-        }}
-        to='/papers'
-      >
+      <MenuLink url='/papers' onClick={onNavLinkClick}>
         Полезные статьи
-      </NavLink>
+      </MenuLink>
 
-      <NavLink
-        onClick={onNavLinkClick}
-        className={({ isActive }) => {
-          return `menu__link ${isActive ? 'menu__link_active' : ''}`;
-        }}
-        to='/shelters'
-      >
+      <MenuLink url='/shelters' onClick={onNavLinkClick}>
         Карта приютов
-      </NavLink>
+      </MenuLink>
 
-      <NavLink
-        onClick={onNavLinkClick}
-        className={({ isActive }) => {
-          return `menu__link ${isActive ? 'menu__link_active' : ''}`;
-        }}
-        to='/news'
-      >
+      <MenuLink url='/news' onClick={onNavLinkClick}>
         Новости
-      </NavLink>
+      </MenuLink>
     </div>
   );
 };

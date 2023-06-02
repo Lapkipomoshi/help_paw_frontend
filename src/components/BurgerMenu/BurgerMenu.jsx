@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import BurgerPopup from '../BurgerPopup/BurgerPopup';
 import './BurgerMenu.scss';
+import BurgerPopup from '../BurgerPopup/BurgerPopup';
 
 const BurgerMenu = () => {
   const [isBurgerOpen, setBurgerOpen] = useState(false);
 
-  const isBurgerVisible = useMediaQuery({
+  const isMobileMenuButtonVisible = useMediaQuery({
     maxWidth: 1199,
   });
 
@@ -14,19 +14,19 @@ const BurgerMenu = () => {
     setBurgerOpen(!isBurgerOpen);
   };
 
-  const handleNavLinkClick = useCallback(() => {
+  const handleNavLinkClick = () => {
     setBurgerOpen(false);
-  }, []);
+  };
 
   useEffect(() => {
-    if (!isBurgerVisible) {
+    if (!isMobileMenuButtonVisible) {
       setBurgerOpen(false);
     }
-  }, [isBurgerVisible]);
+  }, [isMobileMenuButtonVisible]);
 
   return (
     <>
-      {isBurgerVisible && (
+      {isMobileMenuButtonVisible && (
         <button className={`burger ${isBurgerOpen ? 'open' : ''}`} onClick={toggleBurgerMenu} type='button'>
           <div className='line' />
           <div className='line' />
