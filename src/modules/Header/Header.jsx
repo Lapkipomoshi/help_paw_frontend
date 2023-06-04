@@ -5,7 +5,7 @@ import './Header.scss';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import BurgerMenu from '../../components/BurgerMenu/BurgerMenu';
 import ProfilePopup from '../../components/ProfilePopup/ProfilePopup';
-import MenuLink from '../../components/MenuLink/MenuLink';
+import MenuLink from '../../ui/MenuLink/MenuLink';
 import Paw from './svg/Paw';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import './BurgerPopup.scss';
-import MenuLink from '../MenuLink/MenuLink';
+import MenuLink from '../../ui/MenuLink/MenuLink';
 
 const BurgerPopup = ({ onNavLinkClick }) => {
   return (

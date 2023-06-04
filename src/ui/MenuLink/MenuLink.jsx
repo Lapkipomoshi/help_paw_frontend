@@ -8,7 +8,7 @@ const MenuLink = ({ children, url, onClick }) => {
       className={({ isActive }) => {
         return `menu-link ${isActive ? 'menu-link_active' : ''}`;
       }}
-      to={`${url}`}
+      to={url}
       onClick={onClick}
     >
       {children}
