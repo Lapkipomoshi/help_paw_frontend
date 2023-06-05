@@ -53,7 +53,7 @@ const Footer = () => {
           )}
           {!isMobile && (
             <HashLink className='footer__link' to='/#faq'>
-              FAQ
+              Вопросы
             </HashLink>
           )}
         </div>
