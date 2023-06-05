@@ -1,0 +1,18 @@
+.paper__image-container {
+  box-sizing: border-box;
+  margin: 24px auto 20px;
+  width: 288px;
+  height: 191px;
+
+  @media (min-width: 768px) {
+    margin: 28px auto 40px;
+    width: 679px;
+    height: 448px;
+  }
+
+  @media (min-width: 1440px) {
+    margin: 40px auto 36px;
+    width: 1176px;
+    height: 782px;
+  }
+}
