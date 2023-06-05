@@ -1,0 +1,17 @@
+.social-media-icons__icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  width: 28px;
+  transition-duration: 0.5s;
+
+  &:hover {
+    opacity: 0.5;
+  }
+
+  @media (min-width: 768px) {
+    height: 32px;
+    width: 32px;
+  }
+}
