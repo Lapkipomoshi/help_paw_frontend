@@ -188,11 +188,11 @@ const RegisterPage = ({ onRegister }) => {
                       <span className='checkbox' />
                     </label>
 
-                    <p className='register__text standart-font standart-font_type_small'>
+                    <p className='register__text standard-font standard-font_type_small'>
                       Я согласен с
                       {' '}
                       <Link
-                        className='register__link standart-font standart-font_type_small'
+                        className='register__link standard-font standard-font_type_small'
                         to='/'
                         target='_blank'
                       >
@@ -202,7 +202,7 @@ const RegisterPage = ({ onRegister }) => {
                       и
                       {' '}
                       <Link
-                        className='register__link standart-font standart-font_type_small'
+                        className='register__link standard-font standard-font_type_small'
                         to='/'
                         target='_blank'
                       >
@@ -213,11 +213,11 @@ const RegisterPage = ({ onRegister }) => {
 
                   <Button className='user-form__button-submit_register' submit disabled={disabled}>Зарегистрироваться</Button>
 
-                  <p className='register__text standart-font standart-font_type_small'>
+                  <p className='register__text standard-font standard-font_type_base'>
                     Уже есть аккаунт?
                     {' '}
                     <Link
-                      className='register__link standart-font standart-font_type_small'
+                      className='register__link standard-font standard-font_type_base'
                       to='/sign-in'
                     >
                       Вход

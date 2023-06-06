@@ -6,9 +6,9 @@ function Input({
 }) {
   return (
     <div className='input__wrapper'>
-      <label className='input__label standart-font standart-font_type_body'>{labelText}</label>
+      <label className='input__label standard-font standard-font_type_body'>{labelText}</label>
       <input
-        className={`input standart-font standart-font_type_body ${errorMessage && 'input_invalid'} ${isValid && 'input_valid'}`}
+        className={`input standard-font standard-font_type_body ${errorMessage && 'input_invalid'} ${isValid && 'input_valid'}`}
         name={inputName}
         type={inputType}
         minLength={minLength}
@@ -17,7 +17,7 @@ function Input({
         required
         onChange={onChange}
       />
-      <span className='input__error standart-font standart-font_type_smallest'>{spanText}</span>
+      <span className='input__error standard-font standard-font_type_smallest'>{spanText}</span>
     </div>
   );
 }

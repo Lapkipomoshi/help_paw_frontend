@@ -4,7 +4,8 @@
 }
 
 .user-form__container_login {
-  width: 364px;
+  width: calc(288px + (100vw - 320px) * .067);
+  max-width: 364px;
   max-height: 412px;
 }
 

@@ -18,11 +18,11 @@ function PasswordInput({
 
   return (
     <>
-      <label className='input__label standart-font standart-font_type_body'>Пароль</label>
+      <label className='input__label standard-font standard-font_type_body'>Пароль</label>
       <div className='password__container'>
         <input
           className={
-            `password__input standart-font standart-font_type_password
+            `password__input standard-font standard-font_type_password
             ${isOpen && 'password__input_opened'}
             ${errorMessage && 'password__input_invalid'}
             ${isValid && 'password__input_valid'}`
@@ -36,7 +36,7 @@ function PasswordInput({
         />
         <button className={`password-visibility ${isOpen && 'password-visibility_opened'}`} type='button' onClick={showPassword} />
       </div>
-      <span className={`input__span standart-font standart-font_type_smallest ${errorMessage && 'input__error'}`}>{errorMessage ? spanText : spanPrompt}</span>
+      <span className={`input__span standard-font standard-font_type_smallest ${errorMessage && 'input__error'}`}>{errorMessage ? spanText : spanPrompt}</span>
     </>
   );
 }

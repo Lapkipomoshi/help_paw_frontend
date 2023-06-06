@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './LoginPage.css';
+import './LoginPage.scss';
 import UserContainer from '../../components/UserContainer/UserContainer';
 import UserForm from '../../components/UserForm/UserForm';
 import SignUpBlock from '../../components/SignUpBlock/SignUpBlock';
