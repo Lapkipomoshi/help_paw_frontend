@@ -4,7 +4,7 @@
   font-weight: $font-weight;
 }
 
-.standart-font {
+.standard-font {
   margin: 0;
   padding: 0;
 
@@ -85,7 +85,7 @@
 }
 
 @media (min-width: 768px) {
-  .standart-font {
+  .standard-font {
     &_type {
       &_h1 {
         @include font-size-style(
@@ -127,7 +127,7 @@
 }
 
 @media (min-width: 1440px) {
-  .standart-font {
+  .standard-font {
     &_type {
       &_h1 {
         @include font-size-style(60px, 73px, 600);
