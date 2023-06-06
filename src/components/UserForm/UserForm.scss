@@ -67,47 +67,20 @@
   flex-direction: column;
 }
 
-.user-form__button-container {
-  display: flex;
-}
-
-.user-form__button-container_register {
-  flex-direction: column-reverse;
-}
-
-.user-form__button-container_login {
-  flex-direction: column;
-}
-
-.user-form__button-submit {
-  height: 52px;
-  background-color: var(--color-accent-base);
-  border-radius: 12px;
-  border: none;
-  font-family: 'Montserrat Alternates', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 20px;
-  text-align: center;
-  color: var(--color-text-light);
-  padding: 0;
-}
-
 .user-form__button-submit_register {
   margin-top: 24px;
   margin-bottom: 20px;
 }
 
 .user-form__button-submit_login {
-  margin-top: 17px;
+  margin-top: 16px;
 }
 
 @media (min-width: 750px) {
   .user-form__container {
     background-color: var(--color-background-additional);
     border-radius: 30px;
-    padding: 36px 36px 40px;
+    padding: 40px 36px;
   }
 
   .user-form__button-submit_register {
@@ -116,5 +89,7 @@
 }
 
 @media (min-width: 1440px) {
-
+  .user-form__button-submit_login {
+    margin-top: 17px;
+  }
 }

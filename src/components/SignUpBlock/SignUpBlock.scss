@@ -1,0 +1,29 @@
+.signup-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-block_login {
+  margin-top: 16px;
+}
+
+.signup-block_recovery {
+  margin-top: 32px;
+}
+
+.signup-block__link {
+  color: var(--color-accent-base);
+  text-decoration: none;
+}
+
+@media (min-width: 750px) {
+  .signup-block_login {
+    margin-top: 20px;
+  }
+
+  .signup-block {
+    flex-direction: row;
+    column-gap: 5px;
+  }
+}
+

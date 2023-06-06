@@ -1,5 +1,5 @@
 import React from 'react';
-import './SignUpBlock.css';
+import './SignUpBlock.scss';
 import { Link } from 'react-router-dom';
 
 const SignUpBlock = ({ className }) => {
