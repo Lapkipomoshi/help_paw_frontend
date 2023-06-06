@@ -94,24 +94,23 @@
 }
 
 .user-form__button-submit_register {
-  margin-top: 36px;
+  margin-top: 24px;
   margin-bottom: 20px;
 }
 
 .user-form__button-submit_login {
   margin-top: 17px;
-
-  &:hover {
-    cursor: pointer;
-    background-color: var(--color-accent-hover);
-  }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 750px) {
   .user-form__container {
     background-color: var(--color-background-additional);
     border-radius: 30px;
     padding: 36px 36px 40px;
+  }
+
+  .user-form__button-submit_register {
+    margin-top: 36px;
   }
 }
 

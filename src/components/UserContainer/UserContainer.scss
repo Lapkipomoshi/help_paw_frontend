@@ -1,13 +1,7 @@
 .user-container {
   display: flex;
   flex-direction: row;
-  padding-left: 14px;
-  padding-top: 60px;
-  padding-bottom: 120px;
-}
-
-.user-container_register {
-  padding-right: 44px;
+  padding: 24px 16px 38px;
 }
 
 .user-container_register-confirm {
@@ -43,10 +37,15 @@
   top: 67px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 750px) {
   .user-container__container {
     margin-right: 36px;
     display: block;
+  }
+
+  .user-container_register {
+    padding-left: 14px;
+    padding-right: 44px;
   }
 }
 
