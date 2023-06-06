@@ -1,28 +1,35 @@
 .papers-grid__element {
+  position: relative;
   min-width: 288px;
   min-height: 192px;
   margin: 0;
   transition: border-color 0.5s;
-  border-radius: 35px;
   box-sizing: border-box;
+  border: 0;
 
-  &:hover {
-    border-color: var(--color-accent-base);
-  }
-}
-
-@media (min-width: 768px) {
-  .papers-grid__element {
+  @media (min-width: 768px) {
     min-width: 205px;
     min-height: 263px;
   }
-}
 
-@media (min-width: 1440px) {
-  .papers-grid__element {
-    min-width: 400px;
+  @media (min-width: 1440px) {
+    min-width: 376px;
     min-height: 416px;
-    padding: 8px 8px 24px;
-    border: 2px solid rgba(0, 0, 0, 0);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: -12px;
+      right: 12px;
+      bottom: 24px;
+      border: 2px solid rgba(0, 0, 0, 0);
+      border-radius: 35px;
+      min-width: 400px;
+      pointer-events: none;
+    }
+    &:hover::after {
+      border-color: var(--color-accent-base);
+    }
   }
 }
