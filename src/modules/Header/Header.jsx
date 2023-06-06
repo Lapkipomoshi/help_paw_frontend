@@ -1,9 +1,12 @@
 import React, { useState, useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import MainContainer from '../../components/MainContainer/MainContainer';
+import { useMediaQuery } from 'react-responsive';
 import './Header.scss';
-import Paw from './svg/Paw';
+import MainContainer from '../../components/MainContainer/MainContainer';
+import BurgerMenu from '../../components/BurgerMenu/BurgerMenu';
 import ProfilePopup from '../../components/ProfilePopup/ProfilePopup';
+import MenuLink from '../../ui/MenuLink/MenuLink';
+import Paw from './svg/Paw';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 const Header = () => {
@@ -18,42 +21,43 @@ const Header = () => {
     setProfilePopupOpen(false);
   };
 
+  const isScreenWide = useMediaQuery({
+    minWidth: 1200,
+  });
+
+  const isElementHidden = isScreenWide ? '' : 'menu_hidden';
+
   return (
     <MainContainer theme='additional'>
       <header className='header'>
-        <Link className='header__logo-link' to='/'>
+        <BurgerMenu />
+
+        {isScreenWide ? (
+          <Link to='/'>
+            <Paw className='header__logo' />
+          </Link>
+        ) : (
           <Paw className='header__logo' />
-        </Link>
-        <nav className='menu menu_items_links'>
-          <NavLink
-            className={({ isActive }) => {
-              return `menu__link ${isActive ? 'menu__link_active' : ''}`;
-            }}
-            to='/papers'
-          >
-            Полезные статьи
-          </NavLink>
-          <NavLink
-            className={({ isActive }) => {
-              return `menu__link ${isActive ? 'menu__link_active' : ''}`;
-            }}
-            to='/shelters'
-          >
-            Карта приютов
-          </NavLink>
-          <NavLink
-            className={({ isActive }) => {
-              return `menu__link ${isActive ? 'menu__link_active' : ''}`;
-            }}
-            to='/news'
-          >
-            Новости
-          </NavLink>
+        )}
+
+        <nav className={`menu menu_items_links ${isElementHidden}`}>
+          <MenuLink url='/papers'>Полезные статьи</MenuLink>
+          <MenuLink url='/shelters'>Карта приютов</MenuLink>
+          <MenuLink url='/news'>Новости</MenuLink>
         </nav>
         <nav className='menu'>
-          <NavLink className={`menu__sign menu__sign_in ${username ? 'display_none' : ''}`} to='/sign-in'>Вход</NavLink>
-          <NavLink className={`menu__sign menu__sign_up ${username ? 'display_none' : ''}`} to='/sign-up'>Регистрация</NavLink>
-          <button className={`menu__profile ${username ? '' : 'display_none'}`} type='button' onClick={openProfilePopup} />
+          {!username && (
+            <NavLink className='menu__sign menu__sign_in' to='/sign-in'>
+              Вход
+            </NavLink>
+          )}
+          {isScreenWide && !username && (
+            <NavLink className='menu__sign menu__sign_up ' to='/sign-up'>
+              Регистрация
+            </NavLink>
+          )}
+
+          {username && <button className='menu__profile' type='button' onClick={openProfilePopup} />}
         </nav>
 
         <ProfilePopup isOpen={profilePopupOpen} closeProfilePopup={closeProfilePopup} />
