@@ -49,6 +49,14 @@
       );
       font-family: var(--font-family-base);
     }
+    &_base {
+      @include font-size-style(
+          calc(14px + (100vw - 320px) * .003),
+          calc(18px + (100vw - 320px) * .003),
+          400
+      );
+      font-family: var(--font-family-base);
+    }
     &_small {
       @include font-size-style(
         calc(12px + (100vw - 320px) * .009),
@@ -101,6 +109,9 @@
       }
       &_body {
         @include font-size-style(18px, calc(22px + (100vw - 768px) * .009), 500);
+      }
+      &_base {
+        @include font-size-style(18px, 22px, 400);
       }
       &_small {
         @include font-size-style(16px, 19px, 400);
