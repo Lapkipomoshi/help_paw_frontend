@@ -45,11 +45,6 @@
 
 .register__text {
   color: var(--color-text-base);
-  font-family: var(--font-family-base);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
   margin: 0;
   max-width: 370px;
 }
@@ -67,16 +62,5 @@
   .checkbox__container > .checkbox::before {
     height: 20px;
     width: 20px;
-  }
-
-  .register__text {
-    color: var(--color-text-base);
-    font-family: var(--font-family-base);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
-    margin: 0;
-    max-width: 370px;
   }
 }
