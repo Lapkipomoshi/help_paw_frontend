@@ -1,0 +1,9 @@
+.footer__flex-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  @media (min-width: 768px) {
+    gap: 12px;
+  }
+}
