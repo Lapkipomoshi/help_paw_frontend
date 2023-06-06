@@ -24,7 +24,7 @@ const PaperPage = () => {
       <main className='main paper'>
         <h2 className='paper__title standart-font_type_h2'>{paper.header}</h2>
         <div className='paper__image-container'>
-          <img className='paper__image' src={paper.profile_image} alt='фото' />
+          <img className='paper__image' src={paper.profile_image} alt={paper.header} />
         </div>
         <p className='paper__text standart-font_type_body'>{paper.text}</p>
         <a className='paper__link standart-font_type_body' href={paper.source} target='_blank' rel='noreferrer'>
