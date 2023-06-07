@@ -71,7 +71,7 @@ const PapersPage = () => {
     <MainContainer>
       <main className='main papers'>
         <div className='papers__head-block'>
-          <h2 className='papers__title standart-font_type_h2'>Полезные статьи</h2>
+          <h2 className='papers__title standard-font_type_h2'>Полезные статьи</h2>
           <Button className='papers__offer-button' to='/shelters' link>
             Хочу помогать
           </Button>

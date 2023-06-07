@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './LoginPage.css';
+import './LoginPage.scss';
 import UserContainer from '../../components/UserContainer/UserContainer';
 import UserForm from '../../components/UserForm/UserForm';
 import SignUpBlock from '../../components/SignUpBlock/SignUpBlock';
@@ -101,7 +101,7 @@ const LoginPage = ({ onLogin }) => {
                   <Button className='user-form__button-submit_login' submit disabled={disabled}>Войти</Button>
 
                   <div className='login__authorization-container'>
-                    <Link className='login__link' to='/password-recovery'>Забыли пароль?</Link>
+                    <Link className='login__link standard-font standard-font_type_base' to='/password-recovery'>Забыли пароль?</Link>
                     <SignUpBlock className='login' />
                   </div>
                 </>

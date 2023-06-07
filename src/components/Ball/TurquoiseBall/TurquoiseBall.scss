@@ -1,0 +1,24 @@
+.turquoise-ball {
+  width: calc(28px + (100vw - 320px) * .02);
+  max-width: 49px;
+  height: calc(28px + (100vw - 320px) * .02);
+  max-height: 49px;
+  background: var(--color-ball-turquoise);
+  border-radius: 50%;
+  position: absolute;
+
+  &_profile {
+    right: 507px;
+    top: 58px;
+  }
+
+  &_user {
+    right: calc(13px - (100vw - 768px) * .019);
+    top: calc(42px - (100vw - 768px) * .005);
+
+    @media (min-width: 1440px) {
+      right: 0;
+      top: 42px;
+    }
+  }
+}

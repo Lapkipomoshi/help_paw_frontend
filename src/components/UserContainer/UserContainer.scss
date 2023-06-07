@@ -1,0 +1,65 @@
+.user-container {
+  display: flex;
+  flex-direction: row;
+  padding: 24px 16px 38px;
+
+  &_login {
+    padding-bottom: 142px;
+
+    @media (min-width: 1440px) {
+      padding-right: 169px;
+    }
+  }
+
+  &_recovery {
+    padding-right: 151px;
+    padding-bottom: 291px;
+  }
+
+  &_register-confirm {
+    padding-right: 132px;
+    padding-bottom: 188px;
+  }
+
+  @media (min-width: 750px) {
+    padding: 60px 45px 120px 14px;
+  }
+
+  @media (min-width: 1440px) {
+    padding-left: 134px;
+    padding-top: 62px;
+    padding-bottom: 147px;
+
+    &_register {
+      padding-right: 132px;
+    }
+  }
+}
+
+.user-container__container {
+  position: relative;
+  width: calc(284px + (100vw - 768px) * .5);
+  max-width: 622px;
+  height: calc(410px + (100vw - 768px) * .22);
+  max-height: 561px;
+  align-items: center;
+  display: none;
+
+  @media (min-width: 750px) {
+    margin-right: 36px;
+    display: block;
+  }
+
+  @media (min-width: 1440px) {
+    margin-right: 79px;
+  }
+}
+
+.user-container__image {
+  width: calc(284px + (100vw - 768px) * .41);
+  max-width: 561px;
+  height: auto;
+  position: absolute;
+  left: 0;
+  top: 67px;
+}

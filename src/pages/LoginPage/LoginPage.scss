@@ -1,5 +1,5 @@
 .login {
-  width: 1440px;
+  min-width: 320px;
 }
 
 .login__authorization-container {
@@ -9,11 +9,6 @@
 }
 
 .login__link {
-  font-family: 'Inter', Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
   color: var(--color-accent-base);
   text-decoration: none;
 }

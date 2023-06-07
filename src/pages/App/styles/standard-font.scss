@@ -4,7 +4,7 @@
   font-weight: $font-weight;
 }
 
-.standart-font {
+.standard-font {
   margin: 0;
   padding: 0;
 
@@ -49,6 +49,14 @@
       );
       font-family: var(--font-family-base);
     }
+    &_base {
+      @include font-size-style(
+          calc(14px + (100vw - 320px) * .003),
+          calc(18px + (100vw - 320px) * .003),
+          400
+      );
+      font-family: var(--font-family-base);
+    }
     &_small {
       @include font-size-style(
         calc(12px + (100vw - 320px) * .009),
@@ -65,11 +73,19 @@
       );
       font-family: var(--font-family-base);
     }
+    &_password {
+      @include font-size-style(
+          calc(14px + (100vw - 320px) * .009),
+          calc(20px + (100vw - 320px) * .004),
+          400
+      );
+      font-family: var(--font-family-password);
+    }
   }
 }
 
 @media (min-width: 768px) {
-  .standart-font {
+  .standard-font {
     &_type {
       &_h1 {
         @include font-size-style(
@@ -94,18 +110,24 @@
       &_body {
         @include font-size-style(18px, calc(22px + (100vw - 768px) * .009), 500);
       }
+      &_base {
+        @include font-size-style(18px, 22px, 400);
+      }
       &_small {
         @include font-size-style(16px, 19px, 400);
       }
       &_smallest {
         @include font-size-style(14px, 17px, 400);
       }
+      &_password {
+        @include font-size-style(18px, calc(22px + (100vw - 768px) * .009), 500);
+      }
     }
   }
 }
 
 @media (min-width: 1440px) {
-  .standart-font {
+  .standard-font {
     &_type {
       &_h1 {
         @include font-size-style(60px, 73px, 600);
@@ -114,6 +136,9 @@
         @include font-size-style(40px, 49px, 600);
       }
       &_body {
+        line-height: 28px;
+      }
+      &_password {
         line-height: 28px;
       }
     }

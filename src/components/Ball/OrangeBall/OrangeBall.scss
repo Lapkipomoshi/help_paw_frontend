@@ -1,0 +1,22 @@
+.orange-ball {
+  width: 42px;
+  height: 42px;
+  background: var(--color-ball-orange);
+  border-radius: 50%;
+  position: absolute;
+
+  &_profile {
+    right: 192px;
+    top: 116px;
+  }
+
+  &_user {
+    left: calc(52px + (100vw - 768px) * .017);
+    top: calc((100vw - 768px) * .022);
+
+    @media (min-width: 1440px) {
+      left: 64px;
+      top: 15px;
+    }
+  }
+}
