@@ -5,24 +5,20 @@
   max-height: 49px;
   background: var(--color-ball-turquoise);
   border-radius: 50%;
-}
-
-.turquoise-ball_profile {
   position: absolute;
-  right: 507px;
-  top: 58px;
-}
 
-.turquoise-ball_user {
-  position: absolute;
-  right: calc(13px - (100vw - 768px) * .019);
-  top: calc(42px - (100vw - 768px) * .005);
-}
+  &_profile {
+    right: 507px;
+    top: 58px;
+  }
 
-@media (min-width: 1440px) {
-  .turquoise-ball_user {
-    position: absolute;
-    right: 0;
-    top: 42px;
+  &_user {
+    right: calc(13px - (100vw - 768px) * .019);
+    top: calc(42px - (100vw - 768px) * .005);
+
+    @media (min-width: 1440px) {
+      right: 0;
+      top: 42px;
+    }
   }
 }

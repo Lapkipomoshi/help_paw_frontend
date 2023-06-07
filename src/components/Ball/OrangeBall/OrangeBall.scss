@@ -3,23 +3,20 @@
   height: 42px;
   background: var(--color-ball-orange);
   border-radius: 50%;
-}
-
-.orange-ball_profile {
   position: absolute;
-  right: 192px;
-  top: 116px;
-}
 
-.orange-ball_user {
-  position: absolute;
-  left: calc(52px + (100vw - 768px) * .017);
-  top: calc((100vw - 768px) * .022);
-}
+  &_profile {
+    right: 192px;
+    top: 116px;
+  }
 
-@media (min-width: 1440px) {
-  .orange-ball_user {
-    left: 64px;
-    top: 15px;
+  &_user {
+    left: calc(52px + (100vw - 768px) * .017);
+    top: calc((100vw - 768px) * .022);
+
+    @media (min-width: 1440px) {
+      left: 64px;
+      top: 15px;
+    }
   }
 }
