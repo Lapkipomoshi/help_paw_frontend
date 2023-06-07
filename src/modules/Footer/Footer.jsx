@@ -8,16 +8,16 @@ import SocialMediaIcons from '../../components/SocialMediaIcons/SocialMediaIcons
 
 const Footer = () => {
   const isMobile = useMediaQuery({
-    maxWidth: 767,
+    maxWidth: 649,
   });
 
   const isTablet = useMediaQuery({
-    maxWidth: 1439,
-    minWidth: 768,
+    maxWidth: 1199,
+    minWidth: 650,
   });
 
-  const isDesktop = useMediaQuery({
-    minWidth: 1440,
+  const isWide = useMediaQuery({
+    minWidth: 1200,
   });
 
   return (
@@ -58,7 +58,7 @@ const Footer = () => {
           )}
         </div>
 
-        {(isDesktop || isMobile) && <SocialMediaIcons />}
+        {(isWide || isMobile) && <SocialMediaIcons />}
       </footer>
     </MainContainer>
   );
