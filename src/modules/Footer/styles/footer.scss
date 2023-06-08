@@ -9,7 +9,7 @@
   box-sizing: border-box;
   gap: 32px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 650px) {
     padding: 40px 44px 80px;
     flex-direction: row;
     justify-content: space-between;
