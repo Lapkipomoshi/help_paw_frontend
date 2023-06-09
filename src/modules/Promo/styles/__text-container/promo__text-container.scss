@@ -1,0 +1,13 @@
+.promo__text-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: 50%;
+  }
+
+  @media (min-width: 1080px) {
+    width: 43%;
+  }
+}
