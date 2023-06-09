@@ -1,5 +1,5 @@
 import React from 'react';
-import './OrangeBall.css';
+import './OrangeBall.scss';
 
 function OrangeBall({ modifier }) {
   return (

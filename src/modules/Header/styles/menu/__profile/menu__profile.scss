@@ -1,0 +1,18 @@
+$images-path: '../../../../../images/';
+
+.menu__profile {
+  width: 60px;
+  height: 60px;
+  margin: auto 0;
+  background-image: url('#{$images-path}profile.svg');
+  background-position: center;
+  background-size: cover;
+  transition-duration: 0.5s;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.77;
+  }
+}

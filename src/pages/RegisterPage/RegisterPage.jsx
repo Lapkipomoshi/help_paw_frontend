@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './RegisterPage.css';
+import './RegisterPage.scss';
 import UserForm from '../../components/UserForm/UserForm';
 import UserContainer from '../../components/UserContainer/UserContainer';
 import MainContainer from '../../components/MainContainer/MainContainer';
@@ -188,16 +188,41 @@ const RegisterPage = ({ onRegister }) => {
                       <span className='checkbox' />
                     </label>
 
-                    <p className='register__agreement'>
+                    <p className='register__text standard-font standard-font_type_small'>
                       Я согласен с
-                      <Link className='register__privacy-link' to='/' target='_blank'> Политикой конфиденциальности</Link>
+                      {' '}
+                      <Link
+                        className='register__link standard-font standard-font_type_small'
+                        to='/'
+                        target='_blank'
+                      >
+                        Политикой конфиденциальности
+                      </Link>
                       {' '}
                       и
-                      <Link className='register__privacy-link' to='/' target='_blank'> Условиями использования сервиса</Link>
+                      {' '}
+                      <Link
+                        className='register__link standard-font standard-font_type_small'
+                        to='/'
+                        target='_blank'
+                      >
+                        Условиями использования сервиса
+                      </Link>
                     </p>
                   </div>
 
                   <Button className='user-form__button-submit_register' submit disabled={disabled}>Зарегистрироваться</Button>
+
+                  <p className='register__text standard-font standard-font_type_base'>
+                    Уже есть аккаунт?
+                    {' '}
+                    <Link
+                      className='register__link standard-font standard-font_type_base'
+                      to='/sign-in'
+                    >
+                      Вход
+                    </Link>
+                  </p>
                 </>
               )}
             />

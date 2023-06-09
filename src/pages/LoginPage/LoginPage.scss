@@ -1,0 +1,14 @@
+.login {
+  min-width: 320px;
+}
+
+.login__authorization-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.login__link {
+  color: var(--color-accent-base);
+  text-decoration: none;
+}

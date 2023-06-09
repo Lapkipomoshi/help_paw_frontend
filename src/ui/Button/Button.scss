@@ -11,7 +11,7 @@
   border: none;
   border-radius: 12px;
   box-sizing: border-box;
-  transition-duration: .7s;
+  transition-duration: 0.7s;
   cursor: pointer;
 
   &_theme {
@@ -43,7 +43,7 @@
     &_transparent {
       padding: 15px 31px;
       color: var(--color-accent-base);
-      background-color: rgba(0,0,0,0);
+      background-color: rgba(0, 0, 0, 0);
       border: 1px solid var(--color-accent-base);
 
       &:hover {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './VioletBall.css';
+import './VioletBall.scss';
 
 function VioletBall({ modifier }) {
   return (

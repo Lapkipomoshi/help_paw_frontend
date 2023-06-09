@@ -131,11 +131,11 @@ const ShelterStep = ({ handleBack, setShelter }) => {
           <input className='checkbox__input' name='agreement' type='checkbox' onClick={() => { setIsChecked(!isChecked); }} />
           <span className='checkbox' />
         </label>
-        <p className='register__agreement'>
+        <p className='register__text'>
           Я согласен с
-          <Link className='register__privacy-link' to='/' target='_blank'> Политикой конфиденциальности </Link>
+          <Link className='register__link' to='/' target='_blank'> Политикой конфиденциальности </Link>
           и
-          <Link className='register__privacy-link' to='/' target='_blank'> Условиями использования сервиса</Link>
+          <Link className='register__link' to='/' target='_blank'> Условиями использования сервиса</Link>
         </p>
       </div>
       <div className='add-shelter-form__buttons'>

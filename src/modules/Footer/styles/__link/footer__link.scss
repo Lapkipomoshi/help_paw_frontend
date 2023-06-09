@@ -3,17 +3,22 @@
   max-width: 100%;
   margin: 0;
   padding: 0;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 18px;
   font-weight: 400;
   color: var(--color-text-base);
   text-decoration: none;
-  transition-duration: .7s;
+  transition-duration: 0.7s;
 
   &:hover {
     color: var(--color-accent-hover);
   }
   &:focus {
     color: var(--color-accent-pressed);
+  }
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+    line-height: 22px;
   }
 }

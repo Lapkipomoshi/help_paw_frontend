@@ -1,0 +1,95 @@
+.user-form__container {
+  &_register {
+    width: calc(288px + (100vw - 320px) * .1);
+    max-width: 401px;
+  }
+
+  &_login {
+    width: calc(288px + (100vw - 320px) * .067);
+    max-width: 364px;
+    max-height: 412px;
+  }
+
+  &_recovery {
+    width: 382px;
+    max-height: 337px;
+  }
+
+  &_profile {
+    width: 574px;
+    min-height: 345px;
+    padding: 40px 32px;
+    margin-top: 44px;
+  }
+
+  &_sign-out {
+    width: 504px;
+    padding: 40px 32px;
+    margin-top: 44px;
+  }
+
+  &_change-password {
+    width: 427px;
+    padding: 40px 32px;
+    margin-top: 44px;
+  }
+
+  &_activate-user {
+    width: 474px;
+    padding: 40px 32px;
+    margin-top: 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+
+  &_activate-user {
+    align-items: center;
+  }
+}
+
+.user-form__title {
+  margin: 0 0 24px;
+
+  &_edit-profile {
+    margin-bottom: 8px;
+  }
+
+  &_activate-user {
+    display: none;
+  }
+
+  &_change-password {
+    margin-bottom: 12px;
+  }
+}
+
+.user-form__button-submit_register {
+  margin-top: 24px;
+  margin-bottom: 20px;
+
+  @media (min-width: 750px) {
+    margin-top: 36px;
+  }
+}
+
+.user-form__button-submit_login {
+  margin-top: 16px;
+
+  @media (min-width: 1440px) {
+    margin-top: 17px;
+  }
+}
+
+@media (min-width: 750px) {
+  .user-form__container {
+    background-color: var(--color-background-additional);
+    border-radius: 30px;
+    padding: 40px 36px;
+  }
+}

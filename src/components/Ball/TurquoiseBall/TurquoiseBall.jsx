@@ -1,5 +1,5 @@
 import React from 'react';
-import './TurquoiseBall.css';
+import './TurquoiseBall.scss';
 
 function TurquoiseBall({ modifier }) {
   return (

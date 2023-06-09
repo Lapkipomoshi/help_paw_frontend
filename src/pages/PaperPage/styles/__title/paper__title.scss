@@ -1,0 +1,10 @@
+.paper__title {
+  align-self: flex-start;
+  margin: 0;
+  padding: 0;
+  color: var(--color-text-base);
+
+  @media (min-width: 1440px) {
+    width: 900px;
+  }
+}

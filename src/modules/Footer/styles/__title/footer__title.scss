@@ -1,0 +1,23 @@
+.footer__title {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  color: var(--color-text-base);
+  text-decoration: none;
+  transition-duration: 0.5s;
+
+  &:hover {
+    color: var(--color-accent-hover);
+  }
+  &:focus {
+    color: var(--color-accent-pressed);
+  }
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+  }
+}
