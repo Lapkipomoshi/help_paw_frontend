@@ -1,4 +1,5 @@
 .search-section {
+  width: 1440px;
   background: var(--color-background-base);
   display: flex;
   align-items: center;

@@ -1,7 +1,8 @@
 .papers-on-main {
   display: flex;
-  flex-direction: column;
+  width: 1440px;
   padding: 0 132px 64px;
+  flex-direction: column;
   box-sizing: border-box;
   background-color: var(--color-background-additional);
 }

@@ -106,7 +106,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
         <ul className='add-shelter-form__column'>
           <DeclarationInput caption='Название приюта*' inputState={shelterName} type='text' name='shelterName' required />
           <DeclarationInput caption='ИНН*' inputState={INN} type='number' name='INN' placeholder='10 цифр' required />
-          <DeclarationInput caption='Ссылка на сайт приюта*' inputState={webSite} type='url' name='webSite' />
+          <DeclarationInput caption='Ссылка на сайт приюта' inputState={webSite} type='url' name='webSite' />
           <DeclarationInput caption='Ссылка на канал приюта в &laquo;Telegram&raquo;' inputState={telegram} type='url' name='telegram' placeholder='t.me/' />
         </ul>
         <ul className='add-shelter-form__column'>
@@ -131,11 +131,11 @@ const ShelterStep = ({ handleBack, setShelter }) => {
           <input className='checkbox__input' name='agreement' type='checkbox' onClick={() => { setIsChecked(!isChecked); }} />
           <span className='checkbox' />
         </label>
-        <p className='register__agreement'>
+        <p className='register__text'>
           Я согласен с
-          <Link className='register__privacy-link' to='/' target='_blank'> Политикой конфиденциальности </Link>
+          <Link className='register__link' to='/' target='_blank'> Политикой конфиденциальности </Link>
           и
-          <Link className='register__privacy-link' to='/' target='_blank'> Условиями использования сервиса</Link>
+          <Link className='register__link' to='/' target='_blank'> Условиями использования сервиса</Link>
         </p>
       </div>
       <div className='add-shelter-form__buttons'>

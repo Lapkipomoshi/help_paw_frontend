@@ -5,7 +5,6 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 import Button from '../../ui/Button/Button';
 import UserForm from '../../components/UserForm/UserForm';
 import UserLink from '../../ui/UserLink/UserLink';
-import SecondaryButton from '../../ui/SecondaryButton/SecondaryButton';
 
 const SignOutPage = ({ onSignOut }) => {
   const handleSubmit = (evt) => {
@@ -14,7 +13,7 @@ const SignOutPage = ({ onSignOut }) => {
   };
 
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main'>
         <section className='sign-out'>
           <ProfileContainer containerClass='sign-out'>
@@ -29,8 +28,8 @@ const SignOutPage = ({ onSignOut }) => {
                   <p className='sign-out__text'>Вы уверены, что хотите выйти из профиля?</p>
 
                   <div className='sign-out__buttons'>
-                    <Button className='' submit>Да, выйти</Button>
-                    <SecondaryButton className='' link to='/profile'>Нет, в личный кабинет</SecondaryButton>
+                    <Button submit>Да, выйти</Button>
+                    <Button theme='transparent' link to='/profile'>Нет, в личный кабинет</Button>
                   </div>
                 </>
               )}

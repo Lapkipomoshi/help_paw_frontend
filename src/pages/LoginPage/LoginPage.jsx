@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import './LoginPage.css';
 import { Link } from 'react-router-dom';
+import './LoginPage.scss';
 import UserContainer from '../../components/UserContainer/UserContainer';
 import UserForm from '../../components/UserForm/UserForm';
+import SignUpBlock from '../../components/SignUpBlock/SignUpBlock';
+import MainContainer from '../../components/MainContainer/MainContainer';
 import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import PasswordInput from '../../ui/PasswordInput/PasswordInput';
-import SignUpBlock from '../../components/SignUpBlock/SignUpBlock';
 import { EMAIL_INVALID, EMAIL_NOT_FOUND, PASSWORD_NOT_FOUND } from '../../utils/errorMessage';
-import MainContainer from '../../components/MainContainer/MainContainer';
 import { EMAIL_REGEX } from '../../utils/regex';
 
 const LoginPage = ({ onLogin }) => {
@@ -25,22 +25,21 @@ const LoginPage = ({ onLogin }) => {
 
   const [disabled, setDisabled] = useState(false);
 
-  function handleEmailChange(e) {
+  const handleEmailChange = (e) => {
     const input = e.target;
     const validEmail = EMAIL_REGEX.test(input.value);
     setIsValidEmail(validEmail);
     setUserEmail(input.value);
-    if (!validEmail) {
+    if (input.value.length === 0) {
+      setEmailError(EMAIL_NOT_FOUND);
+    } else if (!validEmail) {
       setEmailError(EMAIL_INVALID);
     } else {
       setEmailError('');
     }
-    if (input.value.length === 0) {
-      setEmailError(EMAIL_NOT_FOUND);
-    }
-  }
+  };
 
-  function handlePasswordChange(e) {
+  const handlePasswordChange = (e) => {
     const input = e.target;
     setIsValidPassword(input.validity.valid);
     setUserPassword(input.value);
@@ -49,7 +48,17 @@ const LoginPage = ({ onLogin }) => {
     } else {
       setPasswordError('');
     }
-  }
+  };
+
+  const handleSubmit = (e) => {
+    const input = e.target;
+    e.preventDefault();
+    onLogin({
+      password: userPassword,
+      email: userEmail,
+    });
+    input.reset();
+  };
 
   useEffect(() => {
     if (isValid) {
@@ -58,18 +67,8 @@ const LoginPage = ({ onLogin }) => {
     return setDisabled(true);
   }, [isValid]);
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    onLogin({
-      password: userPassword,
-      email: userEmail,
-    });
-    setUserEmail('');
-    setUserPassword('');
-  };
-
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main'>
         <section className='login'>
           <UserContainer
@@ -89,7 +88,6 @@ const LoginPage = ({ onLogin }) => {
                     pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$'
                     value={userEmail || ''}
                     spanText={emailError}
-                    /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handleEmailChange}
                   />
 
@@ -97,14 +95,13 @@ const LoginPage = ({ onLogin }) => {
                     spanText={passwordError}
                     errorMessage={passwordError}
                     value={userPassword || ''}
-                    /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handlePasswordChange}
                   />
 
                   <Button className='user-form__button-submit_login' submit disabled={disabled}>Войти</Button>
 
                   <div className='login__authorization-container'>
-                    <Link className='login__link' to='/password-recovery'>Забыли пароль?</Link>
+                    <Link className='login__link standard-font standard-font_type_base' to='/password-recovery'>Забыли пароль?</Link>
                     <SignUpBlock className='login' />
                   </div>
                 </>

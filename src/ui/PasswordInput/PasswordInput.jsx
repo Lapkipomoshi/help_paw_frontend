@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './PasswordInput.css';
+import './PasswordInput.scss';
 
 function PasswordInput({
   spanText, minLength, maxLength, onChange, errorMessage, isValid, spanPrompt,
@@ -18,10 +18,15 @@ function PasswordInput({
 
   return (
     <>
-      <label className='input__label'>Пароль</label>
+      <label className='input__label standard-font standard-font_type_body'>Пароль</label>
       <div className='password__container'>
         <input
-          className={`password__input ${isOpen && 'password__input_opened'} ${errorMessage && 'password__input_invalid'} ${isValid && 'password__input_valid'}`}
+          className={
+            `password__input standard-font standard-font_type_password
+            ${isOpen && 'password__input_opened'}
+            ${errorMessage && 'password__input_invalid'}
+            ${isValid && 'password__input_valid'}`
+          }
           name='password'
           type='password'
           required
@@ -29,9 +34,9 @@ function PasswordInput({
           maxLength={maxLength}
           onChange={onChange}
         />
-        <button className='password-visibility' type='button' onClick={showPassword} />
+        <button className={`password-visibility ${isOpen && 'password-visibility_opened'}`} type='button' onClick={showPassword} />
       </div>
-      <span className={`input__span ${errorMessage && 'input__error'}`}>{errorMessage ? spanText : spanPrompt}</span>
+      <span className={`input__span standard-font standard-font_type_smallest ${errorMessage && 'input__error'}`}>{errorMessage ? spanText : spanPrompt}</span>
     </>
   );
 }

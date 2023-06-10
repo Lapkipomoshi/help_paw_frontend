@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './MainPage.css';
+import './MainPage.scss';
 import Banner from '../../modules/Banner/Banner';
 import Promo from '../../modules/Promo/Promo';
 import SheltersOnMain from '../../modules/SheltersOnMain/SheltersOnMain';
@@ -7,7 +7,7 @@ import PapersOnMain from '../../modules/PapersOnMain/PapersOnMain';
 import Faq from '../../modules/Faq/Faq';
 import mainApi from './api';
 
-const MainPage = ({ loggedIn }) => {
+const MainPage = () => {
   const [sheltersList, setSheltersList] = useState([]); // список приютов на главной странице
   const [papersList, setPapersList] = useState([]); // список полезных статей на главной странице
   const [faqList, setFaqList] = useState([]); // список часто задаваемых вопросов
@@ -45,7 +45,7 @@ const MainPage = ({ loggedIn }) => {
     <main className='main'>
       <Banner />
       <Promo />
-      <SheltersOnMain loggedIn={loggedIn} sheltersList={sheltersList} />
+      <SheltersOnMain sheltersList={sheltersList} />
       <PapersOnMain papersList={papersList} />
       <Faq faqList={faqList} />
     </main>

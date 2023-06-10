@@ -1,17 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import './RegisterPage.css';
 import { Link } from 'react-router-dom';
+import './RegisterPage.scss';
 import UserForm from '../../components/UserForm/UserForm';
 import UserContainer from '../../components/UserContainer/UserContainer';
+import MainContainer from '../../components/MainContainer/MainContainer';
 import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import PasswordInput from '../../ui/PasswordInput/PasswordInput';
-import { EMAIL_REGEX, NAME_REGEX, PASSWORD_REGEX } from '../../utils/regex';
 import {
-  EMAIL_INVALID, EMAIL_NOT_FOUND, NAME_INVALID, NAME_NOT_FOUND, NAME_TOO_LONG,
-  NAME_TOO_SHORT, PASSWORD_INVALID, PASSWORD_NOT_FOUND, PASSWORD_ONLY_NUMBERS, PASSWORD_TOO_LONG, PASSWORD_TOO_SHORT,
+  EMAIL_REGEX, NAME_REGEX, NUMBER, PASSWORD_REGEX,
+} from '../../utils/regex';
+import {
+  EMAIL_INVALID,
+  EMAIL_NOT_FOUND,
+  NAME_INVALID,
+  NAME_NOT_FOUND,
+  NAME_TOO_LONG,
+  NAME_TOO_SHORT,
+  PASSWORD_INVALID,
+  PASSWORD_NOT_FOUND,
+  PASSWORD_ONLY_NUMBERS,
+  PASSWORD_TOO_LONG,
+  PASSWORD_TOO_SHORT,
+  PASSWORD_SAME_EMAIL,
 } from '../../utils/errorMessage';
-import MainContainer from '../../components/MainContainer/MainContainer';
 
 const RegisterPage = ({ onRegister }) => {
   const [userName, setUserName] = useState('');
@@ -22,7 +34,7 @@ const RegisterPage = ({ onRegister }) => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
-  const [promptText, setPromptText] = useState('Не менее 8 символов');
+  const [promptText, setPromptText] = useState('Не менее 10 символов');
 
   const [isValidName, setIsValidName] = useState(false);
   const [isValidEmail, setIsValidEmail] = useState(false);
@@ -34,74 +46,70 @@ const RegisterPage = ({ onRegister }) => {
 
   const [isChecked, setIsChecked] = useState(false);
 
-  function handleNameChange(e) {
+  const handleNameChange = (e) => {
     const input = e.target;
     const validName = NAME_REGEX.test(input.value);
     setIsValidName(validName);
     setUserName(input.value);
-    if (!validName) {
-      setNameError(NAME_INVALID);
-    }
     if (input.value.length === 0) {
       setNameError(NAME_NOT_FOUND);
       setIsValidName(false);
-    } else if (input.value.length < 2) {
+    } else if (!validName) {
+      setNameError(NAME_INVALID);
+    } else if (input.value.length < input.minLength) {
       setNameError(NAME_TOO_SHORT);
       setIsValidName(false);
-    } else if (input.value.length === 20) {
+    } else if (input.value.length > input.maxLength) {
       setNameError(NAME_TOO_LONG);
       setIsValidName(false);
     } else {
       setNameError('');
     }
-  }
+  };
 
-  function handleEmailChange(e) {
+  const handleEmailChange = (e) => {
     const input = e.target;
     const validEmail = EMAIL_REGEX.test(input.value);
     setIsValidEmail(validEmail);
     setUserEmail(input.value);
-    if (!validEmail) {
+    if (input.value.length === 0) {
+      setEmailError(EMAIL_NOT_FOUND);
+    } else if (input.value === userPassword) {
+      setPasswordError(PASSWORD_SAME_EMAIL);
+      setIsValidPassword(false);
+    } else if (!validEmail) {
       setEmailError(EMAIL_INVALID);
     } else {
       setEmailError('');
     }
-    if (input.value.length === 0) {
-      setEmailError(EMAIL_NOT_FOUND);
-    }
-  }
+  };
 
-  function handlePasswordChange(e) {
+  const handlePasswordChange = (e) => {
     const input = e.target;
     const validPassword = PASSWORD_REGEX.test(input.value);
-    const passwordOnlyNumbers = /^[0-9]/.test(input.value);
+    const passwordOnlyNumbers = NUMBER.test(input.value);
     setIsValidPassword(input.validity.valid);
     setUserPassword(input.value);
-    if (!validPassword) {
+    if (input.value.length === 0) {
+      setPasswordError(PASSWORD_NOT_FOUND);
+    } else if (input.value === userEmail) {
+      setPasswordError(PASSWORD_SAME_EMAIL);
+      setIsValidPassword(false);
+    } else if (!validPassword) {
       setPasswordError(PASSWORD_INVALID);
       setIsValidPassword(false);
-    } else if (input.value.length < 8) {
+    } else if (input.value.length < 10) {
       setPasswordError(PASSWORD_TOO_SHORT);
-    } else if (input.value.length > 15) {
+    } else if (input.value.length > 100) {
       setPasswordError(PASSWORD_TOO_LONG);
       setIsValidPassword(false);
-    } else if (input.value.length >= 8 && passwordOnlyNumbers) {
+    } else if (passwordOnlyNumbers) {
       setPasswordError(PASSWORD_ONLY_NUMBERS);
     } else {
       setPasswordError('');
       setPromptText('');
     }
-    if (input.value.length === 0) {
-      setPasswordError(PASSWORD_NOT_FOUND);
-    }
-  }
-
-  useEffect(() => {
-    if (isValid && isChecked) {
-      return setDisabled(false);
-    }
-    return setDisabled(true);
-  }, [isValid, isChecked]);
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -112,12 +120,19 @@ const RegisterPage = ({ onRegister }) => {
     });
   };
 
-  function handleChangeCheckbox() {
+  const handleChangeCheckbox = () => {
     setIsChecked(!isChecked);
-  }
+  };
+
+  useEffect(() => {
+    if (isValid && isChecked) {
+      return setDisabled(false);
+    }
+    return setDisabled(true);
+  }, [isValid, isChecked]);
 
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main'>
         <section className='register'>
           <UserContainer
@@ -137,10 +152,9 @@ const RegisterPage = ({ onRegister }) => {
                     isValid={isValidName}
                     spanText={nameError}
                     minLength='2'
-                    maxLength='20'
+                    maxLength='50'
                     pattern='[A-Za-zа-яА-ЯёЁ\d-\s]*$'
                     value={userName || ''}
-                    /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handleNameChange}
                   />
 
@@ -153,7 +167,6 @@ const RegisterPage = ({ onRegister }) => {
                     pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$'
                     value={userEmail || ''}
                     spanText={emailError}
-                    /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handleEmailChange}
                   />
 
@@ -163,10 +176,9 @@ const RegisterPage = ({ onRegister }) => {
                     errorMessage={passwordError}
                     value={userPassword || ''}
                     pattern='^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])$'
-                    minLength='8'
-                    maxLength='16'
+                    minLength='10'
+                    maxLength='101'
                     isValid={isValidPassword}
-                    /* eslint-disable-next-line react/jsx-no-bind */
                     onChange={handlePasswordChange}
                   />
 
@@ -176,16 +188,41 @@ const RegisterPage = ({ onRegister }) => {
                       <span className='checkbox' />
                     </label>
 
-                    <p className='register__agreement'>
+                    <p className='register__text standard-font standard-font_type_small'>
                       Я согласен с
-                      <Link className='register__privacy-link' to='/' target='_blank'> Политикой конфиденциальности</Link>
+                      {' '}
+                      <Link
+                        className='register__link standard-font standard-font_type_small'
+                        to='/'
+                        target='_blank'
+                      >
+                        Политикой конфиденциальности
+                      </Link>
                       {' '}
                       и
-                      <Link className='register__privacy-link' to='/' target='_blank'> Условиями использования сервиса</Link>
+                      {' '}
+                      <Link
+                        className='register__link standard-font standard-font_type_small'
+                        to='/'
+                        target='_blank'
+                      >
+                        Условиями использования сервиса
+                      </Link>
                     </p>
                   </div>
 
                   <Button className='user-form__button-submit_register' submit disabled={disabled}>Зарегистрироваться</Button>
+
+                  <p className='register__text standard-font standard-font_type_base'>
+                    Уже есть аккаунт?
+                    {' '}
+                    <Link
+                      className='register__link standard-font standard-font_type_base'
+                      to='/sign-in'
+                    >
+                      Вход
+                    </Link>
+                  </p>
                 </>
               )}
             />

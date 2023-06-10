@@ -1,37 +1,64 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Footer.css';
-import classmatesIcon from '../../images/icons/footer__icon_classmates.svg';
-import vkIcon from '../../images/icons/footer__icon_vk.svg';
-import telegramIcon from '../../images/icons/footer__icon_telegram.svg';
+import { HashLink } from 'react-router-hash-link';
+import { useMediaQuery } from 'react-responsive';
+import './Footer.scss';
 import MainContainer from '../../components/MainContainer/MainContainer';
+import SocialMediaIcons from '../../components/SocialMediaIcons/SocialMediaIcons';
 
 const Footer = () => {
+  const isMobile = useMediaQuery({
+    maxWidth: 649,
+  });
+
+  const isTablet = useMediaQuery({
+    maxWidth: 1199,
+    minWidth: 650,
+  });
+
+  const isWide = useMediaQuery({
+    minWidth: 1200,
+  });
+
   return (
     <MainContainer theme='additional'>
       <footer className='footer'>
-        <div className='footer__flex-column-container'>
-          <Link className='footer__title' to='/'>Лапки помощи</Link>
+        <div className='footer__flex-container'>
+          <Link className='footer__title' to='/'>
+            Лапки помощи
+          </Link>
           <p className='footer__subtitle'>Сервис для помощи приютам </p>
+
+          {isTablet && (
+            <div className='footer__icons-container'>
+              <SocialMediaIcons />
+            </div>
+          )}
         </div>
+
         <div className='footer__flex-column-container'>
-          <Link className='footer__link' to='/shelters'>Карта приютов</Link>
-          <Link className='footer__link' to='/news'>Новости</Link>
-          <Link className='footer__link' to='/papers'>Полезные статьи</Link>
-          <Link className='footer__link' to='/'>О компании</Link>
-          <Link className='footer__link' to='/'>FAQ</Link>
+          <Link className='footer__link' to='/shelters'>
+            Карта приютов
+          </Link>
+          <Link className='footer__link' to='/news'>
+            Новости
+          </Link>
+          <Link className='footer__link' to='/papers'>
+            Полезные статьи
+          </Link>
+          {!isMobile && (
+            <HashLink className='footer__link' to='/#about'>
+              О компании
+            </HashLink>
+          )}
+          {!isMobile && (
+            <HashLink className='footer__link' to='/#faq'>
+              Вопросы
+            </HashLink>
+          )}
         </div>
-        <div className='footer__icons'>
-          <Link className='footer__icon-link' to='/'>
-            <img className='footer__icon' src={classmatesIcon} alt='OK.ru' />
-          </Link>
-          <Link className='footer__icon-link' to='/'>
-            <img className='footer__icon' src={vkIcon} alt='ВК' />
-          </Link>
-          <Link className='footer__icon-link' to='/'>
-            <img className='footer__icon' src={telegramIcon} alt='телеграм' />
-          </Link>
-        </div>
+
+        {(isWide || isMobile) && <SocialMediaIcons />}
       </footer>
     </MainContainer>
   );

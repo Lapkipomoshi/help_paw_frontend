@@ -12,7 +12,7 @@ const ShelterPage = () => {
 
   useEffect(() => {
     shelterApi
-      .getShelter(id) // загрузка карточек с приютами на главной странице
+      .getShelterById(id) // загрузка карточек с приютами на главной странице
       .then((res) => {
         setShelter(res);
       })
@@ -22,7 +22,7 @@ const ShelterPage = () => {
   }, [id]);
 
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main'>
         <section className='shelter-menu-section'>
           <NestedRoutesMenu linkList={shelterLinkList} gap={72} />

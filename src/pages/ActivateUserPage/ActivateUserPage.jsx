@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import './ActivateUserPage.css';
 import { useParams } from 'react-router-dom';
+import './ActivateUserPage.css';
 import UserForm from '../../components/UserForm/UserForm';
 import Button from '../../ui/Button/Button';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import ProfileContainer from '../../components/ProfileContainer/ProfileContainer';
 import Paw from '../../images/icons/ic_paw.svg';
-import * as auth from '../../utils/auth';
+import * as auth from '../App/api/auth';
 
 const ActivateUserPage = () => {
   const { uid, token } = useParams();
@@ -23,7 +23,7 @@ const ActivateUserPage = () => {
   }, [uid, token]);
 
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main'>
         <section className='activate-user'>
           <ProfileContainer containerClass='activate-user'>

@@ -42,7 +42,7 @@ const AddShelterPage = ({
   };
 
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main add-shelter'>
         <div className='add-shelter__title-block'>
           <h2 className='add-shelter__title'>Добавить приют</h2>

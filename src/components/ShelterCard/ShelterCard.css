@@ -1,4 +1,4 @@
-@import url('./styles/shelter-card.css');
+@import url('./styles/shelter-card.scss');
 @import url('./styles/__image/shelter-card__image.css');
 @import url('./styles/__title/shelter-card__title.css');
 @import url('./styles/__address/shelter-card__address.css');

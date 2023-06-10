@@ -10,7 +10,7 @@ const ProfilePage = () => {
   const { username } = currentUser;
 
   return (
-    <MainContainer theme='base'>
+    <MainContainer>
       <main className='main'>
         <section className='profile'>
           <ProfileContainer>
@@ -18,9 +18,8 @@ const ProfilePage = () => {
               Здравствуйте,
               {' '}
               { username }
-              !
             </h2>
-            <p className='profile__subtitle'>Приюты, которым Вы помогли</p>
+            <p className='profile__subtitle'>Приюты, которым вы помогли</p>
 
             <div className='profile__shelters'>
               <ShelterCard />

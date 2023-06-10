@@ -1,25 +1,18 @@
+import BaseApi from '../../utils/BaseApi';
 import { baseUrl, apiHeaders } from '../../utils/constants';
 
-class PapersApi {
-  constructor(options) {
-    this._baseUrl = options._baseUrl;
-    this._headers = options._headers;
+class PapersApi extends BaseApi {
+  constructor({ _baseUrl, _headers }) {
+    super({ _baseUrl });
+    this._headers = _headers;
   }
 
-  _processTheResponse(res) {
-    if (res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-  }
-
-  getPapers() { // загрузка часто задаваемых вопросов
-    return fetch(`${this._baseUrl}/v1/help-articles/`, {
+  getPapers(amount, offset = 0) { // загрузка указанного количества статей
+    return fetch(`${this._baseUrl}/v1/help-articles/?limit=${amount}&offset=${offset}`, {
       headers: this._headers,
-    })
-      .then((res) => {
-        return this._processTheResponse(res);
-      });
+    }).then((res) => {
+      return super._processTheResponse(res);
+    });
   }
 }
 

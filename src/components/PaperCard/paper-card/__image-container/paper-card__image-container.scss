@@ -1,0 +1,15 @@
+.paper-card__image-container {
+  width: 288px;
+  height: 192px;
+  border-radius: 30px;
+
+  @media (min-width: 768px) {
+    width: 211px;
+    height: 141px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 376px;
+    height: 252px;
+  }
+}

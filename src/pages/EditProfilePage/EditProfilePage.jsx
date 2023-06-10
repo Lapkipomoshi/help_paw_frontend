@@ -11,7 +11,6 @@ import {
   EMAIL_INVALID, EMAIL_NOT_FOUND, NAME_INVALID, NAME_NOT_FOUND, NAME_TOO_LONG, NAME_TOO_SHORT,
 } from '../../utils/errorMessage';
 import UserLink from '../../ui/UserLink/UserLink';
-import SecondaryButton from '../../ui/SecondaryButton/SecondaryButton';
 
 const EditProfilePage = ({ onEditProfile }) => {
   const currentUser = useContext(CurrentUserContext);
@@ -48,15 +47,15 @@ const EditProfilePage = ({ onEditProfile }) => {
       setIsValidName(validName);
       setUserName(input.value);
       setIsSameName(false);
-      if (!validName) {
-        setNameError(NAME_INVALID);
-      } else if (input.value.length === 0) {
+      if (input.value.length === 0) {
         setNameError(NAME_NOT_FOUND);
         setIsValidName(false);
-      } else if (input.value.length < 2) {
+      } else if (!validName) {
+        setNameError(NAME_INVALID);
+      } else if (input.value.length < input.minLength) {
         setNameError(NAME_TOO_SHORT);
         setIsValidName(false);
-      } else if (input.value.length > 20) {
+      } else if (input.value.length > input.maxLength) {
         setNameError(NAME_TOO_LONG);
         setIsValidName(false);
       } else if (input.value === username) {
@@ -74,15 +73,14 @@ const EditProfilePage = ({ onEditProfile }) => {
       setIsValidEmail(validEmail);
       setUserEmail(input.value);
       setIsSameEmail(false);
-      if (!validEmail) {
+      if (input.value.length === 0) {
+        setEmailError(EMAIL_NOT_FOUND);
+      } else if (!validEmail) {
         setEmailError(EMAIL_INVALID);
       } else if (input.value === email) {
         setIsSameEmail(true);
       } else {
         setEmailError('');
-      }
-      if (input.value.length === 0) {
-        setEmailError(EMAIL_NOT_FOUND);
       }
       if (isValidEmail && isSameName) {
         setDisabled(false);
@@ -136,7 +134,7 @@ const EditProfilePage = ({ onEditProfile }) => {
                     errorMessage={nameError}
                     spanText={nameError}
                     minLength='2'
-                    maxLength='20'
+                    maxLength='50'
                     pattern='[A-Za-zа-яА-ЯёЁ\d-\s]*$'
                     value={userName || ''}
                     onChange={handleChange}
@@ -154,8 +152,8 @@ const EditProfilePage = ({ onEditProfile }) => {
                   />
 
                   <div className='edit-profile__buttons'>
-                    <Button className='' submit disabled={disabled || isSame}>Сохранить изменения</Button>
-                    <SecondaryButton className='' onClick={cancelEdit}>Отменить</SecondaryButton>
+                    <Button submit disabled={disabled || isSame}>Сохранить изменения</Button>
+                    <Button theme='transparent' onClick={cancelEdit} disabled={isSame}>Отменить</Button>
                   </div>
                 </>
               )}
