@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './PaperPage.scss';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import paperApi from './api';
 
 const PaperPage = () => {
   const { id } = useParams(); // id статьи, получаемый из url-адреса текущей страницы
-  const [paper, setPaper] = useState(null); // информация о статье
+  const [paper, setPaper] = useState({}); // информация о статье
   const [isLoading, setIsLoading] = useState(true);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     paperApi
@@ -18,20 +19,21 @@ const PaperPage = () => {
         setIsLoading(false);
       })
       .catch((err) => {
-        setPaper(null);
         setIsLoading(false);
         throw new Error(err);
       });
   }, [id]);
 
   if (isLoading) {
-    return null;
+    return <div className='main paper'>Loading...</div>;
   }
 
-  const isDataNotFound = !paper && !isLoading;
+  const isPaperEmpty = Object.entries(paper).length === 0;
+
+  const isDataNotFound = isPaperEmpty && !isLoading;
 
   if (isDataNotFound) {
-    return <NotFoundPage />;
+    return navigate('/paper-not-found');
   }
 
   return (
