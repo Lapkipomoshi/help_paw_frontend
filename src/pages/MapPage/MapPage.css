@@ -1,5 +1,14 @@
+.shelter {
+  text-decoration: none;
+}
+
+.shelter__website-link {
+  cursor: pointer;
+}
+
 .search-section {
-  width: 1440px;
+  box-sizing: border-box;
+  width: 100%;
   background: var(--color-background-base);
   display: flex;
   align-items: center;

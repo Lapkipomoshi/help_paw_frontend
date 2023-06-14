@@ -16,13 +16,14 @@ const MapPage = () => {
   useEffect(() => {
     mapApi
       .getMap()
-      .then((resArr) => {
-        const newCoordinates = resArr
-          .filter((res) => {
-            return 'lat' in res && 'long' in res && res.long !== null;
+      .then((sheltersArray) => {
+        const newCoordinates = sheltersArray
+          .filter((shelter) => {
+            return shelter.long !== null && shelter.lat !== null;
           })
           .map((res) => {
             return {
+              id: res.id,
               lat: +res.lat,
               long: +res.long,
               address: res.address,
@@ -55,48 +56,52 @@ const MapPage = () => {
           <YMaps>
             <div className='container container_flex-row section__content'>
               <Map
-                style={{ position: 'relative', width: '100%', height: 914 }}
-                defaultState={{ center: [55.65, 37.5], zoom: 11, controls: [] }}
+                style={{ position: 'relative', width: '100%', height: 1032 }}
+                defaultState={{ center: [55.69, 37.5], zoom: 12, controls: [] }}
                 modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
               >
                 <ul className='shelters-list'>
-                  {coordinates.map((el) => {
+                  {coordinates.map((shelter) => {
                     return (
-                      <li className='shelters-list__item shelter' key={`${el.lat}-${el.long}`}>
-                        <div className='shelter__inf'>
-                          <h3 className='shelter__title'>{el.name}</h3>
-                          <p className='shelter__address'>{el.address}</p>
-                          <p className='shelter__time'>
-                            <span className='shelter__time-heading'>Часы работы: </span>
-                            {el.startHour}-{el.finishHour}
-                          </p>
-                        </div>
-                        <Link to='#'>
-                          <img src={websiteIcon} alt='сайт' />
+                      <li className='shelters-list__item' key={`${shelter.lat}-${shelter.long}`}>
+                        <Link to={`/shelters/${shelter.id}/about`} className='shelter'>
+                          <div className='shelter__inf'>
+                            <h3 className='shelter__title'>{shelter.name}</h3>
+                            <p className='shelter__address'>{shelter.address}</p>
+                            <p className='shelter__time'>
+                              <span className='shelter__time-heading'>Часы работы: </span>
+                              {shelter.startHour}-{shelter.finishHour}
+                            </p>
+                          </div>
                         </Link>
+                        {shelter.link && (
+                          <a href={shelter.link} className='shelter__website-link' target='_blank' rel='noreferrer'>
+                            <img src={websiteIcon} alt='сайт приюта' />
+                          </a>
+                        )}
                       </li>
                     );
                   })}
                 </ul>
-                {coordinates.map((el) => {
+                {coordinates.map((shelter) => {
                   let pawIcon = pawYellow;
-                  if (el.warning === 'green') {
+                  if (shelter.warning === 'green') {
                     pawIcon = pawGreen;
-                  } else if (el.warning === 'red') {
+                  } else if (shelter.warning === 'red') {
                     pawIcon = pawRed;
                   }
 
                   return (
                     <Placemark
-                      key={`${el.lat}-${el.long}`}
-                      geometry={[el.lat, el.long]}
+                      key={`${shelter.lat}-${shelter.long}`}
+                      geometry={[shelter.lat, shelter.long]}
                       properties={{
-                        balloonContentHeader: `<h3 class="shelter__title shelter__title_balloon">${el.name}</h3>`,
-                        balloonContentBody: `<p class="shelter__address shelter__address_balloon">${el.address}</p>`,
+                        balloonContentHeader: `<h3 class="shelter__title shelter__title_balloon">${shelter.name}</h3>`,
+                        balloonContentBody: `<p class="shelter__address shelter__address_balloon">${shelter.address}</p>`,
                         balloonContentFooter:
                           '<p class="shelter__time shelter__time_balloon">' +
                           '<span class="shelter__time-heading shelter__time-heading_balloon">Часы работы: </span>' +
-                          `${el.startHour}-${el.finishHour}</p>`,
+                          `${shelter.startHour}-${shelter.finishHour}</p>`,
                       }}
                       options={{
                         iconLayout: 'default#image',
@@ -107,7 +112,6 @@ const MapPage = () => {
                     />
                   );
                 })}
-                ( )
               </Map>
             </div>
           </YMaps>
