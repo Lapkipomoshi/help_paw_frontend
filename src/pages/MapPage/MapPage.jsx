@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import './MapPage.css';
 import { Map, Placemark, YMaps } from '@pbe/react-yandex-maps';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import pawRed from './svg/paw-red.svg';
-import pawYellow from './svg/paw-yellow.svg';
-import pawGreen from './svg/paw-green.svg';
+import redPaw from './svg/paw-red.svg';
+import yellowPaw from './svg/paw-yellow.svg';
+import greenPaw from './svg/paw-green.svg';
 import websiteIcon from '../../images/icons/ic_website.svg';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import mapApi from './api';
@@ -30,7 +30,7 @@ const MapPage = () => {
               name: res.name,
               startHour: res.working_from_hour,
               finishHour: res.working_to_hour,
-              link: res.link,
+              webSite: res.web_site,
               image: res.profile_image,
               warning: res.warning,
             };
@@ -63,7 +63,7 @@ const MapPage = () => {
                 <ul className='shelters-list'>
                   {coordinates.map((shelter) => {
                     return (
-                      <li className='shelters-list__item' key={`${shelter.lat}-${shelter.long}`}>
+                      <li className='shelters-list__item' key={shelter.id}>
                         <Link to={`/shelters/${shelter.id}/about`} className='shelter'>
                           <div className='shelter__inf'>
                             <h3 className='shelter__title'>{shelter.name}</h3>
@@ -74,8 +74,8 @@ const MapPage = () => {
                             </p>
                           </div>
                         </Link>
-                        {shelter.link && (
-                          <a href={shelter.link} className='shelter__website-link' target='_blank' rel='noreferrer'>
+                        {shelter.webSite && (
+                          <a href={shelter.webSite} className='shelter__website-link' target='_blank' rel='noreferrer'>
                             <img src={websiteIcon} alt='сайт приюта' />
                           </a>
                         )}
@@ -84,11 +84,18 @@ const MapPage = () => {
                   })}
                 </ul>
                 {coordinates.map((shelter) => {
-                  let pawIcon = pawYellow;
-                  if (shelter.warning === 'green') {
-                    pawIcon = pawGreen;
-                  } else if (shelter.warning === 'red') {
-                    pawIcon = pawRed;
+                  let pawIcon;
+
+                  switch (shelter.warning) {
+                    case 'green':
+                      pawIcon = greenPaw;
+                      break;
+                    case 'yellow':
+                      pawIcon = yellowPaw;
+                      break;
+                    default:
+                      pawIcon = redPaw;
+                      break;
                   }
 
                   return (
