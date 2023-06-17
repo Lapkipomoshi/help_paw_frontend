@@ -46,7 +46,7 @@ const RegisterPage = ({ onRegister }) => {
 
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleNameChange = (e) => {
+  const handleNameValidate = (e) => {
     const input = e.target;
     const validName = NAME_REGEX.test(input.value);
     setIsValidName(validName);
@@ -67,7 +67,12 @@ const RegisterPage = ({ onRegister }) => {
     }
   };
 
-  const handleEmailChange = (e) => {
+  const handleNameChange = (e) => {
+    const input = e.target;
+    setUserName(input.value);
+  };
+
+  const handleEmailValidate = (e) => {
     const input = e.target;
     const validEmail = EMAIL_REGEX.test(input.value);
     setIsValidEmail(validEmail);
@@ -84,7 +89,12 @@ const RegisterPage = ({ onRegister }) => {
     }
   };
 
-  const handlePasswordChange = (e) => {
+  const handleEmailChange = (e) => {
+    const input = e.target;
+    setUserEmail(input.value);
+  };
+
+  const handlePasswordValidate = (e) => {
     const input = e.target;
     const validPassword = PASSWORD_REGEX.test(input.value);
     const passwordOnlyNumbers = NUMBER.test(input.value);
@@ -111,6 +121,11 @@ const RegisterPage = ({ onRegister }) => {
     }
   };
 
+  const handlePasswordChange = (e) => {
+    const input = e.target;
+    setUserPassword(input.value);
+  };
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     onRegister({
@@ -118,6 +133,7 @@ const RegisterPage = ({ onRegister }) => {
       password: userPassword,
       email: userEmail,
     });
+    setDisabled(true);
   };
 
   const handleChangeCheckbox = () => {
@@ -156,6 +172,7 @@ const RegisterPage = ({ onRegister }) => {
                     pattern='[A-Za-zа-яА-ЯёЁ\d-\s]*$'
                     value={userName || ''}
                     onChange={handleNameChange}
+                    onBlur={handleNameValidate}
                   />
 
                   <Input
@@ -168,6 +185,7 @@ const RegisterPage = ({ onRegister }) => {
                     value={userEmail || ''}
                     spanText={emailError}
                     onChange={handleEmailChange}
+                    onBlur={handleEmailValidate}
                   />
 
                   <PasswordInput
@@ -180,6 +198,7 @@ const RegisterPage = ({ onRegister }) => {
                     maxLength='101'
                     isValid={isValidPassword}
                     onChange={handlePasswordChange}
+                    onBlur={handlePasswordValidate}
                   />
 
                   <div className='register__privacy'>

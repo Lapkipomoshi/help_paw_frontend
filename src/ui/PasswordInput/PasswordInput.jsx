@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './PasswordInput.scss';
 
 function PasswordInput({
-  spanText, minLength, maxLength, onChange, errorMessage, isValid, spanPrompt,
+  spanText, minLength, maxLength, onChange, onBlur, errorMessage, isValid, spanPrompt,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   function showPassword() {
@@ -33,6 +33,7 @@ function PasswordInput({
           minLength={minLength}
           maxLength={maxLength}
           onChange={onChange}
+          onBlur={onBlur}
         />
         <button className={`password-visibility ${isOpen && 'password-visibility_opened'}`} type='button' onClick={showPassword} />
       </div>

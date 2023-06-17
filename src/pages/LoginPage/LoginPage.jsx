@@ -25,7 +25,7 @@ const LoginPage = ({ onLogin }) => {
 
   const [disabled, setDisabled] = useState(false);
 
-  const handleEmailChange = (e) => {
+  const handleEmailValidate = (e) => {
     const input = e.target;
     const validEmail = EMAIL_REGEX.test(input.value);
     setIsValidEmail(validEmail);
@@ -39,7 +39,12 @@ const LoginPage = ({ onLogin }) => {
     }
   };
 
-  const handlePasswordChange = (e) => {
+  const handleEmailChange = (e) => {
+    const input = e.target;
+    setUserEmail(input.value);
+  };
+
+  const handlePasswordValidate = (e) => {
     const input = e.target;
     setIsValidPassword(input.validity.valid);
     setUserPassword(input.value);
@@ -50,6 +55,11 @@ const LoginPage = ({ onLogin }) => {
     }
   };
 
+  const handlePasswordChange = (e) => {
+    const input = e.target;
+    setUserPassword(input.value);
+  };
+
   const handleSubmit = (e) => {
     const input = e.target;
     e.preventDefault();
@@ -58,6 +68,7 @@ const LoginPage = ({ onLogin }) => {
       email: userEmail,
     });
     input.reset();
+    setDisabled(true);
   };
 
   useEffect(() => {
@@ -89,6 +100,7 @@ const LoginPage = ({ onLogin }) => {
                     value={userEmail || ''}
                     spanText={emailError}
                     onChange={handleEmailChange}
+                    onBlur={handleEmailValidate}
                   />
 
                   <PasswordInput
@@ -96,6 +108,7 @@ const LoginPage = ({ onLogin }) => {
                     errorMessage={passwordError}
                     value={userPassword || ''}
                     onChange={handlePasswordChange}
+                    onBlur={handlePasswordValidate}
                   />
 
                   <Button className='user-form__button-submit_login' submit disabled={disabled}>Войти</Button>

@@ -2,7 +2,7 @@ import React from 'react';
 import './Input.scss';
 
 function Input({
-  labelText, inputName, inputType, spanText, onChange, minLength, maxLength, errorMessage, isValid, value,
+  labelText, inputName, inputType, spanText, onBlur, onChange, minLength, maxLength, errorMessage, isValid, value,
 }) {
   return (
     <div className='input__wrapper'>
@@ -15,6 +15,7 @@ function Input({
         maxLength={maxLength}
         value={value}
         required
+        onBlur={onBlur}
         onChange={onChange}
       />
       <span className='input__error standard-font standard-font_type_smallest'>{spanText}</span>
