@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import './NewPassword.css';
+import './NewPassword.scss';
 import UserForm from '../../components/UserForm/UserForm';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
