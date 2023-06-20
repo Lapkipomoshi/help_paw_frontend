@@ -1,0 +1,9 @@
+.shelter-card__image-container {
+  width: 190px;
+  height: 159px;
+  border-radius: 20px 20px 0 0;
+
+  @media (min-width: 768px) {
+    width: 251px;
+  }
+}

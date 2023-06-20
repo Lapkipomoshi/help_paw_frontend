@@ -1,0 +1,17 @@
+.cards-slider {
+  display: flex;
+  width: 100%;
+  margin: 16px 0 16px;
+  box-sizing: border-box;
+  padding: 0 0 0 16px;
+  list-style-type: none;
+
+  @media (min-width: 768px) {
+    margin: 32px 0 40px;
+    padding: 0 0 0 44px;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 0 0 0 132px;
+  }
+}

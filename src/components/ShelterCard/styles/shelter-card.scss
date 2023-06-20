@@ -2,17 +2,15 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 255px;
-  padding-bottom: 23px;
+  width: 192px;
+  height: 273px;
   background-color: var(--color-background-additional);
   border: 1px solid var(--color-accent-base);
   border-radius: 20px;
   box-sizing: border-box;
-  overflow: hidden;
   color: var(--color-text-base);
   text-decoration: none;
   transition-duration: 1.5s;
-  box-sizing: border-box;
 
   &:hover {
     transform: scale(1.12);
@@ -20,5 +18,10 @@
   }
   &:focus {
     border-color: var(--color-accent-pressed);
+  }
+
+  @media (min-width: 768px) {
+    width: 253px;
+    height: 308px;
   }
 }

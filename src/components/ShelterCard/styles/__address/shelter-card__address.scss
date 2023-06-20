@@ -1,0 +1,15 @@
+.shelter-card__address {
+  margin: 0 0 8px;
+  max-height: 38px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  color: var(--color-text-additional);
+
+  @media (min-width: 768px) {
+    margin: 0 0 16px;
+  }
+}

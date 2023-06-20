@@ -1,0 +1,9 @@
+.cards-slider__buttons {
+  display: flex;
+  margin: 0 0 40px 0;
+  padding: 0 auto;
+
+  @media (min-width: 768px) {
+    margin: 0 0 80px 0;
+  }
+}
