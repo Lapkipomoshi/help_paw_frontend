@@ -50,7 +50,6 @@ const RegisterPage = ({ onRegister }) => {
     const input = e.target;
     const validName = NAME_REGEX.test(input.value);
     setIsValidName(validName);
-    setUserName(input.value);
     if (input.value.length === 0) {
       setNameError(NAME_NOT_FOUND);
       setIsValidName(false);
@@ -76,7 +75,6 @@ const RegisterPage = ({ onRegister }) => {
     const input = e.target;
     const validEmail = EMAIL_REGEX.test(input.value);
     setIsValidEmail(validEmail);
-    setUserEmail(input.value);
     if (input.value.length === 0) {
       setEmailError(EMAIL_NOT_FOUND);
     } else if (input.value === userPassword) {
@@ -99,7 +97,6 @@ const RegisterPage = ({ onRegister }) => {
     const validPassword = PASSWORD_REGEX.test(input.value);
     const passwordOnlyNumbers = NUMBER.test(input.value);
     setIsValidPassword(input.validity.valid);
-    setUserPassword(input.value);
     if (input.value.length === 0) {
       setPasswordError(PASSWORD_NOT_FOUND);
     } else if (input.value === userEmail) {
@@ -115,6 +112,7 @@ const RegisterPage = ({ onRegister }) => {
       setIsValidPassword(false);
     } else if (passwordOnlyNumbers) {
       setPasswordError(PASSWORD_ONLY_NUMBERS);
+      setIsValidPassword(false);
     } else {
       setPasswordError('');
       setPromptText('');
