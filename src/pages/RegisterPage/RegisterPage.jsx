@@ -8,7 +8,8 @@ import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import PasswordInput from '../../ui/PasswordInput/PasswordInput';
 import {
-  EMAIL_REGEX, NAME_REGEX, NUMBER, PASSWORD_REGEX,
+  // eslint-disable-next-line import/named
+  EMAIL_REGEX, NAME_REGEX, NUMBER, PASSWORD_REGEX, SYMBOL,
 } from '../../utils/regex';
 import {
   EMAIL_INVALID,
@@ -22,7 +23,7 @@ import {
   PASSWORD_ONLY_NUMBERS,
   PASSWORD_TOO_LONG,
   PASSWORD_TOO_SHORT,
-  PASSWORD_SAME_EMAIL,
+  PASSWORD_SAME_EMAIL, NAME_ONLY_SYMBOLS,
 } from '../../utils/errorMessage';
 
 const RegisterPage = ({ onRegister }) => {
@@ -49,6 +50,7 @@ const RegisterPage = ({ onRegister }) => {
   const handleNameValidate = (e) => {
     const input = e.target;
     const validName = NAME_REGEX.test(input.value);
+    const nameOnlySymbols = SYMBOL.test(input.value);
     setIsValidName(validName);
     if (input.value.length === 0) {
       setNameError(NAME_NOT_FOUND);
@@ -60,6 +62,9 @@ const RegisterPage = ({ onRegister }) => {
       setIsValidName(false);
     } else if (input.value.length > input.maxLength) {
       setNameError(NAME_TOO_LONG);
+      setIsValidName(false);
+    } else if (nameOnlySymbols) {
+      setNameError(NAME_ONLY_SYMBOLS);
       setIsValidName(false);
     } else {
       setNameError('');
