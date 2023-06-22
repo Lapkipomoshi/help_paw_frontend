@@ -1,5 +1,5 @@
 import React from 'react';
-import './InfoTooltip.css';
+import './InfoTooltip.scss';
 
 function InfoTooltip({
   isOpen, image, message,
@@ -16,6 +16,12 @@ function InfoTooltip({
         />
 
         <p className='popup__text'>{message}</p>
+
+        <button
+          type='button'
+          className='popup__button-close'
+          // onClick={onClose}
+        />
       </div>
     </div>
   );
