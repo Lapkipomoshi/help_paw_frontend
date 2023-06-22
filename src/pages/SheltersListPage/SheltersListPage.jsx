@@ -6,20 +6,19 @@ import NestedRoutesMenu from '../../components/NestedRoutesMenu/NestedRoutesMenu
 import SearchInput from '../../components/SearchInput/SearchInput';
 import ShelterCard from '../../components/ShelterCard/ShelterCard';
 import { colorLinkList } from '../../utils/constants';
-import CardsSlider from '../../components/CardsSlider/CardsSlider';
-import sheltersLisApi from './api';
+import SheltersListApi from './api';
 
 const SheltersListPage = () => {
   const [sheltersList, setSheltersList] = useState([]);
-  const [selectedMenu, setSelectedMenu] = useState('red');
+  const [selectedColor, setSelectedColor] = useState('red'); // первоночальный рендеринг страницы с красными Shelters
+  const [isDataLoading, setIsDataLoading] = useState(true);
 
-  const handleMenuSelect = (value) => {
-    setSelectedMenu(value);
+  const handleColorSelect = (value) => {
+    return setSelectedColor(value);
   };
 
   useEffect(() => {
-    sheltersLisApi
-      .getMap()
+    SheltersListApi.getMap()
       .then((sheltersArray) => {
         const newSheltersList = sheltersArray
           .filter((shelter) => {
@@ -40,11 +39,34 @@ const SheltersListPage = () => {
           });
 
         setSheltersList(newSheltersList);
+        setIsDataLoading(false);
       })
       .catch((err) => {
         throw new Error(err);
       });
   }, []);
+
+  // Проверяем, есть ли приюты выбранного цвета
+  const filteredShelters = sheltersList.filter((shelter) => {
+    return shelter.warning === selectedColor;
+  });
+
+  // Фильтруем приюты выбранного цвета
+  const sheltersByColor = filteredShelters.map((shelter) => {
+    return (
+      <li key={shelter.id}>
+        <ShelterCard
+          id={shelter.id}
+          name={shelter.name}
+          address={shelter.address}
+          workingFromHour={shelter.startHour}
+          workingToHour={shelter.finishHour}
+          logo={shelter.logo}
+          profileImage={shelter.profileImage}
+        />
+      </li>
+    );
+  });
 
   return (
     <MainContainer theme='base'>
@@ -59,34 +81,9 @@ const SheltersListPage = () => {
             </div>
             <SearchInput />
           </div>
-          <NestedRoutesMenu linkList={colorLinkList} gap={56} onSelect={handleMenuSelect} />
+          <NestedRoutesMenu linkList={colorLinkList} gap={56} onSelect={handleColorSelect} />
         </section>
-        <Outlet />
-        <CardsSlider>
-          {selectedMenu !== '' ? (
-            sheltersList
-              .filter((shelter) => {
-                return shelter.warning === selectedMenu;
-              })
-              .map((shelter) => {
-                return (
-                  <li key={shelter.id}>
-                    <ShelterCard
-                      id={shelter.id}
-                      name={shelter.name}
-                      address={shelter.address}
-                      workingFromHour={shelter.startHour}
-                      workingToHour={shelter.finishHour}
-                      logo={shelter.logo}
-                      profileImage={shelter.profileImage}
-                    />
-                  </li>
-                );
-              })
-          ) : (
-            <p>Не удалось загрузить приюты</p>
-          )}
-        </CardsSlider>
+        <Outlet context={{ filteredShelters, isDataLoading, sheltersByColor }} />
       </main>
     </MainContainer>
   );

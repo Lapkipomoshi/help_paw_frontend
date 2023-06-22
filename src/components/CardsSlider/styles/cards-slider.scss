@@ -1,5 +1,7 @@
 .cards-slider {
   display: flex;
+  white-space: nowrap;
+  overflow-y: hidden;
   width: 100%;
   margin: 16px 0 16px;
   box-sizing: border-box;

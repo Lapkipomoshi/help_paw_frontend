@@ -1,10 +1,15 @@
 import React from 'react';
+import { useOutletContext } from 'react-router-dom';
+import CardsSlider from '../../components/CardsSlider/CardsSlider';
 
 const GreenShelters = () => {
+  const { sheltersByColor, filteredShelters, isDataLoading } = useOutletContext();
   return (
-    <section className='shelters-slider-section'>
-      Зелёные приюты
-    </section>
+    !isDataLoading && (
+      <CardsSlider>
+        {filteredShelters.length > 0 ? sheltersByColor : <p>На данный момент таких приютов нет, попробуйте помочь приютам другого цвета</p>}
+      </CardsSlider>
+    )
   );
 };
 

@@ -1,7 +1,7 @@
 import BaseApi from '../../utils/BaseApi';
 import { baseUrl, apiHeaders } from '../../utils/constants';
 
-class SheltersLisApi extends BaseApi {
+class SheltersListApi extends BaseApi {
   constructor({ _baseUrl, _headers }) {
     super({ _baseUrl });
     this._headers = _headers;
@@ -16,7 +16,7 @@ class SheltersLisApi extends BaseApi {
   }
 }
 
-const sheltersLisApi = new SheltersLisApi({
+const sheltersLisApi = new SheltersListApi({
   _baseUrl: baseUrl,
   _headers: apiHeaders,
 });
