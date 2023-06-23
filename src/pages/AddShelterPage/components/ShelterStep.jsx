@@ -15,16 +15,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
   const startTime = useInput('', { notEmpty: true, regex: regex.TIME }, errorMessage.TIME);
   const finishTime = useInput('', { notEmpty: true, regex: regex.TIME }, errorMessage.TIME);
   const shelterName = useInput('', { notEmpty: true, maxLength: 50, regex: regex.NAME_REGEX }, errorMessage.SHELTER_NAME);
-  const INN = useInput(
-    '',
-    {
-      notEmpty: true,
-      minLength: 10,
-      maxLength: 10,
-      regex: regex.NUMBER,
-    },
-    errorMessage.INN
-  );
+  const INN = useInput('', { notEmpty: true, minLength: 10, maxLength: 10, regex: regex.NUMBER }, errorMessage.INN);
   const webSite = useInput('', { regex: regex.URL, maxLength: 200 }, errorMessage.SHELTER_SITE);
   const telegram = useInput('', { regex: regex.TELEGRAM, maxLength: 200 }, errorMessage.TELEGRAM);
   const [animalTypes, setAnimalTypes] = useState([]);
