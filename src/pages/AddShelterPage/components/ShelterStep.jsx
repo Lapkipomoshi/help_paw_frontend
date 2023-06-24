@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import IMask from 'imask';
 import DeclarationInput from '../../../ui/DeclarationInput/DeclarationInput';
+import AddPhotoBlock from '../../../ui/AddPhotoBlock/AddPhotoBlock';
 import Button from '../../../ui/Button/Button';
-import useInput from '../../../hooks/useInput';
 import CheckboxesSelect from '../../../ui/CheckboxesSelect/CheckboxesSelect';
+import useInput from '../../../hooks/useInput';
 import * as regex from '../../../utils/regex';
 import * as errorMessage from '../../../utils/errorMessage';
 
 // шаг в форме добавления приюта с анкетой о самом приюте
 const ShelterStep = ({ handleBack, setShelter }) => {
+  const sizeLimit = 5 * 1024 * 1024; // ограничение для размера картинки - 5 МБ
   const [logo, setLogo] = useState();
   const [mainPhoto, setMainPhoto] = useState();
   const startTime = useInput('', { notEmpty: true, regex: regex.TIME }, errorMessage.TIME);
@@ -38,32 +40,6 @@ const ShelterStep = ({ handleBack, setShelter }) => {
     description.invalidText ||
     !isChecked ||
     animalTypes.length === 0;
-
-  const handleLogo = (e) => {
-    const sizeLimit = 5 * 1024 * 1024; // ограничение для размера картинки - 5 МБ
-    if (e.target.files[0].size < sizeLimit) {
-      const fileReader = new FileReader();
-      fileReader.onload = () => {
-        setLogo(fileReader.result);
-      };
-      fileReader.readAsDataURL(e.target.files[0]);
-    } else {
-      setLogo('');
-    }
-  };
-
-  const handleMainPhoto = (e) => {
-    const sizeLimit = 5 * 1024 * 1024; // ограничение для размера картинки - 5 МБ
-    if (e.target.files[0].size < sizeLimit) {
-      const fileReader = new FileReader();
-      fileReader.onload = () => {
-        setMainPhoto(fileReader.result);
-      };
-      fileReader.readAsDataURL(e.target.files[0]);
-    } else {
-      setMainPhoto('');
-    }
-  };
 
   useEffect(() => {
     if (!isInvalid) {
@@ -96,24 +72,8 @@ const ShelterStep = ({ handleBack, setShelter }) => {
   return (
     <>
       <div className='add-shelter-form__photos'>
-        <div className='add-shelter-form__photo-block'>
-          <label className='add-shelter-form__photo-label'>Логотип приюта</label>
-          <div className='add-shelter-form__photo-input'>
-            <label>
-              <input onChange={handleLogo} type='file' name='logo' accept='.jpg, .jpeg, .png, .bmp' multiple={false} />
-              <img className={`add-shelter-form__logo ${!logo && 'add-shelter-form__logo_hidden'}`} src={logo} alt='' />
-            </label>
-          </div>
-        </div>
-        <div className='add-shelter-form__photo-block'>
-          <label className='add-shelter-form__photo-label'>Фото приюта</label>
-          <div className='add-shelter-form__photo-input'>
-            <label>
-              <input onChange={handleMainPhoto} type='file' name='mainPhoto' accept='.jpg, .jpeg, .png, .bmp' multiple={false} />
-              <img className={`add-shelter-form__logo ${!mainPhoto && 'add-shelter-form__logo_hidden'}`} src={logo} alt='' />
-            </label>
-          </div>
-        </div>
+        <AddPhotoBlock photo={logo} setPhoto={setLogo} sizeLimit={sizeLimit} lagelText='Логотип приюта' />
+        <AddPhotoBlock photo={mainPhoto} setPhoto={setMainPhoto} sizeLimit={sizeLimit} lagelText='Фото приюта' />
       </div>
       <label className='add-shelter-form__caption'>Часы приюта*</label>
       <div className='add-shelter-form__clock'>

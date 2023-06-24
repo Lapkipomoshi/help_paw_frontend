@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './AddShelterPage.css';
+import './AddShelterPage.scss';
 import OwnerStep from './components/OwnerStep';
 import ShelterStep from './components/ShelterStep';
 import MainContainer from '../../components/MainContainer/MainContainer';

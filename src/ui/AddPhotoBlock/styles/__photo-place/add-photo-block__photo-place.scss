@@ -1,9 +1,9 @@
-.add-shelter-form__photo-input {
+.add-photo-block__photo-place {
   text-align: center;
   width: 148px;
   height: 148px;
   margin-bottom: 20px;
-  background: url('../../../../../images/add-item-plus.svg') center no-repeat;
+  background: url('../../../../images/add-item-plus.svg') center no-repeat;
   border: 2px dashed var(--color-accent-base);
   border-radius: 16px;
   overflow: hidden;
@@ -19,6 +19,6 @@
   }
 }
 
-.add-shelter-form__photo-input input[type='file'] {
+.add-photo-block__photo-place input[type='file'] {
   display: none;
 }
