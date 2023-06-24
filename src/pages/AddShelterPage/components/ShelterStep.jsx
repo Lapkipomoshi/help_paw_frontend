@@ -26,7 +26,8 @@ const ShelterStep = ({ handleBack, setShelter }) => {
   const okGroup = useInput('', { regex: regex.ODNOKLASSNIKI, maxLength: 200 }, errorMessage.ODNOKLASSNIKI);
   const vkGroup = useInput('', { regex: regex.VKONTAKTE, maxLength: 200 }, errorMessage.VKONTAKTE);
   const description = useInput('', { notEmpty: true, maxLength: 3000, regex: regex.TEXT }, errorMessage.DESCRIPTION);
-  const [isChecked, setIsChecked] = useState(false);
+  const [isAgreementChecked, setIsAgreementChecked] = useState(false);
+  const [isWarningChecked, setIsWarningChecked] = useState(false);
   const isInvalid =
     startTime.invalidText ||
     finishTime.invalidText ||
@@ -38,7 +39,8 @@ const ShelterStep = ({ handleBack, setShelter }) => {
     okGroup.invalidText ||
     vkGroup.invalidText ||
     description.invalidText ||
-    !isChecked ||
+    !isAgreementChecked ||
+    !isWarningChecked ||
     animalTypes.length === 0;
 
   useEffect(() => {
@@ -131,7 +133,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
             name='agreement'
             type='checkbox'
             onClick={() => {
-              setIsChecked(!isChecked);
+              setIsAgreementChecked(!isAgreementChecked);
             }}
           />
           <span className='checkbox' />
@@ -147,6 +149,22 @@ const ShelterStep = ({ handleBack, setShelter }) => {
             {' '}
             Условиями использования сервиса
           </Link>
+        </p>
+      </div>
+      <div className='register__privacy'>
+        <label className='checkbox__container'>
+          <input
+            className='checkbox__input'
+            name='warning'
+            type='checkbox'
+            onClick={() => {
+              setIsWarningChecked(!isWarningChecked);
+            }}
+          />
+          <span className='checkbox' />
+        </label>
+        <p className='register__text'>
+          Я оповещён, что один пользователь может зарегистрировать только один приют
         </p>
       </div>
       <div className='add-shelter-form__buttons'>
