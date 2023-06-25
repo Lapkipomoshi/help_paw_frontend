@@ -80,7 +80,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
       <label className='add-shelter-form__caption'>Часы приюта*</label>
       <div className='add-shelter-form__clock'>
         <input
-          className='add-shelter-form__time-input'
+          className={`add-shelter-form__time-input ${(startTime.dirty && startTime.invalidText) && 'add-shelter-form__time-input_invalid'}`}
           value={startTime.value}
           onChange={startTime.onChange}
           onBlur={startTime.onBlur}
@@ -91,7 +91,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
         />
         <p>-</p>
         <input
-          className='add-shelter-form__time-input'
+          className={`add-shelter-form__time-input ${(finishTime.dirty && finishTime.invalidText) && 'add-shelter-form__time-input_invalid'}`}
           value={finishTime.value}
           onChange={finishTime.onChange}
           onBlur={finishTime.onBlur}
@@ -118,7 +118,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
       </div>
       <label className='add-shelter-form__caption'>Описание приюта*</label>
       <textarea
-        className='add-shelter-form__textarea'
+        className={`add-shelter-form__textarea ${(description.dirty && description.invalidText) && 'add-shelter-form__textarea_invalid'}`}
         value={description.value}
         onChange={description.onChange}
         onBlur={description.onBlur}
