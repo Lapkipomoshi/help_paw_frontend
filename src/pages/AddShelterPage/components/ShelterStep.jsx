@@ -74,8 +74,8 @@ const ShelterStep = ({ handleBack, setShelter }) => {
   return (
     <>
       <div className='add-shelter-form__photos'>
-        <AddPhotoBlock photo={logo} setPhoto={setLogo} sizeLimit={sizeLimit} lagelText='Логотип приюта' />
-        <AddPhotoBlock photo={mainPhoto} setPhoto={setMainPhoto} sizeLimit={sizeLimit} lagelText='Фото приюта' />
+        <AddPhotoBlock photo={logo} setPhoto={setLogo} name='logo' sizeLimit={sizeLimit} labelText='Логотип приюта' />
+        <AddPhotoBlock photo={mainPhoto} setPhoto={setMainPhoto} name='mainPhoto' sizeLimit={sizeLimit} labelText='Фото приюта' />
       </div>
       <label className='add-shelter-form__caption'>Часы приюта*</label>
       <div className='add-shelter-form__clock'>
