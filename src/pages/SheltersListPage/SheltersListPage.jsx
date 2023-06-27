@@ -18,7 +18,7 @@ const SheltersListPage = () => {
   };
 
   useEffect(() => {
-    SheltersListApi.getMap()
+    SheltersListApi.getSheltersList()
       .then((sheltersArray) => {
         const newSheltersList = sheltersArray
           .filter((shelter) => {
@@ -46,7 +46,7 @@ const SheltersListPage = () => {
       });
   }, []);
 
-  // Проверяем, есть ли приюты выбранного цвета
+  // Проверяем, есть ли приюты выбранного цвета пока на беке стоит заглушка по warnings
   const filteredShelters = sheltersList.filter((shelter) => {
     return shelter.warning === selectedColor;
   });

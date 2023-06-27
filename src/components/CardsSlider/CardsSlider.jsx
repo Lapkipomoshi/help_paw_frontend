@@ -6,16 +6,16 @@ const CardsSlider = ({ children, listLength, columnGap = 24, cardWidth = 200 }) 
 
   let position = 0; // смещение карточек в слайдере при листании
 
+  // показать предыдущие карточки
   const handlePrev = () => {
-    // показать предыдущие карточки
     if (position < 0) position += 200;
     slider.current.childNodes.forEach((element) => {
       element.style = `transform: translateX(${position}px)`;
     });
   };
 
+  // показать следующие карточки
   const handleNext = () => {
-    // показать следующие карточки
     if (position >= -(listLength - 7) * (columnGap + cardWidth)) position -= columnGap + cardWidth;
     slider.current.childNodes.forEach((element) => {
       element.style = `transform: translateX(${position}px)`;
