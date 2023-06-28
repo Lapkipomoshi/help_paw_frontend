@@ -19,14 +19,14 @@ export const getUserInfo = (token) => {
     .then(checkServerResponse);
 };
 
-export const updateUserInfo = ({ username, email }) => {
+export const updateUserInfo = ({ username }) => {
   return fetch(`${baseUrl}/auth/users/me/`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${localStorage.getItem('access')}`,
     },
-    body: JSON.stringify({ username, email }),
+    body: JSON.stringify({ username }),
   })
     .then(checkServerResponse);
 };

@@ -71,3 +71,30 @@ export const resetPasswordConfirm = ({ uid, token, new_password }) => {
   })
     .then(checkServerResponse);
 };
+
+export const resetEmail = ({ email }) => {
+  return fetch(`${baseUrl}/auth/users/reset_email/`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem('access')}`,
+    },
+    body: JSON.stringify({ email }),
+  })
+    .then(checkServerResponse);
+};
+
+// eslint-disable-next-line camelcase
+export const resetEmailConfirm = ({ uid, token, new_email }) => {
+  return fetch(`${baseUrl}/auth/users/reset_email_confirm/`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    // eslint-disable-next-line camelcase
+    body: JSON.stringify({ uid, token, new_email }),
+  })
+    .then(checkServerResponse);
+};

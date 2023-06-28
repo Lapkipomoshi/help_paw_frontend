@@ -34,6 +34,7 @@ import EditProfilePage from '../EditProfilePage/EditProfilePage';
 import SignOutPage from '../SignOutPage/SignOutPage';
 import ChangePasswordPage from '../ChangePasswordPage/ChangePasswordPage';
 import ActivateUserPage from '../ActivateUserPage/ActivateUserPage';
+import ActivateEmailPage from '../ActivateEmailPage/ActivateEmailPage';
 
 const App = () => {
   const navigate = useNavigate();
@@ -43,21 +44,22 @@ const App = () => {
     username: '',
     email: '',
     id: '',
+    donations_sum: '',
   });
 
   const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
   const [infoTooltipImage, setInfoTooltipImage] = useState(null);
   const [message, setMessage] = useState('');
 
-  function closeInfoTooltip() {
+  const closeInfoTooltip = () => {
     setInfoTooltipOpen(false);
     setInfoTooltipImage(null);
-  }
+  };
 
   const handleSignOut = () => {
     localStorage.clear();
     setLoggedIn(false);
-    setCurrentUser({ username: '', email: '', id: '' });
+    setCurrentUser({ username: '', email: '', id: '', donations_sum: '' });
     navigate('/');
   };
 
@@ -129,28 +131,6 @@ const App = () => {
       });
   };
 
-  const handleUpdateUser = ({ username, email }) => {
-    userApi
-      .updateUserInfo({ username, email })
-      .then((res) => {
-        setCurrentUser({
-          username: res.username,
-          email: res.email,
-        });
-
-        setInfoTooltipImage(imageSuccess);
-        setMessage('Вы успешно изменили данные!');
-        setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
-      })
-      .catch(() => {
-        setInfoTooltipImage(imageError);
-        setMessage('Что-то пошло не так! Попробуйте ещё раз.');
-        setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
-      });
-  };
-
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='page'>
@@ -198,13 +178,15 @@ const App = () => {
 
           <Route exact path='/password-recovery' element={loggedIn ? <Navigate to='/' /> : <PasswordRecovery />} />
 
-          <Route exact path='/password-reset/:uid/:token/' element={<NewPassword />} />
+          <Route exact path='/password-reset' element={<NewPassword />} />
 
           <Route exact path='/activate/:uid/:token/' element={<ActivateUserPage />} />
 
+          <Route exact path='/email-reset/:uid/:token/:new_email' element={<ActivateEmailPage />} />
+
           <Route path='/profile' element={<ProtectedRoute loggedIn={loggedIn} component={ProfilePage} />} />
 
-          <Route path='/profile/edit' element={<ProtectedRoute loggedIn={loggedIn} component={EditProfilePage} onEditProfile={handleUpdateUser} />} />
+          <Route path='/profile/edit' element={<ProtectedRoute loggedIn={loggedIn} component={EditProfilePage} onUpdateCurrentUser={setCurrentUser} />} />
 
           <Route path='/profile/sign-out' element={<ProtectedRoute loggedIn={loggedIn} component={SignOutPage} onSignOut={handleSignOut} />} />
 
@@ -214,7 +196,7 @@ const App = () => {
         </Routes>
         <Footer />
 
-        <InfoTooltip isOpen={infoTooltipOpen} image={infoTooltipImage} message={message} />
+        <InfoTooltip isOpen={infoTooltipOpen} image={infoTooltipImage} message={message} onClose={closeInfoTooltip} />
       </div>
     </CurrentUserContext.Provider>
   );
