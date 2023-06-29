@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './ActivateEmailPage.scss';
 import UserForm from '../../components/UserForm/UserForm';
@@ -9,10 +9,8 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 import Paw from '../../images/icons/ic_paw.svg';
 import * as auth from '../App/api/auth';
 
-const ActivateEmailPage = () => {
-  const [currentUser, setCurrentUser] = useState({
-    email: '',
-  });
+const ActivateEmailPage = ({ onUpdateCurrentUser }) => {
+  const currentUser = useContext(CurrentUserContext);
   // eslint-disable-next-line camelcase
   const { uid, token, new_email } = useParams();
   const [isActive, setIsActive] = useState(false);
@@ -22,15 +20,15 @@ const ActivateEmailPage = () => {
     auth.resetEmailConfirm({ uid, token, new_email })
       .then(() => {
         setIsActive(true);
-        setCurrentUser({
-          // eslint-disable-next-line camelcase
-          email: new_email
-        });
+        // eslint-disable-next-line camelcase
+        onUpdateCurrentUser({ email: new_email });
       })
-      .catch(() => {
+      .catch((err) => {
         setIsActive(false);
+        throw new Error(err);
       });
-  }, [uid, token]);
+    // eslint-disable-next-line camelcase
+  }, [uid, token, new_email]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

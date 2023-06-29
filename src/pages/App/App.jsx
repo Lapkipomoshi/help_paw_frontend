@@ -182,7 +182,7 @@ const App = () => {
 
           <Route exact path='/activate/:uid/:token/' element={<ActivateUserPage />} />
 
-          <Route exact path='/email-reset/:uid/:token/:new_email' element={<ActivateEmailPage />} />
+          <Route exact path='/email-reset/:uid/:token/:new_email' element={<ActivateEmailPage onUpdateCurrentUser={setCurrentUser} />} />
 
           <Route path='/profile' element={<ProtectedRoute loggedIn={loggedIn} component={ProfilePage} />} />
 
