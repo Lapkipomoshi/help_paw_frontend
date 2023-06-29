@@ -58,7 +58,6 @@ export const resetPassword = ({ email }) => {
     .then(checkServerResponse);
 };
 
-// eslint-disable-next-line camelcase
 export const resetPasswordConfirm = ({ uid, token, new_password }) => {
   return fetch(`${baseUrl}/auth/users/reset_password_confirm/`, {
     method: 'POST',
@@ -85,7 +84,6 @@ export const resetEmail = ({ email }) => {
     .then(checkServerResponse);
 };
 
-// eslint-disable-next-line camelcase
 export const resetEmailConfirm = ({ uid, token, new_email }) => {
   return fetch(`${baseUrl}/auth/users/reset_email_confirm/`, {
     method: 'POST',

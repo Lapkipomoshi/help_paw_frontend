@@ -11,23 +11,19 @@ import * as auth from '../App/api/auth';
 
 const ActivateEmailPage = ({ onUpdateCurrentUser }) => {
   const currentUser = useContext(CurrentUserContext);
-  // eslint-disable-next-line camelcase
   const { uid, token, new_email } = useParams();
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    // eslint-disable-next-line camelcase
     auth.resetEmailConfirm({ uid, token, new_email })
       .then(() => {
         setIsActive(true);
-        // eslint-disable-next-line camelcase
         onUpdateCurrentUser({ email: new_email });
       })
       .catch((err) => {
         setIsActive(false);
         throw new Error(err);
       });
-    // eslint-disable-next-line camelcase
   }, [uid, token, new_email]);
 
   return (
