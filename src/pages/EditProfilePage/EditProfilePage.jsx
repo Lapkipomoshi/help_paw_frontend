@@ -11,8 +11,7 @@ import {
   EMAIL_INVALID, EMAIL_NOT_FOUND, NAME_INVALID, NAME_NOT_FOUND, NAME_TOO_LONG, NAME_TOO_SHORT,
 } from '../../utils/errorMessage';
 import UserLink from '../../ui/UserLink/UserLink';
-import * as userApi from '../App/api/userApi';
-import * as auth from '../App/api/auth';
+import { resetEmail, updateUserInfo } from './api';
 import imageSuccess from '../../images/icons/ic_success.svg';
 import imageError from '../../images/icons/ic_error.svg';
 import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
@@ -124,7 +123,7 @@ const EditProfilePage = ({ onUpdateCurrentUser }) => {
   // eslint-disable-next-line no-shadow
   const handleUpdateUser = ({ username, email }) => {
     if (isSameName && !isSameEmail) {
-      auth.resetEmail({ email })
+      resetEmail({ email })
         .then(() => {
           setInfoTooltipImage(imageSuccess);
           setMessage('Письмо для активации нового email отправлено.');
@@ -140,7 +139,7 @@ const EditProfilePage = ({ onUpdateCurrentUser }) => {
     }
 
     if (isSameEmail && !isSameName) {
-      userApi.updateUserInfo({ username })
+      updateUserInfo({ username })
         .then(() => {
           onUpdateCurrentUser({ username, email });
           setInfoTooltipImage(imageSuccess);
@@ -157,7 +156,7 @@ const EditProfilePage = ({ onUpdateCurrentUser }) => {
     }
 
     if (!isSameName && !isSameEmail) {
-      Promise.all([userApi.updateUserInfo({ username }), auth.resetEmail({ email })])
+      Promise.all([updateUserInfo({ username }), resetEmail({ email })])
         .then(() => {
           onUpdateCurrentUser({ username, email });
           setInfoTooltipImage(imageSuccess);

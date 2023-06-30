@@ -23,18 +23,17 @@ import PasswordRecovery from '../PasswordRecovery/PasswordRecovery';
 import NewPassword from '../NewPassword/NewPassword';
 import SignUpConfirm from '../SignUpConfirm/SignUpConfirm';
 import ProfilePage from '../ProfilePage/ProfilePage';
-import CurrentUserContext from '../../contexts/CurrentUserContext';
-import * as auth from './api/auth';
-import imageSuccess from '../../images/icons/ic_success.svg';
-import imageError from '../../images/icons/ic_error.svg';
-import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
-import * as userApi from './api/userApi';
-import { register } from './api/auth';
 import EditProfilePage from '../EditProfilePage/EditProfilePage';
 import SignOutPage from '../SignOutPage/SignOutPage';
 import ChangePasswordPage from '../ChangePasswordPage/ChangePasswordPage';
 import ActivateUserPage from '../ActivateUserPage/ActivateUserPage';
 import ActivateEmailPage from '../ActivateEmailPage/ActivateEmailPage';
+import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
+import * as auth from './api/auth';
+import imageSuccess from '../../images/icons/ic_success.svg';
+import imageError from '../../images/icons/ic_error.svg';
+import getUserInfo from './api/userApi';
 
 const App = () => {
   const navigate = useNavigate();
@@ -66,8 +65,7 @@ const App = () => {
   function tokenCheck() {
     const token = localStorage.getItem('access');
     if (token) {
-      userApi
-        .getUserInfo(token)
+      getUserInfo(token)
         .then((res) => {
           setCurrentUser(res);
           setLoggedIn(true);
@@ -84,7 +82,8 @@ const App = () => {
   }, []);
 
   const handleRegister = ({ username, password, email }) => {
-    register(username, password, email)
+    auth
+      .register(username, password, email)
       .then(() => {
         setInfoTooltipImage(imageSuccess);
         setMessage('Спасибо за регистрацию! Для активации аккаунта перейдите по ссылке, отправленной на вашу почту.');

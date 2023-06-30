@@ -7,7 +7,7 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 import ProfileContainer from '../../components/ProfileContainer/ProfileContainer';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 import Paw from '../../images/icons/ic_paw.svg';
-import * as auth from '../App/api/auth';
+import resetEmailConfirm from './api';
 
 const ActivateEmailPage = ({ onUpdateCurrentUser }) => {
   const currentUser = useContext(CurrentUserContext);
@@ -15,7 +15,7 @@ const ActivateEmailPage = ({ onUpdateCurrentUser }) => {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    auth.resetEmailConfirm({ uid, token, new_email })
+    resetEmailConfirm({ uid, token, new_email })
       .then(() => {
         setIsActive(true);
         onUpdateCurrentUser({ email: new_email });
@@ -24,7 +24,7 @@ const ActivateEmailPage = ({ onUpdateCurrentUser }) => {
         setIsActive(false);
         throw new Error(err);
       });
-  }, [uid, token, new_email]);
+  }, [new_email]);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -39,7 +39,7 @@ const ActivateEmailPage = ({ onUpdateCurrentUser }) => {
                   <>
                     <img className='activate-user__image' src={Paw} alt='Лапка' />
                     <p className='activate-user__text'>{isActive ? 'Электронная почта изменена!' : 'Что-то пошло не так...'}</p>
-                    <Button className='' link to={isActive ? '/sign-in' : '/'}>{isActive ? 'В личный кабинет' : 'На главную страницу'}</Button>
+                    <Button link to={isActive ? '/sign-in' : '/'}>{isActive ? 'В личный кабинет' : 'На главную страницу'}</Button>
                   </>
                 )}
               />

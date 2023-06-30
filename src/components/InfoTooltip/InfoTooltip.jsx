@@ -1,21 +1,21 @@
 import React, { useEffect, useRef } from 'react';
 import './InfoTooltip.scss';
 
-function InfoTooltip({
-  isOpen, image, message, onClose,
-}) {
+const InfoTooltip = ({ isOpen, image, message, onClose }) => {
   const popup = useRef(null);
-  function handleOverlayClose(evt) {
-    if (evt.target.classList.contains('popup_opened') || evt.target.classList.contains('popup__button-close')) {
-      onClose();
-    }
-  }
 
-  function handleEscClose(evt) {
-    if (evt.key === 'Escape') {
+  const handleOverlayClose = (e) => {
+    const infoPopup = e.target.classList;
+    if (infoPopup.contains('popup_opened') || infoPopup.contains('popup__button-close')) {
       onClose();
     }
-  }
+  };
+
+  const handleEscClose = (e) => {
+    if (e.key === 'Escape') {
+      onClose();
+    }
+  };
 
   useEffect(() => {
     document.addEventListener('keydown', handleEscClose);
@@ -48,6 +48,6 @@ function InfoTooltip({
       </div>
     </div>
   );
-}
+};
 
 export default InfoTooltip;

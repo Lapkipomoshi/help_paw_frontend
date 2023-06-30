@@ -10,7 +10,7 @@ import { NUMBER, PASSWORD_REGEX } from '../../utils/regex';
 import {
   PASSWORD_INVALID, PASSWORD_NOT_FOUND, PASSWORD_ONLY_NUMBERS, PASSWORD_TOO_LONG, PASSWORD_TOO_SHORT,
 } from '../../utils/errorMessage';
-import * as auth from '../App/api/auth';
+import resetPasswordConfirm from './api';
 import imageSuccess from '../../images/icons/ic_success.svg';
 import imageError from '../../images/icons/ic_error.svg';
 
@@ -53,7 +53,7 @@ const NewPassword = () => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    auth.resetPasswordConfirm({
+    resetPasswordConfirm({
       uid,
       token,
       new_password: userPassword,

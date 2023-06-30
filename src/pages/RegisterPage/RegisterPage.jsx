@@ -8,7 +8,6 @@ import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import PasswordInput from '../../ui/PasswordInput/PasswordInput';
 import {
-  // eslint-disable-next-line import/named
   EMAIL_REGEX, NAME_REGEX, NUMBER, PASSWORD_REGEX, SYMBOL,
 } from '../../utils/regex';
 import {
@@ -23,7 +22,8 @@ import {
   PASSWORD_ONLY_NUMBERS,
   PASSWORD_TOO_LONG,
   PASSWORD_TOO_SHORT,
-  PASSWORD_SAME_EMAIL, NAME_ONLY_SYMBOLS,
+  PASSWORD_SAME_EMAIL,
+  NAME_ONLY_SYMBOLS,
 } from '../../utils/errorMessage';
 
 const RegisterPage = ({ onRegister }) => {
