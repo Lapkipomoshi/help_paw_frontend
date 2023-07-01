@@ -11,8 +11,12 @@ import {
   EMAIL_INVALID, EMAIL_NOT_FOUND, NAME_INVALID, NAME_NOT_FOUND, NAME_TOO_LONG, NAME_TOO_SHORT,
 } from '../../utils/errorMessage';
 import UserLink from '../../ui/UserLink/UserLink';
+import { resetEmail, updateUserInfo } from './api';
+import imageSuccess from '../../images/icons/ic_success.svg';
+import imageError from '../../images/icons/ic_error.svg';
+import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
 
-const EditProfilePage = ({ onEditProfile }) => {
+const EditProfilePage = ({ onUpdateCurrentUser }) => {
   const currentUser = useContext(CurrentUserContext);
   const { username, email } = currentUser;
   const [userName, setUserName] = useState(username);
@@ -26,6 +30,9 @@ const EditProfilePage = ({ onEditProfile }) => {
   const [isSameEmail, setIsSameEmail] = useState(false);
   const isValid = isValidName && isValidEmail;
   const isSame = isSameName && isSameEmail;
+  const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
+  const [infoTooltipImage, setInfoTooltipImage] = useState(null);
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     setUserName(username);
@@ -108,60 +115,125 @@ const EditProfilePage = ({ onEditProfile }) => {
     handleDisableButton();
   }, [isValid]);
 
+  const closeInfoTooltip = () => {
+    setInfoTooltipOpen(false);
+    setInfoTooltipImage(null);
+  };
+
+  // eslint-disable-next-line no-shadow
+  const handleUpdateUser = ({ username, email }) => {
+    if (isSameName && !isSameEmail) {
+      resetEmail({ email })
+        .then(() => {
+          setInfoTooltipImage(imageSuccess);
+          setMessage('Письмо для активации нового email отправлено.');
+          setInfoTooltipOpen(true);
+          setTimeout(closeInfoTooltip, 2000);
+        })
+        .catch(() => {
+          setInfoTooltipImage(imageError);
+          setMessage('Что-то пошло не так! Попробуйте ещё раз.');
+          setInfoTooltipOpen(true);
+          setTimeout(closeInfoTooltip, 2000);
+        });
+    }
+
+    if (isSameEmail && !isSameName) {
+      updateUserInfo({ username })
+        .then(() => {
+          onUpdateCurrentUser({ username, email });
+          setInfoTooltipImage(imageSuccess);
+          setMessage('Вы успешно изменили данные!');
+          setInfoTooltipOpen(true);
+          setTimeout(closeInfoTooltip, 2000);
+        })
+        .catch(() => {
+          setInfoTooltipImage(imageError);
+          setMessage('Что-то пошло не так! Попробуйте ещё раз.');
+          setInfoTooltipOpen(true);
+          setTimeout(closeInfoTooltip, 2000);
+        });
+    }
+
+    if (!isSameName && !isSameEmail) {
+      Promise.all([updateUserInfo({ username }), resetEmail({ email })])
+        .then(() => {
+          onUpdateCurrentUser({ username, email });
+          setInfoTooltipImage(imageSuccess);
+          setMessage('Вы успешно изменили данные! Письмо для активации нового email отправлено.');
+          setInfoTooltipOpen(true);
+          setTimeout(closeInfoTooltip, 2000);
+        })
+        .catch(() => {
+          setInfoTooltipImage(imageError);
+          setMessage('Что-то пошло не так! Попробуйте ещё раз.');
+          setInfoTooltipOpen(true);
+          setTimeout(closeInfoTooltip, 2000);
+        });
+    }
+  };
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    onEditProfile({ username: userName, email: userEmail });
+    handleUpdateUser({ username: userName, email: userEmail });
+    setDisabled(true);
+    setUserEmail(email);
   };
 
   return (
-    <MainContainer theme='base'>
-      <main className='main'>
-        <section className='edit-profile'>
-          <ProfileContainer containerClass='edit-profile'>
-            <UserLink modifier='return' linkAddress='/profile' linkText='Назад в личный кабинет' />
-            <UserForm
-              title='Редактировать профиль'
-              formClass='profile'
-              onSubmit={handleSubmit}
-              modifier='edit-profile'
-              formChildren={(
-                <>
-                  <UserLink modifier='change-password' linkAddress='/profile/edit/password' linkText='Изменить пароль' />
-                  <Input
-                    labelText='Имя'
-                    inputName='name'
-                    inputType='text'
-                    errorMessage={nameError}
-                    spanText={nameError}
-                    minLength='2'
-                    maxLength='50'
-                    pattern='[A-Za-zа-яА-ЯёЁ\d-\s]*$'
-                    value={userName || ''}
-                    onChange={handleChange}
-                  />
+    <CurrentUserContext.Provider value={currentUser}>
+      <MainContainer theme='base'>
+        <main className='main'>
+          <section className='edit-profile'>
+            <ProfileContainer containerClass='edit-profile'>
+              <UserLink modifier='return' linkAddress='/profile' linkText='Назад в личный кабинет' />
+              <UserForm
+                title='Редактировать профиль'
+                formClass='profile'
+                onSubmit={handleSubmit}
+                modifier='edit-profile'
+                formChildren={(
+                  <>
+                    <UserLink modifier='change-password' linkAddress='/profile/edit/password' linkText='Изменить пароль' />
+                    <Input
+                      labelText='Имя'
+                      inputName='name'
+                      inputType='text'
+                      errorMessage={nameError}
+                      spanText={nameError}
+                      minLength='2'
+                      maxLength='50'
+                      value={userName || ''}
+                      onChange={handleChange}
+                    />
 
-                  <Input
-                    labelText='E-mail'
-                    inputName='email'
-                    inputType='email'
-                    errorMessage={emailError}
-                    pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$'
-                    value={userEmail || ''}
-                    spanText={emailError}
-                    onChange={handleChange}
-                  />
+                    <Input
+                      labelText='E-mail'
+                      inputName='email'
+                      inputType='email'
+                      errorMessage={emailError}
+                      spanText={emailError}
+                      value={userEmail || ''}
+                      onChange={handleChange}
+                    />
 
-                  <div className='edit-profile__buttons'>
-                    <Button submit disabled={disabled || isSame}>Сохранить изменения</Button>
-                    <Button theme='transparent' onClick={cancelEdit} disabled={isSame}>Отменить</Button>
-                  </div>
-                </>
-              )}
-            />
-          </ProfileContainer>
-        </section>
-      </main>
-    </MainContainer>
+                    <div className='edit-profile__buttons'>
+                      <Button submit disabled={disabled || isSame}>Сохранить изменения</Button>
+                      <Button theme='transparent' onClick={cancelEdit} disabled={isSame}>Отменить</Button>
+                    </div>
+                  </>
+                )}
+              />
+            </ProfileContainer>
+          </section>
+        </main>
+        <InfoTooltip
+          isOpen={infoTooltipOpen}
+          image={infoTooltipImage}
+          message={message}
+        />
+      </MainContainer>
+    </CurrentUserContext.Provider>
   );
 };
 

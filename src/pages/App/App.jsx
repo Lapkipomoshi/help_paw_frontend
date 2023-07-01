@@ -23,17 +23,17 @@ import PasswordRecovery from '../PasswordRecovery/PasswordRecovery';
 import NewPassword from '../NewPassword/NewPassword';
 import SignUpConfirm from '../SignUpConfirm/SignUpConfirm';
 import ProfilePage from '../ProfilePage/ProfilePage';
-import CurrentUserContext from '../../contexts/CurrentUserContext';
-import * as auth from './api/auth';
-import imageSuccess from '../../images/icons/ic_success.svg';
-import imageError from '../../images/icons/ic_error.svg';
-import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
-import * as userApi from './api/userApi';
-import { register } from './api/auth';
 import EditProfilePage from '../EditProfilePage/EditProfilePage';
 import SignOutPage from '../SignOutPage/SignOutPage';
 import ChangePasswordPage from '../ChangePasswordPage/ChangePasswordPage';
 import ActivateUserPage from '../ActivateUserPage/ActivateUserPage';
+import ActivateEmailPage from '../ActivateEmailPage/ActivateEmailPage';
+import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
+import * as auth from './api/auth';
+import imageSuccess from '../../images/icons/ic_success.svg';
+import imageError from '../../images/icons/ic_error.svg';
+import getUserInfo from './api/userApi';
 
 const App = () => {
   const navigate = useNavigate();
@@ -43,29 +43,29 @@ const App = () => {
     username: '',
     email: '',
     id: '',
+    donations_sum: '',
   });
 
   const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
   const [infoTooltipImage, setInfoTooltipImage] = useState(null);
   const [message, setMessage] = useState('');
 
-  function closeInfoTooltip() {
+  const closeInfoTooltip = () => {
     setInfoTooltipOpen(false);
     setInfoTooltipImage(null);
-  }
+  };
 
   const handleSignOut = () => {
     localStorage.clear();
     setLoggedIn(false);
-    setCurrentUser({ username: '', email: '', id: '' });
+    setCurrentUser({ username: '', email: '', id: '', donations_sum: '' });
     navigate('/');
   };
 
   function tokenCheck() {
     const token = localStorage.getItem('access');
     if (token) {
-      userApi
-        .getUserInfo(token)
+      getUserInfo(token)
         .then((res) => {
           setCurrentUser(res);
           setLoggedIn(true);
@@ -82,7 +82,8 @@ const App = () => {
   }, []);
 
   const handleRegister = ({ username, password, email }) => {
-    register(username, password, email)
+    auth
+      .register(username, password, email)
       .then(() => {
         setInfoTooltipImage(imageSuccess);
         setMessage('Спасибо за регистрацию! Для активации аккаунта перейдите по ссылке, отправленной на вашу почту.');
@@ -124,28 +125,6 @@ const App = () => {
       .catch(() => {
         setInfoTooltipImage(imageError);
         setMessage('Вы ввели неверный e-mail или пароль!');
-        setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
-      });
-  };
-
-  const handleUpdateUser = ({ username, email }) => {
-    userApi
-      .updateUserInfo({ username, email })
-      .then((res) => {
-        setCurrentUser({
-          username: res.username,
-          email: res.email,
-        });
-
-        setInfoTooltipImage(imageSuccess);
-        setMessage('Вы успешно изменили данные!');
-        setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
-      })
-      .catch(() => {
-        setInfoTooltipImage(imageError);
-        setMessage('Что-то пошло не так! Попробуйте ещё раз.');
         setInfoTooltipOpen(true);
         setTimeout(closeInfoTooltip, 2000);
       });
@@ -198,13 +177,15 @@ const App = () => {
 
           <Route exact path='/password-recovery' element={loggedIn ? <Navigate to='/' /> : <PasswordRecovery />} />
 
-          <Route exact path='/password-reset/:uid/:token/' element={<NewPassword />} />
+          <Route exact path='/password-reset' element={<NewPassword />} />
 
           <Route exact path='/activate/:uid/:token/' element={<ActivateUserPage />} />
 
+          <Route exact path='/email-reset/:uid/:token/:new_email' element={<ActivateEmailPage onUpdateCurrentUser={setCurrentUser} />} />
+
           <Route path='/profile' element={<ProtectedRoute loggedIn={loggedIn} component={ProfilePage} />} />
 
-          <Route path='/profile/edit' element={<ProtectedRoute loggedIn={loggedIn} component={EditProfilePage} onEditProfile={handleUpdateUser} />} />
+          <Route path='/profile/edit' element={<ProtectedRoute loggedIn={loggedIn} component={EditProfilePage} onUpdateCurrentUser={setCurrentUser} />} />
 
           <Route path='/profile/sign-out' element={<ProtectedRoute loggedIn={loggedIn} component={SignOutPage} onSignOut={handleSignOut} />} />
 
@@ -214,7 +195,7 @@ const App = () => {
         </Routes>
         <Footer />
 
-        <InfoTooltip isOpen={infoTooltipOpen} image={infoTooltipImage} message={message} />
+        <InfoTooltip isOpen={infoTooltipOpen} image={infoTooltipImage} message={message} onClose={closeInfoTooltip} />
       </div>
     </CurrentUserContext.Provider>
   );

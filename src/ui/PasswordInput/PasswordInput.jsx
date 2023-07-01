@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './PasswordInput.scss';
 
 function PasswordInput({
-  spanText, minLength, maxLength, onChange, errorMessage, isValid, spanPrompt,
+  spanText, minLength, maxLength, onChange, onBlur, errorMessage, isValid, spanPrompt,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   function showPassword() {
@@ -19,13 +19,15 @@ function PasswordInput({
   return (
     <>
       <label className='input__label standard-font standard-font_type_body'>Пароль</label>
-      <div className='password__container'>
+      <div className={
+        `password__container
+        ${errorMessage && 'password__container_invalid'}
+        ${isValid && 'password__container_valid'}`
+      }>
         <input
           className={
             `password__input standard-font standard-font_type_password
-            ${isOpen && 'password__input_opened'}
-            ${errorMessage && 'password__input_invalid'}
-            ${isValid && 'password__input_valid'}`
+            ${isOpen && 'password__input_opened'}`
           }
           name='password'
           type='password'
@@ -33,6 +35,7 @@ function PasswordInput({
           minLength={minLength}
           maxLength={maxLength}
           onChange={onChange}
+          onBlur={onBlur}
         />
         <button className={`password-visibility ${isOpen && 'password-visibility_opened'}`} type='button' onClick={showPassword} />
       </div>

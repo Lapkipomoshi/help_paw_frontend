@@ -6,21 +6,22 @@ import Button from '../../ui/Button/Button';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import ProfileContainer from '../../components/ProfileContainer/ProfileContainer';
 import Paw from '../../images/icons/ic_paw.svg';
-import * as auth from '../App/api/auth';
+import activateUser from './api';
 
 const ActivateUserPage = () => {
   const { uid, token } = useParams();
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    auth.activateUser({ uid, token })
+    activateUser({ uid, token })
       .then(() => {
         setIsActive(true);
       })
-      .catch(() => {
+      .catch((err) => {
         setIsActive(false);
+        throw new Error(err);
       });
-  }, [uid, token]);
+  }, []);
 
   return (
     <MainContainer>
@@ -34,7 +35,7 @@ const ActivateUserPage = () => {
                 <>
                   <img className='activate-user__image' src={Paw} alt='Лапка' />
                   <p className='activate-user__text'>{isActive ? 'Ваш аккаунт подтвержден!' : 'Что-то пошло не так...'}</p>
-                  <Button className='' link to={isActive ? '/sign-in' : '/'}>{isActive ? 'Войти в личный кабинет' : 'На главную страницу'}</Button>
+                  <Button link to={isActive ? '/sign-in' : '/'}>{isActive ? 'Войти в личный кабинет' : 'На главную страницу'}</Button>
                 </>
               )}
             />

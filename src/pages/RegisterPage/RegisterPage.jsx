@@ -8,7 +8,7 @@ import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import PasswordInput from '../../ui/PasswordInput/PasswordInput';
 import {
-  EMAIL_REGEX, NAME_REGEX, NUMBER, PASSWORD_REGEX,
+  EMAIL_REGEX, NAME_REGEX, NUMBER, PASSWORD_REGEX, SYMBOL,
 } from '../../utils/regex';
 import {
   EMAIL_INVALID,
@@ -23,6 +23,7 @@ import {
   PASSWORD_TOO_LONG,
   PASSWORD_TOO_SHORT,
   PASSWORD_SAME_EMAIL,
+  NAME_ONLY_SYMBOLS,
 } from '../../utils/errorMessage';
 
 const RegisterPage = ({ onRegister }) => {
@@ -46,11 +47,11 @@ const RegisterPage = ({ onRegister }) => {
 
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleNameChange = (e) => {
+  const handleNameValidate = (e) => {
     const input = e.target;
     const validName = NAME_REGEX.test(input.value);
+    const nameOnlySymbols = SYMBOL.test(input.value);
     setIsValidName(validName);
-    setUserName(input.value);
     if (input.value.length === 0) {
       setNameError(NAME_NOT_FOUND);
       setIsValidName(false);
@@ -62,16 +63,23 @@ const RegisterPage = ({ onRegister }) => {
     } else if (input.value.length > input.maxLength) {
       setNameError(NAME_TOO_LONG);
       setIsValidName(false);
+    } else if (nameOnlySymbols) {
+      setNameError(NAME_ONLY_SYMBOLS);
+      setIsValidName(false);
     } else {
       setNameError('');
     }
   };
 
-  const handleEmailChange = (e) => {
+  const handleNameChange = (e) => {
+    const input = e.target;
+    setUserName(input.value);
+  };
+
+  const handleEmailValidate = (e) => {
     const input = e.target;
     const validEmail = EMAIL_REGEX.test(input.value);
     setIsValidEmail(validEmail);
-    setUserEmail(input.value);
     if (input.value.length === 0) {
       setEmailError(EMAIL_NOT_FOUND);
     } else if (input.value === userPassword) {
@@ -84,12 +92,16 @@ const RegisterPage = ({ onRegister }) => {
     }
   };
 
-  const handlePasswordChange = (e) => {
+  const handleEmailChange = (e) => {
+    const input = e.target;
+    setUserEmail(input.value);
+  };
+
+  const handlePasswordValidate = (e) => {
     const input = e.target;
     const validPassword = PASSWORD_REGEX.test(input.value);
     const passwordOnlyNumbers = NUMBER.test(input.value);
     setIsValidPassword(input.validity.valid);
-    setUserPassword(input.value);
     if (input.value.length === 0) {
       setPasswordError(PASSWORD_NOT_FOUND);
     } else if (input.value === userEmail) {
@@ -105,10 +117,16 @@ const RegisterPage = ({ onRegister }) => {
       setIsValidPassword(false);
     } else if (passwordOnlyNumbers) {
       setPasswordError(PASSWORD_ONLY_NUMBERS);
+      setIsValidPassword(false);
     } else {
       setPasswordError('');
       setPromptText('');
     }
+  };
+
+  const handlePasswordChange = (e) => {
+    const input = e.target;
+    setUserPassword(input.value);
   };
 
   const handleSubmit = (evt) => {
@@ -118,6 +136,7 @@ const RegisterPage = ({ onRegister }) => {
       password: userPassword,
       email: userEmail,
     });
+    setDisabled(true);
   };
 
   const handleChangeCheckbox = () => {
@@ -156,6 +175,7 @@ const RegisterPage = ({ onRegister }) => {
                     pattern='[A-Za-zа-яА-ЯёЁ\d-\s]*$'
                     value={userName || ''}
                     onChange={handleNameChange}
+                    onBlur={handleNameValidate}
                   />
 
                   <Input
@@ -168,6 +188,7 @@ const RegisterPage = ({ onRegister }) => {
                     value={userEmail || ''}
                     spanText={emailError}
                     onChange={handleEmailChange}
+                    onBlur={handleEmailValidate}
                   />
 
                   <PasswordInput
@@ -180,6 +201,7 @@ const RegisterPage = ({ onRegister }) => {
                     maxLength='101'
                     isValid={isValidPassword}
                     onChange={handlePasswordChange}
+                    onBlur={handlePasswordValidate}
                   />
 
                   <div className='register__privacy'>
