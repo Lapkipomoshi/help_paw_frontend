@@ -17,7 +17,6 @@ const resetPasswordConfirm = ({ uid, token, new_password }) => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-    // eslint-disable-next-line camelcase
     body: JSON.stringify({ uid, token, new_password }),
   })
     .then(checkServerResponse);

@@ -24,7 +24,7 @@ const ActivateEmailPage = ({ onUpdateCurrentUser }) => {
         setIsActive(false);
         throw new Error(err);
       });
-  }, [new_email]);
+  }, []);
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

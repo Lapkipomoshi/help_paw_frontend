@@ -17,7 +17,6 @@ const resetEmailConfirm = ({ uid, token, new_email }) => {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-    // eslint-disable-next-line camelcase
     body: JSON.stringify({ uid, token, new_email }),
   })
     .then(checkServerResponse);

@@ -17,10 +17,11 @@ const ActivateUserPage = () => {
       .then(() => {
         setIsActive(true);
       })
-      .catch(() => {
+      .catch((err) => {
         setIsActive(false);
+        throw new Error(err);
       });
-  }, [uid, token]);
+  }, []);
 
   return (
     <MainContainer>
