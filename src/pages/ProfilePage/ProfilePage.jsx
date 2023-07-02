@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
-import './ProfilePage.css';
+import './ProfilePage.scss';
 import ProfileContainer from '../../components/ProfileContainer/ProfileContainer';
-import ShelterCard from '../../components/ShelterCard/ShelterCard';
 import MainContainer from '../../components/MainContainer/MainContainer';
+import UserProfile from '../../modules/UserProfile/UserProfile';
+import ShelterOwnerProfile from '../../modules/ShelterOwnerProfile/ShelterOwnerProfile';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 const ProfilePage = () => {
   const currentUser = useContext(CurrentUserContext);
-  const { username } = currentUser;
+  const { username, status } = currentUser;
 
   return (
     <MainContainer>
@@ -19,13 +20,11 @@ const ProfilePage = () => {
               {' '}
               { username }
             </h2>
-            <p className='profile__subtitle'>Приюты, которым вы помогли</p>
 
-            <div className='profile__shelters'>
-              <ShelterCard />
-              <ShelterCard />
-              <ShelterCard />
-            </div>
+            {status === 'user' && <UserProfile />}
+
+            {status === 'shelter_owner' && <ShelterOwnerProfile />}
+
           </ProfileContainer>
         </section>
       </main>

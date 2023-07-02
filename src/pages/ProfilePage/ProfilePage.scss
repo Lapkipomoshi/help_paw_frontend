@@ -17,20 +17,3 @@
   position: relative;
   z-index: 1;
 }
-
-.profile__subtitle {
-  font-family: var(--font-family-base);
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 29px;
-  color: var(--color-text-base);
-  margin-top: 0;
-  margin-bottom: 28px;
-}
-
-.profile__shelters {
-  display: flex;
-  flex-direction: row;
-  column-gap: 24px;
-}
