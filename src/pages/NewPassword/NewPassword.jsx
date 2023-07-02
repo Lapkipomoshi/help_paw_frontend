@@ -28,6 +28,11 @@ const NewPassword = () => {
 
   const navigate = useNavigate();
 
+  const closeInfoTooltip = () => {
+    setInfoTooltipOpen(false);
+    setInfoTooltipImage(null);
+  };
+
   const handlePasswordChange = (e) => {
     const input = e.target;
     const validPassword = PASSWORD_REGEX.test(input.value);
@@ -116,6 +121,7 @@ const NewPassword = () => {
         isOpen={infoTooltipOpen}
         image={infoTooltipImage}
         message={message}
+        onClose={closeInfoTooltip}
       />
     </MainContainer>
   );

@@ -231,6 +231,7 @@ const EditProfilePage = ({ onUpdateCurrentUser }) => {
           isOpen={infoTooltipOpen}
           image={infoTooltipImage}
           message={message}
+          onClose={closeInfoTooltip}
         />
       </MainContainer>
     </CurrentUserContext.Provider>

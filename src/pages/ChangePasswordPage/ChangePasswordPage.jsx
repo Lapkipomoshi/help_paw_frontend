@@ -69,6 +69,7 @@ const ChangePasswordPage = () => {
         isOpen={infoTooltipOpen}
         image={infoTooltipImage}
         message={message}
+        onClose={closeInfoTooltip}
       />
     </MainContainer>
   );
