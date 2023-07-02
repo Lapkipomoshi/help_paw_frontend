@@ -29,7 +29,7 @@ const ProfileSheltersBlock = ({ shelters, sheltersTitle, owner }) => {
             })}
           </ul>
 
-          {owner ? <Button link to='/'>Перейти в приют</Button> : ''}
+          {owner && <Button link to='/'>Перейти в приют</Button>}
 
         </div>
       }

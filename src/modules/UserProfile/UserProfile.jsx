@@ -9,11 +9,11 @@ const UserProfile = () => {
 
   return (
     <div>
-      <div className='profile__donat'>
-        <p className='profile__donat-text standard-font standard-font_type_body'>Вы пожертвовали приютам за всё время:</p>
-        <div className='profile__donut-sum'>
+      <div className='user-profile__donation'>
+        <p className='user-profile__donation-text standard-font standard-font_type_body'>Вы пожертвовали приютам за всё время:</p>
+        <div className='user-profile__donation-sum'>
           { donations_sum }
-          <p className='profile__donat-rubles'>рублей</p>
+          <p className='user-profile__donation-rubles'>рублей</p>
         </div>
       </div>
 

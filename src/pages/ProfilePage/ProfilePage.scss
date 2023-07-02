@@ -17,38 +17,3 @@
   position: relative;
   z-index: 1;
 }
-
-.profile__donat {
-  display: flex;
-  align-items: center;
-  margin-bottom: 60px;
-}
-
-.profile__donat-text {
-  margin-right: 16px;
-}
-
-.profile__donut-sum {
-  border-width: 0 2px;
-  border-style: solid;
-  border-color: #FF852E;
-  border-radius: 8px;
-  padding-left: 20px;
-  padding-right: 20px;
-  min-height: 52px;
-  max-width: 82px;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
-  color: #FF852E;
-  text-align: center;
-  margin: 0;
-}
-
-.profile__donat-rubles {
-  margin: 0;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 28px;
-  color: #FF852E;
-}
