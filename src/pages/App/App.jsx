@@ -7,7 +7,7 @@ import Footer from '../../modules/Footer/Footer';
 import MainPage from '../MainPage/MainPage';
 import MapPage from '../MapPage/MapPage';
 import SheltersListPage from '../SheltersListPage/SheltersListPage';
-import * as sheltersListModules from '../SheltersListPage/modules';
+import ShelterList from '../../components/ShelterList/ShelterList';
 import ShelterPage from '../ShelterPage/ShelterPage';
 import * as shelterModules from '../ShelterPage/modules';
 import PetPage from '../PetPage/PetPage';
@@ -159,9 +159,9 @@ const App = () => {
           <Route path='/' element={<MainPage />} />
           <Route path='/shelters' element={<MapPage />} />
           <Route path='/shelters/list' element={<SheltersListPage />}>
-            <Route path='red' element={<sheltersListModules.RedShelters />} />
-            <Route path='yellow' element={<sheltersListModules.YellowShelters />} />
-            <Route path='green' element={<sheltersListModules.GreenShelters />} />
+            <Route path='red' element={<ShelterList />} />
+            <Route path='yellow' element={<ShelterList />} />
+            <Route path='green' element={<ShelterList />} />
           </Route>
           <Route path='/shelters/:id' element={<ShelterPage />}>
             <Route path='about' element={<shelterModules.AboutShelter />} />
