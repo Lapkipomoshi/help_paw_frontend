@@ -1,4 +1,4 @@
-import ParagraphList from './ParagraphList';
+import ParagraphList from './helpers/ParagraphList';
 
 const dataPrivacyPolicy = [
   {
