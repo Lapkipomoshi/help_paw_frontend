@@ -35,3 +35,11 @@
   border-radius: 20px;
   overflow: hidden;
 }
+
+.faq__container {
+  padding: 24px 28px 20px 40px;
+}
+
+.faq__title {
+  font-weight: 500;
+}
