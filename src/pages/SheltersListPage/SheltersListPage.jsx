@@ -18,41 +18,36 @@ const SheltersListPage = () => {
   };
 
   useEffect(() => {
-    SheltersListApi.getSheltersList()
+    SheltersListApi.getSheltersByWarning(selectedColor)
       .then((sheltersArray) => {
-        const newSheltersList = sheltersArray
-          .filter((shelter) => {
-            return shelter.warning;
-          })
-          .map((res) => {
-            return {
-              id: res.id,
-              profileImage: res.profile_image,
-              address: res.address,
-              name: res.name,
-              startHour: res.working_from_hour,
-              finishHour: res.working_to_hour,
-              webSite: res.web_site,
-              logo: res.logo,
-              warning: res.warning,
-            };
-          });
+        const newSheltersList = sheltersArray.map((res) => {
+          return {
+            id: res.id,
+            profileImage: res.profile_image,
+            address: res.address,
+            name: res.name,
+            startHour: res.working_from_hour,
+            finishHour: res.working_to_hour,
+            webSite: res.web_site,
+            logo: res.logo,
+            warning: res.warning,
+          };
+        });
 
         setSheltersList(newSheltersList);
         setIsDataLoading(false);
       })
-      .catch((err) => {
-        throw new Error(err);
-      });
-  }, []);
-
-  // Проверяем, есть ли приюты выбранного цвета пока на беке стоит заглушка по warnings
-  const filteredShelters = sheltersList.filter((shelter) => {
-    return shelter.warning === selectedColor;
+      .catch(
+        (err) => {
+          setIsDataLoading(true);
+          throw new Error(err);
+        },
+        [selectedColor]
+      );
   });
 
-  // Фильтруем приюты выбранного цвета
-  const sheltersByColor = filteredShelters.map((shelter) => {
+  // Получение списка приютов и их отображение в виде карточек приютов
+  const sheltersByColor = sheltersList.map((shelter) => {
     return (
       <li key={shelter.id}>
         <ShelterCard
@@ -83,7 +78,7 @@ const SheltersListPage = () => {
           </div>
           <NestedRoutesMenu linkList={colorLinkList} gap={56} onSelect={handleColorSelect} />
         </section>
-        <Outlet context={{ filteredShelters, isDataLoading, sheltersByColor }} />
+        <Outlet context={{ isDataLoading, sheltersByColor }} />
       </main>
     </MainContainer>
   );

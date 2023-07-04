@@ -7,24 +7,15 @@ class SheltersListApi extends BaseApi {
     this._headers = _headers;
   }
 
-  getSheltersList() {
-    return fetch(`${this._baseUrl}/v1/shelters/`, {
+  getSheltersByWarning(warningValue) {
+    const url = `${this._baseUrl}/v1/shelters/?warnings=${warningValue}`;
+
+    return fetch(url, {
       headers: this._headers,
     }).then((res) => {
       return super._processTheResponse(res);
     });
   }
-
-  // фильтрация на беке пока не работает корректно, позже, как будет готово, бэк даст знать
-  //   getWarnings(warningValue) {
-  //     const url = `${this._baseUrl}/v1/shelters/?warnings=${warningValue}`;
-
-  //     return fetch(url, {
-  //       headers: this._headers,
-  //     }).then((res) => {
-  //       return super._processTheResponse(res);
-  //     });
-  //   }
 }
 
 const sheltersLisApi = new SheltersListApi({

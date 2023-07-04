@@ -10,7 +10,7 @@ const ShelterCard = ({ id, name, address, workingFromHour, workingToHour, logo, 
         <h3 className='shelter-card__title standard-font_type_h4'>{name}</h3>
         <p className='shelter-card__address standard-font_type_small'>{address}</p>
         <p className='shelter-card__working-hours standard-font_type_small'>
-          Часы работы:<span className='shelter-card__hours'>{`${workingFromHour} - ${workingToHour}`}</span>
+          Часы работы:&nbsp;<span className='shelter-card__hours'>{`${workingFromHour} - ${workingToHour}`}</span>
         </p>
       </div>
       <img className='shelter-card__logo' src={logo} alt='логотип' />
