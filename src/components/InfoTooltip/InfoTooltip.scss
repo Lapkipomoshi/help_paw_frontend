@@ -13,6 +13,7 @@ $images-path: '../../images';
   visibility: hidden;
   opacity: 0;
   transition: visibility 0.5s, opacity 0.5s ease-in-out;
+  z-index: 1;
 
   &_opened {
     display: flex;
@@ -38,16 +39,6 @@ $images-path: '../../images';
 .popup__image {
   width: 90px;
   height: 90px;
-}
-
-.popup__text {
-  font-family: var(--font-family-title);
-  font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: normal;
-  text-align: center;
-  color: var(--color-text-base);
 }
 
 .popup__button-close {
