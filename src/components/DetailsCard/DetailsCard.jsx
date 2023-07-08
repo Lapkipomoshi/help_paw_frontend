@@ -3,10 +3,10 @@ import './DetailsCard.css';
 import PlusMinus from './svg/PlusMinus';
 import Arrow from './svg/Arrow';
 
-const DetailsCard = ({ children, title, isOpen, iconType, titleClasses, containerClasses }) => {
+const DetailsCard = ({ children, title, isOpen, iconType, titleClasses }) => {
   return (
     <details className='details-card' open={isOpen}>
-      <summary className={`details-card__summary ${containerClasses}`}>
+      <summary className='details-card__summary'>
         <p className={`details-card__title ${titleClasses}`}>{title}</p>
         {iconType === 'plus-minus' && <PlusMinus />}
         {iconType === 'arrow' && <Arrow />}

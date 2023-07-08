@@ -16,18 +16,17 @@
 }
 
 .privacy-policy__description-section {
-  background-color: var(--color-background-additional);
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 24px;
-  padding-right: 60px;
-}
-
-.privacy-policy__description-paragraph {
-  margin: 0;
+  padding: 16px 60px 0 0;
 }
 
 .details-card__not-last {
   padding-bottom: 24px;
+}
+
+.privacy-policy__list {
+  list-style-type: none;
+  padding: 0;
 }
