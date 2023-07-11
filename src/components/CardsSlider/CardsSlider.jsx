@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import './CardsSlider.scss';
 
-const CardsSlider = ({ children, listLength, columnGap = 24, cardWidth = 200, isButtonsHidden }) => {
+const CardsSlider = ({ children, listLength, columnGap = 24, cardWidth = 200, isButtonsHidden = false }) => {
   const slider = useRef(null); // элемент слайдера
 
   let position = 0; // смещение карточек в слайдере при листании
@@ -27,7 +27,7 @@ const CardsSlider = ({ children, listLength, columnGap = 24, cardWidth = 200, is
       <ul className='cards-slider' ref={slider} style={{ columnGap: `${columnGap}px` }}>
         {children}
       </ul>
-      <div className={`cards-slider__buttons ${isButtonsHidden}`}>
+      <div className={`cards-slider__buttons ${isButtonsHidden && 'cards-slider__buttons_hidden'}`}>
         <button className='cards-slider__button' type='button' onClick={handlePrev} />
         <button className='cards-slider__button cards-slider__button_next' type='button' onClick={handleNext} />
       </div>

@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import './SheltersListPage.css';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import NestedRoutesMenu from '../../components/NestedRoutesMenu/NestedRoutesMenu';
+import NestedRoutesMenu from '../../modules/NestedRoutesMenu/NestedRoutesMenu';
 import SearchInput from '../../components/SearchInput/SearchInput';
 import ShelterCard from '../../components/ShelterCard/ShelterCard';
+import ShelterList from '../../modules/ShelterList/ShelterList';
 import { colorLinkList } from '../../utils/constants';
 import SheltersListApi from './api';
 
 const SheltersListPage = () => {
+  const { color } = useParams();
+
   const [sheltersList, setSheltersList] = useState([]);
-  const [selectedColor, setSelectedColor] = useState('red'); // первоночальный рендеринг страницы с красными Shelters
+
   const [isDataLoading, setIsDataLoading] = useState(true);
 
-  const handleColorSelect = (value) => {
-    return setSelectedColor(value);
-  };
-
   useEffect(() => {
-    SheltersListApi.getSheltersByWarning(selectedColor)
+    SheltersListApi.getSheltersByWarning(color)
       .then((sheltersArray) => {
         const newSheltersList = sheltersArray.map((res) => {
           return {
@@ -33,21 +32,17 @@ const SheltersListPage = () => {
             warning: res.warning,
           };
         });
-
         setSheltersList(newSheltersList);
         setIsDataLoading(false);
       })
-      .catch(
-        (err) => {
-          setIsDataLoading(true);
-          throw new Error(err);
-        },
-        [selectedColor]
-      );
-  });
+      .catch((err) => {
+        setIsDataLoading(true);
+        throw new Error(err);
+      });
+  }, [color]);
 
   // Получение списка приютов и их отображение в виде карточек приютов
-  const sheltersByColor = sheltersList.map((shelter) => {
+  const shelters = sheltersList.map((shelter) => {
     return (
       <li key={shelter.id}>
         <ShelterCard
@@ -76,9 +71,9 @@ const SheltersListPage = () => {
             </div>
             <SearchInput />
           </div>
-          <NestedRoutesMenu linkList={colorLinkList} gap={56} onSelect={handleColorSelect} />
+          <NestedRoutesMenu linkList={colorLinkList} gap={56} />
         </section>
-        <Outlet context={{ isDataLoading, sheltersByColor }} />
+        <ShelterList isDataLoading={isDataLoading} shelters={shelters} />
       </main>
     </MainContainer>
   );

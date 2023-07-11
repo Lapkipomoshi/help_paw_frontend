@@ -1,16 +1,15 @@
 .cards-slider {
+  margin: 0;
   display: flex;
   white-space: nowrap;
   overflow-y: hidden;
   width: 100%;
-  margin: 16px 0 16px;
+  padding: 0 16px;
   box-sizing: border-box;
-  padding-left: 16px;
   list-style-type: none;
 
   @media (min-width: 768px) {
-    margin: 32px 0 40px;
-    padding-left: 44px;
+    padding: 20px 0 44px 44px;
   }
 
   @media (min-width: 1440px) {
