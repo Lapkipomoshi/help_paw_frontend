@@ -14,14 +14,7 @@ const Faq = ({ faqList }) => {
             faqList.map((card) => {
               return (
                 <li className='faq__item' key={card.id}>
-                  <DetailsCard
-                    title={card.question}
-                    isOpen={false}
-                    textStyle='faq'
-                    iconType='plus-minus'
-                    titleClasses='standard-font_type_h3 faq__title'
-                    containerClasses='faq__container'
-                  >
+                  <DetailsCard title={card.question} isOpen={false} iconType='plus-minus' titleClasses='standard-font_type_h3 faq__title'>
                     <p className='faq__text'>{card.answer}</p>
                   </DetailsCard>
                 </li>

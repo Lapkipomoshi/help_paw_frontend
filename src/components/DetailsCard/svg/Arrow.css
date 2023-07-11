@@ -1,22 +1,22 @@
-.arrow-rotate {
+.caret {
   width: 24px;
   height: 24px;
   transition: transform 0.7s;
 }
 
-.arrow-rotate path {
+.caret path {
   transition-duration: 0.3s;
   fill: var(--color-text-base);
 }
 
-.details-card:hover .arrow-rotate path {
+.details-card:hover .caret path {
   fill: var(--color-accent-hover);
 }
 
-.details-card__summary:focus .arrow-rotate path {
+.details-card__summary:focus .caret path {
   fill: var(--color-accent-pressed);
 }
 
-.details-card[open] .arrow-rotate {
+.details-card[open] .caret {
   transform: rotate(180deg);
 }
