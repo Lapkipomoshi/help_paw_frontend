@@ -1,0 +1,32 @@
+.privacy-policy__container {
+  background-color: var(--color-background-additional);
+  margin: 20px auto 80px;
+  padding: 40px;
+  border-radius: 20px;
+  width: 550px; //макета на адаптив пока нет, поставила временные значения
+
+  @media (min-width: 1200px) {
+    width: 1096px;
+    margin: 44px auto 80px;
+  }
+}
+
+.privacy-policy__headline {
+  margin: 0 0 32px 0;
+}
+
+.privacy-policy__description-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 60px 0 0;
+}
+
+.details-card__not-last {
+  padding-bottom: 24px;
+}
+
+.privacy-policy__list {
+  list-style-type: none;
+  padding: 0;
+}

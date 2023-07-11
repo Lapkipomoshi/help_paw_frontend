@@ -27,6 +27,7 @@ import EditProfilePage from '../EditProfilePage/EditProfilePage';
 import SignOutPage from '../SignOutPage/SignOutPage';
 import ChangePasswordPage from '../ChangePasswordPage/ChangePasswordPage';
 import ActivateUserPage from '../ActivateUserPage/ActivateUserPage';
+import PrivacyPolicyPage from '../PrivacyPolicyPage/PrivacyPolicyPage';
 import ActivateEmailPage from '../ActivateEmailPage/ActivateEmailPage';
 import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
@@ -168,6 +169,8 @@ const App = () => {
           <Route path='/papers/:id' element={<PaperPage />} />
           <Route path='/news' element={<NewsPage />} />
           <Route path='/news/:id' element={<NewPage />} />
+
+          <Route path='/privacy' element={<PrivacyPolicyPage />} />
 
           <Route exact path='/sign-in' element={loggedIn ? <Navigate to='/' /> : <LoginPage onLogin={handleLogin} />} />
 
