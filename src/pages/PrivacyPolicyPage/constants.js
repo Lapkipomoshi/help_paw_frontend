@@ -1,4 +1,5 @@
-import ParagraphList from './helpers/ParagraphList';
+import ParagraphList from './ParagraphList';
+import Table from './Table/Table';
 
 const dataPrivacyPolicy = [
   {
@@ -190,7 +191,7 @@ const dataPrivacyPolicy = [
     ],
   },
 
-  { id: 6, type: 'table', title: '6. Цели обработки персональных данных', description: [] }, // вставить     rendererComponent: таблицу
+  { id: 6, rendererComponent: Table, title: '6. Цели обработки персональных данных', description: [] },
 
   {
     id: 7,
