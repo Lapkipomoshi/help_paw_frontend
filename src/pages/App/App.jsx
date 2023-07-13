@@ -7,7 +7,6 @@ import Footer from '../../modules/Footer/Footer';
 import MainPage from '../MainPage/MainPage';
 import MapPage from '../MapPage/MapPage';
 import SheltersListPage from '../SheltersListPage/SheltersListPage';
-import * as sheltersListModules from '../SheltersListPage/modules';
 import ShelterPage from '../ShelterPage/ShelterPage';
 import * as shelterModules from '../ShelterPage/modules';
 import PetPage from '../PetPage/PetPage';
@@ -137,20 +136,20 @@ const App = () => {
         <Header />
         <Routes>
           <Route path='/' element={<MainPage />} />
-          <Route path='/shelters' element={<MapPage />} />
-          <Route path='/shelters/list' element={<SheltersListPage />}>
-            <Route path='red' element={<sheltersListModules.RedShelters />} />
-            <Route path='yellow' element={<sheltersListModules.YellowShelters />} />
-            <Route path='green' element={<sheltersListModules.GreenShelters />} />
+          <Route path='/shelters'>
+            <Route index element={<MapPage />} />
+            <Route path='list' element={<Navigate to='/shelters/list/red' replace />} />
+            <Route path='list/:color' element={<SheltersListPage />} />
+            <Route path=':id' element={<ShelterPage />}>
+              <Route path='about' element={<shelterModules.AboutShelter />} />
+              <Route path='how-to-help' element={<shelterModules.HelpToShelter />} />
+              <Route path='news' element={<shelterModules.ShelterNews />} />
+              <Route path='pets' element={<shelterModules.ShelterPets />} />
+              <Route path='pets/:type' element={<shelterModules.ShelterSamePets />} />
+              <Route path='vacancies' element={<shelterModules.ShelterVacancies />} />
+            </Route>
           </Route>
-          <Route path='/shelters/:id' element={<ShelterPage />}>
-            <Route path='about' element={<shelterModules.AboutShelter />} />
-            <Route path='how-to-help' element={<shelterModules.HelpToShelter />} />
-            <Route path='news' element={<shelterModules.ShelterNews />} />
-            <Route path='pets' element={<shelterModules.ShelterPets />} />
-            <Route path='pets/:type' element={<shelterModules.ShelterSamePets />} />
-            <Route path='vacancies' element={<shelterModules.ShelterVacancies />} />
-          </Route>
+
           <Route
             path='/add-shelter'
             element={

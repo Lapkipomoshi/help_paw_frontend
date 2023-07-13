@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import './ShelterPage.css';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import NestedRoutesMenu from '../../components/NestedRoutesMenu/NestedRoutesMenu';
+import NestedRoutesMenu from '../../modules/NestedRoutesMenu/NestedRoutesMenu';
 import shelterApi from './api';
 import { shelterLinkList } from '../../utils/constants';
 
