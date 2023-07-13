@@ -69,8 +69,8 @@ const NewPassword = () => {
         setInfoTooltipOpen(true);
         setTimeout(() => {
           setInfoTooltipOpen(false);
-        }, 2000);
-        setTimeout(() => { navigate('/sign-in'); }, 2000);
+        }, 15000);
+        setTimeout(() => { navigate('/sign-in'); }, 15000);
       })
       .catch(() => {
         setInfoTooltipImage(imageError);
@@ -78,7 +78,7 @@ const NewPassword = () => {
         setInfoTooltipOpen(true);
         setTimeout(() => {
           setInfoTooltipOpen(false);
-        }, 2000);
+        }, 15000);
       });
   };
 

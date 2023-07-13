@@ -57,8 +57,8 @@ const PasswordRecovery = () => {
         setInfoTooltipImage(imageSuccess);
         setMessage('Ссылка для восстановления пароля отправлена на указанную почту!');
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
-        setTimeout(() => { navigate('/'); }, 2000);
+        setTimeout(closeInfoTooltip, 15000);
+        setTimeout(() => { navigate('/'); }, 15000);
       })
       .catch((res) => {
         setInfoTooltipImage(imageError);
@@ -68,7 +68,7 @@ const PasswordRecovery = () => {
           setMessage('Что-то пошло не так! Попробуйте ещё раз.');
         }
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
+        setTimeout(closeInfoTooltip, 15000);
       });
   };
 
