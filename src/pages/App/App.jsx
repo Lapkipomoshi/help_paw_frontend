@@ -88,10 +88,10 @@ const App = () => {
         setInfoTooltipImage(imageSuccess);
         setMessage('Спасибо за регистрацию! Для активации аккаунта перейдите по ссылке, отправленной на вашу почту.');
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
+        setTimeout(closeInfoTooltip, 15000);
         setTimeout(() => {
           navigate('/');
-        }, 2000);
+        }, 15000);
       })
       .catch((res) => {
         setInfoTooltipImage(imageError);
@@ -101,7 +101,7 @@ const App = () => {
           setMessage('Что-то пошло не так! Попробуйте ещё раз.');
         }
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
+        setTimeout(closeInfoTooltip, 15000);
       });
   };
 
@@ -117,16 +117,16 @@ const App = () => {
         setInfoTooltipImage(imageSuccess);
         setMessage('Добро пожаловать на сайт!');
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
+        setTimeout(closeInfoTooltip, 15000);
         setTimeout(() => {
           navigate('/');
-        }, 2000);
+        }, 15000);
       })
       .catch(() => {
         setInfoTooltipImage(imageError);
         setMessage('Вы ввели неверный e-mail или пароль!');
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
+        setTimeout(closeInfoTooltip, 15000);
       });
   };
 
