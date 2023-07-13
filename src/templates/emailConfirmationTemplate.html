@@ -26,7 +26,14 @@
 
     table {
       border-collapse: separate;
+      border-spacing: 0;
+      border: 0;
+      padding: 0;
       width: 100%;
+    }
+
+    td {
+      padding: 0;
     }
 
     .body {
@@ -36,7 +43,7 @@
     .container {
       display: block;
       margin: 0 auto;
-      max-width: 800px;
+      max-width: 700px;
       width: 100%;
     }
 
@@ -45,13 +52,13 @@
       display: block;
       margin: 0 auto;
       width: 100%;
-      max-width: 800px;
+      max-width: 700px;
     }
 
     .header {
       background-color: #FEF4E8;
       width: 100%;
-      max-width: 680px;
+      max-width: 580px;
       padding: 40px 60px;
     }
 
@@ -78,7 +85,7 @@
 
     .main {
       width: 100%;
-      padding: 40px 60px;
+      padding: 44px 60px 60px;
     }
 
     .title {
@@ -92,16 +99,8 @@
       font-family: 'Inter', Arial, sans-serif;
       font-size: 16px;
       font-weight: 400;
+      color: #111C2C;
       margin: 0 0 12px;
-    }
-
-    .footer {
-      background-color: #FEF4E8;
-      clear: both;
-      text-align: center;
-      width: 100%;
-      max-width: 680px;
-      padding: 40px 60px;
     }
 
     .link {
@@ -114,6 +113,8 @@
       width: 100%;
       margin-top: 32px;
       margin-bottom: 32px;
+      padding-left: 11px;
+      padding-right: 11px;
     }
 
     .btn table {
@@ -148,23 +149,110 @@
       color: #ffffff;
     }
 
+    .btn-primary table td:hover {
+      background-color: rgba(240, 146, 79, .77);
+    }
+
+    .btn-primary a:hover {
+      background-color: rgba(240, 146, 79, .77);
+      border-color: rgba(240, 146, 79, .77);
+    }
+
     .link-time {
       font-weight: 600;
     }
 
+    .bye-content {
+      max-width: 430px;
+    }
+
+    .text-bye {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 400;
+      margin: 0 0 4px;
+      max-width: 378px;
+    }
+
+    .text-bye:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .bye-image {
+      width: 32px;
+      height: 32px;
+    }
+
+    .footer {
+      background-color: #FEF4E8;
+      clear: both;
+      width: 100%;
+      max-width: 580px;
+      padding: 40px 60px;
+    }
+
+    .footer__header {
+      color: #111C2C;
+      font-family: 'Montserrat Alternates', Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    .footer__text-about {
+      color: #818181;
+      font-family: 'Montserrat Alternates', Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      max-width: 149px;
+      margin: 0 29px 0 0;
+    }
+
+    .footer__email {
+      color: #111C2C;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      max-width: 229px;
+      margin: 0 29px 0 0;
+    }
+
+    .footer__icon-block {
+      padding-right: 24px;
+    }
+
+    .footer__icon-block:last-of-type {
+      padding-right: 0;
+    }
+
+    .footer__icon-link {
+      transition-duration: 0.5s;
+    }
+
+    .footer__icon-link:hover {
+      opacity: 0.5;
+    }
+
+    .footer__icon {
+      width: 32px;
+      height: 32px;
+    }
   </style>
 
 </head>
 <body>
-<table border="0" cellpadding="0" cellspacing="0" class="body">
+<table class="body">
   <tr>
     <td class="container">
       <div class="content">
+
         <div class="header">
-          <table border="0" cellpadding="0" cellspacing="0">
+          <table>
             <tr>
               <td class="header-image-content">
-                <img src="../images/icons/ic_paw.svg" class="header-image" alt="Логотип Лапки помощи" />
+                <img src="./icons/ic_paw.svg" class="header-image" alt="Логотип Лапки помощи" />
               </td>
               <td>
                 <p class="header-title">Лапки помощи</p>
@@ -176,7 +264,7 @@
         <table class="main">
           <tr>
             <td class="wrapper">
-              <table border="0" cellpadding="0" cellspacing="0">
+              <table>
                 <tr>
                   <td>
                     <h1 class="title">Подтвреждение Email</h1>
@@ -184,11 +272,11 @@
                     <p class="text">Мы недавно получили запрос на создание Аккаунта на сайте «<a href="https://lapkipomoshi.ru/" target="_blank" class="link">Лапки помощи</a>».</p>
                     <p class="text">Чтобы проверить, что Вы совершили данный запрос, мы послали Вам данное подтверждающее письмо.</p>
 
-                    <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
+                    <table class="btn btn-primary">
                       <tbody>
                       <tr>
-                        <td align="center">
-                          <table border="0" cellpadding="0" cellspacing="0">
+                        <td>
+                          <table>
                             <tbody>
                             <tr>
                               <td> <a href="" target="_blank">Подтвердить Email и активировать Аккаунт</a> </td>
@@ -202,6 +290,24 @@
 
                     <p class="text"><span class="link-time">Обратите внимание:</span> срок действия ссылки 24 часа.</p>
                     <p class="text">Если вы не пытались зарегистрироваться на сайте «Лапки помощи», то просто проигнорируйте это письмо. Возможно, кто-то совершил ошибку.</p>
+
+
+                    <div class="bye-content">
+                      <table>
+                        <tbody>
+                        <tr>
+                          <td>
+                            <p class="text-bye">Спасибо</p>
+                            <p class="text-bye">Искренне ваша, команда «Лапки помощи»</p>
+                          </td>
+                          <td>
+                            <img src="./icons/ic_paw.svg" class="bye-image" alt="Логотип Лапки помощи" />
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
                   </td>
                 </tr>
               </table>
@@ -210,27 +316,45 @@
         </table>
 
         <div class="footer">
-          <table border="0" cellpadding="0" cellspacing="0">
+          <table>
             <tr>
               <tr>
-                <td class="content-block">
-                  <p class="text">Лапки помощи</p>
+                <td>
+                  <p class="footer__header">Лапки помощи</p>
                 </td>
               </tr>
 
               <tr>
-                <td class="content-block">
-                  <p class="text">Сервис для помощи приютам</p>
+                <td>
+                  <p class="footer__text-about">Сервис для помощи приютам</p>
                 </td>
-              </tr>
 
-              <tr>
-                <td class="content-block">
-                  <p class="text">Служба поддержки: info@lapki.ru</p>
+                <td>
+                  <p class="footer__email">Служба поддержки:</p>
+                  <p class="footer__email">info@lapki.ru</p>
+                </td>
+
+                <td>
+                  <td class="footer__icon-block">
+                    <a class="footer__icon-link" href="" target="_blank">
+                      <img src="./icons/footer__icon_classmates.svg" class="footer__icon" alt="одноклассники" />
+                    </a>
+                  </td>
+
+                  <td class="footer__icon-block">
+                    <a class="footer__icon-link" href="" target="_blank">
+                      <img src="./icons/footer__icon_vk.svg" class="footer__icon" alt="вконтакте" />
+                    </a>
+                  </td>
+
+                  <td class="footer__icon-block">
+                    <a class="footer__icon-link" href="" target="_blank">
+                      <img src="./icons/footer__icon_telegram.svg" class="footer__icon" alt="телеграм" />
+                    </a>
+                  </td>
                 </td>
               </tr>
             </tr>
-
           </table>
         </div>
 
