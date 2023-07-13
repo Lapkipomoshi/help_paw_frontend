@@ -1,22 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './ShelterCard.css';
+import './ShelterCard.scss';
 
-const ShelterCard = ({
-  id, name, address, workingFromHour, workingToHour, logo, profileImage,
-}) => {
+const ShelterCard = ({ id, name, address, workingFromHour, workingToHour, logo, profileImage }) => {
   return (
     <Link className='shelter-card' to={`/shelters/${id}/about`}>
       <img className='shelter-card__image' src={profileImage} alt='фото' />
-      <h3 className='shelter-card__title'>{name}</h3>
-      <p className='shelter-card__address'>{address}</p>
-      <p className='shelter-card__working-hours'>
-        Часы работы:
-        {' '}
-        <span className='shelter-card__hours'>
-          {`${workingFromHour} - ${workingToHour}`}
-        </span>
-      </p>
+      <div className='shelter-card__content-container'>
+        <h3 className='shelter-card__title standard-font_type_h4'>{name}</h3>
+        <p className='shelter-card__address standard-font_type_small'>{address}</p>
+        <p className='shelter-card__working-hours standard-font_type_small'>
+          Часы работы:&nbsp;<span className='shelter-card__hours'>{`${workingFromHour} - ${workingToHour}`}</span>
+        </p>
+      </div>
       <img className='shelter-card__logo' src={logo} alt='логотип' />
     </Link>
   );

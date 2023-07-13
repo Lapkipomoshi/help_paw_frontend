@@ -1,6 +1,6 @@
 .shelter-search {
   display: flex;
-  width: 1440px;
+  width: 100%;
   padding: 44px 132px 32px;
   flex-direction: column;
   background-color: var(--color-background-base);
