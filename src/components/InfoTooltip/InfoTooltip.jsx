@@ -38,7 +38,7 @@ const InfoTooltip = ({ isOpen, image, message, onClose }) => {
           src={image}
         />
 
-        <h3 className='standard-font standard-font_type_h3'>{message}</h3>
+        <h3 className='popup__text standard-font standard-font_type_h3'>{message}</h3>
 
         <button
           type='button'

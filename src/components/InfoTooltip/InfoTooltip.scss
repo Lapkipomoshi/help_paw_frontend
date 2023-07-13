@@ -39,6 +39,11 @@ $images-path: '../../images';
 .popup__image {
   width: 90px;
   height: 90px;
+  margin-bottom: 35px;
+}
+
+.popup__text {
+  text-align: center;
 }
 
 .popup__button-close {
