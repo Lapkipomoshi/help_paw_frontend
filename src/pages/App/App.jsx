@@ -145,7 +145,8 @@ const App = () => {
               <Route path='how-to-help' element={<shelterModules.HelpToShelter />} />
               <Route path='news' element={<shelterModules.ShelterNews />} />
               <Route path='pets' element={<shelterModules.ShelterPets />} />
-              <Route path='pets/:type' element={<shelterModules.ShelterSamePets />} />
+              <Route path='pets/type/:type' element={<shelterModules.ShelterSamePets />} />
+              <Route path='pets/:id' element={<PetPage />} />
               <Route path='vacancies' element={<shelterModules.ShelterVacancies />} />
             </Route>
           </Route>
@@ -163,7 +164,7 @@ const App = () => {
               />
             }
           />
-          <Route path='/pets/:id' element={<PetPage />} />
+
           <Route path='/papers' element={<PapersPage />} />
           <Route path='/papers/:id' element={<PaperPage />} />
           <Route path='/news' element={<NewsPage />} />
