@@ -16,6 +16,14 @@ class SheltersListApi extends BaseApi {
       return super._processTheResponse(res);
     });
   }
+
+  getAllShelters() {
+    return fetch(`${this._baseUrl}/v1/shelters/`, {
+      headers: this._headers,
+    }).then((res) => {
+      return super._processTheResponse(res);
+    });
+  }
 }
 
 const sheltersLisApi = new SheltersListApi({

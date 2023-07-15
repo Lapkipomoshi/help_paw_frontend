@@ -7,6 +7,7 @@ import SearchInput from '../../components/SearchInput/SearchInput';
 import ShelterCard from '../../components/ShelterCard/ShelterCard';
 import ShelterList from '../../modules/ShelterList/ShelterList';
 import { colorLinkList } from '../../utils/constants';
+import fetchSheltersData from './sheltersApiUtils';
 import SheltersListApi from './api';
 
 const SheltersListPage = () => {
@@ -17,27 +18,26 @@ const SheltersListPage = () => {
   const [isDataLoading, setIsDataLoading] = useState(true);
 
   useEffect(() => {
-    SheltersListApi.getSheltersByWarning(color)
-      .then((sheltersArray) => {
-        const newSheltersList = sheltersArray.map((res) => {
-          return {
-            id: res.id,
-            profileImage: res.profile_image,
-            address: res.address,
-            name: res.name,
-            startHour: res.working_from_hour,
-            finishHour: res.working_to_hour,
-            webSite: res.web_site,
-            logo: res.logo,
-            warning: res.warning,
-          };
+    if (color === 'all') {
+      fetchSheltersData(SheltersListApi.getAllShelters)
+        .then((newSheltersList) => {
+          setSheltersList(newSheltersList);
+          setIsDataLoading(false);
+        })
+        .catch((error) => {
+          setIsDataLoading(true);
+          throw new Error(error);
         });
+    }
+
+    fetchSheltersData(SheltersListApi.getSheltersByWarning, color)
+      .then((newSheltersList) => {
         setSheltersList(newSheltersList);
         setIsDataLoading(false);
       })
-      .catch((err) => {
+      .catch((error) => {
         setIsDataLoading(true);
-        throw new Error(err);
+        throw new Error(error);
       });
   }, [color]);
 
