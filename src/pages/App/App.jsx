@@ -91,7 +91,7 @@ const App = () => {
         setTimeout(closeInfoTooltip, 15000);
         setTimeout(() => {
           navigate('/');
-        }, 15000);
+        }, 1000);
       })
       .catch((res) => {
         setInfoTooltipImage(imageError);
@@ -120,7 +120,7 @@ const App = () => {
         setTimeout(closeInfoTooltip, 15000);
         setTimeout(() => {
           navigate('/');
-        }, 15000);
+        }, 1000);
       })
       .catch(() => {
         setInfoTooltipImage(imageError);
