@@ -7,7 +7,7 @@ import SearchInput from '../../components/SearchInput/SearchInput';
 import ShelterCard from '../../components/ShelterCard/ShelterCard';
 import ShelterList from '../../modules/ShelterList/ShelterList';
 import { colorLinkList } from '../../utils/constants';
-import fetchSheltersData from './sheltersApiUtils';
+import mapShelterResponse from './utils/mapShelterResponse';
 import SheltersListApi from './api';
 
 const SheltersListPage = () => {
@@ -18,21 +18,11 @@ const SheltersListPage = () => {
   const [isDataLoading, setIsDataLoading] = useState(true);
 
   useEffect(() => {
-    if (color === 'all') {
-      fetchSheltersData(SheltersListApi.getAllShelters)
-        .then((newSheltersList) => {
-          setSheltersList(newSheltersList);
-          setIsDataLoading(false);
-        })
-        .catch((error) => {
-          setIsDataLoading(true);
-          throw new Error(error);
-        });
-    }
+    const queryParams = color === 'all' ? {} : { warnings: color };
 
-    fetchSheltersData(SheltersListApi.getSheltersByWarning, color)
+    SheltersListApi.getShelters(queryParams)
       .then((newSheltersList) => {
-        setSheltersList(newSheltersList);
+        setSheltersList(newSheltersList.map(mapShelterResponse));
         setIsDataLoading(false);
       })
       .catch((error) => {

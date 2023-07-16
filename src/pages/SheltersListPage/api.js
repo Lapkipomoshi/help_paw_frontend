@@ -7,18 +7,10 @@ class SheltersListApi extends BaseApi {
     this._headers = _headers;
   }
 
-  getSheltersByWarning(warningValue) {
-    const url = `${this._baseUrl}/v1/shelters/?warnings=${warningValue}`;
+  getShelters(queryParams = {}) {
+    const url = `${this._baseUrl}/v1/shelters/?${new URLSearchParams(queryParams)}`;
 
     return fetch(url, {
-      headers: this._headers,
-    }).then((res) => {
-      return super._processTheResponse(res);
-    });
-  }
-
-  getAllShelters() {
-    return fetch(`${this._baseUrl}/v1/shelters/`, {
       headers: this._headers,
     }).then((res) => {
       return super._processTheResponse(res);
