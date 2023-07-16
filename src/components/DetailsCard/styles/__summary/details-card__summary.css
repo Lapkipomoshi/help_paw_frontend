@@ -1,20 +1,9 @@
 .details-card__summary {
   display: flex;
   width: 100%;
-  padding: 24px 28px 20px 40px;
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-background-additional);
   cursor: pointer;
   box-sizing: border-box;
-}
-
-.details-card__summary_style_shelter-pets {
-  margin-left: 132px;
-  border-radius: 20px;
-  transition-duration: .5s;
-}
-
-.shelter-pets__summary_style_shelter-pets:hover {
-  opacity: .77;
 }

@@ -1,0 +1,8 @@
+.shelter-card__content-container {
+  padding: 16px;
+  box-sizing: border-box;
+
+  @media (min-width: 768px) {
+    padding: 20px 20px 24px;
+  }
+}
