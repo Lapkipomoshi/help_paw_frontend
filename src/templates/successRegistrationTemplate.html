@@ -158,6 +158,41 @@
       border-color: rgba(240, 146, 79, .77);
     }
 
+    .user-data__title {
+      color: #111C2C;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 500;
+      max-width: 515px;
+      margin: 0 0 20px;
+    }
+
+    .user-data__text {
+      color: #111C2C;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 28px;
+      margin: 0 0 12px;
+    }
+
+    .user-data__text:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .user-data__span {
+      color: #111C2C;
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 500;
+    }
+
+    .validity-content {
+      margin-top: 32px;
+    }
+
     .link-time {
       font-weight: 600;
     }
@@ -268,19 +303,19 @@
               <table>
                 <tr>
                   <td>
-                    <h1 class="title">Подтвреждение Email</h1>
+                    <h1 class="title">Успешная регистрация!</h1>
                     <p class="text">Здравствуйте, Имя Отчество!</p>
-                    <p class="text">Мы недавно получили запрос на создание Аккаунта на сайте «<a href="https://lapkipomoshi.ru/" target="_blank" class="link">Лапки помощи</a>».</p>
-                    <p class="text">Чтобы проверить, что Вы совершили данный запрос, мы послали Вам данное подтверждающее письмо.</p>
+                    <p class="text">Поздравляем Вас с успешной регистрацией на сайте «<a href="https://lapkipomoshi.ru/" target="_blank" class="link">Лапки помощи</a>».</p>
+                    <p class="text">Для авторизации перейдите по ссылке:</p>
 
                     <table class="btn btn-primary">
-                      <tbody>
+                      <tbody align="center">
                       <tr>
                         <td>
                           <table>
                             <tbody>
                             <tr>
-                              <td> <a href="" target="_blank">Подтвердить Email и активировать Аккаунт</a> </td>
+                              <td> <a href="" target="_blank">Войти на сайт</a> </td>
                             </tr>
                             </tbody>
                           </table>
@@ -289,8 +324,35 @@
                       </tbody>
                     </table>
 
+                    <div class="user-data">
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <p class="user-data__title">Ваши учетные данные для входа в личный кабинет сайта «Лапки помощи».</p>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              <p class="user-data__text"><span class="user-data__span">Ваш логин: </span>mail@gmail.com</p>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td>
+                              <p class="user-data__text"><span class="user-data__span">Ваш пароль: </span>435sfd8</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                    </div>
+
+                    <div class="validity-content">
                       <p class="text"><span class="link-time">Обратите внимание:</span> срок действия ссылки 24 часа.</p>
                       <p class="text">Если вы не пытались зарегистрироваться на сайте «Лапки помощи», то просто проигнорируйте это письмо. Возможно, кто-то совершил ошибку.</p>
+                    </div>
 
                     <div class="bye-content">
                       <table>
@@ -318,42 +380,42 @@
         <div class="footer">
           <table>
             <tr>
-              <tr>
-                <td>
-                  <p class="footer__header">Лапки помощи</p>
-                </td>
-              </tr>
+            <tr>
+              <td>
+                <p class="footer__header">Лапки помощи</p>
+              </td>
+            </tr>
 
-              <tr>
-                <td>
-                  <p class="footer__text-about">Сервис для помощи приютам</p>
-                </td>
+            <tr>
+              <td>
+                <p class="footer__text-about">Сервис для помощи приютам</p>
+              </td>
 
-                <td>
-                  <p class="footer__email">Служба поддержки:</p>
-                  <p class="footer__email">info@lapki.ru</p>
-                </td>
+              <td>
+                <p class="footer__email">Служба поддержки:</p>
+                <p class="footer__email">info@lapki.ru</p>
+              </td>
 
-                <td>
-                  <td class="footer__icon-block">
-                    <a class="footer__icon-link" href="" target="_blank">
-                      <img src="./icons/footer__icon_classmates.svg" class="footer__icon" alt="одноклассники" />
-                    </a>
-                  </td>
+              <td>
+              <td class="footer__icon-block">
+                <a class="footer__icon-link" href="" target="_blank">
+                  <img src="./icons/footer__icon_classmates.svg" class="footer__icon" alt="одноклассники" />
+                </a>
+              </td>
 
-                  <td class="footer__icon-block">
-                    <a class="footer__icon-link" href="" target="_blank">
-                      <img src="./icons/footer__icon_vk.svg" class="footer__icon" alt="вконтакте" />
-                    </a>
-                  </td>
+              <td class="footer__icon-block">
+                <a class="footer__icon-link" href="" target="_blank">
+                  <img src="./icons/footer__icon_vk.svg" class="footer__icon" alt="вконтакте" />
+                </a>
+              </td>
 
-                  <td class="footer__icon-block">
-                    <a class="footer__icon-link" href="" target="_blank">
-                      <img src="./icons/footer__icon_telegram.svg" class="footer__icon" alt="телеграм" />
-                    </a>
-                  </td>
-                </td>
-              </tr>
+              <td class="footer__icon-block">
+                <a class="footer__icon-link" href="" target="_blank">
+                  <img src="./icons/footer__icon_telegram.svg" class="footer__icon" alt="телеграм" />
+                </a>
+              </td>
+              </td>
+            </tr>
             </tr>
           </table>
         </div>
