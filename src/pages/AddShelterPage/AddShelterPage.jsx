@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AddShelterPage.scss';
 import OwnerStep from './components/OwnerStep';
 import ShelterStep from './components/ShelterStep';
 import MainContainer from '../../components/MainContainer/MainContainer';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 import addShelterApi from './api';
 import imageSuccess from '../../images/icons/ic_success.svg';
 import imageError from '../../images/icons/ic_error.svg';
 
-const AddShelterPage = ({ currentUser, openPopup, setPopupImage, setMessage }) => {
+const AddShelterPage = ({ openPopup, setPopupImage, setMessage }) => {
+  const currentUser = useContext(CurrentUserContext);
   const navigate = useNavigate(); // подключение программной навигации
 
   const [step, setStep] = useState(1);

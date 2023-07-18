@@ -30,7 +30,7 @@ const NewPage = () => {
             <img className='new-page__icon' src={dataIcon} alt='дата' />
             <p className='new-page__info'>{newInfo.pub_date}</p>
           </div>
-          <Link className='new-page__info-block new-page__info-block_link' to={newInfo.shelter ? `/shelters/${newInfo.shelter}/news` : '/'}>
+          <Link className='new-page__info-block new-page__info-block_link' to={newInfo.shelter ? `/shelters/${newInfo.shelter.id}/news` : '/'}>
             <img className='new-page__icon' src={selfIcon} alt='приют' />
             <p className='new-page__info'>{newInfo.shelter && newInfo.shelter.name}</p>
           </Link>
