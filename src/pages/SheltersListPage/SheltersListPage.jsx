@@ -25,9 +25,9 @@ const SheltersListPage = () => {
         setSheltersList(newSheltersList.map(mapShelterResponse));
         setIsDataLoading(false);
       })
-      .catch((error) => {
+      .catch((err) => {
         setIsDataLoading(true);
-        throw new Error(error);
+        throw new Error(err);
       });
   }, [color]);
 
