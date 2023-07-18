@@ -139,13 +139,15 @@ const App = () => {
               <Route path='list' element={<Navigate to='/shelters/list/red' replace />} />
               <Route path='list/:color' element={<SheltersListPage />} />
               <Route path=':id' element={<ShelterPage />}>
-              <Route path='about' element={<shelterModules.AboutShelter />} />
-              <Route path='how-to-help' element={<shelterModules.HelpToShelter />} />
-              <Route path='news' element={<shelterModules.ShelterNews />} />
-              <Route path='pets' element={<shelterModules.ShelterPets />} />
-              <Route path='pets/:type' element={<shelterModules.ShelterSamePets />} />
-              <Route path='vacancies' element={<shelterModules.ShelterVacancies />} />
+                <Route path='about' element={<shelterModules.AboutShelter />} />
+                <Route path='how-to-help' element={<shelterModules.HelpToShelter />} />
+                <Route path='news' element={<shelterModules.ShelterNews />} />
+                <Route path='pets' element={<shelterModules.ShelterPets />} />
+                <Route path='pets/:type' element={<shelterModules.ShelterSamePets />} />
+                <Route path='vacancies' element={<shelterModules.ShelterVacancies />} />
+              </Route>
             </Route>
+
             <Route
               path='/add-shelter'
               element={
