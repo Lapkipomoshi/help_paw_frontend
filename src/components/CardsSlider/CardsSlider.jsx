@@ -1,18 +1,18 @@
 import React, { useRef } from 'react';
 import './CardsSlider.scss';
 
-const defaultScrollPixelsAmount = 350;
-
 const CardsSlider = ({ children, isButtonsHidden = false }) => {
+  const defaultScrollPixelsAmount = 350;
+
   const sliderContainerRef = useRef(null);
 
-  function handleSliderScroll(direction) {
+  const handleSliderScroll = (direction) => {
     return () => {
       const scrollPixelsAmount = direction === 'left' ? -defaultScrollPixelsAmount : defaultScrollPixelsAmount;
 
       sliderContainerRef.current.scrollBy({ behavior: 'smooth', left: scrollPixelsAmount });
     };
-  }
+  };
 
   return (
     <>
