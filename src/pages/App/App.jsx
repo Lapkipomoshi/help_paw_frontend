@@ -7,7 +7,6 @@ import Footer from '../../modules/Footer/Footer';
 import MainPage from '../MainPage/MainPage';
 import MapPage from '../MapPage/MapPage';
 import SheltersListPage from '../SheltersListPage/SheltersListPage';
-import * as sheltersListModules from '../SheltersListPage/modules';
 import ShelterPage from '../ShelterPage/ShelterPage';
 import * as shelterModules from '../ShelterPage/modules';
 import PetPage from '../PetPage/PetPage';
@@ -27,6 +26,7 @@ import EditProfilePage from '../EditProfilePage/EditProfilePage';
 import SignOutPage from '../SignOutPage/SignOutPage';
 import ChangePasswordPage from '../ChangePasswordPage/ChangePasswordPage';
 import ActivateUserPage from '../ActivateUserPage/ActivateUserPage';
+import PrivacyPolicyPage from '../PrivacyPolicyPage/PrivacyPolicyPage';
 import ActivateEmailPage from '../ActivateEmailPage/ActivateEmailPage';
 import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
@@ -85,10 +85,10 @@ const App = () => {
         setInfoTooltipImage(imageSuccess);
         setMessage('Спасибо за регистрацию! Для активации аккаунта перейдите по ссылке, отправленной на вашу почту.');
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
+        setTimeout(closeInfoTooltip, 15000);
         setTimeout(() => {
           navigate('/');
-        }, 2000);
+        }, 1000);
       })
       .catch((res) => {
         setInfoTooltipImage(imageError);
@@ -98,7 +98,7 @@ const App = () => {
           setMessage('Что-то пошло не так! Попробуйте ещё раз.');
         }
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
+        setTimeout(closeInfoTooltip, 15000);
       });
   };
 
@@ -114,16 +114,16 @@ const App = () => {
         setInfoTooltipImage(imageSuccess);
         setMessage('Добро пожаловать на сайт!');
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
+        setTimeout(closeInfoTooltip, 15000);
         setTimeout(() => {
           navigate('/');
-        }, 2000);
+        }, 1000);
       })
       .catch(() => {
         setInfoTooltipImage(imageError);
         setMessage('Вы ввели неверный e-mail или пароль!');
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
+        setTimeout(closeInfoTooltip, 15000);
       });
   };
 
@@ -134,13 +134,11 @@ const App = () => {
           <Header />
           <Routes>
             <Route path='/' element={<MainPage />} />
-            <Route path='/shelters' element={<MapPage />} />
-            <Route path='/shelters/list' element={<SheltersListPage />}>
-              <Route path='red' element={<sheltersListModules.RedShelters />} />
-              <Route path='yellow' element={<sheltersListModules.YellowShelters />} />
-              <Route path='green' element={<sheltersListModules.GreenShelters />} />
-            </Route>
-            <Route path='/shelters/:id' element={<ShelterPage />}>
+            <Route path='/shelters'>
+              <Route index element={<MapPage />} />
+              <Route path='list' element={<Navigate to='/shelters/list/red' replace />} />
+              <Route path='list/:color' element={<SheltersListPage />} />
+              <Route path=':id' element={<ShelterPage />}>
               <Route path='about' element={<shelterModules.AboutShelter />} />
               <Route path='how-to-help' element={<shelterModules.HelpToShelter />} />
               <Route path='news' element={<shelterModules.ShelterNews />} />
@@ -165,6 +163,8 @@ const App = () => {
             <Route path='/papers/:id' element={<PaperPage />} />
             <Route path='/news' element={<NewsPage />} />
             <Route path='/news/:id' element={<NewPage />} />
+
+            <Route path='/privacy' element={<PrivacyPolicyPage />} />
 
             <Route exact path='/sign-in' element={<ProtectedRoute condition={!loggedIn} component={LoginPage} onLogin={handleLogin} />} />
             <Route exact path='/sign-up' element={<ProtectedRoute condition={!loggedIn} component={RegisterPage} onRegister={handleRegister} />} />

@@ -20,6 +20,10 @@
   border-radius: 8px;
   padding: 8px 16px;
 
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+  }
+
   &:focus {
     outline: none;
   }

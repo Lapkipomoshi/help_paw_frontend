@@ -1,27 +1,34 @@
 .profile-popup {
-  width: 100%;
-  max-width: 281px;
-  display: flex;
-  flex-direction: column;
-  background: var(--color-background-additional);
-  box-shadow: 4px 4px 17px rgba(23, 23, 23, 0.12);
-  border-radius: 30px;
-  overflow-wrap: break-word;
+  width: 100vw;
+  height: 100vh;
   position: absolute;
-  right: 148px;
+  left: 963px;
   top: 88px;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0.5s, opacity 0.5s ease-in-out;
-  padding: 20px 24px;
   z-index: 3;
+
+  &_opened {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    z-index: 3;
+  }
 }
 
-.profile-popup_opened {
+.profile-popup__container {
   display: flex;
-  visibility: visible;
-  opacity: 1;
-  z-index: 3;
+  flex-direction: column;
+  width: 100%;
+  max-width: 281px;
+  height: fit-content;
+  background: var(--color-background-additional);
+  box-shadow: 4px 4px 17px rgba(23, 23, 23, 0.12);
+  border-radius: 30px;
+  overflow-wrap: break-word;
+  padding: 20px 24px;
+  position: relative;
 }
 
 .profile-popup__name {
@@ -86,9 +93,9 @@
   position: absolute;
   top: 14px;
   right: 19px;
-}
 
-.profile-popup__button-close:hover {
-  opacity: 0.6;
-  cursor: pointer;
+  &:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
 }

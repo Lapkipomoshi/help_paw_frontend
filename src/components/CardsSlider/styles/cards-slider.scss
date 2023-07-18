@@ -1,0 +1,20 @@
+.cards-slider {
+  margin: 0;
+  display: flex;
+  white-space: nowrap;
+  overflow-y: hidden;
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+  list-style-type: none;
+  column-gap: 38px;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    padding: 20px 0 44px 44px;
+  }
+
+  @media (min-width: 1440px) {
+    padding-left: 132px;
+  }
+}

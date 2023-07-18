@@ -48,7 +48,7 @@ const MapPage = () => {
       <main>
         <section className='search-section'>
           <SearchInput />
-          <Link className='search-section__link' to='/shelters/list'>
+          <Link className='search-section__link' to='/shelters/list/red'>
             Показать приюты списком
           </Link>
         </section>
