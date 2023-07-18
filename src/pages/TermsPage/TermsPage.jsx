@@ -26,8 +26,8 @@ const TermsOfServicePage = () => {
           <li className='terms__item'>
             <DetailsCard title='Права и обязанности сторон' isOpen={false} iconType='arrow' titleClasses='standard-font_type_h4'>
               <div className='terms__description-container'>
-                <ul className='terms__description terms__description_bold-first-line'>
-                  Пользователь имеет право:
+                <ul className='terms__description'>
+                  <li className='standard-font_type_body terms__description-subtitle'> Пользователь имеет право:</li>
                   <li> - осуществлять поиск информации на сайте</li>
                   <li> - получать информацию на сайте</li>
                   <li> - создавать информацию для сайта</li>
@@ -43,16 +43,16 @@ const TermsOfServicePage = () => {
                   <li> - использовать информацию сайта в коммерческих целях без специального разрешения</li>
                 </ul>
 
-                <ul className='terms__description terms__description_bold-first-line'>
-                  Администрация имеет право:
+                <ul className='terms__description'>
+                  <li className='standard-font_type_body terms__description-subtitle'> Администрация имеет право:</li>
                   <li> - по своему усмотрению и необходимости создавать, изменять, отменять правила</li>
                   <li> - получать информацию на сайте</li>
                   <li> - создавать, изменять, удалять информацию</li>
                   <li> - удалять учетные записи</li>
                 </ul>
 
-                <ul className='terms__description terms__description_bold-first-line'>
-                  Пользователь обязуется:
+                <ul className='terms__description'>
+                  <li className='standard-font_type_body terms__description-subtitle'> Пользователь обязуется:</li>
                   <li> - обеспечить достоверность предоставляемой информации</li>
                   <li> - обеспечивать сохранность личных данных от доступа третьих лиц</li>
                   <li> - обновлять Персональные данные, предоставленные при регистрации, в случае их изменения</li>
@@ -70,8 +70,8 @@ const TermsOfServicePage = () => {
                   <li> - не использовать скрипты (программы) для автоматизированного сбора информации и/или взаимодействия с Сайтом и его Сервисами</li>
                 </ul>
 
-                <ul className='terms__description terms__description_bold-first-line'>
-                  Администрация обязуется:
+                <ul className='terms__description terms__description-subtitle'>
+                  <li className='standard-font_type_body'> Администрация обязуется:</li>
                   <li> - поддерживать работоспособность сайта за исключением случаев, когда это невозможно по независящим от Администрации причинам.</li>
                   <li> - осуществлять разностороннюю защиту учетной записи Пользователя</li>
                   <li>
@@ -111,7 +111,6 @@ const TermsOfServicePage = () => {
                   <li>Соглашение перестает действовать при появлении его новой версии.</li>
                   <li>Администрация оставляет за собой право в одностороннем порядке изменять данное соглашение по своему усмотрению.</li>
                   <li>Администрация не оповещает пользователей об изменении в Соглашении.</li>
-                  <li className='terms__description-right-align'>Соглашение разработано на базе юридических документов сервиса Правилль</li>
                 </ul>
               </div>
             </DetailsCard>
