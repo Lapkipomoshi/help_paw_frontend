@@ -26,7 +26,7 @@ const TermsOfServicePage = () => {
           <li className='terms__item'>
             <DetailsCard title='Права и обязанности сторон' isOpen={false} iconType='arrow' titleClasses='standard-font_type_h4'>
               <div className='terms__description-container'>
-                <ul className='terms__description terms__description--bold-first-line'>
+                <ul className='terms__description terms__description_bold-first-line'>
                   Пользователь имеет право:
                   <li> - осуществлять поиск информации на сайте</li>
                   <li> - получать информацию на сайте</li>
@@ -43,7 +43,7 @@ const TermsOfServicePage = () => {
                   <li> - использовать информацию сайта в коммерческих целях без специального разрешения</li>
                 </ul>
 
-                <ul className='terms__description terms__description--bold-first-line'>
+                <ul className='terms__description terms__description_bold-first-line'>
                   Администрация имеет право:
                   <li> - по своему усмотрению и необходимости создавать, изменять, отменять правила</li>
                   <li> - получать информацию на сайте</li>
@@ -51,7 +51,7 @@ const TermsOfServicePage = () => {
                   <li> - удалять учетные записи</li>
                 </ul>
 
-                <ul className='terms__description terms__description--bold-first-line'>
+                <ul className='terms__description terms__description_bold-first-line'>
                   Пользователь обязуется:
                   <li> - обеспечить достоверность предоставляемой информации</li>
                   <li> - обеспечивать сохранность личных данных от доступа третьих лиц</li>
@@ -70,7 +70,7 @@ const TermsOfServicePage = () => {
                   <li> - не использовать скрипты (программы) для автоматизированного сбора информации и/или взаимодействия с Сайтом и его Сервисами</li>
                 </ul>
 
-                <ul className='terms__description terms__description--bold-first-line'>
+                <ul className='terms__description terms__description_bold-first-line'>
                   Администрация обязуется:
                   <li> - поддерживать работоспособность сайта за исключением случаев, когда это невозможно по независящим от Администрации причинам.</li>
                   <li> - осуществлять разностороннюю защиту учетной записи Пользователя</li>
