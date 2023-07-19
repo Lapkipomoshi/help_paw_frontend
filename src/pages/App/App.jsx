@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, Navigate } from 'react-router-dom';
 import './App.scss';
 import ProtectedRoute from './ProtectedRoute';
 import Header from '../../modules/Header/Header';
@@ -27,6 +27,7 @@ import SignOutPage from '../SignOutPage/SignOutPage';
 import ChangePasswordPage from '../ChangePasswordPage/ChangePasswordPage';
 import ActivateUserPage from '../ActivateUserPage/ActivateUserPage';
 import PrivacyPolicyPage from '../PrivacyPolicyPage/PrivacyPolicyPage';
+import TermsPage from '../TermsPage/TermsPage';
 import ActivateEmailPage from '../ActivateEmailPage/ActivateEmailPage';
 import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
 import CurrentUserContext from '../../contexts/CurrentUserContext';
@@ -167,6 +168,7 @@ const App = () => {
             <Route path='/news/:id' element={<NewPage />} />
 
             <Route path='/privacy' element={<PrivacyPolicyPage />} />
+            <Route path='/terms' element={<TermsPage />} />
 
             <Route exact path='/sign-in' element={<ProtectedRoute condition={!loggedIn} component={LoginPage} onLogin={handleLogin} />} />
             <Route exact path='/sign-up' element={<ProtectedRoute condition={!loggedIn} component={RegisterPage} onRegister={handleRegister} />} />
