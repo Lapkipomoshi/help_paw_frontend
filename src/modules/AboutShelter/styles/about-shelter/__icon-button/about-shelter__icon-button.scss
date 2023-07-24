@@ -1,0 +1,23 @@
+.about-shelter__icon-button {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+  border: 1px solid var(--color-text-additional);
+  border-radius: 8px;
+  font-size: 49px;
+  width: 49px;
+  height: 49px;
+  background-color: var(--color-background-base);
+}
+
+.about-shelter__icon-button_edit {
+  margin-left: 16px;
+}
+
+.about-shelter__title-button_delete {
+  margin-left: 8px;
+}
