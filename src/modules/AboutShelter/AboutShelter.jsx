@@ -20,7 +20,6 @@ const AboutShelter = () => {
 
   // TODO подключить рероутер на редактирование инфо о приюте (6.2.1.4 в фигме)
   // TODO сделать попап при удалении приюта (6.2.1.3 в фигме)
-  // TODO разбить на компоненты
 
   return (
     <section className='shelter-section'>
@@ -31,17 +30,17 @@ const AboutShelter = () => {
           <div className='about-shelter__title-container'>
             <h2 className='shelter-section__title'>{shelter.name}</h2>
 
-            {/* TODO  <EditPenIcon /> ведет на 6.2.1.4 в фигме, оно пока не реализовано */}
             {isOwner && (
-              <Link to='/' className='about-shelter__icon-button about-shelter__icon-button_edit'>
-                <EditPenIcon />
-              </Link>
-            )}
-            {/* TODO  при нажатии попап как на 6.2.1.3 в фигме, попап не сверстан */}
-            {isOwner && (
-              <button type='button' className='about-shelter__icon-button about-shelter__title-button_delete'>
-                <DeleteIcon />
-              </button>
+              <>
+                {/* TODO  <EditPenIcon /> ведет на 6.2.1.4 в фигме, оно пока не реализовано */}
+                <Link to='/' className='about-shelter__icon-button about-shelter__icon-button_edit'>
+                  <EditPenIcon />
+                </Link>
+                {/* TODO  при нажатии попап как на 6.2.1.3 в фигме, попап не сверстан */}
+                <button type='button' className='about-shelter__icon-button about-shelter__title-button_delete'>
+                  <DeleteIcon />
+                </button>
+              </>
             )}
           </div>
 
@@ -60,13 +59,13 @@ const AboutShelter = () => {
             <div className='shelter-info__icons'>
               {shelter.vk_page && (
                 <a href={shelter.ok_page} target='_blank' rel='noreferrer'>
-                  <img className='shelter-info__icon' src={classmatesIcon} alt='OK.ru' />
+                  <img className='shelter-info__icon' src={classmatesIcon} alt='вконтакте' />
                 </a>
               )}
 
               {shelter.ok_page && (
                 <a href={shelter.vk_page} target='_blank' rel='noreferrer'>
-                  <img className='shelter-info__icon' src={vkIcon} alt='ВК' />
+                  <img className='shelter-info__icon' src={vkIcon} alt='одноклассники' />
                 </a>
               )}
 
@@ -81,7 +80,6 @@ const AboutShelter = () => {
       </div>
 
       <h3 className='standard-font_type_h3 standard-font'>Описание</h3>
-
       <p className={`about-shelter__description standard-font_type_body ${isOwner ? 'about-shelter__description_owner' : 'about-shelter__description_user'}`}>
         {shelter.description}
       </p>
