@@ -7,22 +7,39 @@ class ShelterApi extends BaseApi {
     this._headers = _headers;
   }
 
-  getShelterById(id) { // загрузка информации о приюте по его id
+  // загрузка информации о приюте по его id
+  getShelterById(id) {
     return fetch(`${this._baseUrl}/v1/shelters/${id}`, {
       headers: this._headers,
+    }).then((res) => {
+      return super._processTheResponse(res);
+    });
+  }
+
+  getOwnerShelterInfo(token) {
+    return fetch(`${baseUrl}/auth/users/me`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
     })
       .then((res) => {
-        return super._processTheResponse(res);
+        return res.json();
+      })
+      .catch((error) => {
+        console.error('Error fetching user info:', error);
+        return false;
       });
   }
 
-  getPetsByShelterId(id, type, limit, offset) { // загрузка питомцев вида type у приюта с id в количестве limit, начиная с offset
+  // загрузка питомцев вида type у приюта с id в количестве limit, начиная с offset
+  getPetsByShelterId(id, type, limit, offset) {
     return fetch(`${this._baseUrl}/v1/pets/?shelter=${id}&animal_type=${type}&?limit=${limit}&?offset=${offset}`, {
       headers: this._headers,
-    })
-      .then((res) => {
-        return super._processTheResponse(res);
-      });
+    }).then((res) => {
+      return super._processTheResponse(res);
+    });
   }
 }
 

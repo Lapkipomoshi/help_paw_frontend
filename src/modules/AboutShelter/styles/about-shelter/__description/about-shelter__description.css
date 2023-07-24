@@ -1,8 +1,16 @@
 .about-shelter__description {
   width: 821px;
-  margin: 20px 0 28px;
+  margin-top: 20px;
   padding: 0;
-  font-size: 18px;
-  line-height: 28px;
-  font-weight: 400;
+}
+
+
+.about-shelter__description_user {
+  width: 821px;
+  margin-bottom: 44px;
+}
+
+.about-shelter__description_owner {
+  width: 821px;
+  margin-bottom: 32px;
 }

@@ -7,18 +7,35 @@ import shelterApi from './api';
 import { shelterLinkList } from '../../utils/constants';
 
 const ShelterPage = () => {
-  const { id } = useParams(); // id статьи, получаемый из url-адреса текущей страницы
+  const { id } = useParams(); // id приюта, получаемый из url-адреса текущей страницы
   const [shelter, setShelter] = useState({}); // информация о приюте
 
+  const [isOwner, setIsOwner] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
+    const token = localStorage.getItem('access');
+
     shelterApi
-      .getShelterById(id) // загрузка карточек с приютами на главной странице
+      .getShelterById(id) // загрузка инфо о приюте
       .then((res) => {
         setShelter(res);
+        setIsLoading(false);
       })
       .catch((err) => {
         throw new Error(err);
       });
+
+    if (token) {
+      shelterApi
+        .getOwnerShelterInfo(token)
+        .then((res) => {
+          setIsOwner(res.own_shelter.id === Number(id));
+        })
+        .catch(() => {
+          setIsOwner(false);
+        });
+    }
   }, [id]);
 
   return (
@@ -27,7 +44,7 @@ const ShelterPage = () => {
         <section className='shelter-menu-section'>
           <NestedRoutesMenu linkList={shelterLinkList} gap={72} />
         </section>
-        <Outlet context={{ shelter }} />
+        <Outlet context={{ shelter, isOwner, isLoading }} />
       </main>
     </MainContainer>
   );
