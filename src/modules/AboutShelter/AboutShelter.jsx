@@ -78,14 +78,7 @@ const AboutShelter = () => {
         </div>
       </div>
 
-      <div className='about-shelter__description-title-container'>
-        <h3 className='standard-font_type_h3 about-shelter__description-title'>Описание</h3>
-        {isOwner && (
-          <button type='button' className='about-shelter__icon-button about-shelter__icon-button_description-edit'>
-            <EditPenIcon />
-          </button>
-        )}
-      </div>
+      <h3 className='standard-font_type_h3 about-shelter__description-title'>Описание</h3>
 
       <p className={`about-shelter__description standard-font_type_body ${isOwner ? 'about-shelter__description_owner' : 'about-shelter__description_user'}`}>
         {shelter.description}
