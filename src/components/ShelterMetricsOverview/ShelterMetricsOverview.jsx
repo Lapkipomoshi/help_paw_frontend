@@ -2,11 +2,9 @@ import React from 'react';
 import './ShelterMetricsOverview.scss';
 import Button from '../../ui/Button/Button';
 
-// scss разнести по папкам
-// подключить вывод метрик
-// сделать кнопки активными
+// TODO scss разнести по папкам
 
-const ShelterMetricsOverview = ({ title, metricValue, actionText }) => {
+const ShelterMetricsOverview = ({ title, metricValue, actionText, path }) => {
   return (
     <div className='shelter-metrics'>
       <h3 className='shelter-metrics__title standard-font_type_h3'>
@@ -14,7 +12,9 @@ const ShelterMetricsOverview = ({ title, metricValue, actionText }) => {
         {metricValue}
       </h3>
 
-      <Button onClick={() => {}}>{actionText}</Button>
+      <Button link to={path}>
+        {actionText}
+      </Button>
     </div>
   );
 };

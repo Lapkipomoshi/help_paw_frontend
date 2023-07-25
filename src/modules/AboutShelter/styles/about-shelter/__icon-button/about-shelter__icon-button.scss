@@ -1,4 +1,4 @@
-//вложить согласно scss
+//TODO вложить согласно scss
 
 .about-shelter__icon-button {
   flex-shrink: 0;
@@ -12,7 +12,7 @@
   border-radius: 8px;
 }
 
-.about-shelter__icon-button_title-edit {
+.about-shelter__icon-button_edit {
   margin-left: 16px;
   font-size: 49px;
   width: 49px;
@@ -21,22 +21,10 @@
   background-color: var(--color-background-base);
 }
 
-.about-shelter__icon-button_description-edit {
-  margin-left: 12px;
-  font-size: 29px;
-  width: 29px;
-  height: 29px;
-  background-color: var(--color-background-additional);
-}
-
-.about-shelter__title-button_title-delete {
+.about-shelter__title-button_delete {
   margin-left: 8px;
   font-size: 49px;
   width: 49px;
   height: 49px;
   background-color: var(--color-background-base);
-}
-
-.about-shelter__title-button_title-delete:hover {
-  background-color: var(--color-background-additional);
 }

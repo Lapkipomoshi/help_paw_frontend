@@ -1,5 +1,5 @@
 import React from 'react';
-import { useOutletContext } from 'react-router-dom';
+import { useOutletContext, Link } from 'react-router-dom';
 import './AboutShelter.scss';
 import InfoItem from '../../ui/InfoItem/InfoItem';
 import classmatesIcon from '../../images/icons/footer__icon_classmates.svg';
@@ -18,7 +18,8 @@ const AboutShelter = () => {
     return null;
   }
 
-  // TODO сделать функционал иконок редактирования и удаления
+  // TODO подключить рероутер на редактирование инфо о приюте (6.2.1.4 в фигме)
+  // TODO сделать попап при удалении приюта (6.2.1.3 в фигме)
   // TODO разбить на компоненты
 
   return (
@@ -30,14 +31,15 @@ const AboutShelter = () => {
           <div className='about-shelter__title-container'>
             <h2 className='shelter-section__title'>{shelter.name}</h2>
 
-            {/* TODO __icon-button_title - подумать над названием класса, тут не title будет редактироваться, а ведет на 6.2.1.4 в фигме */}
+            {/* TODO  <EditPenIcon /> ведет на 6.2.1.4 в фигме, оно пока не реализовано */}
             {isOwner && (
-              <button type='button' className='about-shelter__icon-button about-shelter__icon-button_title-edit'>
+              <Link to='/' className='about-shelter__icon-button about-shelter__icon-button_edit'>
                 <EditPenIcon />
-              </button>
+              </Link>
             )}
+            {/* TODO  при нажатии попап как на 6.2.1.3 в фигме, попап не сверстан */}
             {isOwner && (
-              <button type='button' className='about-shelter__icon-button about-shelter__title-button_title-delete'>
+              <button type='button' className='about-shelter__icon-button about-shelter__title-button_delete'>
                 <DeleteIcon />
               </button>
             )}
@@ -84,7 +86,7 @@ const AboutShelter = () => {
         {shelter.description}
       </p>
 
-      {isOwner && <ShelterOwnerStatistics />}
+      {isOwner && <ShelterOwnerStatistics shelter={shelter} />}
 
       <h3 className='standard-font_type_h3 about-shelter__metrics-dotantion'>
         Собрано денег за всё время: <span className='color_text_additional'>{shelter.money_collected}</span>
