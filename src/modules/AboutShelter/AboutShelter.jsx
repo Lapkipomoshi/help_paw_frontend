@@ -50,7 +50,7 @@ const AboutShelter = () => {
             <InfoItem argument='Часы-работы'>{`${shelter.working_from_hour} - ${shelter.working_to_hour}`}</InfoItem>
             <InfoItem argument='Номер телефона'>{shelter.phone_number}</InfoItem>
             <InfoItem argument='E-mail'>{shelter.email}</InfoItem>
-            {shelter.web_site !== '' && (
+            {shelter.web_site && (
               <InfoItem argument='Сайт'>
                 <a className='shelter-info__link' href={shelter.web_site} target='_blank' rel='noreferrer'>
                   {shelter.web_site}
@@ -58,19 +58,19 @@ const AboutShelter = () => {
               </InfoItem>
             )}
             <div className='shelter-info__icons'>
-              {shelter.vk_page !== '' && (
+              {shelter.vk_page && (
                 <a href={shelter.ok_page} target='_blank' rel='noreferrer'>
                   <img className='shelter-info__icon' src={classmatesIcon} alt='OK.ru' />
                 </a>
               )}
 
-              {shelter.ok_page !== '' && (
+              {shelter.ok_page && (
                 <a href={shelter.vk_page} target='_blank' rel='noreferrer'>
                   <img className='shelter-info__icon' src={vkIcon} alt='ВК' />
                 </a>
               )}
 
-              {shelter.telegram !== '' && (
+              {shelter.telegram && (
                 <a href={shelter.telegram} target='_blank' rel='noreferrer'>
                   <img className='shelter-info__icon' src={telegramIcon} alt='телеграм' />
                 </a>

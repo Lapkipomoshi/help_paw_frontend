@@ -11,9 +11,9 @@ const ShelterPage = () => {
   const { id } = useParams(); // id приюта, получаемый из url-адреса текущей страницы
   const [shelter, setShelter] = useState({}); // информация о приюте
   const [isLoading, setIsLoading] = useState(true);
-  const [isOwner, setIsOwner] = useState(false);
 
   const currentUser = useContext(CurrentUserContext);
+  const isOwner = currentUser?.own_shelter?.id === Number(id);
 
   useEffect(() => {
     shelterApi
@@ -21,10 +21,6 @@ const ShelterPage = () => {
       .then((res) => {
         setShelter(res);
         setIsLoading(false);
-
-        if (currentUser !== undefined) {
-          setIsOwner(currentUser.own_shelter.id === Number(id));
-        }
       })
       .catch((err) => {
         throw new Error(err);
