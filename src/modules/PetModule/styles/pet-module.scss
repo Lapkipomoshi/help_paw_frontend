@@ -1,0 +1,40 @@
+.pet-module {
+  display: flex;
+  width: 1440px;
+}
+
+.pet-module__pet-part {
+  display: flex;
+  width: 847px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 40px;
+}
+
+.pet-module__info-container {
+  display: flex;
+  width: 368px;
+  flex-direction: column;
+}
+
+.pet-module__info-list {
+  display: flex;
+  width: 100%;
+  margin: 32px 0 55px;
+  padding: 0;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+.pet-module__additional-shelter-info {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.pet-module__description-container {
+  display: flex;
+  width: 100;
+  flex-direction: column;
+  row-gap: 20px;
+}

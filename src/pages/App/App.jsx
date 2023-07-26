@@ -9,7 +9,6 @@ import MapPage from '../MapPage/MapPage';
 import SheltersListPage from '../SheltersListPage/SheltersListPage';
 import ShelterPage from '../ShelterPage/ShelterPage';
 import * as shelterModules from '../ShelterPage/modules';
-import PetPage from '../PetPage/PetPage';
 import AddShelterPage from '../AddShelterPage/AddShelterPage';
 import PapersPage from '../PapersPage/PapersPage';
 import PaperPage from '../PaperPage/PaperPage';
@@ -146,7 +145,7 @@ const App = () => {
               <Route path='news' element={<shelterModules.ShelterNews />} />
               <Route path='pets' element={<shelterModules.ShelterPets />} />
               <Route path='pets/type/:type' element={<shelterModules.ShelterSamePets />} />
-              <Route path='pets/:id' element={<PetPage />} />
+              <Route path='pets/:id' element={<shelterModules.PetModule />} />
               <Route path='vacancies' element={<shelterModules.ShelterVacancies />} />
             </Route>
           </Route>
