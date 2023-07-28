@@ -57,15 +57,15 @@ const AboutShelter = () => {
               </InfoItem>
             )}
             <div className='shelter-info__icons'>
-              {shelter.vk_page && (
+              {shelter.ok_page && (
                 <a href={shelter.ok_page} target='_blank' rel='noreferrer'>
-                  <img className='shelter-info__icon' src={classmatesIcon} alt='вконтакте' />
+                  <img className='shelter-info__icon' src={classmatesIcon} alt='одноклассники' />
                 </a>
               )}
 
-              {shelter.ok_page && (
+              {shelter.vk_page && (
                 <a href={shelter.vk_page} target='_blank' rel='noreferrer'>
-                  <img className='shelter-info__icon' src={vkIcon} alt='одноклассники' />
+                  <img className='shelter-info__icon' src={vkIcon} alt='вконтакте' />
                 </a>
               )}
 
