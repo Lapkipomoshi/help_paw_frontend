@@ -3,7 +3,7 @@ import './DeleteIcon.scss';
 
 const DeleteIcon = () => {
   return (
-    <svg viewBox='0 0 39 39' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg className='delete-icon' viewBox='0 0 39 39' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path
         d={`M17.4269 10.8123H22.5154C22.5154 10.1296 22.2473 9.47488 21.7702 8.99214C21.2931 8.5094 20.6459 
         8.2382 19.9712 8.2382C19.2964 8.2382 18.6492 8.5094 18.1721 8.99214C17.695 9.47488 17.4269 10.1296 17.4269 

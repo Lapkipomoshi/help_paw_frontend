@@ -80,7 +80,7 @@ const AboutShelter = () => {
         </div>
       </div>
 
-      <h3 className='standard-font_type_h3 about-shelter__description-title'>Описание</h3>
+      <h3 className='standard-font_type_h3 standard-font'>Описание</h3>
 
       <p className={`about-shelter__description standard-font_type_body ${isOwner ? 'about-shelter__description_owner' : 'about-shelter__description_user'}`}>
         {shelter.description}

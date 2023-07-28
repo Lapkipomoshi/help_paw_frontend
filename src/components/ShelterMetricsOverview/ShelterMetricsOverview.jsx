@@ -2,8 +2,6 @@ import React from 'react';
 import './ShelterMetricsOverview.scss';
 import Button from '../../ui/Button/Button';
 
-// TODO scss разнести по папкам
-
 const ShelterMetricsOverview = ({ title, metricValue, actionText, path }) => {
   return (
     <div className='shelter-metrics'>
