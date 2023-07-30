@@ -1,0 +1,4 @@
+.new-big-card-vertical__info-block {
+  display: flex;
+  column-gap: 12px;
+}

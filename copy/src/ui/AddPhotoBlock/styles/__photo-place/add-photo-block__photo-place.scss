@@ -1,0 +1,23 @@
+.add-photo-block__photo-place {
+  text-align: center;
+  width: 148px;
+  height: 148px;
+  background: url('../../../../images/add-item-plus.svg') center no-repeat;
+  border: 2px dashed var(--color-accent-base);
+  border-radius: 16px;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition-duration: .7s;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--color-accent-hover);
+  }
+  &:focus {
+    border-color: var(--color-accent-pressed);
+  }
+}
+
+.add-photo-block__photo-place input[type='file'] {
+  display: none;
+}

@@ -1,0 +1,9 @@
+@import url('./styles/new-big-card.scss');
+@import url('./styles/__photo/new-big-card__photo.css');
+@import url('./styles/__content/new-big-card__content.css');
+@import url('./styles/__row/new-big-card__row.css');
+@import url('./styles/__info-block/new-big-card__info-block.css');
+@import url('./styles/__icon/new-big-card__icon.css');
+@import url('./styles/__info/new-big-card__info.css');
+@import url('./styles/__header/new-big-card__header.css');
+@import url('./styles/__text/new-big-card__text.css');

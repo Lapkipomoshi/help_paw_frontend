@@ -1,0 +1,27 @@
+.shelter-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 192px;
+  height: 273px;
+  background-color: var(--color-background-additional);
+  border: 1px solid var(--color-accent-base);
+  border-radius: 20px;
+  box-sizing: border-box;
+  color: var(--color-text-base);
+  text-decoration: none;
+  transition-duration: 1.5s;
+
+  &:hover {
+    transform: scale(1.12);
+    border-color: var(--color-accent-hover);
+  }
+  &:focus {
+    border-color: var(--color-accent-pressed);
+  }
+
+  @media (min-width: 530px) {
+    width: 253px;
+    height: 308px;
+  }
+}

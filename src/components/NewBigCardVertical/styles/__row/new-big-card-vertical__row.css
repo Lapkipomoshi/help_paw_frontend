@@ -1,0 +1,8 @@
+.new-big-card-vertical__row {
+  display: flex;
+  width: 100%;
+  margin-top: auto;
+  column-gap: 36px;
+  flex-wrap: wrap;
+  margin-bottom: 22.5px;
+}

@@ -1,0 +1,71 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest/globals": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
+  "overrides": [
+    {
+      "files": ["test/**"],
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended"],
+      "rules": { "jest/prefer-expect-assertions": "off" }
+    }
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "import", "jest"],
+  "rules": {
+    "prefer-destructuring": [
+      "error",
+      {
+        "array": true,
+        "object": true
+      },
+      {
+        "enforceForRenamedProperties": false
+      }
+    ],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
+    "jest/expect-expect": "error",
+    "jest/no-test-prefixes": "error",
+    "jest/no-test-return-statement": "error",
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "jsx-quotes": ["error", "prefer-single"],
+    "semi": ["error", "always"],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "space-before-blocks": "error",
+    "prefer-arrow-callback": ["error", { "allowNamedFunctions": true }],
+    "arrow-parens": ["error", "always"],
+    "no-duplicate-imports": ["error", { "includeExports": true }],
+    "no-param-reassign": 0,
+    "no-underscore-dangle": ["error", { "allow": ["_id", "_baseUrl", "_headers", "_processTheResponse"] }],
+    "react/prop-types": 0,
+    "max-len": ["error", { "code": 160 }],
+    "no-debugger": "warn",
+    "object-curly-spacing": ["error", "always"],
+    "arrow-body-style": ["error", "always"],
+    "react/function-component-definition": [2, { "namedComponents": ["arrow-function", "function-declaration"] }],
+    "jsx-a11y/label-has-associated-control": "off",
+    "react/jsx-props-no-multi-spaces": "off",
+    "jsx-a11y/control-has-associated-label": "off",
+    "linebreak-style": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "class-methods-use-this": "warn",
+    "prefer-promise-reject-errors": "warn",
+    "react/jsx-one-expression-per-line": "off",
+    "react/destructuring-assignment": "off",
+    "no-unused-expressions": "warn",
+    "camelcase": [1, { "properties": "never" }]
+  }
+}

@@ -1,0 +1,6 @@
+.new-card__image {
+  width: 248px;
+  height: 142px;
+  object-fit: cover;
+  border-radius: 20px;
+}

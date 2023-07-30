@@ -1,0 +1,146 @@
+@mixin font-size-style($font-size, $line-height, $font-weight) {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}
+
+.standard-font {
+  margin: 0;
+  padding: 0;
+
+  &_type {
+    &_h1 {
+      @include font-size-style(
+        calc(28px + (100vw - 320px) * .027),
+        calc(32px + (100vw - 320px) * .038),
+        600
+      );
+      font-family: var(--font-family-title);
+    }
+    &_h2 {
+      @include font-size-style(
+        calc(20px + (100vw - 320px) * .027),
+        calc(24px + (100vw - 320px) * .033),
+        600
+      );
+      font-family: var(--font-family-title);
+    }
+    &_h3 {
+      @include font-size-style(
+        calc(16px + (100vw - 320px) * .018),
+        calc(22px + (100vw - 320px) * .016),
+        500
+      );
+      font-family: var(--font-family-title);
+    }
+    &_h4 {
+      @include font-size-style(
+        calc(15px + (100vw - 320px) * .011),
+        calc(18px + (100vw - 320px) * .013),
+        500
+      );
+      font-family: var(--font-family-base);
+    }
+    &_body {
+      @include font-size-style(
+        calc(14px + (100vw - 320px) * .009),
+        calc(20px + (100vw - 320px) * .004),
+        400
+      );
+      font-family: var(--font-family-base);
+    }
+    &_base {
+      @include font-size-style(
+          calc(14px + (100vw - 320px) * .003),
+          calc(18px + (100vw - 320px) * .003),
+          400
+      );
+      font-family: var(--font-family-base);
+    }
+    &_small {
+      @include font-size-style(
+        calc(12px + (100vw - 320px) * .009),
+        calc(16px + (100vw - 320px) * .007),
+        400
+      );
+      font-family: var(--font-family-base);
+    }
+    &_smallest {
+      @include font-size-style(
+        calc(12px + (100vw - 320px) * .004),
+        calc(16px + (100vw - 320px) * .002),
+        400
+      );
+      font-family: var(--font-family-base);
+    }
+    &_password {
+      @include font-size-style(
+          calc(14px + (100vw - 320px) * .009),
+          calc(20px + (100vw - 320px) * .004),
+          400
+      );
+      font-family: var(--font-family-password);
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .standard-font {
+    &_type {
+      &_h1 {
+        @include font-size-style(
+          calc(40px + (100vw - 768px) * .03),
+          calc(49px + (100vw - 768px) * .036),
+          600
+        );
+      }
+      &_h2 {
+        @include font-size-style(
+          calc(32px + (100vw - 768px) * .012),
+          calc(39px + (100vw - 768px) * .015),
+          600
+        );
+      }
+      &_h3 {
+        @include font-size-style(24px, 29px, 500);
+      }
+      &_h4 {
+        @include font-size-style(20px, 24px, 500);
+      }
+      &_body {
+        @include font-size-style(18px, calc(22px + (100vw - 768px) * .009), 400);
+      }
+      &_base {
+        @include font-size-style(18px, 22px, 400);
+      }
+      &_small {
+        @include font-size-style(16px, 19px, 400);
+      }
+      &_smallest {
+        @include font-size-style(14px, 17px, 400);
+      }
+      &_password {
+        @include font-size-style(18px, calc(22px + (100vw - 768px) * .009), 400);
+      }
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .standard-font {
+    &_type {
+      &_h1 {
+        @include font-size-style(60px, 73px, 600);
+      }
+      &_h2 {
+        @include font-size-style(40px, 49px, 600);
+      }
+      &_body {
+        line-height: 28px;
+      }
+      &_password {
+        line-height: 28px;
+      }
+    }
+  }
+}

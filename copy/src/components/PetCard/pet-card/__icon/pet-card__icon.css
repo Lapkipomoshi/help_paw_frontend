@@ -1,0 +1,6 @@
+.pet-card__icon {
+  width: 18px;
+  height: 18px;
+  margin: 14px 0 auto 14px;
+  object-fit: contain;
+}

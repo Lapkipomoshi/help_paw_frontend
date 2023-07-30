@@ -1,0 +1,6 @@
+.new-page__row {
+  display: flex;
+  width: 100%;
+  margin: 24px 0 32px;
+  column-gap: 20px;
+}

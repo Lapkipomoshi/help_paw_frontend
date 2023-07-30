@@ -1,0 +1,24 @@
+.papers-grid {
+  display: grid;
+  width: 100%;
+  margin: 0 auto 32px;
+  padding: 0;
+  gap: 26px;
+  grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
+  list-style-type: none;
+}
+
+@media (min-width: 768px) {
+  .papers-grid {
+    margin-bottom: 40px;
+    gap: 20px 27.5px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1440px) {
+  .papers-grid {
+    margin-bottom: 60px;
+    gap: 36px 24px;
+  }
+}

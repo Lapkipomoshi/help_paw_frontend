@@ -1,0 +1,152 @@
+.shelter {
+  text-decoration: none;
+}
+
+.shelter__website-link {
+  cursor: pointer;
+}
+
+.search-section {
+  box-sizing: border-box;
+  width: 100%;
+  background: var(--color-background-base);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 44px 132px;
+}
+
+.search-section__link {
+  margin: 0 auto 0 20px;
+  padding: 0;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 600;
+  font-style: normal;
+  font-family: var(--font-family-title);
+  text-decoration: none;
+  color: var(--color-accent-base);
+  transition-duration: 0.5s;
+}
+
+.search-section__link:hover {
+  color: var(--color-accent-hover);
+}
+
+.search-section__link:focus {
+  color: var(--color-accent-pressed);
+}
+
+.section_with-background {
+  width: 100%;
+  padding-bottom: 80px;
+  background-color: var(--color-background-base);
+}
+
+.section__content {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.container_flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.shelters-list {
+  position: absolute;
+  background: var(--color-text-light);
+  z-index: 1;
+  width: 508px;
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  height: 100%;
+  flex-direction: column;
+  overflow-y: scroll;
+  padding: 4px 24px;
+  box-sizing: border-box;
+}
+
+.shelters-list__item {
+  padding: 28px 35px 0 112px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.shelters-list__item:not(:last-child) {
+  padding-bottom: 36px;
+  border-bottom: 1px solid #bdbdbd;
+}
+
+.shelter__inf {
+  display: flex;
+  flex-direction: column;
+  max-width: 213px;
+}
+
+.shelter__title {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0 auto 8px 0;
+  /* text/base */
+  color: var(--color-text-base);
+}
+
+.shelter__title_balloon {
+  margin: 20px auto 8px 20px;
+}
+
+.shelter__address {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--color-text-additional);
+  margin: 0 auto 16px 0;
+}
+
+.shelter__address_balloon {
+  margin: 0 auto 16px 20px;
+  max-width: 214px;
+}
+
+.shelter__time {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--color-text-additional);
+  margin: 0 auto 0 0;
+}
+
+.shelter__time_balloon {
+  margin: 0 auto 24px 20px;
+}
+
+.shelter__time-heading {
+  color: var(--color-text-base);
+}
+
+/*.scroll-line {*/
+/*  position: absolute;*/
+/*  width: 4px;*/
+/*  height: 200px;*/
+/*  top: 4px;*/
+/*  right: 4px;*/
+/*  background: #BDBDBD;*/
+/*  border-radius: 30px;*/
+/*}*/
+
+.ymaps-2-1-79-balloon__layout {
+  border: var(--color-accent-base) 1px solid;
+  border-radius: 12px;
+}

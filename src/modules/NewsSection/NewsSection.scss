@@ -1,0 +1,23 @@
+.news-section {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 44px;
+  flex-wrap: wrap;
+}
+
+.news-section__column {
+  display: flex;
+  width: 476px;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  row-gap: 16px;
+  list-style-type: none;
+}
+
+.news-section__item {
+  margin: 0;
+  padding: 0;
+}

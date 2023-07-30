@@ -1,0 +1,11 @@
+.paper__link {
+  margin: 0 0 0 auto;
+  padding: 0;
+  text-decoration: underline;
+  color: var(--color-text-base);
+  transition-duration: 1s;
+}
+
+.paper__link:hover {
+  opacity: 0.5;
+}

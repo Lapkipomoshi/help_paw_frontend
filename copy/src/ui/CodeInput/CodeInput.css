@@ -1,0 +1,40 @@
+.code-input__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #F0924F;
+  border-radius: 20px;
+  width: 120px;
+  height: 21px;
+  padding: 18px 49px 17px;
+}
+
+.code-input {
+  display: block;
+  margin: 0;
+  border: none;
+  padding: 0;
+  width: 106px;
+  background: repeating-linear-gradient(90deg,
+  #818181 0, #818181 16px,
+  transparent 16px, transparent 18px)
+  0 100%/ 106px 1px no-repeat;
+  font-family: 'Inter', monospace;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 24px;
+  letter-spacing: 1px;
+}
+
+/*.code-input:valid {*/
+/*  background:none;*/
+/*}*/
+
+.code-input__wrapper + .code-input:valid {
+  border-color: #3ED872;
+}
+
+.code-input:focus {
+  outline: none;
+}
