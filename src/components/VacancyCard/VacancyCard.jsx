@@ -24,7 +24,7 @@ const VacancyCard = ({ title, salary, schedule, description, education, isLoadin
             </button>
             {/* TODO DeleteIcon функционал реализую в след PR */}
             <button type='button' className='vacancy-card__icon-button vacancy-card__title-button_delete'>
-              <DeleteIcon fill='#F0924F' />
+              <DeleteIcon />
             </button>
           </>
         )}

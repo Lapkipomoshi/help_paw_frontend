@@ -10,12 +10,12 @@ const ShelterVacancies = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const { shelter, id } = useOutletContext();
+  const { shelter } = useOutletContext();
 
   useEffect(() => {
-    if (!id) return;
+    if (!shelter.id) return;
     shelterVacanciesApi
-      .getVacanciesByShelterId(id)
+      .getVacanciesByShelterId(shelter.id)
       .then((res) => {
         setVacanciesList(res);
         setIsLoading(false);
@@ -23,7 +23,9 @@ const ShelterVacancies = () => {
       .catch((err) => {
         throw new Error(err);
       });
-  }, [id]);
+  }, [shelter.id]);
+
+  const hasVacancies = vacanciesList.length !== 0;
 
   return (
     <section className='shelter-vacancies'>
@@ -33,7 +35,7 @@ const ShelterVacancies = () => {
       </div>
       <h3 className='standard-font_type_h3 shelter-section__subtitle'>Всего вакансий: {vacanciesList.length}</h3>
       <ul className='vacancies-list'>
-        {vacanciesList.length !== 0 ? (
+        {hasVacancies ? (
           vacanciesList.map((card) => {
             return (
               <VacancyCard

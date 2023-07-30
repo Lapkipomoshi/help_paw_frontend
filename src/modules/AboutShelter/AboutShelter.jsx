@@ -40,7 +40,7 @@ const AboutShelter = () => {
             {/* TODO  при нажатии попап как на 6.2.1.3 в фигме, попап не сверстан */}
             {isOwner && (
               <button type='button' className='about-shelter__icon-button about-shelter__title-button_delete'>
-                <DeleteIcon fill='#D83E3E' />
+                <DeleteIcon />
               </button>
             )}
           </div>
