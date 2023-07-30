@@ -6,3 +6,24 @@
   row-gap: 32px;
   list-style-type: none;
 }
+
+.shelter-section__subtitle {
+  margin: 19px 0 0 0;
+}
+
+.shelter-vacancies__title {
+  width: 684px;
+}
+
+.shelter-vacancies__title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.shelter-vacancies {
+  width: 100%;
+  min-height: 625px;
+  padding: 0 132px 80px;
+  box-sizing: border-box;
+}

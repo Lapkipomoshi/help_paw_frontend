@@ -33,7 +33,7 @@ const ShelterPage = () => {
         <section className='shelter-menu-section'>
           <NestedRoutesMenu linkList={shelterLinkList} gap={72} />
         </section>
-        <Outlet context={{ shelter, isOwner, isLoading }} />
+        <Outlet context={{ shelter, isOwner, isLoading, id }} />
       </main>
     </MainContainer>
   );

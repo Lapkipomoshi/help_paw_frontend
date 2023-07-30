@@ -1,7 +1,7 @@
 import React from 'react';
 import './DeleteIcon.scss';
 
-const DeleteIcon = () => {
+const DeleteIcon = ({ fill }) => {
   return (
     <svg className='delete-icon' viewBox='0 0 39 39' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path
@@ -24,7 +24,7 @@ const DeleteIcon = () => {
          16.6698 21.8793 16.9258V26.5787C21.8793 26.8347 21.9798 27.0803 22.1588 27.2613C22.3377 27.4423 22.5804 27.544 
         22.8334 27.544C23.0865 27.544 23.3291 27.4423 23.5081 27.2613C23.687 27.0803 23.7875 26.8347 23.7875 26.5787V16.9258C23.7875 
         16.6698 23.687 16.4243 23.5081 16.2433C23.3291 16.0622 23.0865 15.9605 22.8334 15.9605Z`}
-        fill='#D83E3E'
+        fill={fill}
       />
     </svg>
   );
