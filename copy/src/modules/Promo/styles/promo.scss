@@ -1,9 +1,0 @@
-.promo {
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  background-color: var(--color-background-additional);
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-  }
-}
