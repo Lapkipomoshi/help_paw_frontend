@@ -31,7 +31,6 @@ const MainPage = () => {
     mainApi
       .getPapersOnMain(3) // загрузка карточек с полезными статьями на главной странице
       .then((res) => {
-        console.log(res);
         const papers = res.results;
         setPapersList(papers);
         app.papersOnMain = papers;

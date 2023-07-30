@@ -14,7 +14,6 @@ const NewPage = () => {
     newApi
       .getNewById(id) // загрузка статьи с указанным id
       .then((res) => {
-        console.log(res);
         setNewInfo(res);
       })
       .catch((err) => {

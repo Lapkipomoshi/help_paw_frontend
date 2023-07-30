@@ -5,7 +5,6 @@ import NewsSection from '../../modules/NewsSection/NewsSection';
 import Button from '../../ui/Button/Button';
 
 const NewsPage = () => {
-
   return (
     <MainContainer>
       <main className='main news'>
