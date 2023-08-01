@@ -1,53 +1,58 @@
 import React, { useState, useEffect } from 'react';
+import { useOutletContext } from 'react-router-dom';
 import './ShelterVacancies.scss';
 import VacancyCard from '../../components/VacancyCard/VacancyCard';
+import Button from '../../ui/Button/Button';
+import shelterVacanciesApi from './api';
 
 const ShelterVacancies = () => {
-  const [vacanciesList, setVacanciesList] = useState([]); // список вакансий
+  const [vacanciesList, setVacanciesList] = useState([]);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  const { shelter } = useOutletContext();
 
   useEffect(() => {
-    setVacanciesList([ // будет запрашиваться с бэкенда
-      {
-        id: 1,
-        title: 'Помощник уборщика',
-        salary: '35 000 рублей до НДФЛ',
-        workSchedule: 'сменный',
-        charge: 'помогать уборщику убирать мусор',
-      },
-      {
-        id: 2,
-        title: 'Помощник уборщика',
-        salary: '35 000 рублей до НДФЛ',
-        workSchedule: 'сменный',
-        charge: 'помогать уборщику убирать мусор',
-      },
-      {
-        id: 3,
-        title: 'Помощник уборщика',
-        salary: '35 000 рублей до НДФЛ',
-        workSchedule: 'сменный',
-        charge: 'помогать уборщику убирать мусор',
-      },
-    ]);
-  }, []);
+    if (!shelter.id) return;
+    shelterVacanciesApi
+      .getVacanciesByShelterId(shelter.id)
+      .then((res) => {
+        setVacanciesList(res);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+  }, [shelter.id]);
+
+  const hasVacancies = vacanciesList.length !== 0;
 
   return (
-    <section className='shelter-section shelter-vacancies'>
-      <h2 className='shelter-section__title'>Наши вакансии</h2>
+    <section className='shelter-vacancies'>
+      <div className='shelter-vacancies__title-container'>
+        <h2 className='shelter-vacancies__title standard-font standard-font_type_h2'>Вакансии приюта «{shelter.name}»</h2>
+        <Button>Добавить вакансию</Button>
+      </div>
+      <h3 className='standard-font_type_h3 shelter-section__subtitle'>Всего вакансий: {vacanciesList.length}</h3>
       <ul className='vacancies-list'>
-        {vacanciesList && vacanciesList.length !== 0
-          ? vacanciesList.map((card) => {
+        {hasVacancies ? (
+          vacanciesList.map((card) => {
             return (
               <VacancyCard
+                isLoading={isLoading}
+                key={card.id}
                 id={card.id}
-                title={card.title}
+                education={card.education}
+                title={card.position}
                 salary={card.salary}
-                workSchedule={card.workSchedule}
-                charge={card.charge}
+                schedule={card.schedule}
+                description={card.description}
               />
             );
           })
-          : <p>У приюта нет активных вакансий</p>}
+        ) : (
+          <p>У приюта нет активных вакансий</p>
+        )}
       </ul>
     </section>
   );
