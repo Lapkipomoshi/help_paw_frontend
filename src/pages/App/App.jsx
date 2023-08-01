@@ -161,7 +161,6 @@ const App = () => {
                 />
               }
             />
-            <Route path='/pets/:id' element={<PetPage />} />
             <Route path='/papers' element={<PapersPage />} />
             <Route path='/papers/:id' element={<PaperPage />} />
             <Route path='/news' element={<NewsPage />} />
