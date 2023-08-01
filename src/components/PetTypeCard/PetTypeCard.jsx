@@ -35,7 +35,7 @@ const PetTypeCard = ({ type }) => {
   }, []);
 
   return (
-    <Link className='pet-type-card' to={`${type.toLowerCase()}`}>
+    <Link className='pet-type-card' to={`type/${type.toLowerCase()}`}>
       <h3 className='pet-type-card__title'>{typeOnRussian}</h3>
       <img className='pet-type-card__image' src={animalTypeImage} alt={typeOnRussian} />
     </Link>

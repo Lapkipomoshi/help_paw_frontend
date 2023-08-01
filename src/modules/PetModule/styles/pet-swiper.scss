@@ -1,0 +1,67 @@
+.pet-module {
+  .swiper-container {
+    position: relative;
+    width: 376px;
+    height: 283px;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+
+  .pet-swiper__slide-image {
+    display: block;
+    width: 376px;
+    height: 283px;
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+    cursor: pointer;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute;
+    top: calc(50% - 49px / 2);
+    width: 49px;
+    height: 49px;
+    background: center / contain no-repeat url('../../../images/icons/ic_arrow-left.svg');
+    box-sizing: border-box;
+    z-index: 2;
+    cursor: pointer;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .swiper-button-prev {
+    left: 12px;
+  }
+
+  .swiper-button-next {
+    right: 12px;
+    transform: rotate(180deg);
+  }
+
+  .swiper-pagination {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+}
+
+  .swiper-pagination-bullet {
+    display: inline-block;
+    margin: 0 2px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent-disabled);
+    cursor: pointer;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: var(--color-accent-base);
+  }
+}
