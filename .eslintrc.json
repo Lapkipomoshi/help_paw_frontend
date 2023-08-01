@@ -64,6 +64,8 @@
     "class-methods-use-this": "warn",
     "prefer-promise-reject-errors": "warn",
     "react/jsx-one-expression-per-line": "off",
+    "react/destructuring-assignment": "off",
+    "no-unused-expressions": "warn",
     "camelcase": [1, { "properties": "never" }]
   }
 }

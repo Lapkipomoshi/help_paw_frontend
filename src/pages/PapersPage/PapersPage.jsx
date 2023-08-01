@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import './PapersPage.scss';
 import MainContainer from '../../components/MainContainer/MainContainer';
-import Button from '../../ui/Button/Button';
 import PapersContent from '../../components/PapersContent/PapersContent';
+import Button from '../../ui/Button/Button';
+import AppContext from '../../contexts/App';
 import papersApi from './api';
 
 const initialPapersAmountByBreakpoint = { mobile: 3, tablet: 6, desktop: 9 };
-const papersAmount = 3;
+const additionalPapersAmount = 3;
 
 const PapersPage = () => {
+  const app = useContext(AppContext);
   const [papersList, setPapersList] = useState([]); // список отображаемых карточек со статьями
   const [hasMorePapers, setHasMorePapers] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -34,21 +36,17 @@ const PapersPage = () => {
     return initialPapersAmountByBreakpoint.desktop;
   };
 
-  const initialPapersAmount = getPapersAmount();
-
-  const fetchPapers = () => {
-    if (isLoading) return;
-
-    setIsLoading(true);
-    setIsError(false);
-
-    const amount = papersList.length === 0 ? initialPapersAmount : papersAmount;
-
+  const setPapersByApi = (amount, currentLength) => {
     papersApi
-      .getPapers(amount, papersList.length)
+      .getPapers(amount, currentLength)
       .then((res) => {
-        setPapersList([...papersList, ...res.results]);
-        setHasMorePapers(Boolean(res.next));
+        const resPapers = res.results;
+        setPapersList([...papersList, ...resPapers]);
+        app.portalPapers = [...papersList, ...resPapers];
+
+        const resNest = Boolean(res.next);
+        setHasMorePapers(resNest);
+        app.hasMorePortalPapers = resNest;
       })
       .catch((err) => {
         setIsError(true);
@@ -59,12 +57,22 @@ const PapersPage = () => {
       });
   };
 
-  const handleClick = () => {
-    fetchPapers();
+  const fetchPapers = () => {
+    if (isLoading) return;
+    const amount = papersList.length === 0 ? getPapersAmount() : additionalPapersAmount;
+
+    setIsLoading(true);
+    setIsError(false);
+    setPapersByApi(amount, papersList.length);
   };
 
   useEffect(() => {
-    fetchPapers();
+    if (app.portalPapers) {
+      setPapersList(app.portalPapers);
+      setHasMorePapers(app.hasMorePortalPapers);
+    } else {
+      fetchPapers();
+    }
   }, []);
 
   return (
@@ -78,7 +86,7 @@ const PapersPage = () => {
         </div>
         <PapersContent isLoading={isLoading} isError={isError} papersList={papersList} />
         {hasMorePapers && (
-          <Button className='papers__load-more-button' onClick={handleClick}>
+          <Button className='papers__load-more-button' onClick={fetchPapers} disabled={isLoading}>
             Больше статей
           </Button>
         )}

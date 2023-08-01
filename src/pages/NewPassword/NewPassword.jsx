@@ -28,6 +28,11 @@ const NewPassword = () => {
 
   const navigate = useNavigate();
 
+  const closeInfoTooltip = () => {
+    setInfoTooltipOpen(false);
+    setInfoTooltipImage(null);
+  };
+
   const handlePasswordChange = (e) => {
     const input = e.target;
     const validPassword = PASSWORD_REGEX.test(input.value);
@@ -64,8 +69,8 @@ const NewPassword = () => {
         setInfoTooltipOpen(true);
         setTimeout(() => {
           setInfoTooltipOpen(false);
-        }, 2000);
-        setTimeout(() => { navigate('/sign-in'); }, 2000);
+        }, 15000);
+        setTimeout(() => { navigate('/sign-in'); }, 15000);
       })
       .catch(() => {
         setInfoTooltipImage(imageError);
@@ -73,7 +78,7 @@ const NewPassword = () => {
         setInfoTooltipOpen(true);
         setTimeout(() => {
           setInfoTooltipOpen(false);
-        }, 2000);
+        }, 15000);
       });
   };
 
@@ -116,6 +121,7 @@ const NewPassword = () => {
         isOpen={infoTooltipOpen}
         image={infoTooltipImage}
         message={message}
+        onClose={closeInfoTooltip}
       />
     </MainContainer>
   );

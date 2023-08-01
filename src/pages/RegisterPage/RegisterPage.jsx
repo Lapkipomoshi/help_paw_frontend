@@ -47,11 +47,12 @@ const RegisterPage = ({ onRegister }) => {
 
   const [isChecked, setIsChecked] = useState(false);
 
-  const handleNameValidate = (e) => {
+  const handleNameChange = (e) => {
     const input = e.target;
     const validName = NAME_REGEX.test(input.value);
     const nameOnlySymbols = SYMBOL.test(input.value);
     setIsValidName(validName);
+    setUserName(input.value);
     if (input.value.length === 0) {
       setNameError(NAME_NOT_FOUND);
       setIsValidName(false);
@@ -71,15 +72,11 @@ const RegisterPage = ({ onRegister }) => {
     }
   };
 
-  const handleNameChange = (e) => {
-    const input = e.target;
-    setUserName(input.value);
-  };
-
-  const handleEmailValidate = (e) => {
+  const handleEmailChange = (e) => {
     const input = e.target;
     const validEmail = EMAIL_REGEX.test(input.value);
     setIsValidEmail(validEmail);
+    setUserEmail(input.value);
     if (input.value.length === 0) {
       setEmailError(EMAIL_NOT_FOUND);
     } else if (input.value === userPassword) {
@@ -92,16 +89,12 @@ const RegisterPage = ({ onRegister }) => {
     }
   };
 
-  const handleEmailChange = (e) => {
-    const input = e.target;
-    setUserEmail(input.value);
-  };
-
-  const handlePasswordValidate = (e) => {
+  const handlePasswordChange = (e) => {
     const input = e.target;
     const validPassword = PASSWORD_REGEX.test(input.value);
     const passwordOnlyNumbers = NUMBER.test(input.value);
     setIsValidPassword(input.validity.valid);
+    setUserPassword(input.value);
     if (input.value.length === 0) {
       setPasswordError(PASSWORD_NOT_FOUND);
     } else if (input.value === userEmail) {
@@ -122,11 +115,6 @@ const RegisterPage = ({ onRegister }) => {
       setPasswordError('');
       setPromptText('');
     }
-  };
-
-  const handlePasswordChange = (e) => {
-    const input = e.target;
-    setUserPassword(input.value);
   };
 
   const handleSubmit = (evt) => {
@@ -175,7 +163,6 @@ const RegisterPage = ({ onRegister }) => {
                     pattern='[A-Za-zа-яА-ЯёЁ\d-\s]*$'
                     value={userName || ''}
                     onChange={handleNameChange}
-                    onBlur={handleNameValidate}
                   />
 
                   <Input
@@ -188,7 +175,6 @@ const RegisterPage = ({ onRegister }) => {
                     value={userEmail || ''}
                     spanText={emailError}
                     onChange={handleEmailChange}
-                    onBlur={handleEmailValidate}
                   />
 
                   <PasswordInput
@@ -201,7 +187,6 @@ const RegisterPage = ({ onRegister }) => {
                     maxLength='101'
                     isValid={isValidPassword}
                     onChange={handlePasswordChange}
-                    onBlur={handlePasswordValidate}
                   />
 
                   <div className='register__privacy'>
@@ -215,7 +200,7 @@ const RegisterPage = ({ onRegister }) => {
                       {' '}
                       <Link
                         className='register__link standard-font standard-font_type_small'
-                        to='/'
+                        to='/privacy'
                         target='_blank'
                       >
                         Политикой конфиденциальности
@@ -225,7 +210,7 @@ const RegisterPage = ({ onRegister }) => {
                       {' '}
                       <Link
                         className='register__link standard-font standard-font_type_small'
-                        to='/'
+                        to='/terms'
                         target='_blank'
                       >
                         Условиями использования сервиса

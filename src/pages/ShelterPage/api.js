@@ -10,10 +10,9 @@ class ShelterApi extends BaseApi {
   getShelterById(id) { // загрузка информации о приюте по его id
     return fetch(`${this._baseUrl}/v1/shelters/${id}/`, {
       headers: this._headers,
-    })
-      .then((res) => {
-        return super._processTheResponse(res);
-      });
+    }).then((res) => {
+      return super._processTheResponse(res);
+    });
   }
 }
 

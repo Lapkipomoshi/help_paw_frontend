@@ -80,7 +80,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
       <label className='add-shelter-form__caption'>Часы приюта*</label>
       <div className='add-shelter-form__clock'>
         <input
-          className={`add-shelter-form__time-input ${(startTime.dirty && startTime.invalidText) && 'add-shelter-form__time-input_invalid'}`}
+          className={`add-shelter-form__time-input ${startTime.dirty && startTime.invalidText && 'add-shelter-form__time-input_invalid'}`}
           value={startTime.value}
           onChange={startTime.onChange}
           onBlur={startTime.onBlur}
@@ -91,7 +91,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
         />
         <p>-</p>
         <input
-          className={`add-shelter-form__time-input ${(finishTime.dirty && finishTime.invalidText) && 'add-shelter-form__time-input_invalid'}`}
+          className={`add-shelter-form__time-input ${finishTime.dirty && finishTime.invalidText && 'add-shelter-form__time-input_invalid'}`}
           value={finishTime.value}
           onChange={finishTime.onChange}
           onBlur={finishTime.onBlur}
@@ -118,7 +118,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
       </div>
       <label className='add-shelter-form__caption'>Описание приюта*</label>
       <textarea
-        className={`add-shelter-form__textarea ${(description.dirty && description.invalidText) && 'add-shelter-form__textarea_invalid'}`}
+        className={`add-shelter-form__textarea ${description.dirty && description.invalidText && 'add-shelter-form__textarea_invalid'}`}
         value={description.value}
         onChange={description.onChange}
         onBlur={description.onBlur}
@@ -140,12 +140,12 @@ const ShelterStep = ({ handleBack, setShelter }) => {
         </label>
         <p className='register__text'>
           Я согласен с
-          <Link className='register__link' to='/' target='_blank'>
+          <Link className='register__link' to='/privacy' target='_blank'>
             {' '}
             Политикой конфиденциальности{' '}
           </Link>
           и
-          <Link className='register__link' to='/' target='_blank'>
+          <Link className='register__link' to='/terms' target='_blank'>
             {' '}
             Условиями использования сервиса
           </Link>
@@ -163,9 +163,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
           />
           <span className='checkbox' />
         </label>
-        <p className='register__text'>
-          Я оповещён, что один пользователь может зарегистрировать только один приют
-        </p>
+        <p className='register__text'>Я оповещён, что один пользователь может зарегистрировать только один приют</p>
       </div>
       <div className='add-shelter-form__buttons'>
         <Button disabled={isInvalid} submit>

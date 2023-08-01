@@ -1,35 +1,27 @@
 import React, { useRef } from 'react';
 import './CardsSlider.scss';
 
-const CardsSlider = ({ children, listLength, columnGap = 24, cardWidth = 200, isButtonsHidden = false }) => {
-  const slider = useRef(null); // элемент слайдера
+const CardsSlider = ({ children, isButtonsHidden = false }) => {
+  const defaultScrollPixelsAmount = 350;
 
-  let position = 0; // смещение карточек в слайдере при листании
+  const sliderContainerRef = useRef(null);
 
-  // показать предыдущие карточки
-  const handlePrev = () => {
-    if (position < 0) position += 200;
-    slider.current.childNodes.forEach((element) => {
-      element.style = `transform: translateX(${position}px)`;
-    });
-  };
+  const handleSliderScroll = (direction) => {
+    return () => {
+      const scrollPixelsAmount = direction === 'left' ? -defaultScrollPixelsAmount : defaultScrollPixelsAmount;
 
-  // показать следующие карточки
-  const handleNext = () => {
-    if (position >= -(listLength - 7) * (columnGap + cardWidth)) position -= columnGap + cardWidth;
-    slider.current.childNodes.forEach((element) => {
-      element.style = `transform: translateX(${position}px)`;
-    });
+      sliderContainerRef.current.scrollBy({ behavior: 'smooth', left: scrollPixelsAmount });
+    };
   };
 
   return (
     <>
-      <ul className='cards-slider' ref={slider} style={{ columnGap: `${columnGap}px` }}>
+      <ul className='cards-slider' ref={sliderContainerRef}>
         {children}
       </ul>
       <div className={`cards-slider__buttons ${isButtonsHidden && 'cards-slider__buttons_hidden'}`}>
-        <button className='cards-slider__button' type='button' onClick={handlePrev} />
-        <button className='cards-slider__button cards-slider__button_next' type='button' onClick={handleNext} />
+        <button className='cards-slider__button' type='button' onClick={handleSliderScroll('left')} />
+        <button className='cards-slider__button cards-slider__button_next' type='button' onClick={handleSliderScroll('right')} />
       </div>
     </>
   );

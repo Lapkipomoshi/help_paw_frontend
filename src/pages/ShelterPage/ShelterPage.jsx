@@ -1,25 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import './ShelterPage.css';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import NestedRoutesMenu from '../../modules/NestedRoutesMenu/NestedRoutesMenu';
 import shelterApi from './api';
 import { shelterLinkList } from '../../utils/constants';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 const ShelterPage = () => {
-  const { id } = useParams(); // id статьи, получаемый из url-адреса текущей страницы
+  const { id } = useParams(); // id приюта, получаемый из url-адреса текущей страницы
   const [shelter, setShelter] = useState({}); // информация о приюте
+  const [isLoading, setIsLoading] = useState(true);
+
+  const currentUser = useContext(CurrentUserContext);
+  const isOwner = currentUser?.own_shelter?.id === Number(id);
 
   useEffect(() => {
     shelterApi
-      .getShelterById(id) // загрузка карточек с приютами на главной странице
+      .getShelterById(id) // загрузка инфо о приюте
       .then((res) => {
         setShelter(res);
+        setIsLoading(false);
       })
       .catch((err) => {
         throw new Error(err);
       });
-  }, [id]);
+  }, [id, currentUser]);
 
   return (
     <MainContainer>
@@ -27,7 +33,7 @@ const ShelterPage = () => {
         <section className='shelter-menu-section'>
           <NestedRoutesMenu linkList={shelterLinkList} gap={72} />
         </section>
-        <Outlet context={{ shelter }} />
+        <Outlet context={{ shelter, isOwner, isLoading }} />
       </main>
     </MainContainer>
   );
