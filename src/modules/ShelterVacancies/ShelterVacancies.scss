@@ -5,6 +5,7 @@
   flex-direction: column;
   row-gap: 32px;
   list-style-type: none;
+  width: 437px;
 }
 
 .shelter-section__subtitle {
@@ -26,4 +27,9 @@
   min-height: 625px;
   padding: 0 132px 80px;
   box-sizing: border-box;
+}
+
+.shelter-vacancies__vacancies-container {
+  display: flex;
+  gap: 63px;
 }
