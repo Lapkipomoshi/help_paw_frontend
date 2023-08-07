@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import './ShelterVacancies.scss';
-import VacancyCard from '../../components/VacancyCard/VacancyCard';
+import VacancyList from './VacancyList';
 import Button from '../../ui/Button/Button';
 import AddVacancyForm from './AddVacancyForm/AddVacancyForm';
 import shelterVacanciesApi from './api';
@@ -26,7 +26,9 @@ const ShelterVacancies = () => {
       });
   }, [shelter.id]);
 
-  const hasVacancies = vacanciesList.length !== 0;
+  if (isLoading) {
+    return null;
+  }
 
   return (
     <section className='shelter-vacancies'>
@@ -38,27 +40,7 @@ const ShelterVacancies = () => {
       </div>
       <h3 className='standard-font_type_h3 shelter-section__subtitle'>Всего вакансий: {vacanciesList.length}</h3>
       <div className='shelter-vacancies__vacancies-container'>
-        <ul className='vacancies-list'>
-          {hasVacancies ? (
-            vacanciesList.map((card) => {
-              return (
-                <VacancyCard
-                  isLoading={isLoading}
-                  key={card.id}
-                  id={card.id}
-                  education={card.education}
-                  title={card.position}
-                  salary={card.salary}
-                  schedule={card.schedule}
-                  description={card.description}
-                />
-              );
-            })
-          ) : (
-            <p className='standard-font'>У приюта нет активных вакансий</p>
-          )}
-        </ul>
-
+        <VacancyList vacancies={vacanciesList} isLoading={isLoading} />
         <AddVacancyForm />
       </div>
     </section>

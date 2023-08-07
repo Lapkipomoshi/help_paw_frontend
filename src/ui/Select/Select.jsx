@@ -4,27 +4,22 @@
 
 import React, { useState } from 'react';
 import './Select.scss';
+import OptionList from './OptionList';
 import Arrow from './svg/Arrow';
 
 // TODO добавить закрытие дропдауна при клике вне его
 
 // TODO добавить на submit формы, если не выбрано ни одного значения, то показывать ошибку <p className='select__error-message'>
 
-// TODO доработать required, не могу найти ошибку почему не посвечивается при не заполнении)) и почему не добавляется * в название. Пришлось ручками пока
-
 const Select = ({ label, onChange, options, id: selectId, isMulti, required }) => {
   const [isSelectOpen, setIsOpenedSelect] = useState(false);
   const [selected, setSelected] = useState([]);
 
   const addSelectedItem = (id) => {
-    if (isMulti) {
-      const newSelected = [...selected, id];
-      setSelected(newSelected);
+    const newSelected = isMulti ? [...selected, id] : [id];
+    setSelected(newSelected);
 
-      onChange(selectId, newSelected);
-    } else {
-      setSelected([id]);
-    }
+    onChange(selectId, newSelected);
   };
 
   const deleteSelectedItem = (id) => {
@@ -36,7 +31,7 @@ const Select = ({ label, onChange, options, id: selectId, isMulti, required }) =
     onChange(selectId, newSelected);
   };
 
-  const handleCheckbox = (e) => {
+  const handleSelectChange = (e) => {
     const { id } = e.target;
 
     if (selected.includes(id)) {
@@ -85,32 +80,13 @@ const Select = ({ label, onChange, options, id: selectId, isMulti, required }) =
               setIsOpenedSelect(!isSelectOpen);
             }}
           >
-            <Arrow openedSelect={isSelectOpen} />
+            <Arrow />
           </button>
         </div>
 
         <ul className={`select__checkboxes-container ${isSelectOpen && 'select__checkboxes_opened'}`}>
-          {options.map((option) => {
-            return (
-              <li className='select__checkboxes-item'>
-                <label className='select__check-label' htmlFor={option.id} key={option.id}>
-                  <input
-                    className={isMulti ? 'select__checkbox' : 'select__checkbox_false'}
-                    type='checkbox'
-                    name={option.id}
-                    id={option.id}
-                    onChange={handleCheckbox}
-                    checked={selected.includes(option.id)}
-                    required={required}
-                  />
-
-                  {option.label}
-                </label>
-              </li>
-            );
-          })}
+          <OptionList options={options} isMulti={isMulti} onSelectChange={handleSelectChange} selected={selected} required={required} />
         </ul>
-        {/* <p className='select__error-message'>Пожалуйста, выберете значение</p> */}
       </div>
     </div>
   );

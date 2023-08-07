@@ -1,24 +1,16 @@
-.arrow {
-  width: 23px;
-  height: 14px;
-  z-index: -1;
+.select-arrow {
+  width: 28px;
+  height: 16px;
   transition: transform .7s;
   cursor: pointer;
 }
 
-.arrow path {
+.select-arrow path {
   transition-duration: .3s;
   fill: var(--color-text-base);
 }
 
-.arrow:hover path {
+
+.select-arrow:hover path {
   fill: var(--color-accent-hover);
-}
-
-.checkboxes-select__arrow:focus path {
-  fill: var(--color-accent-pressed);
-}
-
-.arrow_rotate {
-  transform: rotate(180deg);
 }

@@ -1,10 +1,16 @@
-.vacancies-list {
+.shelter__vacancies-list {
   display: flex;
   margin: 36px 0 0;
   padding: 0;
   flex-direction: column;
   row-gap: 32px;
   list-style-type: none;
+  width: 437px;
+}
+
+.shelter__empty-list {
+  margin: 36px 0 0;
+  padding: 0;
   width: 437px;
 }
 

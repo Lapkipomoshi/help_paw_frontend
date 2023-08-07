@@ -1,9 +1,9 @@
 import React from 'react';
 import './Arrow.css';
 
-const Arrow = ({ openedSelect }) => {
+const Arrow = () => {
   return (
-    <svg className={`arrow ${openedSelect && 'arrow_rotate'}`} width='36' height='21' viewBox='0 0 36 21' fill='none'>
+    <svg className='select-arrow' width='28' height='16' viewBox='0 0 36 21' fill='none'>
       <path
         d={`M34.9204 1.25245C35.7015 2.0335 35.7015 3.29983 34.9204 4.08088L19.4155 19.5858C18.6345 20.3668 17.3681 20.3668 16.5871
       19.5858L1.08218 4.08088C0.301133 3.29983 0.301134 2.0335 1.08218 1.25245L1.50792 0.826714C2.28897 0.0456657 3.5553 0.0456657 4.33635

@@ -36,13 +36,13 @@ const AddVacancyForm = () => {
     formValues.education.length !== 0 ||
     formValues.schedule.length === 0;
 
-  // TODO написать апишку для отправки формы, бэкенд недавно допилили, но у меня плохой интернет :) сделаю в след PR
+  // TODO написать api для отправки формы в след PR
   const handleSubmit = (evt) => {
     evt.preventDefault();
     console.log('submit');
   };
 
-  const handleDesctiptionVacancy = (evt) => {
+  const handleDesctiptionChange = (evt) => {
     vacancyDescription.onChange(evt);
 
     setFormValues((prevValues) => {
@@ -95,13 +95,13 @@ const AddVacancyForm = () => {
     <form className='add-vacancy-form__container' onSubmit={handleSubmit}>
       <DeclarationInput caption='Название вакансии*' inputState={vacancyName} type='text' name='vacancyName' required />
 
-      <div className='add-vacancy-form__salary-container'>
+      <div className='add-vacancy-form__flex-container'>
         <DeclarationInput caption='Заработная плата*' inputState={vacancySalary} type='number' name='vacancySalary' required placeholder='₽' />
 
         <Select label='Тип оплаты*' onChange={handleSelectChange} options={salaryItems} isMulti={false} required />
       </div>
 
-      <div className='add-vacancy-form__description-container'>
+      <div className='add-vacancy-form__flex-container'>
         <Select label='График работы*' onChange={handleSelectChange} options={shiftItems} id='schedule' isMulti required />
 
         <Select label='Образование*' onChange={handleSelectChange} options={educationItems} isMulti={false} required />
@@ -111,7 +111,7 @@ const AddVacancyForm = () => {
       <textarea
         className={`add-vacancy-form__description ${vacancyDescription.dirty && vacancyDescription.invalidText && 'add-vacancy-form__textarea_invalid'}`}
         value={vacancyDescription.value}
-        onChange={handleDesctiptionVacancy}
+        onChange={handleDesctiptionChange}
         onBlur={vacancyDescription.onBlur}
         name='description'
         required

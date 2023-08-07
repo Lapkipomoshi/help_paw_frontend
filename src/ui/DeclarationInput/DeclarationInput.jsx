@@ -1,7 +1,7 @@
 import React from 'react';
 import './DeclarationInput.scss';
 
-// TODO убрать li,  это форма, а не список. Выше, где используется, заменит ul на form
+// TODO убрать li,  это форма, а не список. Выше, где используется, заменить ul на form
 
 const DeclarationInput = ({ caption, inputState, type, name, placeholder, required }) => {
   return (
@@ -12,9 +12,7 @@ const DeclarationInput = ({ caption, inputState, type, name, placeholder, requir
       <input
         className={`declaration-input__input ${inputState.dirty && inputState.invalidText && 'declaration-input__input_invalid'}`}
         value={inputState.value}
-        onChange={(e) => {
-          inputState.onChange(e);
-        }}
+        onChange={inputState.onChange}
         onBlur={inputState.onBlur}
         type={type}
         name={name}

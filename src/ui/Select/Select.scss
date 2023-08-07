@@ -73,6 +73,9 @@
 }
 
 .select__toggle-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0;
   padding: 0;
   background-color: rgba(0, 0, 0, 0);
@@ -138,10 +141,6 @@
   border-radius: 2px;
   border: 1px solid var(--color-text-base);
   box-sizing: border-box;
-}
-
-.select__checkbox_false {
-  display: none;
 }
 
 .select__checkbox:checked {
