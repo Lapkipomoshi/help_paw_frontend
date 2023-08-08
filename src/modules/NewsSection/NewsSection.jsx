@@ -7,7 +7,7 @@ import newsApi from './api';
 
 const NewsSection = ({ shelterId = null }) => {
   const app = useContext(AppContext);
-  const [resList, setResList] = useState([]); // список новостей
+  const [newsList, setNewsList] = useState([]); 
   const [newsToFetch, setNewsToFetch] = useState(4); // число новостей для подгрузки
   const [isLoading, setIsLoading] = useState(false);
   const [hasMoreNews, setHasMoreNews] = useState(false);
