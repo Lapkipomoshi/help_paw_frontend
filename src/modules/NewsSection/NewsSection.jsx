@@ -131,7 +131,7 @@ const NewsSection = ({ shelterId = null }) => {
 
   return (
     <>
-      {resList && resList !== [] && resList !== null && resList.length !== 0 && (
+      { resList !== null && resList.length !== 0 && (
         resList.map((current) => {
           return <div className='news-section' key={current.data[0].id}>
             <NewsBlock item={current}  />
