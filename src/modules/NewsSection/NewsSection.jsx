@@ -139,7 +139,7 @@ const NewsSection = ({ shelterId = null }) => {
         })
       )}
 
-      {hasMoreNews && resList !== [] && (
+      {hasMoreNews && resList.length !== 0 && (
         <Button className='button_theme_transparent' onClick = {() => {return fetchNews(arg);}} disabled={isLoading} innerRef={moreButtonRef}>
             Больше новостей
         </Button>
