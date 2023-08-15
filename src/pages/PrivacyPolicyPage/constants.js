@@ -25,7 +25,6 @@ const dataPrivacyPolicy = [
    которую Оператор может получить о посетителях веб-сайта https://lapkipomoshi.ru/.`,
     ],
   },
-
   {
     id: 2,
     rendererComponent: ParagraphList,
