@@ -1,7 +1,7 @@
 import React from 'react';
-import './EditPenIcon.scss';
+import './EditIcon.scss';
 
-const EditPenIcon = () => {
+const EditIcon = () => {
   return (
     <svg className='edit-icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 49 49' fill='none'>
       <path
@@ -16,4 +16,4 @@ const EditPenIcon = () => {
   );
 };
 
-export default EditPenIcon;
+export default EditIcon;

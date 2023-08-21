@@ -1,7 +1,7 @@
 import React from 'react';
 import { useOutletContext } from 'react-router-dom';
 import './VacancyCard.scss';
-import EditPenIcon from '../../images/EditPenIcon/EditPenIcon';
+import EditIcon from '../../images/EditIcon/EditIcon';
 import DeleteIcon from '../../images/DeleteIcon/DeleteIcon';
 
 const VacancyCard = ({ title, salary, schedule, description, education, isLoading }) => {
@@ -18,9 +18,9 @@ const VacancyCard = ({ title, salary, schedule, description, education, isLoadin
 
         {isOwner && (
           <>
-            {/* TODO  <EditPenIcon /> функционал реализую в след PR */}
+            {/* TODO  <EditIcon /> функционал реализую в след PR */}
             <button type='button' className='vacancy-card__icon-button vacancy-card__icon-button_edit'>
-              <EditPenIcon />
+              <EditIcon />
             </button>
             {/* TODO DeleteIcon функционал реализую в след PR */}
             <button type='button' className='vacancy-card__icon-button vacancy-card__title-button_delete'>

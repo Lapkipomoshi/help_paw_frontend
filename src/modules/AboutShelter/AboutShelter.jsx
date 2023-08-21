@@ -5,7 +5,7 @@ import InfoItem from '../../ui/InfoItem/InfoItem';
 import classmatesIcon from '../../images/icons/footer__icon_classmates.svg';
 import vkIcon from '../../images/icons/footer__icon_vk.svg';
 import telegramIcon from '../../images/icons/footer__icon_telegram.svg';
-import EditPenIcon from '../../images/EditPenIcon/EditPenIcon';
+import EditIcon from '../../images/EditIcon/EditIcon';
 import DeleteIcon from '../../images/DeleteIcon/DeleteIcon';
 import ShelterOwnerStatistics from '../ShelterOwnerStatistics/ShelterOwnerStatistics';
 
@@ -34,7 +34,7 @@ const AboutShelter = () => {
               <>
                 {/* TODO  <EditPenIcon /> ведет на 6.2.1.4 в фигме, оно пока не реализовано */}
                 <Link to='/' className='about-shelter__icon-button about-shelter__icon-button_edit'>
-                  <EditPenIcon />
+                  <EditIcon />
                 </Link>
                 {/* TODO  при нажатии попап как на 6.2.1.3 в фигме, попап не сверстан */}
                 <button type='button' className='about-shelter__icon-button about-shelter__title-button_delete'>
