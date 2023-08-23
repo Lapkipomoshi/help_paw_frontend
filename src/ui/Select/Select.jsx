@@ -2,18 +2,16 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Select.scss';
 import OptionList from './OptionList';
 import Arrow from './svg/Arrow';
-
-// TODO добавить закрытие дропдауна при клике вне его
-
-// TODO добавить на submit формы, если не выбрано ни одного значения, то показывать ошибку <p className='select__error-message'>
+import useOutsideClick from '../../hooks/useOutsideClick';
 
 const Select = ({ label, onChange, options, id: selectId, isMulti, required }) => {
   const [isSelectOpen, setIsOpenedSelect] = useState(false);
   const [selected, setSelected] = useState([]);
+  const selectRef = useRef(null);
 
   const addSelectedItem = (id) => {
     const newSelected = isMulti ? [...selected, id] : [id];
@@ -49,11 +47,21 @@ const Select = ({ label, onChange, options, id: selectId, isMulti, required }) =
     return selected.includes(item.id);
   });
 
+  useOutsideClick(selectRef, () => {
+    if (isSelectOpen) {
+      setIsOpenedSelect((prevOpen) => {
+        return !prevOpen;
+      });
+    }
+  });
+
   return (
-    <div className='select'>
+    <div className='select' ref={selectRef}>
       <label className='select__label standard-font_type_small'>{label}</label>
 
       <div className='select__container'>
+        {/* TODO после того, как дизайнер отрисует какие должны быть изменения внешнего вида селекта после выбора 
+        большогого количества вариантов, добавить изменения в css. макет 6.2.2.17 */}
         <div className='select__selected-items-container'>
           <ul className='select__selected-items-list'>
             {selectedOptions.length !== 0 &&
@@ -83,7 +91,6 @@ const Select = ({ label, onChange, options, id: selectId, isMulti, required }) =
             <Arrow />
           </button>
         </div>
-
         <ul className={`select__checkboxes-container ${isSelectOpen && 'select__checkboxes_opened'}`}>
           <OptionList options={options} isMulti={isMulti} onSelectChange={handleSelectChange} selected={selected} required={required} />
         </ul>
