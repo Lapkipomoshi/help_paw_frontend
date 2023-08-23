@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import IMask from 'imask';
 import DeclarationInput from '../../../ui/DeclarationInput/DeclarationInput';
 import AddPhotoBlock from '../../../ui/AddPhotoBlock/AddPhotoBlock';
@@ -8,6 +7,7 @@ import CheckboxesSelect from '../../../ui/CheckboxesSelect/CheckboxesSelect';
 import useInput from '../../../hooks/useInput';
 import * as regex from '../../../utils/regex';
 import * as errorMessage from '../../../utils/errorMessage';
+import PrivacyCheckbox from '../../../components/PrivacyCheckbox/PrivacyCheckbox';
 
 // шаг в форме добавления приюта с анкетой о самом приюте
 const ShelterStep = ({ handleBack, setShelter }) => {
@@ -126,31 +126,7 @@ const ShelterStep = ({ handleBack, setShelter }) => {
         required
       />
       <p className='add-shelter-form__error'>{description.dirty && description.invalidText}</p>
-      <div className='register__privacy'>
-        <label className='checkbox__container'>
-          <input
-            className='checkbox__input'
-            name='agreement'
-            type='checkbox'
-            onClick={() => {
-              setIsAgreementChecked(!isAgreementChecked);
-            }}
-          />
-          <span className='checkbox' />
-        </label>
-        <p className='register__text'>
-          Я согласен с
-          <Link className='register__link' to='/privacy' target='_blank'>
-            {' '}
-            Политикой конфиденциальности{' '}
-          </Link>
-          и
-          <Link className='register__link' to='/terms' target='_blank'>
-            {' '}
-            Условиями использования сервиса
-          </Link>
-        </p>
-      </div>
+      <PrivacyCheckbox onClick={setIsAgreementChecked} />
       <div className='register__privacy'>
         <label className='checkbox__container'>
           <input

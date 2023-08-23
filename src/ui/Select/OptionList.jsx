@@ -4,8 +4,8 @@ import './Select.scss';
 const OptionList = ({ options, isMulti, required, onSelectChange, selected }) => {
   return options.map((option) => {
     return (
-      <li className='select__checkboxes-item'>
-        <label className='select__check-label' htmlFor={option.id} key={option.id}>
+      <li className='select__checkboxes-item' key={option.id}>
+        <label className='select__check-label' htmlFor={option.id}>
           <input
             className='select__checkbox'
             hidden={!isMulti}

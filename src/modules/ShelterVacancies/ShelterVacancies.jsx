@@ -3,11 +3,12 @@ import { useOutletContext } from 'react-router-dom';
 import './ShelterVacancies.scss';
 import VacancyList from './VacancyList';
 import Button from '../../ui/Button/Button';
-import AddVacancyForm from './AddVacancyForm/AddVacancyForm';
+import AddVacancyForm from './components/AddVacancyForm/AddVacancyForm';
 import shelterVacanciesApi from './api';
 
 const ShelterVacancies = () => {
   const [vacanciesList, setVacanciesList] = useState([]);
+  const [isOpenVacancyForm, setIsOpenVacancyForm] = useState(false);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -26,6 +27,18 @@ const ShelterVacancies = () => {
       });
   }, [shelter.id]);
 
+  const toggleVacancyForm = () => {
+    setIsOpenVacancyForm((prevOpen) => {
+      return !prevOpen;
+    });
+  };
+
+  const cancelVacancyForm = () => {
+    setIsOpenVacancyForm((prevOpen) => {
+      return !prevOpen;
+    });
+  };
+
   if (isLoading) {
     return null;
   }
@@ -35,13 +48,14 @@ const ShelterVacancies = () => {
       <div className='shelter-vacancies__title-container'>
         <h2 className='shelter-vacancies__title standard-font standard-font_type_h2'>Вакансии приюта «{shelter.name}»</h2>
 
-        {/* TODO добавить логику disabled кнопки */}
-        <Button>Добавить вакансию</Button>
+        <Button disabled={isOpenVacancyForm} onClick={toggleVacancyForm}>
+          Добавить вакансию
+        </Button>
       </div>
       <h3 className='standard-font_type_h3 shelter-section__subtitle'>Всего вакансий: {vacanciesList.length}</h3>
       <div className='shelter-vacancies__vacancies-container'>
         <VacancyList vacancies={vacanciesList} isLoading={isLoading} />
-        <AddVacancyForm />
+        {isOpenVacancyForm && <AddVacancyForm onChange={cancelVacancyForm} />}
       </div>
     </section>
   );

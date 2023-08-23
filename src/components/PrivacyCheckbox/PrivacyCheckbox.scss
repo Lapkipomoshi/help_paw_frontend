@@ -1,0 +1,51 @@
+.privacy-checkbox {
+  display: flex;
+  flex-direction: row;
+  margin-top: 18px;
+  position: relative;
+}
+
+.privacy-checkbox__text {
+  color: var(--color-text-base);
+  margin: 0;
+  width: 367px;
+}
+
+.privacy-checkbox__link {
+  color: var(--color-accent-base);
+  text-decoration: none;
+}
+
+.privacy-checkbox__checkbox:hover {
+  cursor: pointer;
+}
+
+.privacy-checkbox__container > .privacy-checkbox__input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.privacy-checkbox__container > .privacy-checkbox__checkbox {
+  display: inline-flex;
+  align-items: center;
+}
+
+.privacy-checkbox__container > .privacy-checkbox__checkbox::before {
+  content: '';
+  box-sizing: border-box;
+  display: inline-block;
+  height: 35px;
+  width: 35px;
+  border: 1px solid var(--color-text-base);
+  border-radius: 8px;
+  margin-right: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--color-text-light);
+}
+
+.privacy-checkbox__container > .privacy-checkbox__input:checked + .privacy-checkbox__checkbox::before {
+  background-image: url('../../images/register__daw.svg');
+  background-size: 100%;
+}
