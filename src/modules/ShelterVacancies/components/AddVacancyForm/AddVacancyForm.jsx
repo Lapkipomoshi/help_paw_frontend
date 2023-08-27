@@ -10,7 +10,7 @@ import FormActionButtons from './components/FormActionButtons';
 import FormTextarea from './components/FormTextarea';
 import PrivacyCheckbox from '../../../../components/PrivacyCheckbox/PrivacyCheckbox';
 
-const AddVacancyForm = ({ onChange }) => {
+const AddVacancyForm = ({ onChange, onSubmitSuccess }) => {
   const [formValues, setFormValues] = useState(defaultFormValues);
 
   const jobTitleInput = useInput('', { notEmpty: true, maxLength: 30, regex: regex.NAME_REGEX }, errorMessage.VACANCY_NAME);
@@ -18,9 +18,10 @@ const AddVacancyForm = ({ onChange }) => {
   const jobDescriptionInput = useInput('', { notEmpty: true, maxLength: 3000, regex: regex.TEXT }, errorMessage.VACANCY_DESCRIPTION);
 
   const [isChecked, setIsChecked] = useState(false);
-
   const toggleCheckbox = () => {
-    setIsChecked(!isChecked);
+    setIsChecked((prev) => {
+      return !prev;
+    });
   };
 
   const isSubmitButtonDisabled =
@@ -91,9 +92,9 @@ const AddVacancyForm = ({ onChange }) => {
 
       <FormTextarea jobDescriptionInput={jobDescriptionInput} handleDescriptionChange={handleDescriptionChange} />
 
-      <PrivacyCheckbox toggleCheckbox={toggleCheckbox} />
+      <PrivacyCheckbox onClick={toggleCheckbox} />
 
-      <FormActionButtons isSubmitButtonDisabled={isSubmitButtonDisabled} onClick={handleCancelClick} />
+      <FormActionButtons isSubmitButtonDisabled={isSubmitButtonDisabled} onClick={handleCancelClick} onSubmitSuccess={onSubmitSuccess} />
     </form>
   );
 };
