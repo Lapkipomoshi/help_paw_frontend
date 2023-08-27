@@ -5,8 +5,14 @@ import VacancyList from './VacancyList';
 import Button from '../../ui/Button/Button';
 import AddVacancyForm from './components/AddVacancyForm/AddVacancyForm';
 import shelterVacanciesApi from './api';
+import imageSuccess from '../../images/icons/ic_success.svg';
+import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
+
+const message = 'Вакансия успешно добавлена!';
 
 const ShelterVacancies = () => {
+  const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
+
   const [vacanciesList, setVacanciesList] = useState([]);
   const [isOpenVacancyForm, setIsOpenVacancyForm] = useState(false);
 
@@ -39,6 +45,19 @@ const ShelterVacancies = () => {
     });
   };
 
+  const closeInfoTooltip = () => {
+    setInfoTooltipOpen(false);
+  };
+
+  const handleSubmit = () => {
+    setIsOpenVacancyForm(false);
+    setInfoTooltipOpen(true);
+
+    setTimeout(() => {
+      closeInfoTooltip();
+    }, 5000);
+  };
+
   if (isLoading) {
     return null;
   }
@@ -55,8 +74,9 @@ const ShelterVacancies = () => {
       <h3 className='standard-font_type_h3 shelter-section__subtitle'>Всего вакансий: {vacanciesList.length}</h3>
       <div className='shelter-vacancies__vacancies-container'>
         <VacancyList vacancies={vacanciesList} isLoading={isLoading} />
-        {isOpenVacancyForm && <AddVacancyForm onChange={cancelVacancyForm} />}
+        {isOpenVacancyForm && <AddVacancyForm onChange={cancelVacancyForm} onSubmitSuccess={handleSubmit} />}
       </div>
+      <InfoTooltip isOpen={infoTooltipOpen} image={imageSuccess} message={message} onClose={closeInfoTooltip} />
     </section>
   );
 };

@@ -1,6 +1,7 @@
 .privacy-checkbox {
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin-top: 18px;
   position: relative;
 }
@@ -35,10 +36,10 @@
   content: '';
   box-sizing: border-box;
   display: inline-block;
-  height: 35px;
-  width: 35px;
+  height: 20px;
+  width: 20px;
   border: 1px solid var(--color-text-base);
-  border-radius: 8px;
+  border-radius: 2px;
   margin-right: 20px;
   background-repeat: no-repeat;
   background-position: center;

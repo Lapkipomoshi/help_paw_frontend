@@ -49,6 +49,11 @@
   background-color: var(--color-accent-base);
   border-radius: 8px;
   box-sizing: border-box;
+  margin-right: 8px;
+}
+
+.select__selected-item-container:nth-child(n + 3) {
+  margin-top: 8px;
 }
 
 .select__selected-item {
