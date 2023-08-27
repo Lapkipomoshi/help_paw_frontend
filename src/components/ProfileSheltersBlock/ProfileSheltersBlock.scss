@@ -1,7 +1,17 @@
+.profile-shelters__shelters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .profile-shelters__container {
   display: flex;
   flex-direction: column;
   margin-bottom: 44px;
+}
+
+.profile-shelters__container:last-of-type {
+  margin-bottom: 0;
 }
 
 .profile-shelters__title {
