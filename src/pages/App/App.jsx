@@ -47,6 +47,8 @@ const App = () => {
   const [infoTooltipImage, setInfoTooltipImage] = useState(null);
   const [message, setMessage] = useState('');
 
+  const [success, setSuccess] = useState(false);
+
   const closeInfoTooltip = () => {
     setInfoTooltipOpen(false);
     setInfoTooltipImage(null);
@@ -84,6 +86,7 @@ const App = () => {
       .then(() => {
         setInfoTooltipImage(imageSuccess);
         setMessage('Спасибо за регистрацию! Для активации аккаунта перейдите по ссылке, отправленной на вашу почту.');
+        setSuccess(true);
         setInfoTooltipOpen(true);
         setTimeout(closeInfoTooltip, 15000);
         setTimeout(() => {
@@ -107,6 +110,7 @@ const App = () => {
       .login({ password, email })
       .then((res) => {
         setLoggedIn(true);
+        setSuccess(true);
         localStorage.setItem('access', res.access);
         localStorage.setItem('refresh', res.refresh);
         tokenCheck();
@@ -169,8 +173,28 @@ const App = () => {
             <Route path='/privacy' element={<PrivacyPolicyPage />} />
             <Route path='/terms' element={<TermsPage />} />
 
-            <Route exact path='/sign-in' element={<ProtectedRoute condition={!loggedIn} component={LoginPage} onLogin={handleLogin} />} />
-            <Route exact path='/sign-up' element={<ProtectedRoute condition={!loggedIn} component={RegisterPage} onRegister={handleRegister} />} />
+            <Route
+              exact path='/sign-in'
+              element={
+                <ProtectedRoute
+                  condition={!loggedIn}
+                  component={LoginPage}
+                  onLogin={handleLogin}
+                  isSuccess={success}
+                />
+              }
+            />
+            <Route
+              exact path='/sign-up'
+              element={
+                <ProtectedRoute
+                  condition={!loggedIn}
+                  component={RegisterPage}
+                  onRegister={handleRegister}
+                  isSuccess={success}
+                />
+              }
+            />
             <Route exact path='/sign-up/confirm' element={<ProtectedRoute condition={!loggedIn} component={SignUpConfirm} />} />
             <Route exact path='/password-recovery' element={<ProtectedRoute condition={!loggedIn} component={PasswordRecovery} />} />
 
