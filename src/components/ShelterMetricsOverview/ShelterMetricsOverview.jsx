@@ -7,7 +7,7 @@ const ShelterMetricsOverview = ({ title, metricValue, actionText, path }) => {
     <div className='shelter-metrics'>
       <h3 className='shelter-metrics__title standard-font_type_h3'>
         {title}
-        {metricValue}
+        <span className='shelter-metrics__metrics-donation-sum'> {metricValue}</span>
       </h3>
 
       <Button link to={path}>
