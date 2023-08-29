@@ -9,7 +9,7 @@ const ShelterOwnerStatistics = ({ shelter }) => {
     { title: 'Количество питомцев: ', valueKey: shelter.count_pets, actionText: 'Посмотреть всех питомцев', path: '/' },
     { title: 'Количество вакансий: ', valueKey: shelter.count_pets, actionText: 'Посмотреть все вакансии', path: '/' },
     { title: 'Количество тегов: ', valueKey: shelter.count_pets, actionText: 'Посмотреть все теги', path: '/' },
-    { title: 'Количество новостей: ', valueKey: shelter.count_pets, actionText: 'Посмотреть все новостей', path: '/' },
+    { title: 'Количество новостей: ', valueKey: shelter.count_pets, actionText: 'Посмотреть все новости', path: '/' },
   ];
   return (
     <div className='shelter-owner-statistic'>
