@@ -25,7 +25,7 @@ import {
 } from '../../utils/errorMessage';
 import PrivacyCheckbox from '../../components/PrivacyCheckbox/PrivacyCheckbox';
 
-const RegisterPage = ({ onRegister }) => {
+const RegisterPage = ({ onRegister, isSuccess }) => {
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
@@ -123,7 +123,9 @@ const RegisterPage = ({ onRegister }) => {
       password: userPassword,
       email: userEmail,
     });
-    setDisabled(true);
+    if (isSuccess) {
+      setDisabled(true);
+    }
   };
 
   const handleChangeCheckbox = () => {
