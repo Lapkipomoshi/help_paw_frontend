@@ -1,0 +1,19 @@
+.cards-slider__buttons {
+  margin-bottom: 40px;
+
+  &_hidden {
+    display: none;
+  }
+
+  &_profile {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 768px) {
+    margin-bottom: 80px;
+
+    &_profile {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.vacancy-card__icon-button {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+  border: 1px solid var(--color-text-additional);
+  border-radius: 4px;
+  font-size: 29px;
+  width: 29px;
+  height: 29px;
+  background-color: var(--color-background-base);
+}
+
+.vacancy-card__icon-button_edit {
+  margin-left: 12px;
+}
+
+.vacancy-card__title-button_delete {
+  color: #f0924f;
+}

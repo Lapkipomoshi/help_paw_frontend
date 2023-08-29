@@ -1,0 +1,24 @@
+.pet-additional-info-card {
+  display: flex;
+  column-gap: 16px;
+}
+
+.pet-additional-info-card__shelter-info-image {
+  min-width: 32px;
+  height: 32px;
+  padding: 3px;
+  object-fit: contain;
+  object-position: center;
+  box-sizing: border-box;
+}
+
+.pet-additional-info-card__text-container {
+  display: flex;
+  width: max-content;
+  flex-direction: column;
+  row-gap: 2px;
+}
+
+.pet-additional-info-card__secondary-string {
+  color: var(--color-text-additional);
+}

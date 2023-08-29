@@ -1,15 +1,23 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "jest/globals": true
   },
   "extends": ["plugin:react/recommended", "airbnb", "prettier"],
-  "overrides": [],
+  "overrides": [
+    {
+      "files": ["test/**"],
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended"],
+      "rules": { "jest/prefer-expect-assertions": "off" }
+    }
+  ],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "import"],
+  "plugins": ["react", "import", "jest"],
   "rules": {
     "prefer-destructuring": [
       "error",
@@ -21,6 +29,14 @@
         "enforceForRenamedProperties": false
       }
     ],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
+    "jest/expect-expect": "error",
+    "jest/no-test-prefixes": "error",
+    "jest/no-test-return-statement": "error",
     "quotes": ["error", "single", { "avoidEscape": true }],
     "jsx-quotes": ["error", "prefer-single"],
     "semi": ["error", "always"],
@@ -47,6 +63,9 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "class-methods-use-this": "warn",
     "prefer-promise-reject-errors": "warn",
-    "react/jsx-one-expression-per-line": "off"
+    "react/jsx-one-expression-per-line": "off",
+    "react/destructuring-assignment": "off",
+    "no-unused-expressions": "warn",
+    "camelcase": [1, { "properties": "never" }]
   }
 }

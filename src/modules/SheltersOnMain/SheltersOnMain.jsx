@@ -18,7 +18,6 @@ const SheltersOnMain = ({ sheltersList }) => {
   });
 
   const handleAddShelterButton = () => {
-    // eslint-disable-next-line no-unused-expressions
     username ? navigate('/add-shelter') : setIsOpenPopup(true);
   };
 
@@ -32,7 +31,6 @@ const SheltersOnMain = ({ sheltersList }) => {
       <section
         className='shelters-on-main'
         onClick={() => {
-          // eslint-disable-next-line no-unused-expressions
           isOpenPopup && setIsOpenPopup(false);
         }}
       >

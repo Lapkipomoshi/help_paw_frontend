@@ -1,8 +1,12 @@
+const tooLong = 'Превышено ограничение по количеству символов';
+const invalidSymbol = 'Использваны недопустимые символы';
+
 // имя
 export const NAME_INVALID = 'Имя может содержать только буквы, пробел или дефис';
 export const NAME_NOT_FOUND = 'Введите имя пользователя';
 export const NAME_TOO_SHORT = 'Длина имени должна быть не менее 2 символов';
 export const NAME_TOO_LONG = 'Длина имени должна быть не более 50 символов';
+export const NAME_ONLY_SYMBOLS = 'Имя не может содержать только символы';
 
 // почта
 export const EMAIL_INVALID = 'Введен некорректный email';
@@ -90,7 +94,27 @@ export const VKONTAKTE = {
 
 // описание приюта
 export const DESCRIPTION = {
-  NOT_FOUND: 'Опишите приюта',
-  TOO_LONG: 'Превышено ограничение по количеству символов',
-  INVALID: 'Использваны недопустимые символы',
+  NOT_FOUND: 'Опишите приют',
+  TOO_LONG: tooLong,
+  INVALID: invalidSymbol,
+};
+
+// название вакансии
+export const VACANCY_NAME = {
+  NOT_FOUND: 'Введите название вакансии',
+  INVALID: 'В названии могут быть только кириллица, латиница, пробел и знаки: "-", "_"',
+  TOO_LONG: 'Название вакансии не может превышать 30 симоволов',
+};
+
+// заработная плата вакансии приюта
+export const VACANCY_SALARY = {
+  TOO_LONG: tooLong,
+  NOT_FOUND: 'Введите заработную плату',
+};
+
+// описание вакансии приюта
+export const VACANCY_DESCRIPTION = {
+  NOT_FOUND: 'Опишите вакансию',
+  TOO_LONG: tooLong,
+  INVALID: invalidSymbol,
 };

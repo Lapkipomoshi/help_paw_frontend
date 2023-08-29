@@ -3,24 +3,6 @@
   flex-direction: row;
   padding: 24px 16px 38px;
 
-  &_login {
-    padding-bottom: 142px;
-
-    @media (min-width: 1440px) {
-      padding-right: 169px;
-    }
-  }
-
-  &_recovery {
-    padding-right: 151px;
-    padding-bottom: 291px;
-  }
-
-  &_register-confirm {
-    padding-right: 132px;
-    padding-bottom: 188px;
-  }
-
   @media (min-width: 750px) {
     padding: 60px 45px 120px 14px;
   }
@@ -33,6 +15,25 @@
     &_register {
       padding-right: 132px;
     }
+  }
+
+  &_login {
+    padding-bottom: 142px;
+
+    @media (min-width: 1440px) {
+      padding-bottom: 213px;
+      padding-right: 169px;
+    }
+  }
+
+  &_recovery {
+    padding-right: 151px;
+    padding-bottom: 291px;
+  }
+
+  &_register-confirm {
+    padding-right: 132px;
+    padding-bottom: 188px;
   }
 }
 

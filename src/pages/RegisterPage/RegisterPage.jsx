@@ -7,9 +7,7 @@ import MainContainer from '../../components/MainContainer/MainContainer';
 import Button from '../../ui/Button/Button';
 import Input from '../../ui/Input/Input';
 import PasswordInput from '../../ui/PasswordInput/PasswordInput';
-import {
-  EMAIL_REGEX, NAME_REGEX, NUMBER, PASSWORD_REGEX,
-} from '../../utils/regex';
+import { EMAIL_REGEX, NAME_REGEX, NUMBER, PASSWORD_REGEX, SYMBOL } from '../../utils/regex';
 import {
   EMAIL_INVALID,
   EMAIL_NOT_FOUND,
@@ -23,9 +21,11 @@ import {
   PASSWORD_TOO_LONG,
   PASSWORD_TOO_SHORT,
   PASSWORD_SAME_EMAIL,
+  NAME_ONLY_SYMBOLS,
 } from '../../utils/errorMessage';
+import PrivacyCheckbox from '../../components/PrivacyCheckbox/PrivacyCheckbox';
 
-const RegisterPage = ({ onRegister }) => {
+const RegisterPage = ({ onRegister, isSuccess }) => {
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
@@ -49,6 +49,7 @@ const RegisterPage = ({ onRegister }) => {
   const handleNameChange = (e) => {
     const input = e.target;
     const validName = NAME_REGEX.test(input.value);
+    const nameOnlySymbols = SYMBOL.test(input.value);
     setIsValidName(validName);
     setUserName(input.value);
     if (input.value.length === 0) {
@@ -61,6 +62,9 @@ const RegisterPage = ({ onRegister }) => {
       setIsValidName(false);
     } else if (input.value.length > input.maxLength) {
       setNameError(NAME_TOO_LONG);
+      setIsValidName(false);
+    } else if (nameOnlySymbols) {
+      setNameError(NAME_ONLY_SYMBOLS);
       setIsValidName(false);
     } else {
       setNameError('');
@@ -105,6 +109,7 @@ const RegisterPage = ({ onRegister }) => {
       setIsValidPassword(false);
     } else if (passwordOnlyNumbers) {
       setPasswordError(PASSWORD_ONLY_NUMBERS);
+      setIsValidPassword(false);
     } else {
       setPasswordError('');
       setPromptText('');
@@ -118,6 +123,9 @@ const RegisterPage = ({ onRegister }) => {
       password: userPassword,
       email: userEmail,
     });
+    if (isSuccess) {
+      setDisabled(true);
+    }
   };
 
   const handleChangeCheckbox = () => {
@@ -135,14 +143,12 @@ const RegisterPage = ({ onRegister }) => {
     <MainContainer>
       <main className='main'>
         <section className='register'>
-          <UserContainer
-            containerClass='register'
-          >
+          <UserContainer containerClass='register'>
             <UserForm
               title='Регистрация'
               formClass='register'
               onSubmit={handleSubmit}
-              formChildren={(
+              formChildren={
                 <>
                   <Input
                     labelText='Имя'
@@ -182,49 +188,20 @@ const RegisterPage = ({ onRegister }) => {
                     onChange={handlePasswordChange}
                   />
 
-                  <div className='register__privacy'>
-                    <label className='checkbox__container'>
-                      <input className='checkbox__input' type='checkbox' onClick={handleChangeCheckbox} />
-                      <span className='checkbox' />
-                    </label>
+                  <PrivacyCheckbox onClick={handleChangeCheckbox} />
 
-                    <p className='register__text standard-font standard-font_type_small'>
-                      Я согласен с
-                      {' '}
-                      <Link
-                        className='register__link standard-font standard-font_type_small'
-                        to='/'
-                        target='_blank'
-                      >
-                        Политикой конфиденциальности
-                      </Link>
-                      {' '}
-                      и
-                      {' '}
-                      <Link
-                        className='register__link standard-font standard-font_type_small'
-                        to='/'
-                        target='_blank'
-                      >
-                        Условиями использования сервиса
-                      </Link>
-                    </p>
-                  </div>
-
-                  <Button className='user-form__button-submit_register' submit disabled={disabled}>Зарегистрироваться</Button>
+                  <Button className='user-form__button-submit_register' submit disabled={disabled}>
+                    Зарегистрироваться
+                  </Button>
 
                   <p className='register__text standard-font standard-font_type_base'>
-                    Уже есть аккаунт?
-                    {' '}
-                    <Link
-                      className='register__link standard-font standard-font_type_base'
-                      to='/sign-in'
-                    >
+                    Уже есть аккаунт?{' '}
+                    <Link className='register__link standard-font standard-font_type_base' to='/sign-in'>
                       Вход
                     </Link>
                   </p>
                 </>
-              )}
+              }
             />
           </UserContainer>
         </section>

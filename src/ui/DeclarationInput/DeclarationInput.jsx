@@ -1,16 +1,18 @@
 import React from 'react';
 import './DeclarationInput.scss';
 
-const DeclarationInput = ({
-  caption, inputState, type, name, placeholder, required,
-}) => {
+// TODO убрать li,  это форма, а не список. Выше, где используется, заменить ul на form
+
+const DeclarationInput = ({ caption, inputState, type, name, placeholder, required }) => {
   return (
     <li className='declaration-input'>
-      <label className='declaration-input__caption' htmlFor={name}>{caption}</label>
+      <label className='declaration-input__caption' htmlFor={name}>
+        {caption}
+      </label>
       <input
-        className={`declaration-input__input ${(inputState.dirty && inputState.invalidText) && 'declaration-input__input_invalid'}`}
+        className={`declaration-input__input ${inputState.dirty && inputState.invalidText && 'declaration-input__input_invalid'}`}
         value={inputState.value}
-        onChange={(e) => { inputState.onChange(e); }}
+        onChange={inputState.onChange}
         onBlur={inputState.onBlur}
         type={type}
         name={name}

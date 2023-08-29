@@ -1,5 +1,5 @@
 import React from 'react';
-import './InfoItem.css';
+import './InfoItem.scss';
 
 const InfoItem = ({ children, argument }) => {
   return (

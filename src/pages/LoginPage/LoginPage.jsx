@@ -11,7 +11,7 @@ import PasswordInput from '../../ui/PasswordInput/PasswordInput';
 import { EMAIL_INVALID, EMAIL_NOT_FOUND, PASSWORD_NOT_FOUND } from '../../utils/errorMessage';
 import { EMAIL_REGEX } from '../../utils/regex';
 
-const LoginPage = ({ onLogin }) => {
+const LoginPage = ({ onLogin,isSuccess }) => {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
 
@@ -51,13 +51,16 @@ const LoginPage = ({ onLogin }) => {
   };
 
   const handleSubmit = (e) => {
-    const input = e.target;
     e.preventDefault();
     onLogin({
       password: userPassword,
       email: userEmail,
     });
-    input.reset();
+    if (isSuccess) {
+      setUserEmail('');
+      setUserPassword('');
+      setDisabled(true);
+    }
   };
 
   useEffect(() => {

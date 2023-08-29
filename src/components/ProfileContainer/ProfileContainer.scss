@@ -1,0 +1,22 @@
+.profile-container {
+  background-color: var(--color-background-base);
+  padding: 44px 132px 80px;
+  position: relative;
+
+  &_edit-profile {
+    padding-bottom: 85px;
+  }
+
+  &_sign-out {
+    min-height: 375px;
+  }
+}
+
+.profile-container__image {
+  width: 282px;
+  height: 282px;
+  position: absolute;
+  right: 132px;
+  top: 137px;
+  z-index: 0;
+}

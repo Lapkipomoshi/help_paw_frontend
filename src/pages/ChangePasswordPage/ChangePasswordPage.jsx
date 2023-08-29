@@ -32,14 +32,14 @@ const ChangePasswordPage = () => {
         setInfoTooltipImage(imageSuccess);
         setMessage('Ссылка для сброса пароля отправлена на вашу почту!');
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
-        setTimeout(() => { navigate('/'); }, 2000);
+        setTimeout(closeInfoTooltip, 15000);
+        setTimeout(() => { navigate('/'); }, 15000);
       })
       .catch(() => {
         setInfoTooltipImage(imageError);
         setMessage('Что-то пошло не так! Попробуйте ещё раз.');
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
+        setTimeout(closeInfoTooltip, 15000);
       });
   };
 
@@ -69,6 +69,7 @@ const ChangePasswordPage = () => {
         isOpen={infoTooltipOpen}
         image={infoTooltipImage}
         message={message}
+        onClose={closeInfoTooltip}
       />
     </MainContainer>
   );

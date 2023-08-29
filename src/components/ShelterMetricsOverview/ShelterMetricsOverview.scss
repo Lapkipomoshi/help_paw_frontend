@@ -1,0 +1,13 @@
+.shelter-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.shelter-metrics__title {
+  margin: 0;
+}
+
+.shelter-metrics__metrics-donation-sum {
+  color: var(--color-accent-base);
+}

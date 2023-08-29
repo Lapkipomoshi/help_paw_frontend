@@ -1,8 +1,41 @@
-.vacancies-list {
+.shelter__vacancies-list {
   display: flex;
   margin: 36px 0 0;
   padding: 0;
   flex-direction: column;
   row-gap: 32px;
   list-style-type: none;
+  width: 437px;
+}
+
+.shelter__empty-list {
+  margin: 36px 0 0;
+  padding: 0;
+  width: 437px;
+}
+
+.shelter-section__subtitle {
+  margin: 19px 0 0 0;
+}
+
+.shelter-vacancies__title {
+  width: 684px;
+}
+
+.shelter-vacancies__title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.shelter-vacancies {
+  width: 100%;
+  min-height: 625px;
+  padding: 0 132px 80px;
+  box-sizing: border-box;
+}
+
+.shelter-vacancies__vacancies-container {
+  display: flex;
+  gap: 63px;
 }

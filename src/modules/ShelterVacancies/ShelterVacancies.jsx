@@ -1,54 +1,82 @@
 import React, { useState, useEffect } from 'react';
+import { useOutletContext } from 'react-router-dom';
 import './ShelterVacancies.scss';
-import VacancyCard from '../../components/VacancyCard/VacancyCard';
+import VacancyList from './VacancyList';
+import Button from '../../ui/Button/Button';
+import AddVacancyForm from './components/AddVacancyForm/AddVacancyForm';
+import shelterVacanciesApi from './api';
+import imageSuccess from '../../images/icons/ic_success.svg';
+import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
+
+const message = 'Вакансия успешно добавлена!';
 
 const ShelterVacancies = () => {
-  const [vacanciesList, setVacanciesList] = useState([]); // список вакансий
+  const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
+
+  const [vacanciesList, setVacanciesList] = useState([]);
+  const [isOpenVacancyForm, setIsOpenVacancyForm] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  const { shelter } = useOutletContext();
 
   useEffect(() => {
-    setVacanciesList([ // будет запрашиваться с бэкенда
-      {
-        id: 1,
-        title: 'Помощник уборщика',
-        salary: '35 000 рублей до НДФЛ',
-        workSchedule: 'сменный',
-        charge: 'помогать уборщику убирать мусор',
-      },
-      {
-        id: 2,
-        title: 'Помощник уборщика',
-        salary: '35 000 рублей до НДФЛ',
-        workSchedule: 'сменный',
-        charge: 'помогать уборщику убирать мусор',
-      },
-      {
-        id: 3,
-        title: 'Помощник уборщика',
-        salary: '35 000 рублей до НДФЛ',
-        workSchedule: 'сменный',
-        charge: 'помогать уборщику убирать мусор',
-      },
-    ]);
-  }, []);
+    if (!shelter.id) return;
+    shelterVacanciesApi
+      .getVacanciesByShelterId(shelter.id)
+      .then((res) => {
+        setVacanciesList(res);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+  }, [shelter.id]);
+
+  const toggleVacancyForm = () => {
+    setIsOpenVacancyForm((prevOpen) => {
+      return !prevOpen;
+    });
+  };
+
+  const cancelVacancyForm = () => {
+    setIsOpenVacancyForm((prevOpen) => {
+      return !prevOpen;
+    });
+  };
+
+  const closeInfoTooltip = () => {
+    setInfoTooltipOpen(false);
+  };
+
+  const handleSubmit = () => {
+    setIsOpenVacancyForm(false);
+    setInfoTooltipOpen(true);
+
+    setTimeout(() => {
+      closeInfoTooltip();
+    }, 5000);
+  };
+
+  if (isLoading) {
+    return null;
+  }
 
   return (
-    <section className='shelter-section shelter-vacancies'>
-      <h2 className='shelter-section__title'>Наши вакансии</h2>
-      <ul className='vacancies-list'>
-        {vacanciesList && vacanciesList.length !== 0
-          ? vacanciesList.map((card) => {
-            return (
-              <VacancyCard
-                id={card.id}
-                title={card.title}
-                salary={card.salary}
-                workSchedule={card.workSchedule}
-                charge={card.charge}
-              />
-            );
-          })
-          : <p>У приюта нет активных вакансий</p>}
-      </ul>
+    <section className='shelter-vacancies'>
+      <div className='shelter-vacancies__title-container'>
+        <h2 className='shelter-vacancies__title standard-font standard-font_type_h2'>Вакансии приюта «{shelter.name}»</h2>
+
+        <Button disabled={isOpenVacancyForm} onClick={toggleVacancyForm}>
+          Добавить вакансию
+        </Button>
+      </div>
+      <h3 className='standard-font_type_h3 shelter-section__subtitle'>Всего вакансий: {vacanciesList.length}</h3>
+      <div className='shelter-vacancies__vacancies-container'>
+        <VacancyList vacancies={vacanciesList} isLoading={isLoading} />
+        {isOpenVacancyForm && <AddVacancyForm onChange={cancelVacancyForm} onSubmitSuccess={handleSubmit} />}
+      </div>
+      <InfoTooltip isOpen={infoTooltipOpen} image={imageSuccess} message={message} onClose={closeInfoTooltip} />
     </section>
   );
 };

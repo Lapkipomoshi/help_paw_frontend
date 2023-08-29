@@ -20,6 +20,10 @@
   border-radius: 8px;
   padding: 8px 16px;
 
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+  }
+
   &:focus {
     outline: none;
   }
@@ -57,7 +61,7 @@
   color: var(--color-verify-invalid);
   margin-top: 4px;
   margin-bottom: 2px;
-  min-height: 16px;
+  min-height: 17px;
   max-width: 288px;
 
   @media (min-width: 1440px) {

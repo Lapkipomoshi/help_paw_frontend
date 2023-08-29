@@ -1,19 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './PetCard.css';
+import './PetCard.scss';
 import maleIcon from '../../images/icons/ic_male.svg';
 import femaleIcon from '../../images/icons/ic_female.svg';
 
 const PetCard = ({
-  id, name, age, male, photo,
+  id, shelterId, name, age, sex, photo,
 }) => {
   return (
     <Link
       className='pet-card'
-      to={`/pets/${id}`}
-      style={{ background: `linear-gradient(rgba(217,217,217,0.1), rgba(164,164,164,.8)), url(${photo}) center / cover no-repeat` }}
+      to={`/shelters/${shelterId}/pets/${id}`}
     >
-      <img className='pet-card__icon' src={male ? maleIcon : femaleIcon} alt={male ? 'самец' : 'самка'} />
+      <img className='pet-card__photo' src={photo} alt={name} />
+      <div className='pet-card__cover' />
+      <img className='pet-card__icon' src={sex === 'male' ? maleIcon : femaleIcon} alt={sex === 'male' ? 'самец' : 'самка'} />
       <p className='pet-card__name'>{name}</p>
       <p className='pet-card__age'>{age}</p>
     </Link>

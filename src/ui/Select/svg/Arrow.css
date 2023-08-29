@@ -1,0 +1,16 @@
+.select-arrow {
+  width: 28px;
+  height: 16px;
+  transition: transform .7s;
+  cursor: pointer;
+}
+
+.select-arrow path {
+  transition-duration: .3s;
+  fill: var(--color-text-base);
+}
+
+
+.select-arrow:hover path {
+  fill: var(--color-accent-hover);
+}

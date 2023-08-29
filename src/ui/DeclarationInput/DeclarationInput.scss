@@ -12,7 +12,6 @@
 }
 
 .declaration-input__caption {
-  width: 482px;
   margin: 0 0 8px;
   padding: 0;
   font-size: 16px;
@@ -21,9 +20,8 @@
 }
 
 .declaration-input__input {
-  width: 482px;
   margin: 0;
-  padding: 10.5px 16px;
+  padding: 9.5px 16px;
   font-size: 16px;
   line-height: 19px;
   font-weight: 400;
@@ -39,7 +37,7 @@
 
 .declaration-input__error {
   display: flex;
-  width: 482px;
+
   min-height: 12px;
   margin: 4px 0;
   padding: 0;

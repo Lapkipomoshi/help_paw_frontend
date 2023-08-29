@@ -102,13 +102,13 @@
         );
       }
       &_h3 {
-        @include font-size-style(24px, 29px, 600);
+        @include font-size-style(24px, 29px, 500);
       }
       &_h4 {
         @include font-size-style(20px, 24px, 500);
       }
       &_body {
-        @include font-size-style(18px, calc(22px + (100vw - 768px) * .009), 500);
+        @include font-size-style(18px, calc(22px + (100vw - 768px) * .009), 400);
       }
       &_base {
         @include font-size-style(18px, 22px, 400);
@@ -120,7 +120,7 @@
         @include font-size-style(14px, 17px, 400);
       }
       &_password {
-        @include font-size-style(18px, calc(22px + (100vw - 768px) * .009), 500);
+        @include font-size-style(18px, calc(22px + (100vw - 768px) * .009), 400);
       }
     }
   }

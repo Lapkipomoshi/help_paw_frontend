@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, Navigate } from 'react-router-dom';
 import './App.scss';
-import ProtectedRoute from '../../components/ProtectedRoute';
+import ProtectedRoute from './ProtectedRoute';
 import Header from '../../modules/Header/Header';
 import Footer from '../../modules/Footer/Footer';
 import MainPage from '../MainPage/MainPage';
 import MapPage from '../MapPage/MapPage';
 import SheltersListPage from '../SheltersListPage/SheltersListPage';
-import * as sheltersListModules from '../SheltersListPage/modules';
 import ShelterPage from '../ShelterPage/ShelterPage';
 import * as shelterModules from '../ShelterPage/modules';
-import PetPage from '../PetPage/PetPage';
 import AddShelterPage from '../AddShelterPage/AddShelterPage';
 import PapersPage from '../PapersPage/PapersPage';
 import PaperPage from '../PaperPage/PaperPage';
@@ -23,49 +21,50 @@ import PasswordRecovery from '../PasswordRecovery/PasswordRecovery';
 import NewPassword from '../NewPassword/NewPassword';
 import SignUpConfirm from '../SignUpConfirm/SignUpConfirm';
 import ProfilePage from '../ProfilePage/ProfilePage';
-import CurrentUserContext from '../../contexts/CurrentUserContext';
-import * as auth from './api/auth';
-import imageSuccess from '../../images/icons/ic_success.svg';
-import imageError from '../../images/icons/ic_error.svg';
-import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
-import * as userApi from './api/userApi';
-import { register } from './api/auth';
 import EditProfilePage from '../EditProfilePage/EditProfilePage';
 import SignOutPage from '../SignOutPage/SignOutPage';
 import ChangePasswordPage from '../ChangePasswordPage/ChangePasswordPage';
 import ActivateUserPage from '../ActivateUserPage/ActivateUserPage';
+import PrivacyPolicyPage from '../PrivacyPolicyPage/PrivacyPolicyPage';
+import TermsPage from '../TermsPage/TermsPage';
+import ActivateEmailPage from '../ActivateEmailPage/ActivateEmailPage';
+import InfoTooltip from '../../components/InfoTooltip/InfoTooltip';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
+import * as auth from './api/auth';
+import imageSuccess from '../../images/icons/ic_success.svg';
+import imageError from '../../images/icons/ic_error.svg';
+import getUserInfo from './api/userApi';
+import AppContext from '../../contexts/App';
 
 const App = () => {
   const navigate = useNavigate();
 
+  const [app] = useState({});
   const [loggedIn, setLoggedIn] = useState(false); // пользователь вошёл в учётную запись?
-  const [currentUser, setCurrentUser] = useState({
-    username: '',
-    email: '',
-    id: '',
-  });
+  const [currentUser, setCurrentUser] = useState({ username: '', email: '', id: '', donations_sum: '' });
 
   const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
   const [infoTooltipImage, setInfoTooltipImage] = useState(null);
   const [message, setMessage] = useState('');
 
-  function closeInfoTooltip() {
+  const [success, setSuccess] = useState(false);
+
+  const closeInfoTooltip = () => {
     setInfoTooltipOpen(false);
     setInfoTooltipImage(null);
-  }
+  };
 
   const handleSignOut = () => {
     localStorage.clear();
     setLoggedIn(false);
-    setCurrentUser({ username: '', email: '', id: '' });
+    setCurrentUser({ username: '', email: '', id: '', donations_sum: '' });
     navigate('/');
   };
 
   function tokenCheck() {
     const token = localStorage.getItem('access');
     if (token) {
-      userApi
-        .getUserInfo(token)
+      getUserInfo(token)
         .then((res) => {
           setCurrentUser(res);
           setLoggedIn(true);
@@ -82,15 +81,17 @@ const App = () => {
   }, []);
 
   const handleRegister = ({ username, password, email }) => {
-    register(username, password, email)
+    auth
+      .register(username, password, email)
       .then(() => {
         setInfoTooltipImage(imageSuccess);
         setMessage('Спасибо за регистрацию! Для активации аккаунта перейдите по ссылке, отправленной на вашу почту.');
+        setSuccess(true);
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
+        setTimeout(closeInfoTooltip, 15000);
         setTimeout(() => {
           navigate('/');
-        }, 2000);
+        }, 1000);
       })
       .catch((res) => {
         setInfoTooltipImage(imageError);
@@ -100,7 +101,7 @@ const App = () => {
           setMessage('Что-то пошло не так! Попробуйте ещё раз.');
         }
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
+        setTimeout(closeInfoTooltip, 15000);
       });
   };
 
@@ -109,6 +110,7 @@ const App = () => {
       .login({ password, email })
       .then((res) => {
         setLoggedIn(true);
+        setSuccess(true);
         localStorage.setItem('access', res.access);
         localStorage.setItem('refresh', res.refresh);
         tokenCheck();
@@ -116,106 +118,102 @@ const App = () => {
         setInfoTooltipImage(imageSuccess);
         setMessage('Добро пожаловать на сайт!');
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
+        setTimeout(closeInfoTooltip, 15000);
         setTimeout(() => {
           navigate('/');
-        }, 2000);
+        }, 1000);
       })
       .catch(() => {
         setInfoTooltipImage(imageError);
         setMessage('Вы ввели неверный e-mail или пароль!');
         setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
-      });
-  };
-
-  const handleUpdateUser = ({ username, email }) => {
-    userApi
-      .updateUserInfo({ username, email })
-      .then((res) => {
-        setCurrentUser({
-          username: res.username,
-          email: res.email,
-        });
-
-        setInfoTooltipImage(imageSuccess);
-        setMessage('Вы успешно изменили данные!');
-        setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
-      })
-      .catch(() => {
-        setInfoTooltipImage(imageError);
-        setMessage('Что-то пошло не так! Попробуйте ещё раз.');
-        setInfoTooltipOpen(true);
-        setTimeout(closeInfoTooltip, 2000);
+        setTimeout(closeInfoTooltip, 15000);
       });
   };
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <div className='page'>
-        <Header />
-        <Routes>
-          <Route path='/' element={<MainPage />} />
-          <Route path='/shelters' element={<MapPage />} />
-          <Route path='/shelters/list' element={<SheltersListPage />}>
-            <Route path='red' element={<sheltersListModules.RedShelters />} />
-            <Route path='yellow' element={<sheltersListModules.YellowShelters />} />
-            <Route path='green' element={<sheltersListModules.GreenShelters />} />
-          </Route>
-          <Route path='/shelters/:id' element={<ShelterPage />}>
-            <Route path='about' element={<shelterModules.AboutShelter />} />
-            <Route path='how-to-help' element={<shelterModules.HelpToShelter />} />
-            <Route path='news' element={<shelterModules.ShelterNews />} />
-            <Route path='pets' element={<shelterModules.ShelterPets />} />
-            <Route path='pets/:type' element={<shelterModules.ShelterSamePets />} />
-            <Route path='vacancies' element={<shelterModules.ShelterVacancies />} />
-          </Route>
-          <Route
-            path='/add-shelter'
-            element={
-              <ProtectedRoute
-                loggedIn={loggedIn}
-                component={AddShelterPage}
-                currentUser={currentUser}
-                openPopup={setInfoTooltipOpen}
-                setPopupImage={setInfoTooltipImage}
-                setMessage={setMessage}
-              />
-            }
-          />
-          <Route path='/pets/:id' element={<PetPage />} />
-          <Route path='/papers' element={<PapersPage />} />
-          <Route path='/papers/:id' element={<PaperPage />} />
-          <Route path='/news' element={<NewsPage />} />
-          <Route path='/news/:id' element={<NewPage />} />
+      <AppContext.Provider value={app}>
+        <div className='page'>
+          <Header />
+          <Routes>
+            <Route path='/' element={<MainPage />} />
+            <Route path='/shelters'>
+              <Route index element={<MapPage />} />
+              <Route path='list' element={<Navigate to='/shelters/list/red' replace />} />
+              <Route path='list/:color' element={<SheltersListPage />} />
+              <Route path=':id' element={<ShelterPage />}>
+                <Route path='about' element={<shelterModules.AboutShelter />} />
+                <Route path='how-to-help' element={<shelterModules.HelpToShelter />} />
+                <Route path='news' element={<shelterModules.ShelterNews />} />
+                <Route path='pets' element={<shelterModules.ShelterPets />} />
+                <Route path='pets/type/:type' element={<shelterModules.ShelterSamePets />} />
+                <Route path='pets/:id' element={<shelterModules.PetModule />} />
+                <Route path='vacancies' element={<shelterModules.ShelterVacancies />} />
+              </Route>
+            </Route>
 
-          <Route exact path='/sign-in' element={loggedIn ? <Navigate to='/' /> : <LoginPage onLogin={handleLogin} />} />
+            <Route
+              path='/add-shelter'
+              element={
+                <ProtectedRoute
+                  condition={loggedIn}
+                  component={AddShelterPage}
+                  openPopup={setInfoTooltipOpen}
+                  setPopupImage={setInfoTooltipImage}
+                  setMessage={setMessage}
+                />
+              }
+            />
+            <Route path='/papers' element={<PapersPage />} />
+            <Route path='/papers/:id' element={<PaperPage />} />
+            <Route path='/news' element={<NewsPage />} />
+            <Route path='/news/:id' element={<NewPage />} />
 
-          <Route exact path='/sign-up' element={loggedIn ? <Navigate to='/' /> : <RegisterPage onRegister={handleRegister} />} />
+            <Route path='/privacy' element={<PrivacyPolicyPage />} />
+            <Route path='/terms' element={<TermsPage />} />
 
-          <Route exact path='/sign-up/confirm' element={loggedIn ? <Navigate to='/' /> : <SignUpConfirm />} />
+            <Route
+              exact path='/sign-in'
+              element={
+                <ProtectedRoute
+                  condition={!loggedIn}
+                  component={LoginPage}
+                  onLogin={handleLogin}
+                  isSuccess={success}
+                />
+              }
+            />
+            <Route
+              exact path='/sign-up'
+              element={
+                <ProtectedRoute
+                  condition={!loggedIn}
+                  component={RegisterPage}
+                  onRegister={handleRegister}
+                  isSuccess={success}
+                />
+              }
+            />
+            <Route exact path='/sign-up/confirm' element={<ProtectedRoute condition={!loggedIn} component={SignUpConfirm} />} />
+            <Route exact path='/password-recovery' element={<ProtectedRoute condition={!loggedIn} component={PasswordRecovery} />} />
 
-          <Route exact path='/password-recovery' element={loggedIn ? <Navigate to='/' /> : <PasswordRecovery />} />
+            <Route exact path='/activate/:uid/:token/' element={<ActivateUserPage />} />
+            <Route exact path='/password-reset' element={<NewPassword />} />
+            <Route exact path='/email-reset/:uid/:token/:new_email' element={<ActivateEmailPage onUpdateCurrentUser={setCurrentUser} />} />
 
-          <Route exact path='/password-reset/:uid/:token/' element={<NewPassword />} />
+            <Route path='/profile' element={<ProtectedRoute condition={loggedIn} component={ProfilePage} />} />
+            <Route path='/profile/edit' element={<ProtectedRoute condition={loggedIn} component={EditProfilePage} onUpdateCurrentUser={setCurrentUser} />} />
+            <Route path='/profile/sign-out' element={<ProtectedRoute condition={loggedIn} component={SignOutPage} onSignOut={handleSignOut} />} />
+            <Route path='/profile/edit/password' element={<ProtectedRoute condition={loggedIn} component={ChangePasswordPage} />} />
 
-          <Route exact path='/activate/:uid/:token/' element={<ActivateUserPage />} />
+            <Route path='*' element={<NotFoundPage />} />
+          </Routes>
+          <Footer />
 
-          <Route path='/profile' element={<ProtectedRoute loggedIn={loggedIn} component={ProfilePage} />} />
-
-          <Route path='/profile/edit' element={<ProtectedRoute loggedIn={loggedIn} component={EditProfilePage} onEditProfile={handleUpdateUser} />} />
-
-          <Route path='/profile/sign-out' element={<ProtectedRoute loggedIn={loggedIn} component={SignOutPage} onSignOut={handleSignOut} />} />
-
-          <Route path='/profile/edit/password' element={<ProtectedRoute loggedIn={loggedIn} component={ChangePasswordPage} />} />
-
-          <Route path='*' element={<NotFoundPage />} />
-        </Routes>
-        <Footer />
-
-        <InfoTooltip isOpen={infoTooltipOpen} image={infoTooltipImage} message={message} />
-      </div>
+          <InfoTooltip isOpen={infoTooltipOpen} image={infoTooltipImage} message={message} onClose={closeInfoTooltip} />
+        </div>
+      </AppContext.Provider>
     </CurrentUserContext.Provider>
   );
 };

@@ -1,0 +1,13 @@
+.terms__container {
+  box-sizing: border-box;
+  background-color: var(--color-background-additional);
+  margin: 20px auto 80px;
+  padding: 40px;
+  border-radius: 20px;
+  width: 550px; //макета на адаптив пока нет, поставила временные значения
+
+  @media (min-width: 1200px) {
+    width: 1176px;
+    margin: 44px auto 80px;
+  }
+}

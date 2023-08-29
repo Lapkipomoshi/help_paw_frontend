@@ -1,0 +1,36 @@
+.cards-slider {
+  margin: 0;
+  display: flex;
+  white-space: nowrap;
+  overflow-y: hidden;
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+  list-style-type: none;
+  column-gap: 38px;
+  overflow: hidden;
+
+  &_profile {
+    padding: 0;
+  }
+
+  @media (min-width: 768px) {
+    .cards-slider {
+      padding: 20px 0 44px 44px;
+
+      &_profile {
+        padding: 0;
+      }
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .cards-slider {
+      padding-left: 132px;
+
+      &_profile {
+        padding: 0;
+      }
+    }
+  }
+}

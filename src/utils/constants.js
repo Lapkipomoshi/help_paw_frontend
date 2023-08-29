@@ -13,18 +13,23 @@ export const shelterLinkList = [
 
 export const colorLinkList = [
   {
-    to: 'red',
+    to: '/shelters/list/red',
     caption: 'Красные',
     explanation: 'Красные приюты - те, которым для сбора нужной суммы не хватает больше всего. Им особенно нужна ваша помощь!',
   },
   {
-    to: 'yellow',
+    to: '/shelters/list/yellow',
     caption: 'Жёлтые',
     explanation: 'Жёлтые приюты - те, которым для сбора нужной суммы не хватает совсем чуть-чуть. Возможно, именно вы поможете закрыть сбор!',
   },
   {
-    to: 'green',
+    to: '/shelters/list/green',
     caption: 'Зелёные',
     explanation: 'Зелёные приюты - те, у которых успешно закрыт сбор материальных средств. Но вы так же можете оказать им нематериальную помощь!',
+  },
+  {
+    to: '/shelters/list/all',
+    caption: 'Все приюты',
+    explanation: 'Все приюты – это список всех имеющихся на сайте приютов.',
   },
 ];

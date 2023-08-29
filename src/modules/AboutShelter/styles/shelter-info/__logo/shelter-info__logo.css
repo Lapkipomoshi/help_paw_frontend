@@ -2,5 +2,6 @@
   width: 300px;
   height: 300px;
   object-fit: contain;
-  border-radius: 150px;
+  border: 1px solid var(--color-accent-base);
+  border-radius: 16px;
 }
