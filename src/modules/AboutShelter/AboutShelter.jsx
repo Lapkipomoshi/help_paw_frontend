@@ -46,7 +46,7 @@ const AboutShelter = () => {
 
           <ul className='shelter-info__list'>
             <InfoItem argument='Адрес'>{shelter.address}</InfoItem>
-            <InfoItem argument='Часы-работы'>{`${shelter.working_from_hour} - ${shelter.working_to_hour}`}</InfoItem>
+            <InfoItem argument='Часы работы'>{`${shelter.working_from_hour} - ${shelter.working_to_hour}`}</InfoItem>
             <InfoItem argument='Номер телефона'>{shelter.phone_number}</InfoItem>
             <InfoItem argument='E-mail'>{shelter.email}</InfoItem>
             {shelter.web_site && (
@@ -87,10 +87,10 @@ const AboutShelter = () => {
       {isOwner && <ShelterOwnerStatistics shelter={shelter} />}
 
       <h3 className='standard-font_type_h3 about-shelter__metrics-dotantion'>
-        Собрано денег за всё время: <span className='color_text_additional'>{shelter.money_collected}</span>
+        Собрано денег за всё время: <span className='about-shelter__metrics-donation-sum'>{shelter.money_collected}</span>
       </h3>
-      <h3 className='standard-font_type_h3 about-shelter__metrics-adopted-animals'>
-        Забрали животных за всё время: <span className='color_text_additional'>{shelter.animals_adopted}</span>
+      <h3 className='standard-font_type_h3 standard-font'>
+        Забрали животных за всё время: <span className='about-shelter__metrics-donation-sum'>{shelter.animals_adopted}</span>
       </h3>
     </section>
   );

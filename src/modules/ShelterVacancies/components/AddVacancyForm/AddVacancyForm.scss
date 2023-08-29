@@ -1,0 +1,39 @@
+.add-vacancy-form__flex-container {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.add-vacancy-form__container {
+  margin-top: 36px;
+  width: 576px;
+}
+
+.add-shelter-form__submit-buttons {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.add-vacancy-form__description {
+  width: 100%;
+  height: 120px;
+  margin: 0;
+  padding: 16px 10.5px;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 400;
+  background-color: var(--color-background-additional);
+  border: 1px solid var(--color-text-additional);
+  border-radius: 8px;
+  box-sizing: border-box;
+  resize: none;
+
+  &_invalid {
+    border-color: var(--color-verify-invalid);
+  }
+}
+
+.add-vacancy-form__desctioption-title {
+  margin-bottom: 10px;
+}

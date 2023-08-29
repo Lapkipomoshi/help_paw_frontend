@@ -86,7 +86,6 @@ const dataPrivacyPolicy = [
     `,
     ],
   },
-
   {
     id: 3,
     rendererComponent: ParagraphList,
