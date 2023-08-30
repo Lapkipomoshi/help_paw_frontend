@@ -7,8 +7,8 @@ class NewsApi extends BaseApi {
     this._headers = _headers;
   }
 
-  getNews({ shelterId, amount }) { // загрузка новостей с параметрами у запроса
-    return fetch(`${this._baseUrl}/v1/news/?${shelterId ? `shelter=${shelterId}&` : ''}limit=${amount}`, {
+  getNews({ shelterId, amount, offset }) { // загрузка новостей с параметрами у запроса
+    return fetch(`${this._baseUrl}/v1/news/?${shelterId ? `shelter=${shelterId}&` : ''}limit=${amount}&offset=${offset}`, {
       headers: this._headers,
     })
       .then((res) => {

@@ -1,0 +1,5 @@
+.new-big-card-vertical__photo {
+  position: absolute;
+  height: 100%;
+  /* object-fit: contain; */
+}

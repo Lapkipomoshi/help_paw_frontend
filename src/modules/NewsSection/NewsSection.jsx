@@ -1,37 +1,114 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import './NewsSection.scss';
-import NewBigCard from '../../components/NewBigCard/NewBigCard';
-import NewCard from '../../components/NewCard/NewCard';
+import NewsBlock from '../NewsBlock/NewsBlock';
+import Button from '../../ui/Button/Button';
 import AppContext from '../../contexts/App';
 import newsApi from './api';
 
 const NewsSection = ({ shelterId = null }) => {
   const app = useContext(AppContext);
-  const [newsList, setNewsList] = useState([]); // список новостей
+  const [newsList, setNewsList] = useState([]); 
+  const [newsToFetch, setNewsToFetch] = useState(4); // число новостей для подгрузки
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasMoreNews, setHasMoreNews] = useState(false);
+  const [newsOffset, setNewsOffset] = useState(0);
+  const moreButtonRef = useRef(null);
+  const moreButton = moreButtonRef.current;
+  const [arg, setArg] = useState(null);
+
+  useEffect(() => {
+    if (shelterId)
+      setArg(shelterId);
+  }, []);
+
+  useEffect(() => {
+    if (moreButton) {
+      moreButton.blur();
+    }
+  }, [resList]);
+
+  const setShelterNewsToFetch = () => {
+    if (newsToFetch === 4) {
+      app.shelterNewsOffsetById[shelterId] = newsOffset + 4;
+      setNewsOffset(newsOffset + 4);
+      app.shelterNewsToFetchById[shelterId] = 7;
+      setNewsToFetch(7);
+    } else if (newsToFetch === 7) {
+      app.shelterNewsOffsetById[shelterId] = newsOffset + 7;
+      setNewsOffset(newsOffset + 7);
+      app.shelterNewsToFetchById[shelterId] = 4;
+      setNewsToFetch(4);
+    }
+  };
+
+  const setPortalNewsToFetch = () => {
+    if (newsToFetch === 4) {
+      app.newsOffset = newsOffset + 4;
+      setNewsOffset(newsOffset + 4);
+      app.portalNewsToFetch = 7;
+      setNewsToFetch(7);
+    } else if (newsToFetch === 7) {
+      app.newsOffset = newsOffset + 7;
+      setNewsOffset(newsOffset + 7);
+      app.portalNewsToFetch = 4;
+      setNewsToFetch(4);
+    }
+  };
 
   const fetchNews = (fetchShelterId) => {
     newsApi
-      .getNews({ shelterId: fetchShelterId, amount: 4 }) // загрузка статей
+      .getNews({ shelterId: fetchShelterId, amount: newsToFetch, offset: newsOffset }) // загрузка статей
       .then((res) => {
         const resNews = res.results;
-        setNewsList(resNews);
+        setResList([...resList, { data: resNews, type: newsToFetch }]);
+        const resNest = Boolean(res.next);
+        setHasMoreNews(resNest);
         if (shelterId) {
           if (!app.shelterNewsById) {
             app.shelterNewsById = {};
+            app.shelterNewsOffsetById = {};
+            app.shelterNewsToFetchById = {};
+            app.hasMoreShelterNewsById = {};
+            app.shelterNewsById[shelterId] = [{ data: resNews, type: newsToFetch }];
+            app.hasMoreShelterNewsById[shelterId] = resNest;
+            setShelterNewsToFetch();
+          } else if (app.shelterNewsById) {
+            if (app.shelterNewsById[shelterId] || app.shelterNewsById[shelterId] === 0) {
+              app.shelterNewsById[shelterId].push({ data: resNews, type: newsToFetch });
+              app.hasMoreShelterNewsById[shelterId] = resNest;
+              setShelterNewsToFetch();
+            } else if (typeof(app.shelterNewsById[shelterId]) === 'undefined') {
+              app.shelterNewsById[shelterId] = [{ data: resNews, type: newsToFetch }];
+              app.hasMoreShelterNewsById[shelterId] = resNest;
+              setShelterNewsToFetch();
+            }
           }
-          app.shelterNewsById[fetchShelterId] = resNews;
+        } else if (!app.portalNews) {
+          app.portalNews = [{ data: resNews, type: newsToFetch }];
+          app.hasMorePortalNews = resNest;
+          setPortalNewsToFetch();
         } else {
-          app.portalNews = resNews;
-        }
+          app.portalNews.push({ data: resNews, type: newsToFetch });
+          app.hasMorePortalNews = resNest;
+          setPortalNewsToFetch();
+        };
+
       })
       .catch((err) => {
         throw new Error(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
+
   };
 
   const setShelterNews = () => {
     if (app.shelterNewsById && app.shelterNewsById[shelterId]) {
-      setNewsList(app.shelterNewsById[shelterId]);
+      setResList(app.shelterNewsById[shelterId]);
+      setHasMoreNews(app.hasMoreShelterNewsById[shelterId]);
+      setNewsToFetch(app.shelterNewsToFetchById[shelterId]);
+      setNewsOffset(app.shelterNewsOffsetById[shelterId]);
     } else {
       fetchNews(shelterId);
     }
@@ -39,7 +116,10 @@ const NewsSection = ({ shelterId = null }) => {
 
   const setPortalNews = () => {
     if (app.portalNews) {
-      setNewsList(app.portalNews);
+      setResList(app.portalNews);
+      setHasMoreNews(app.hasMorePortalNews);
+      setNewsToFetch(app.portalNewsToFetch);
+      setNewsOffset(app.newsOffset);
     } else {
       fetchNews(null);
     }
@@ -50,34 +130,21 @@ const NewsSection = ({ shelterId = null }) => {
   }, []);
 
   return (
-    <div className='news-section'>
-      {newsList && newsList.length !== 0 ? (
-        <NewBigCard
-          id={newsList[0].id}
-          header={newsList[0].header}
-          publicationDate={newsList[0].pub_date}
-          shelter={newsList[0].shelter}
-          description={newsList[0].description}
-          mainPhoto={newsList[0].profile_image}
-        />
-      ) : (
-        <p>Новостей нет</p>
+    <>
+      { resList !== null && resList.length !== 0 && (
+        resList.map((current) => {
+          return <div className='news-section' key={current.data[0].id}>
+            <NewsBlock item={current}  />
+          </div>;
+        })
       )}
-      <ul className='news-section__column'>
-        {newsList &&
-          newsList.length > 1 &&
-          newsList.map((card, index) => {
-            return (
-              index !== 0 &&
-              index < 4 && (
-                <li className='news-section__item' key={card.id}>
-                  <NewCard id={card.id} header={card.header} publicationDate={card.pub_date} shelter={card.shelter} image={card.profile_image} />
-                </li>
-              )
-            );
-          })}
-      </ul>
-    </div>
+
+      {hasMoreNews && resList.length !== 0 && (
+        <Button className='button_theme_transparent' onClick = {() => {return fetchNews(arg);}} disabled={isLoading} innerRef={moreButtonRef}>
+            Больше новостей
+        </Button>
+      )}
+    </>
   );
 };
 

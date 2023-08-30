@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'; // подключает хук �
 import './Button.scss';
 
 const Button = ({
-  children, className = '', theme = 'accent', onClick = () => {}, to = '', submit, link, disabled,
+  children, className = '', theme = 'accent', onClick = () => {}, to = '', submit, link, disabled, innerRef
 }) => {
   const navigate = useNavigate(); // хук для использования программной навигации
 
@@ -13,6 +13,7 @@ const Button = ({
       type={submit ? 'submit' : 'button'}
       onClick={link ? () => { return navigate(to); } : onClick}
       disabled={disabled}
+      ref={innerRef}
     >
       {children}
     </button>
