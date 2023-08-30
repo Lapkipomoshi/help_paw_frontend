@@ -199,7 +199,7 @@ const App = () => {
             <Route exact path='/password-recovery' element={<ProtectedRoute condition={!loggedIn} component={PasswordRecovery} />} />
 
             <Route exact path='/activate/:uid/:token/' element={<ActivateUserPage />} />
-            <Route exact path='/password-reset' element={<NewPassword />} />
+            <Route exact path='/password-reset/:uid/:token/' element={<NewPassword />} />
             <Route exact path='/email-reset/:uid/:token/:new_email' element={<ActivateEmailPage onUpdateCurrentUser={setCurrentUser} />} />
 
             <Route path='/profile' element={<ProtectedRoute condition={loggedIn} component={ProfilePage} />} />
