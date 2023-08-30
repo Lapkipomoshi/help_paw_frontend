@@ -18,7 +18,7 @@ const ShelterVacancies = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const { shelter } = useOutletContext();
+  const { shelter, isOwner } = useOutletContext();
 
   useEffect(() => {
     if (!shelter.id) return;
@@ -66,10 +66,11 @@ const ShelterVacancies = () => {
     <section className='shelter-vacancies'>
       <div className='shelter-vacancies__title-container'>
         <h2 className='shelter-vacancies__title standard-font standard-font_type_h2'>Вакансии приюта «{shelter.name}»</h2>
-
-        <Button disabled={isOpenVacancyForm} onClick={toggleVacancyForm}>
-          Добавить вакансию
-        </Button>
+        {isOwner && (
+          <Button disabled={isOpenVacancyForm} onClick={toggleVacancyForm}>
+            Добавить вакансию
+          </Button>
+        )}
       </div>
       <h3 className='standard-font_type_h3 shelter-section__subtitle'>Всего вакансий: {vacanciesList.length}</h3>
       <div className='shelter-vacancies__vacancies-container'>
