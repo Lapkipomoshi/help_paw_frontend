@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useOutletContext, useParams } from 'react-router-dom';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { baseUrl, apiHeaders } from '../../utils/constants';
 import 'swiper/swiper.scss';
 import './PetModule.scss';
 import InfoItem from '../../ui/InfoItem/InfoItem';
@@ -12,25 +13,62 @@ import locationIcon from '../../images/icons/ic_location.svg';
 import slide1 from '../../images/main__banner.png';
 import slide2 from '../../images/main__promo_position_left.jpg';
 import slide3 from '../../images/main__promo_position_right.jpg';
+import Tooltip from '../../ui/Tooltip';
 
 const PetModule = () => {
-
   SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
-  const { id } = useParams(); // id питомца, получаемый из url-адреса текущей страницы
+  const { id: shelterId, petId } = useParams();
   const { shelter } = useOutletContext();
 
   const [pet, setPet] = useState({}); // информация о питомце
 
+  const [isTakedHome, setIsTakedHome] = useState(false);
+  const [popupIsVisible, setPopupIsVisible] = useState(false);
+  const [tooltipIsVisible, setTooltipIsVisible] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${baseUrl}/v1/shelters/${shelterId}/pets/${petId}`, {
+          method: 'GET',
+          headers: apiHeaders,
+        }); // Этот запрос сделан в качестве проверки
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = response.json();
+
+        if (data) {
+          console.log(data); // Нет данных о животных на беке. Приходит пустой массив.
+          setPet(data);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleTakeHomeButtonClick = async () => {
+    setPopupIsVisible(true);
+
+    setIsTakedHome(true); // Инсценировали заявку, обговоренную в чате. В попап прокинем владельца приюта и самого пушистика.
+  };
+
+  const showTooltip = () => {
+    setTooltipIsVisible(true);
+  };
+
+  const hideTooltip = () => {
+    setTooltipIsVisible(false);
+  };
+
   return (
     <section className='shelter-section pet-module'>
       <div className='pet-module__pet-part'>
-        <Swiper
-          spaceBetween={50}
-          slidesPerView={1}
-          navigation
-          loop='true'
-          pagination={{ clickable: true }}
-        >
+        <Swiper spaceBetween={50} slidesPerView={1} navigation loop='true' pagination={{ clickable: true }}>
           <SwiperSlide>
             <img className='pet-swiper__slide-image' src={slide1} alt='' />
           </SwiperSlide>
@@ -68,11 +106,31 @@ const PetModule = () => {
         <div className='pet-module__description-container'>
           <h3 className='standard-font standard-font_type_h3'>Описание</h3>
           <p className='pet-module__description standard-font standard-font_type_body'>
-            Мы подобрали ее на улице, когда она была совсем крохотной.
-            Это очень ласковая игривая кошка. Ее любимая еда это рыба. Любит гулять. Предыдущие хозяева были добры с ней.
+            Мы подобрали ее на улице, когда она была совсем крохотной. Это очень ласковая игривая кошка. Ее любимая еда это рыба. Любит гулять. Предыдущие
+            хозяева были добры с ней.
           </p>
         </div>
-        <Button type='button' onClick={() => {}}>Забрать домой</Button>
+        <div className='pet-module__button-wrapper'>
+          <Button
+            type='button'
+            onClick={handleTakeHomeButtonClick}
+            className={isTakedHome && 'pet-module__button-disabled'}
+            onMouseEnter={() => {
+              if (isTakedHome) showTooltip();
+            }}
+            onMouseLeave={() => {
+              if (isTakedHome) hideTooltip();
+            }}
+          >
+            Забрать домой
+          </Button>
+          {tooltipIsVisible && (
+            <Tooltip>
+              <p className='pet-module__tooltip-paragraph'>Вы уже отправили заявку в приют на этого питомца.</p>
+              <p className='pet-module__tooltip-paragraph'>Посмотреть свою заявку вы можете в Чате, в переписке с владельцем приюта.</p>
+            </Tooltip>
+          )}
+        </div>
       </div>
     </section>
   );
