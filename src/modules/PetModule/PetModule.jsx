@@ -14,6 +14,7 @@ import slide1 from '../../images/main__banner.png';
 import slide2 from '../../images/main__promo_position_left.jpg';
 import slide3 from '../../images/main__promo_position_right.jpg';
 import Tooltip from '../../ui/Tooltip';
+import getPet from './api';
 
 const PetModule = () => {
   SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
@@ -29,40 +30,32 @@ const PetModule = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${baseUrl}/v1/shelters/${shelterId}/pets/${petId}`, {
-          method: 'GET',
-          headers: apiHeaders,
-        }); // Этот запрос сделан в качестве проверки
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = response.json();
-
-        if (data) {
-          console.log(data); // Нет данных о животных на беке. Приходит пустой массив.
-          setPet(data);
-        }
-      } catch (err) {
-        console.log(err);
+        const data = await getPet(shelterId, petId);
+        setPet(data);
+        console.log(data);
+      } catch (error) {
+        console.log(error);
       }
     };
-
     fetchData();
   }, []);
 
-  const handleTakeHomeButtonClick = async () => {
+  const handleTakeHomeButtonClick = () => {
     setPopupIsVisible(true);
 
     setIsTakedHome(true); // Инсценировали заявку, обговоренную в чате. В попап прокинем владельца приюта и самого пушистика.
   };
 
   const showTooltip = () => {
-    setTooltipIsVisible(true);
+    if (isTakedHome) {
+      setTooltipIsVisible(true);
+    }
   };
 
   const hideTooltip = () => {
-    setTooltipIsVisible(false);
+    if (isTakedHome) {
+      setTooltipIsVisible(false);
+    }
   };
 
   return (
@@ -111,25 +104,23 @@ const PetModule = () => {
           </p>
         </div>
         <div className='pet-module__button-wrapper'>
+          {tooltipIsVisible && (
+            <Tooltip className='pet-module__tooltip-container'>
+              <div className='pet-module__tooltip-inner'>
+                <p className='standard-font_type_smallest'>Вы уже отправили заявку в приют на этого питомца.</p>
+                <p className='standard-font_type_smallest'>Посмотреть свою заявку вы можете в Чате, в переписке с владельцем приюта.</p>
+              </div>
+            </Tooltip>
+          )}
           <Button
             type='button'
             onClick={handleTakeHomeButtonClick}
             className={isTakedHome && 'pet-module__button-disabled'}
-            onMouseEnter={() => {
-              if (isTakedHome) showTooltip();
-            }}
-            onMouseLeave={() => {
-              if (isTakedHome) hideTooltip();
-            }}
+            onMouseEnter={showTooltip}
+            onMouseLeave={hideTooltip}
           >
             Забрать домой
           </Button>
-          {tooltipIsVisible && (
-            <Tooltip>
-              <p className='pet-module__tooltip-paragraph'>Вы уже отправили заявку в приют на этого питомца.</p>
-              <p className='pet-module__tooltip-paragraph'>Посмотреть свою заявку вы можете в Чате, в переписке с владельцем приюта.</p>
-            </Tooltip>
-          )}
         </div>
       </div>
     </section>
