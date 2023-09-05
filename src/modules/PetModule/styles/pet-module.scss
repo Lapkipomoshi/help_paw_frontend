@@ -42,19 +42,6 @@
     position: relative;
   }
 
-  &__button-disabled {
-    background-color: var(--color-accent-disabled);
-    cursor: default;
-
-    &:hover {
-      background-color: var(--color-accent-disabled);
-    }
-
-    &:focus {
-      background-color: var(--color-accent-disabled);
-    }
-  }
-
   &__tooltip-container {
     top: -105px;
     left: 220px;

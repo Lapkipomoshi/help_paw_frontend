@@ -115,7 +115,7 @@ const PetModule = () => {
           <Button
             type='button'
             onClick={handleTakeHomeButtonClick}
-            className={isTakedHome && 'pet-module__button-disabled'}
+            className={isTakedHome && 'button_disabled'}
             onMouseEnter={showTooltip}
             onMouseLeave={hideTooltip}
           >
