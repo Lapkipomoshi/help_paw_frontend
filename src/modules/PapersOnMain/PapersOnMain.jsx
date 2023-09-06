@@ -8,7 +8,7 @@ const PapersOnMain = ({ papersList }) => {
   return (
     <MainContainer theme='additional'>
       <section className='papers-on-main'>
-        <h2 className='section-title'>Полезные статьи</h2>
+        <h2 className='section-title standard-font standard-font_type_h2'>Полезные статьи</h2>
         <ul className='papers-on-main__flex-container'>
           {papersList && papersList.length !== 0
             ? papersList.map((card) => {
