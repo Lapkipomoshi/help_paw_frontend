@@ -20,7 +20,7 @@
  * Remove the margin in all browsers.
  */
 
-body {
+body, p {
   margin: 0;
 }
 
@@ -54,6 +54,10 @@ hr {
   box-sizing: content-box; /* 1 */
   height: 0; /* 1 */
   overflow: visible; /* 2 */
+}
+
+div {
+  box-sizing: border-box;
 }
 
 /**

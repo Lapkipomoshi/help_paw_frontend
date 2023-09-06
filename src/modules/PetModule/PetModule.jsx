@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useOutletContext, useParams } from 'react-router-dom';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { baseUrl, apiHeaders } from '../../utils/constants';
 import 'swiper/swiper.scss';
 import './PetModule.scss';
 import InfoItem from '../../ui/InfoItem/InfoItem';
@@ -12,25 +13,55 @@ import locationIcon from '../../images/icons/ic_location.svg';
 import slide1 from '../../images/main__banner.png';
 import slide2 from '../../images/main__promo_position_left.jpg';
 import slide3 from '../../images/main__promo_position_right.jpg';
+import Tooltip from '../../ui/Tooltip';
+import getPet from './api';
 
 const PetModule = () => {
-
   SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
-  const { id } = useParams(); // id питомца, получаемый из url-адреса текущей страницы
+  const { id: shelterId, petId } = useParams();
   const { shelter } = useOutletContext();
 
   const [pet, setPet] = useState({}); // информация о питомце
 
+  const [isTakedHome, setIsTakedHome] = useState(false);
+  const [popupIsVisible, setPopupIsVisible] = useState(false);
+  const [tooltipIsVisible, setTooltipIsVisible] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getPet(shelterId, petId);
+        setPet(data);
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const handleTakeHomeButtonClick = () => {
+    setPopupIsVisible(true);
+
+    setIsTakedHome(true); // Инсценировали заявку, обговоренную в чате. В попап прокинем владельца приюта и самого пушистика.
+  };
+
+  const showTooltip = () => {
+    if (isTakedHome) {
+      setTooltipIsVisible(true);
+    }
+  };
+
+  const hideTooltip = () => {
+    if (isTakedHome) {
+      setTooltipIsVisible(false);
+    }
+  };
+
   return (
     <section className='shelter-section pet-module'>
       <div className='pet-module__pet-part'>
-        <Swiper
-          spaceBetween={50}
-          slidesPerView={1}
-          navigation
-          loop='true'
-          pagination={{ clickable: true }}
-        >
+        <Swiper spaceBetween={50} slidesPerView={1} navigation loop='true' pagination={{ clickable: true }}>
           <SwiperSlide>
             <img className='pet-swiper__slide-image' src={slide1} alt='' />
           </SwiperSlide>
@@ -68,11 +99,29 @@ const PetModule = () => {
         <div className='pet-module__description-container'>
           <h3 className='standard-font standard-font_type_h3'>Описание</h3>
           <p className='pet-module__description standard-font standard-font_type_body'>
-            Мы подобрали ее на улице, когда она была совсем крохотной.
-            Это очень ласковая игривая кошка. Ее любимая еда это рыба. Любит гулять. Предыдущие хозяева были добры с ней.
+            Мы подобрали ее на улице, когда она была совсем крохотной. Это очень ласковая игривая кошка. Ее любимая еда это рыба. Любит гулять. Предыдущие
+            хозяева были добры с ней.
           </p>
         </div>
-        <Button type='button' onClick={() => {}}>Забрать домой</Button>
+        <div className='pet-module__button-wrapper'>
+          {tooltipIsVisible && (
+            <Tooltip className='pet-module__tooltip-container'>
+              <div className='pet-module__tooltip-inner'>
+                <p className='standard-font_type_smallest'>Вы уже отправили заявку в приют на этого питомца.</p>
+                <p className='standard-font_type_smallest'>Посмотреть свою заявку вы можете в Чате, в переписке с владельцем приюта.</p>
+              </div>
+            </Tooltip>
+          )}
+          <Button
+            type='button'
+            onClick={handleTakeHomeButtonClick}
+            className={isTakedHome && 'button_disabled'}
+            onMouseEnter={showTooltip}
+            onMouseLeave={hideTooltip}
+          >
+            Забрать домой
+          </Button>
+        </div>
       </div>
     </section>
   );
