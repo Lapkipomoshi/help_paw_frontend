@@ -23,7 +23,7 @@ const ShelterSamePets = () => {
   return (
     <section className='shelter-section shelter-same-pets'>
       <Link className='shelter-same-pets__link' to='../pets'>
-        Назад
+        &#8592; Вернуться назад
       </Link>
       <h2 className='shelter-section__title'>Наши животные</h2>
       {pets && pets.length !== 0 ? (
