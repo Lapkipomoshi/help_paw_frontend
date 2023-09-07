@@ -21,7 +21,7 @@ const NewBigCard = ({
             <p className='new-big-card__info'>{shelter.name}</p>
           </div>
         </div>
-        <h3 className='new-big-card__header'>{header}</h3>
+        <h3 className='standard-font standard-font_type_h3 new-big-card__header'>{header}</h3>
         <p className='new-big-card__text'>{description}</p>
       </div>
     </Link>
