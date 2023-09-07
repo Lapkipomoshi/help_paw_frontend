@@ -4,15 +4,17 @@
 
   &__pet-part {
     display: flex;
-    width: 847px;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    row-gap: 40px;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__preview {
+    display: flex;
+    gap: 44px;
   }
 
   &__info-container {
     display: flex;
-    width: 368px;
     flex-direction: column;
   }
 
@@ -29,11 +31,12 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
+    gap: 44px;
   }
 
   &__description-container {
     display: flex;
-    width: 100;
+    width: 820px;
     flex-direction: column;
     row-gap: 20px;
   }
