@@ -101,14 +101,14 @@ const PetModule = () => {
               <div className='pet-additional-info-card'>
                 <img className='pet-additional-info-card__shelter-info-image' src={clockIcon} alt='срок содержания' />
                 <div className='pet-additional-info-card__text-container'>
-                  <p className='standard-font standard-font_type_bode'>{renderLoadingOrValue(isLoadingReq, sheltering_time >= 0 ? sheltering_time : '~')}</p>
+                  <p className='standard-font standard-font_type_body'>{renderLoadingOrValue(isLoadingReq, sheltering_time >= 0 ? sheltering_time : '~')}</p>
                   <p className='pet-additional-info-card__secondary-string standard-font standard-font_type_small'>В приюте</p>
                 </div>
               </div>
               <div className='pet-additional-info-card'>
                 <img className='pet-additional-info-card__shelter-info-image' src={locationIcon} alt='место расположения' />
                 <div className='pet-additional-info-card__text-container'>
-                  <p className='standard-font standard-font_type_bode'>{shelter.name}</p>
+                  <p className='standard-font standard-font_type_body'>{shelter.name}</p>
                   <p className='pet-additional-info-card__secondary-string standard-font standard-font_type_small'>{shelter.address}</p>
                 </div>
               </div>
