@@ -1,19 +1,14 @@
 /* eslint-disable no-unused-vars */ // удалить, когда подключат api
 import React, { useEffect, useState } from 'react';
 import { useOutletContext, useParams } from 'react-router-dom';
-
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import { InfoItem, Button, Tooltip } from '../../ui';
-
 import { clockIcon, locationIcon, slide1, slide2, slide3 } from '../../images';
-
 import getPet from './api';
-
+import generateKey from '../../utils/getUniqueKey';
 import 'swiper/swiper.scss';
 import './PetModule.scss';
-import generateKey from '../../utils/getUniqueKey';
 
 const PetModule = () => {
   SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
@@ -36,7 +31,6 @@ const PetModule = () => {
         const pet = await getPet(shelterId, petId);
         setPet(pet);
         setIsLoadingReq(false);
-        console.log(pet);
       } catch (err) {
         setIsLoadingReq(false);
         setError(err); // Можно вывести модалочку с ошибкой
