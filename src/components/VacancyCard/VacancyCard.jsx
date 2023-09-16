@@ -18,11 +18,11 @@ const VacancyCard = ({ title, salary, schedule, description, education, isLoadin
 
         {isOwner && (
           <>
-            {/* TODO  <EditIcon /> функционал реализую в след PR */}
+            {/* TODO  <EditIcon /> нет функционала */}
             <button type='button' className='vacancy-card__icon-button vacancy-card__icon-button_edit'>
               <EditIcon />
             </button>
-            {/* TODO DeleteIcon функционал реализую в след PR */}
+            {/* TODO DeleteIcon нет функционала */}
             <button type='button' className='vacancy-card__icon-button vacancy-card__title-button_delete'>
               <DeleteIcon />
             </button>

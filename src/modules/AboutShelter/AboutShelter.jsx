@@ -9,8 +9,6 @@ import EditIcon from '../../images/EditIcon/EditIcon';
 import DeleteIcon from '../../images/DeleteIcon/DeleteIcon';
 import ShelterOwnerStatistics from '../ShelterOwnerStatistics/ShelterOwnerStatistics';
 
-// TODO переделать названия классов (объединить?), не совсем понятно, по какому принципу about-shelter, shelter-info
-
 const AboutShelter = () => {
   const { shelter, isOwner, isLoading } = useOutletContext();
 

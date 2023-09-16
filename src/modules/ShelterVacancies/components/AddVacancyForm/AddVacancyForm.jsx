@@ -38,7 +38,7 @@ const AddVacancyForm = ({ onChange, onSubmitSuccess }) => {
     onChange();
   };
 
-  // TODO написать api для отправки формы как только починят бек
+  // TODO подключить запрос к бэку
   const handleSubmit = (evt) => {
     evt.preventDefault();
     console.log('submit');

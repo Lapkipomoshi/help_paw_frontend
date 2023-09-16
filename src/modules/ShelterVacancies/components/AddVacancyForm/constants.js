@@ -1,6 +1,6 @@
 export const defaultFormValues = { position: '', salary: null, is_ndfl: [], schedule: [], education: [], description: '' };
 
-// TODO бэк сказал сделал эндпоинты для селектов, пока замокала, жду как починят бек
+// TODO подключить бэк, эндпоинт для получения есть, пока замокано
 export const shiftOptions = [
   { label: 'Полный день', id: 'slug1' },
   { label: 'Сменный', id: 'slug2' },
