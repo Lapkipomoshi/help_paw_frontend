@@ -7,7 +7,7 @@ const Faq = ({ faqList }) => {
   return (
     <MainContainer base='additional'>
       <section className='faq' id='faq'>
-        <h2 className='section-title'>Часто задаваемые вопросы</h2>
+        <h2 className='section-title standard-font standard-font_type_h2'>Часто задаваемые вопросы</h2>
         <ul className='faq__list'>
           {faqList && faqList.length !== 0 ? (
             // список карточек с часто задаваемыми вопросами

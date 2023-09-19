@@ -10,6 +10,16 @@ import generateKey from '../../utils/getUniqueKey';
 import 'swiper/swiper.scss';
 import './PetModule.scss';
 
+import InfoItem from '../../ui/InfoItem/InfoItem';
+import Button from '../../ui/Button/Button';
+import clockIcon from '../../images/icons/ic_clock.svg';
+import locationIcon from '../../images/icons/ic_location.svg';
+import slide1 from '../../images/main__banner.png';
+import slide2 from '../../images/main__promo_position_left.jpg';
+import slide3 from '../../images/main__promo_position_right.jpg';
+import Tooltip from '../../ui/Tooltip/Tooltip';
+import getPet from './api';
+
 const PetModule = () => {
   SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
   const { id: shelterId, petId } = useParams();
@@ -126,8 +136,8 @@ const PetModule = () => {
           {tooltipIsVisible && (
             <Tooltip className='pet-module__tooltip-container'>
               <div className='pet-module__tooltip-inner'>
-                <p className='standard-font_type_smallest'>Вы уже отправили заявку в приют на этого питомца.</p>
-                <p className='standard-font_type_smallest'>Посмотреть свою заявку вы можете в Чате, в переписке с владельцем приюта.</p>
+                <p className='standard-font standard-font_type_smallest'>Вы уже отправили заявку в приют на этого питомца.</p>
+                <p className='standard-font standard-font_type_smallest'>Посмотреть свою заявку вы можете в Чате, в переписке с владельцем приюта.</p>
               </div>
             </Tooltip>
           )}
