@@ -5,6 +5,7 @@
     height: 283px;
     border-radius: 30px;
     overflow: hidden;
+    margin: 0;
   }
 
   .pet-swiper__slide-image {
@@ -49,7 +50,7 @@
     width: 100%;
     text-align: center;
     z-index: 2;
-}
+  }
 
   .swiper-pagination-bullet {
     display: inline-block;
