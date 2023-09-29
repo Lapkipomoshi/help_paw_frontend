@@ -10,16 +10,6 @@ import generateKey from '../../utils/getUniqueKey';
 import 'swiper/swiper.scss';
 import './PetModule.scss';
 
-import InfoItem from '../../ui/InfoItem/InfoItem';
-import Button from '../../ui/Button/Button';
-import clockIcon from '../../images/icons/ic_clock.svg';
-import locationIcon from '../../images/icons/ic_location.svg';
-import slide1 from '../../images/main__banner.png';
-import slide2 from '../../images/main__promo_position_left.jpg';
-import slide3 from '../../images/main__promo_position_right.jpg';
-import Tooltip from '../../ui/Tooltip/Tooltip';
-import getPet from './api';
-
 const PetModule = () => {
   SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
   const { id: shelterId, petId } = useParams();
