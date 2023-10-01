@@ -55,4 +55,15 @@
     flex-direction: column;
     gap: 8px;
   }
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &-right {
+      display: flex;
+      flex-direction: row;
+    }
+  }
 }

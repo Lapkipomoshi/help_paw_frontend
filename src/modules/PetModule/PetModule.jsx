@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */ // удалить, когда подключат api
 import React, { useEffect, useState } from 'react';
-import { useOutletContext, useParams } from 'react-router-dom';
+import { useOutletContext, useParams, Link } from 'react-router-dom';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { InfoItem, Button, Tooltip } from '../../ui';
 import { clockIcon, locationIcon, slide1, slide2, slide3 } from '../../images';
+import EditIcon from '../../images/EditIcon/EditIcon';
+import DeleteIcon from '../../images/DeleteIcon/DeleteIcon';
 import getPet from './api';
 import generateKey from '../../utils/getUniqueKey';
 import 'swiper/swiper.scss';
@@ -13,7 +15,7 @@ import './PetModule.scss';
 const PetModule = () => {
   SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
   const { id: shelterId, petId } = useParams();
-  const { shelter } = useOutletContext();
+  const { shelter, isOwner } = useOutletContext();
 
   const [{ name, age, breed, gallery, sex, sheltering_time }, setPet] = useState({}); // информация о питомце
 
@@ -90,7 +92,23 @@ const PetModule = () => {
             )}
           </Swiper>
           <div className='pet-module__info-container'>
-            <h2 className='standard-font standard-font_type_h2'>{renderLoadingOrValue(isLoadingReq, name || 'Безымянный')}</h2>
+            <div className='pet-module__top'>
+              <h2 className='standard-font standard-font_type_h2'>{renderLoadingOrValue(isLoadingReq, name || 'Безымянный')}</h2>
+              <div className='pet-module__top-right'>
+                {isOwner && (
+                  <>
+                    {/* TODO  <EditPenIcon /> ведет на 6.2.1.17 в фигме, оно пока не реализовано (либо я не нашел его) */}
+                    <Link to='/' className='about-shelter__icon-button about-shelter__icon-button_edit'>
+                      <EditIcon />
+                    </Link>
+                    {/* TODO  при нажатии попап как на 6.2.1.15 в фигме, попап не сверстан (либо я не нашел его) */}
+                    <button type='button' className='about-shelter__icon-button about-shelter__title-button_delete'>
+                      <DeleteIcon />
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
             <ul className='pet-module__info-list'>
               {/* eslint-disable-next-line no-nested-ternary */}
               <InfoItem argument='Пол'>{renderLoadingOrValue(isLoadingReq, sex ? (sex === 'male' ? 'Мальчик' : 'Девочка') : '~')}</InfoItem>
