@@ -30,7 +30,6 @@ const VacancyCard = ({ title, salary, schedule, description, education, isLoadin
         )}
       </div>
       <p className='vacancy-card__text'>{`ЗП: ${salary}`}</p>
-      {/* <p className='vacancy-card__text'>{`График работы: ${schedule}`}</p> */}
       <p className='vacancy-card__text'>{`График работы: ${schedule.map((item) => { return item.name; }).join(', ')}`}</p>
       <p className='vacancy-card__text'>{`Образование: ${education.name}`}</p>
       <p className='vacancy-card__text'>{`Обязанности: ${description}`}</p>
