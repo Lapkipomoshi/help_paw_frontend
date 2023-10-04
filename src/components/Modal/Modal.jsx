@@ -5,7 +5,7 @@ import { Button } from '../../ui';
 import PrivacyCheckbox from '../PrivacyCheckbox/PrivacyCheckbox';
 import EscapeIcon from '../../images/EscapeIcon/EscapeIcon';
 
-const Modal = ({ descrText, onClose  }) => {
+const Modal = ({ descrText, onClose, handleTakePet }) => {
   const createInputState = (initialValue = '', allowText = true) => {
     const [inputState, setInputState] = useState({
       value: initialValue,
@@ -43,77 +43,61 @@ const Modal = ({ descrText, onClose  }) => {
 
   const handleTakeHomeButtonClick = () => {
     setIsModalOpen(false);
+    handleTakePet();
   };
 
   const isSubmitButtonEnabled = () => {
-    return (
-      nameInputState.value.trim() !== '' &&
-      phoneInputState.value.trim() !== '' &&
-      emailInputState.value.trim() !== '' &&
-      isPrivacyChecked
-    );
+    return nameInputState.value.trim() !== '' && phoneInputState.value.trim() !== '' && emailInputState.value.trim() !== '' && isPrivacyChecked;
   };
 
-  return isModalOpen && (
-    <div className='modal-overlay'>
-      <div className='wrapper'>
-        {/* <EscapeIcon onClick={handleTakeHomeButtonClick} /> */}
-        <EscapeIcon onClick={() => {
-          setIsModalOpen(false);
-          onClose(); // Добавьте вызов onClose, чтобы установить isApplicationSent в true при закрытии по иконке
-        }} />
-        <div className='modal'>
-          <div className='modal__title standard-font standard-font_type_h3'>
-            Оставьте заявку и приют с вами свяжется
-          </div>
-          <div className='modal__descr standard-font standard-font_type_small'>
-            {descrText}
-          </div>
-          <DeclarationInput
-            caption='Имя'
-            inputState={nameInputState}
-            type='text'
-            name='name'
-            required
-            showError={false}
-          />
-          <DeclarationInput
-            caption='Номер телефона'
-            inputState={phoneInputState}
-            type='tel'
-            name='phone'
-            placeholder='+7 (999) 999-99-99'
-            required
-            showError={false}
-          />
-          <DeclarationInput
-            caption='E-mail'
-            inputState={emailInputState}
-            type='email'
-            name='email'
-            placeholder='email@email.com'
-            required
-            showError={false}
-          />
-          <PrivacyCheckbox
-            isChecked={isPrivacyChecked}
-            onChange={(isChecked) => {
-              setIsPrivacyChecked(isChecked);
+  return (
+    isModalOpen && (
+      <div className='modal-overlay'>
+        <div className='wrapper'>
+          {/* <EscapeIcon onClick={handleTakeHomeButtonClick} /> */}
+          <EscapeIcon
+            onClick={() => {
+              setIsModalOpen(false);
+              onClose(); // Добавьте вызов onClose, чтобы установить isApplicationSent в true при закрытии по иконке
             }}
           />
-        </div>
-        <div className='btn'>
-          <Button
-            theme='accent'
-            type='button'
-            onClick={handleTakeHomeButtonClick}
-            disabled={!isSubmitButtonEnabled()}
-          >
-            Отправить заявку
-          </Button>
+          <div className='modal'>
+            <div className='modal__title standard-font standard-font_type_h3'>Оставьте заявку и приют с вами свяжется</div>
+            <div className='modal__descr standard-font standard-font_type_small'>{descrText}</div>
+            <DeclarationInput caption='Имя' inputState={nameInputState} type='text' name='name' required showError={false} />
+            <DeclarationInput
+              caption='Номер телефона'
+              inputState={phoneInputState}
+              type='tel'
+              name='phone'
+              placeholder='+7 (999) 999-99-99'
+              required
+              showError={false}
+            />
+            <DeclarationInput
+              caption='E-mail'
+              inputState={emailInputState}
+              type='email'
+              name='email'
+              placeholder='email@email.com'
+              required
+              showError={false}
+            />
+            <PrivacyCheckbox
+              isChecked={isPrivacyChecked}
+              onChange={(isChecked) => {
+                setIsPrivacyChecked(isChecked);
+              }}
+            />
+          </div>
+          <div className='btn'>
+            <Button theme='accent' type='button' onClick={handleTakeHomeButtonClick} disabled={!isSubmitButtonEnabled()}>
+              Отправить заявку
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
+    )
   );
 };
 

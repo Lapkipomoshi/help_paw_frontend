@@ -47,7 +47,7 @@ const PetModule = () => {
   const handleTakeHomeButtonClick = () => {
     setPopupIsVisible(true);
     setIsModalOpen(true);
-    setIsTakedHome(true); // Инсценировали заявку, обговоренную в чате. В попап прокинем владельца приюта и самого пушистика.
+    // setIsTakedHome(true); // Инсценировали заявку, обговоренную в чате. В попап прокинем владельца приюта и самого пушистика.
   };
 
   const showTooltip = () => {
@@ -143,11 +143,14 @@ const PetModule = () => {
           </p>
         </div>
         <div className='pet-module__button-wrapper'>
-          {isModalOpen  && (
+          {isModalOpen && (
             <Modal
               descrText='Чтобы выгулять питомца, заполните, пожалуйста, контактные данные и приют свяжется с вами'
               onClose={() => {
                 setIsModalOpen(false);
+              }}
+              handleTakePet={() => {
+                setIsTakedHome(true);
               }}
             />
           )}
@@ -160,7 +163,7 @@ const PetModule = () => {
           >
             Забрать домой
           </Button>
-          {tooltipIsVisible  && (
+          {tooltipIsVisible && (
             <Tooltip className='pet-module__tooltip-container'>
               <div className='pet-module__tooltip-inner'>
                 <p className='standard-font standard-font_type_smallest'>Вы уже отправили заявку в приют на этого питомца.</p>
