@@ -29,25 +29,9 @@ const NewsSection = ({ shelterId = null }) => {
       });
   };
 
-  const setShelterNews = () => {
-    if (app.shelterNewsById && app.shelterNewsById[shelterId]) {
-      setNewsList(app.shelterNewsById[shelterId]);
-    } else {
-      fetchNews(shelterId);
-    }
-  };
-
-  const setPortalNews = () => {
-    if (app.portalNews) {
-      setNewsList(app.portalNews);
-    } else {
-      fetchNews(null);
-    }
-  };
-
   useEffect(() => {
-    shelterId ? setShelterNews() : setPortalNews();
-  }, []);
+    fetchNews(shelterId);
+  }, [shelterId]);
 
   return (
     <div className='news-section'>
