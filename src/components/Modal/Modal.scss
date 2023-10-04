@@ -1,0 +1,38 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.32);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.wrapper {
+  padding: 52px 32px;
+  width: 482px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  background-color: white;
+  border-radius: 30px;
+  position: relative;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+
+  &__title {
+    color: var(--color-text-base);
+  }
+
+  &__descr {
+    color: var(--color-text-additional);
+  }
+}
