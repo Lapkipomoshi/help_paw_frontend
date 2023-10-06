@@ -60,7 +60,7 @@ const Select = ({ label, onChange, options, id: selectId, isMulti, required }) =
       <label className='select__label standard-font_type_small'>{label}</label>
 
       <div className='select__container'>
-        {/* TODO после того, как дизайнер отрисует какие должны быть изменения внешнего вида селекта после выбора 
+        {/* TODO после того, как дизайнер отрисует какие должны быть изменения внешнего вида селекта после выбора
         большогого количества вариантов, добавить изменения в css. макет 6.2.2.17 */}
         <div className='select__selected-items-container'>
           <ul className='select__selected-items-list'>

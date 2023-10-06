@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */ // удалить, когда подключат api
 import React, { useEffect, useState } from 'react';
-import { useOutletContext, useParams } from 'react-router-dom';
+import { useOutletContext, useParams, Link } from 'react-router-dom';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { InfoItem, Button, Tooltip } from '../../ui';
+import Modal from '../../components/Modal/Modal';
 import { clockIcon, locationIcon, slide1, slide2, slide3 } from '../../images';
+import EditIcon from '../../images/EditIcon/EditIcon';
+import DeleteIcon from '../../images/DeleteIcon/DeleteIcon';
 import getPet from './api';
 import generateKey from '../../utils/getUniqueKey';
 import 'swiper/swiper.scss';
@@ -13,7 +16,7 @@ import './PetModule.scss';
 const PetModule = () => {
   SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
   const { id: shelterId, petId } = useParams();
-  const { shelter } = useOutletContext();
+  const { shelter, isOwner } = useOutletContext();
 
   const [{ name, age, breed, gallery, sex, sheltering_time }, setPet] = useState({}); // информация о питомце
 
@@ -24,6 +27,8 @@ const PetModule = () => {
   const [isLoadingReq, setIsLoadingReq] = useState(false);
   const [error, setError] = useState(null);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -33,7 +38,7 @@ const PetModule = () => {
         setIsLoadingReq(false);
       } catch (err) {
         setIsLoadingReq(false);
-        setError(err); // Можно вывести модалочку с ошибкой
+        setError(err);
       }
     };
     fetchData();
@@ -41,8 +46,8 @@ const PetModule = () => {
 
   const handleTakeHomeButtonClick = () => {
     setPopupIsVisible(true);
-
-    setIsTakedHome(true); // Инсценировали заявку, обговоренную в чате. В попап прокинем владельца приюта и самого пушистика.
+    setIsModalOpen(true);
+    // setIsTakedHome(true); // Инсценировали заявку, обговоренную в чате. В попап прокинем владельца приюта и самого пушистика.
   };
 
   const showTooltip = () => {
@@ -57,7 +62,6 @@ const PetModule = () => {
     }
   };
 
-  // Функция для отображения текста загрузки или значения
   const renderLoadingOrValue = (isLoading, value) => {
     return isLoading ? 'Загрузка...' : value;
   };
@@ -90,7 +94,23 @@ const PetModule = () => {
             )}
           </Swiper>
           <div className='pet-module__info-container'>
-            <h2 className='standard-font standard-font_type_h2'>{renderLoadingOrValue(isLoadingReq, name || 'Безымянный')}</h2>
+            <div className='pet-module__top'>
+              <h2 className='standard-font standard-font_type_h2'>{renderLoadingOrValue(isLoadingReq, name || 'Безымянный')}</h2>
+              <div className='pet-module__top-right'>
+                {isOwner && (
+                  <>
+                    {/* TODO  <EditPenIcon /> ведет на 6.2.1.17 в фигме, оно пока не реализовано (либо я не нашел его) */}
+                    <Link to='/' className='about-shelter__icon-button about-shelter__icon-button_edit'>
+                      <EditIcon />
+                    </Link>
+                    {/* TODO  при нажатии попап как на 6.2.1.15 в фигме, попап не сверстан (либо я не нашел его) */}
+                    <button type='button' className='about-shelter__icon-button about-shelter__title-button_delete'>
+                      <DeleteIcon />
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
             <ul className='pet-module__info-list'>
               {/* eslint-disable-next-line no-nested-ternary */}
               <InfoItem argument='Пол'>{renderLoadingOrValue(isLoadingReq, sex ? (sex === 'male' ? 'Мальчик' : 'Девочка') : '~')}</InfoItem>
@@ -123,13 +143,16 @@ const PetModule = () => {
           </p>
         </div>
         <div className='pet-module__button-wrapper'>
-          {tooltipIsVisible && (
-            <Tooltip className='pet-module__tooltip-container'>
-              <div className='pet-module__tooltip-inner'>
-                <p className='standard-font standard-font_type_smallest'>Вы уже отправили заявку в приют на этого питомца.</p>
-                <p className='standard-font standard-font_type_smallest'>Посмотреть свою заявку вы можете в Чате, в переписке с владельцем приюта.</p>
-              </div>
-            </Tooltip>
+          {isModalOpen && (
+            <Modal
+              descrText='Чтобы выгулять питомца, заполните, пожалуйста, контактные данные и приют свяжется с вами'
+              onClose={() => {
+                setIsModalOpen(false);
+              }}
+              handleTakePet={() => {
+                setIsTakedHome(true);
+              }}
+            />
           )}
           <Button
             type='button'
@@ -140,6 +163,14 @@ const PetModule = () => {
           >
             Забрать домой
           </Button>
+          {tooltipIsVisible && (
+            <Tooltip className='pet-module__tooltip-container'>
+              <div className='pet-module__tooltip-inner'>
+                <p className='standard-font standard-font_type_smallest'>Вы уже отправили заявку в приют на этого питомца.</p>
+                <p className='standard-font standard-font_type_smallest'>Посмотреть свою заявку вы можете в Чате, в переписке с владельцем приюта.</p>
+              </div>
+            </Tooltip>
+          )}
         </div>
       </div>
     </section>
