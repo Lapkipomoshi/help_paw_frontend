@@ -5,13 +5,17 @@ import DeclarationInput from '../../../../ui/DeclarationInput/DeclarationInput';
 import Select from '../../../../ui/Select/Select';
 import * as regex from '../../../../utils/regex';
 import * as errorMessage from '../../../../utils/errorMessage';
-import { defaultFormValues, shiftOptions, salaryOptions, educationOptions } from './constants';
+// import { defaultFormValues, shiftOptions, salaryOptions, educationOptions } from './constants';
+import { defaultFormValues, getShiftOptions, getSalaryOptions, getEducationOptions } from './constants';
 import FormActionButtons from './components/FormActionButtons';
 import FormTextarea from './components/FormTextarea';
 import PrivacyCheckbox from '../../../../components/PrivacyCheckbox/PrivacyCheckbox';
 
 const AddVacancyForm = ({ onChange, onSubmitSuccess }) => {
   const [formValues, setFormValues] = useState(defaultFormValues);
+  const [shiftOptions, setShiftOptions] = useState([]);
+  const [educationOptions, setEducationOptions] = useState([]);
+  const [salaryOptions, setSalaryOptions] = useState([]);
 
   const jobTitleInput = useInput('', { notEmpty: true, maxLength: 30, regex: regex.NAME_REGEX }, errorMessage.VACANCY_NAME);
   const salaryInput = useInput('', { notEmpty: true, maxLength: 12, regex: regex.NUMBER }, errorMessage.VACANCY_SALARY);
@@ -65,7 +69,28 @@ const AddVacancyForm = ({ onChange, onSubmitSuccess }) => {
     });
   }, [salaryInput.value, jobTitleInput.value]);
 
+  useEffect(() => {
+    const fetchOptions = async () => {
+      const fetchedShiftOptions = await getShiftOptions();
+      const fetchedEducationOptions = await getEducationOptions();
+      const fetchedSalaryOptions = await getSalaryOptions();
+      if (fetchedShiftOptions) {
+        setShiftOptions(fetchedShiftOptions);
+      }
+      if (fetchedEducationOptions) {
+        setEducationOptions(fetchedEducationOptions);
+      }
+      if (fetchedSalaryOptions) {
+        setSalaryOptions(fetchedSalaryOptions);
+      }
+    };
+    fetchOptions();
+  }, []);
+
   const handleSelectChange = (id, selected) => {
+    console.log('Selected id:', id);
+    console.log('Selected value:', selected);
+
     setFormValues((prevValues) => {
       return {
         ...prevValues,
@@ -85,15 +110,20 @@ const AddVacancyForm = ({ onChange, onSubmitSuccess }) => {
       </div>
 
       <div className='add-vacancy-form__flex-container'>
-        <Select label='График работы*' onChange={handleSelectChange} options={shiftOptions} id='schedule' isMulti required />
+        {/* <Select label='График работы*' onChange={handleSelectChange} options={shiftOptions} id='schedule' isMulti required /> */}
+        {shiftOptions.length > 0 && (
+          <Select label='График работы*' onChange={handleSelectChange} options={shiftOptions} id='schedule' isMulti required />
+        )}
 
         <Select label='Образование*' onChange={handleSelectChange} options={educationOptions} id='education' isMulti={false} required />
       </div>
 
       <FormTextarea jobDescriptionInput={jobDescriptionInput} handleDescriptionChange={handleDescriptionChange} />
 
-      <PrivacyCheckbox onClick={toggleCheckbox} />
+      {/* <PrivacyCheckbox onClick={toggleCheckbox} /> */}
+      <PrivacyCheckbox onChange={toggleCheckbox} />
 
+      {/* <FormActionButtons isSubmitButtonDisabled={isSubmitButtonDisabled} onClick={handleCancelClick} onSubmitSuccess={onSubmitSuccess} /> */}
       <FormActionButtons isSubmitButtonDisabled={isSubmitButtonDisabled} onClick={handleCancelClick} onSubmitSuccess={onSubmitSuccess} />
     </form>
   );

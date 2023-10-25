@@ -13,16 +13,16 @@ const Select = ({ label, onChange, options, id: selectId, isMulti, required }) =
   const [selected, setSelected] = useState([]);
   const selectRef = useRef(null);
 
-  const addSelectedItem = (id) => {
-    const newSelected = isMulti ? [...selected, id] : [id];
+  const addSelectedItem = (slug) => {
+    const newSelected = isMulti ? [...selected, slug] : [slug];
     setSelected(newSelected);
 
     onChange(selectId, newSelected);
   };
 
-  const deleteSelectedItem = (id) => {
+  const deleteSelectedItem = (slug) => {
     const newSelected = selected.filter((item) => {
-      return item !== id;
+      return item !== slug;
     });
 
     setSelected(newSelected);
@@ -39,12 +39,13 @@ const Select = ({ label, onChange, options, id: selectId, isMulti, required }) =
     }
   };
 
-  const handleDeleteItem = (id) => {
-    deleteSelectedItem(id);
+  const handleDeleteItem = (slug) => {
+    deleteSelectedItem(slug);
   };
 
   const selectedOptions = options.filter((item) => {
-    return selected.includes(item.id);
+    return selected.includes(item.slug);
+    // return selected.includes(item.id);
   });
 
   useOutsideClick(selectRef, () => {
@@ -67,13 +68,13 @@ const Select = ({ label, onChange, options, id: selectId, isMulti, required }) =
             {selectedOptions.length !== 0 &&
               selectedOptions.map((item) => {
                 return (
-                  <li className='select__selected-item-container' key={item.id}>
-                    <p className='select__selected-item standard-font_type_smallest'>{item.label}</p>
+                  <li className='select__selected-item-container' key={item.slug}>
+                    <p className='select__selected-item standard-font_type_smallest'>{item.name}</p>
                     <button
                       className='select__selected-item-delete'
                       type='button'
                       onClick={() => {
-                        handleDeleteItem(item.id);
+                        handleDeleteItem(item.slug);
                       }}
                     />
                   </li>

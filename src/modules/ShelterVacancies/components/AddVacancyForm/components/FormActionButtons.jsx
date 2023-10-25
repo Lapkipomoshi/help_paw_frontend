@@ -9,7 +9,8 @@ const FormActionButtons = ({ isSubmitButtonDisabled, onClick, onSubmitSuccess })
 
   return (
     <div className='add-shelter-form__submit-buttons'>
-      <Button submit disabled={isSubmitButtonDisabled} onClick={handleSubmit} onSubmitSuccess={onSubmitSuccess}>
+      {/* <Button submit disabled={isSubmitButtonDisabled} onClick={handleSubmit} onSubmitSuccess={onSubmitSuccess}> */}
+      <Button submit disabled={isSubmitButtonDisabled} onClick={handleSubmit}>
         Добавить вакансию
       </Button>
       <Button onClick={onClick}>Отменить</Button>
