@@ -1,7 +1,7 @@
 import React from 'react';
 import './Select.scss';
 
-const OptionList = ({ options, isMulti, required, onSelectChange, selected }) => {
+const OptionList = ({ options, isMulti, onSelectChange, selected }) => {
   return options.map((option) => {
     return (
       <li className='select__checkboxes-item' key={option.slug}>
@@ -14,7 +14,6 @@ const OptionList = ({ options, isMulti, required, onSelectChange, selected }) =>
             id={option.slug}
             onChange={onSelectChange}
             checked={selected.includes(option.slug)}
-            required={required}
           />
 
           {option.name}

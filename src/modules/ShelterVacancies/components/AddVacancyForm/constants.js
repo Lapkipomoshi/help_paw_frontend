@@ -1,4 +1,6 @@
-export const defaultFormValues = { position: '', salary: null, is_ndfl: [], schedule: [], education: [], description: '' };
+import { baseUrl } from '../../../../utils/constants';
+
+export const defaultFormValues = { position: '', salary: null, is_ndfl: '', schedule: [], education: '', description: '' };
 
 export const fetchDataFromBackend = async (url) => {
   try {
@@ -9,23 +11,23 @@ export const fetchDataFromBackend = async (url) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Error fetching data from backend:', error);
+    // console.error('Error fetching data from backend:', error);
     return null;
   }
 };
 
 export const getShiftOptions = async () => {
-  const url = 'http://194.58.109.129/api/v1/schedules/';
+  const url = `${baseUrl}/v1/schedules/`;
   return fetchDataFromBackend(url);
 };
 
 export const getEducationOptions = async () => {
-  const url = 'http://194.58.109.129/api/v1/educations/';
+  const url = `${baseUrl}/v1/educations/`;
   return fetchDataFromBackend(url);
 };
 
 export const getSalaryOptions = async () => {
-  const url = 'http://194.58.109.129/api/v1/vacancies';
+  const url = `${baseUrl}/v1/vacancies`;
   const data = await fetchDataFromBackend(url);
   if (!data) {
     return [];

@@ -11,9 +11,8 @@ export const getToken = async (email, password) => {
       body: JSON.stringify({ email, password }),
     });
     const data = await response.json();
-    return data.access; // Предполагается, что сервер возвращает токен в поле 'token'
+    return data.access;
   } catch (error) {
-    console.error('Ошибка при получении токена', error);
     throw new Error('Ошибка при получении токена');
   }
 };
@@ -30,25 +29,8 @@ export const sendDataWithToken = async (access, formData) => {
       body: JSON.stringify(formData),
     });
     const data = await response.json();
-    return data; // Возвращаемые данные с сервера
+    return data;
   } catch (error) {
-    console.error('Ошибка при отправке данных на бекенд', error);
     throw new Error('Ошибка при отправке данных на бекенд');
   }
 };
-
-// Пример использования функций
-// const email = 'example@example.com';
-// const password = 'examplePassword';
-
-// getToken(email, password)
-//   .then((token) => {
-//     const formData = { /* Ваши данные для отправки на бекенд */ };
-//     return sendDataWithToken(token, formData);
-//   })
-//   .then((data) => {
-//     console.log('Данные успешно отправлены на бекенд', data);
-//   })
-//   .catch((error) => {
-//     console.error('Произошла ошибка:', error);
-//   });

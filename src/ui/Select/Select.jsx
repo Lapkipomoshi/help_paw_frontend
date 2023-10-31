@@ -8,7 +8,7 @@ import OptionList from './OptionList';
 import Arrow from './svg/Arrow';
 import useOutsideClick from '../../hooks/useOutsideClick';
 
-const Select = ({ label, onChange, options, id: selectId, isMulti, required }) => {
+const Select = ({ label, onChange, options, id: selectId, isMulti }) => {
   const [isSelectOpen, setIsOpenedSelect] = useState(false);
   const [selected, setSelected] = useState([]);
   const selectRef = useRef(null);
@@ -93,7 +93,7 @@ const Select = ({ label, onChange, options, id: selectId, isMulti, required }) =
           </button>
         </div>
         <ul className={`select__checkboxes-container ${isSelectOpen && 'select__checkboxes_opened'}`}>
-          <OptionList options={options} isMulti={isMulti} onSelectChange={handleSelectChange} selected={selected} required={required} />
+          <OptionList options={options} isMulti={isMulti} onSelectChange={handleSelectChange} selected={selected} />
         </ul>
       </div>
     </div>
