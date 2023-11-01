@@ -148,7 +148,7 @@ const App = () => {
                 <Route path='news' element={<shelterModules.ShelterNews />} />
                 <Route path='pets' element={<shelterModules.ShelterPets />} />
                 <Route path='pets/type/:type' element={<shelterModules.ShelterSamePets />} />
-                <Route path='pets/:id' element={<shelterModules.PetModule />} />
+                <Route path='pets/:petId' element={<shelterModules.PetModule />} />
                 <Route path='vacancies' element={<shelterModules.ShelterVacancies />} />
               </Route>
             </Route>
@@ -173,27 +173,11 @@ const App = () => {
             <Route path='/privacy' element={<PrivacyPolicyPage />} />
             <Route path='/terms' element={<TermsPage />} />
 
+            <Route exact path='/sign-in' element={<ProtectedRoute condition={!loggedIn} component={LoginPage} onLogin={handleLogin} isSuccess={success} />} />
             <Route
-              exact path='/sign-in'
-              element={
-                <ProtectedRoute
-                  condition={!loggedIn}
-                  component={LoginPage}
-                  onLogin={handleLogin}
-                  isSuccess={success}
-                />
-              }
-            />
-            <Route
-              exact path='/sign-up'
-              element={
-                <ProtectedRoute
-                  condition={!loggedIn}
-                  component={RegisterPage}
-                  onRegister={handleRegister}
-                  isSuccess={success}
-                />
-              }
+              exact
+              path='/sign-up'
+              element={<ProtectedRoute condition={!loggedIn} component={RegisterPage} onRegister={handleRegister} isSuccess={success} />}
             />
             <Route exact path='/sign-up/confirm' element={<ProtectedRoute condition={!loggedIn} component={SignUpConfirm} />} />
             <Route exact path='/password-recovery' element={<ProtectedRoute condition={!loggedIn} component={PasswordRecovery} />} />

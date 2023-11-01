@@ -8,21 +8,21 @@ import OptionList from './OptionList';
 import Arrow from './svg/Arrow';
 import useOutsideClick from '../../hooks/useOutsideClick';
 
-const Select = ({ label, onChange, options, id: selectId, isMulti, required }) => {
+const Select = ({ label, onChange, options, id: selectId, isMulti }) => {
   const [isSelectOpen, setIsOpenedSelect] = useState(false);
   const [selected, setSelected] = useState([]);
   const selectRef = useRef(null);
 
-  const addSelectedItem = (id) => {
-    const newSelected = isMulti ? [...selected, id] : [id];
+  const addSelectedItem = (slug) => {
+    const newSelected = isMulti ? [...selected, slug] : [slug];
     setSelected(newSelected);
 
     onChange(selectId, newSelected);
   };
 
-  const deleteSelectedItem = (id) => {
+  const deleteSelectedItem = (slug) => {
     const newSelected = selected.filter((item) => {
-      return item !== id;
+      return item !== slug;
     });
 
     setSelected(newSelected);
@@ -39,12 +39,13 @@ const Select = ({ label, onChange, options, id: selectId, isMulti, required }) =
     }
   };
 
-  const handleDeleteItem = (id) => {
-    deleteSelectedItem(id);
+  const handleDeleteItem = (slug) => {
+    deleteSelectedItem(slug);
   };
 
   const selectedOptions = options.filter((item) => {
-    return selected.includes(item.id);
+    return selected.includes(item.slug);
+    // return selected.includes(item.id);
   });
 
   useOutsideClick(selectRef, () => {
@@ -60,20 +61,20 @@ const Select = ({ label, onChange, options, id: selectId, isMulti, required }) =
       <label className='select__label standard-font_type_small'>{label}</label>
 
       <div className='select__container'>
-        {/* TODO после того, как дизайнер отрисует какие должны быть изменения внешнего вида селекта после выбора 
+        {/* TODO после того, как дизайнер отрисует какие должны быть изменения внешнего вида селекта после выбора
         большогого количества вариантов, добавить изменения в css. макет 6.2.2.17 */}
         <div className='select__selected-items-container'>
           <ul className='select__selected-items-list'>
             {selectedOptions.length !== 0 &&
               selectedOptions.map((item) => {
                 return (
-                  <li className='select__selected-item-container' key={item.id}>
-                    <p className='select__selected-item standard-font_type_smallest'>{item.label}</p>
+                  <li className='select__selected-item-container' key={item.slug}>
+                    <p className='select__selected-item standard-font_type_smallest'>{item.name}</p>
                     <button
                       className='select__selected-item-delete'
                       type='button'
                       onClick={() => {
-                        handleDeleteItem(item.id);
+                        handleDeleteItem(item.slug);
                       }}
                     />
                   </li>
@@ -92,7 +93,7 @@ const Select = ({ label, onChange, options, id: selectId, isMulti, required }) =
           </button>
         </div>
         <ul className={`select__checkboxes-container ${isSelectOpen && 'select__checkboxes_opened'}`}>
-          <OptionList options={options} isMulti={isMulti} onSelectChange={handleSelectChange} selected={selected} required={required} />
+          <OptionList options={options} isMulti={isMulti} onSelectChange={handleSelectChange} selected={selected} />
         </ul>
       </div>
     </div>

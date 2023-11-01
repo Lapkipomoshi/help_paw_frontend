@@ -1,7 +1,7 @@
 import React from 'react';
 import { useOutletContext, Link } from 'react-router-dom';
 import './AboutShelter.scss';
-import InfoItem from '../../ui/InfoItem/InfoItem';
+import { InfoItem } from '../../ui';
 import classmatesIcon from '../../images/icons/footer__icon_classmates.svg';
 import vkIcon from '../../images/icons/footer__icon_vk.svg';
 import telegramIcon from '../../images/icons/footer__icon_telegram.svg';

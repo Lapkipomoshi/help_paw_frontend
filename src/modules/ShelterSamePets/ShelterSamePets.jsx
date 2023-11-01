@@ -23,25 +23,27 @@ const ShelterSamePets = () => {
   return (
     <section className='shelter-section shelter-same-pets'>
       <Link className='shelter-same-pets__link' to='../pets'>
-        Назад
+        &#8592; Вернуться назад
       </Link>
       <h2 className='shelter-section__title'>Наши животные</h2>
-      <ul className='shelter-same-pets__list'>
-        {pets && pets.length !== 0 ? (
-          pets.map((card) => {
-            return (
-              <li className='shelter-same-pets__pets-item' key={card.id}>
-                <PetCard id={card.id} shelterId={card.shelter} name={card.name} age={card.age} sex={card.sex} photo={card.photo} />
-              </li>
-            );
-          })
-        ) : (
-          <p>Питомцы данного вида не добавлены</p>
-        )}
-      </ul>
-      <Button className='shelter-same-pets__button' theme='transparent'>
-        Загрузить ещё
-      </Button>
+      {pets && pets.length !== 0 ? (
+        <>
+          <ul className='shelter-same-pets__list'>
+            {pets.map((card) => {
+              return (
+                <li className='shelter-same-pets__pets-item' key={card.id}>
+                  <PetCard id={card.id} shelterId={card.shelter} name={card.name} age={card.age} sex={card.sex} gallery={card.gallery} />
+                </li>
+              );
+            })}
+          </ul>
+          <Button className='shelter-same-pets__button' theme='transparent'>
+            Загрузить ещё
+          </Button>
+        </>
+      ) : (
+        <p className='standard-font_type_body'>Питомцы данного вида не добавлены</p>
+      )}
     </section>
   );
 };

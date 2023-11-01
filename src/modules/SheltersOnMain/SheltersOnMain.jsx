@@ -34,7 +34,7 @@ const SheltersOnMain = ({ sheltersList }) => {
           isOpenPopup && setIsOpenPopup(false);
         }}
       >
-        <h2 className='section-title'>Приюты, которым очень нужна помощь</h2>
+        <h2 className='section-title standard-font standard-font_type_h2'>Приюты, которым очень нужна помощь</h2>
         <ul className='shelters-on-main__shelters-container'>
           {sheltersList && sheltersList.length !== 0
             ? sheltersList.map((shelter) => {

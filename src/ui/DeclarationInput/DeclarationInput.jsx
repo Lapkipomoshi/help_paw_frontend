@@ -2,8 +2,7 @@ import React from 'react';
 import './DeclarationInput.scss';
 
 // TODO убрать li,  это форма, а не список. Выше, где используется, заменить ul на form
-
-const DeclarationInput = ({ caption, inputState, type, name, placeholder, required }) => {
+const DeclarationInput = ({ caption, inputState, type, name, placeholder, required, showError = true }) => {
   return (
     <li className='declaration-input'>
       <label className='declaration-input__caption' htmlFor={name}>
@@ -20,7 +19,7 @@ const DeclarationInput = ({ caption, inputState, type, name, placeholder, requir
         placeholder={placeholder}
         required={required}
       />
-      <p className='declaration-input__error'>{inputState.dirty && inputState.invalidText}</p>
+      {showError && <p className='declaration-input__error'>{inputState.dirty && inputState.invalidText}</p>}
     </li>
   );
 };

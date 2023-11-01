@@ -22,9 +22,11 @@
       &:hover {
         background-color: var(--color-accent-hover);
       }
+
       &:focus {
         background-color: var(--color-accent-pressed);
       }
+
       &:disabled {
         background-color: var(--color-accent-disabled);
         cursor: default;
@@ -50,10 +52,12 @@
         color: var(--color-accent-hover);
         border-color: var(--color-accent-hover);
       }
+
       &:focus {
         color: var(--color-accent-pressed);
         border-color: var(--color-accent-pressed);
       }
+
       &:disabled {
         color: var(--color-accent-disabled);
         border-color: var(--color-accent-disabled);

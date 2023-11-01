@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title>Изменение пароля</title>
+    <title>Успешная регистрация</title>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Montserrat Alternates:wght@400;500;600;700&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat Alternates:wght@400;500;600&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
       img {
         border: none;
@@ -108,9 +108,53 @@
         color: #111c2c;
       }
 
-      .user-data {
-        margin-top: 32px;
-        margin-bottom: 32px;
+      .btn {
+        box-sizing: border-box;
+        width: 100%;
+        margin: 32px auto;
+      }
+
+      .btn table {
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .btn table td {
+        border-radius: 12px;
+        text-align: center;
+      }
+
+      .btn a {
+        border-radius: 12px;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 20px;
+        margin: 0;
+        padding: 16px 32px;
+        text-decoration: none;
+      }
+
+      .btn-primary table td {
+        background-color: #f0924f;
+      }
+
+      .btn-primary a {
+        background-color: #f0924f;
+        border-color: #f0924f;
+        color: #ffffff;
+      }
+
+      .btn-primary table td:hover {
+        background-color: rgba(240, 146, 79, 0.77);
+      }
+
+      .btn-primary a:hover {
+        background-color: rgba(240, 146, 79, 0.77);
+        border-color: rgba(240, 146, 79, 0.77);
       }
 
       .user-data__title {
@@ -241,29 +285,46 @@
                   <table>
                     <tr>
                       <td>
-                        <h1 class="title">Изменение пароля</h1>
+                        <h1 class="title">Успешная регистрация!</h1>
                         <p class="text">Здравствуйте, Имя Отчество!</p>
                         <p class="text">
-                          Вы успешно установили новый пароль для доступа к учетной записи на сайте «<a
-                            href="https://lapkipomoshi.ru/"
-                            target="_blank"
-                            class="link"
-                            >Лапки помощи</a
-                          >».
+                          Поздравляем Вас с успешной регистрацией на сайте «<a href="https://lapkipomoshi.ru/" target="_blank" class="link">Лапки помощи</a>».
                         </p>
+                        <p class="text">Для авторизации перейдите по ссылке:</p>
+
+                        <table class="btn btn-primary">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <table>
+                                  <tbody>
+                                    <tr>
+                                      <td><a href="https://lapkipomoshi.ru/sign-in" target="_blank">Войти на сайт</a></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
 
                         <div class="user-data">
                           <table>
                             <tbody>
                               <tr>
                                 <td>
-                                  <p class="user-data__title">Ваши обновленные учетные данные для входа в личный кабинет сайта «Лапки помощи».</p>
+                                  <p class="user-data__title">Ваши учетные данные для входа в личный кабинет сайта «Лапки помощи».</p>
                                 </td>
                               </tr>
 
                               <tr>
                                 <td>
                                   <p class="user-data__text"><span class="user-data__span">Ваш логин: </span>mail@gmail.com</p>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <td>
                                   <p class="user-data__text"><span class="user-data__span">Ваш пароль: </span>435sfd8</p>
                                 </td>
                               </tr>
@@ -308,7 +369,7 @@
 
                   <td>
                     <p class="footer__email">Служба поддержки:</p>
-                    <p class="footer__email">info@lapki.ru</p>
+                    <p class="footer__email">mail@lapki-pomoshi.ru</p>
                   </td>
 
                   <td class="footer__icon-block">

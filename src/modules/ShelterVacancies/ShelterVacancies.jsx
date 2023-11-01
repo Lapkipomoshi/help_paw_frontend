@@ -53,6 +53,15 @@ const ShelterVacancies = () => {
     setIsOpenVacancyForm(false);
     setInfoTooltipOpen(true);
 
+    shelterVacanciesApi
+      .getVacanciesByShelterId(shelter.id)
+      .then((res) => {
+        setVacanciesList(res);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+
     setTimeout(() => {
       closeInfoTooltip();
     }, 5000);
@@ -72,7 +81,7 @@ const ShelterVacancies = () => {
           </Button>
         )}
       </div>
-      <h3 className='standard-font_type_h3 shelter-section__subtitle'>Всего вакансий: {vacanciesList.length}</h3>
+      <h3 className='standard-font_type_h3 shelter-section__subtitle'>Всего вакансий: <span className='color-number'>{vacanciesList.length}</span> </h3>
       <div className='shelter-vacancies__vacancies-container'>
         <VacancyList vacancies={vacanciesList} isLoading={isLoading} />
         {isOpenVacancyForm && <AddVacancyForm onChange={cancelVacancyForm} onSubmitSuccess={handleSubmit} />}
