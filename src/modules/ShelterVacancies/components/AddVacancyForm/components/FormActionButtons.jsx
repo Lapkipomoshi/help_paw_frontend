@@ -1,13 +1,11 @@
 import React from 'react';
 import Button from '../../../../../ui/Button/Button';
-import { getToken, sendDataWithToken } from './api';
+import sendDataWithToken from './api';
 
 const FormActionButtons = ({ isSubmitButtonDisabled, onClick, onSubmitSuccess, formValues }) => {
   const handleSubmit = async () => {
     try {
-      const email = 'nikita845217@yandex.ru';
-      const password = 'pf2ee56df94';
-      const token = await getToken(email, password);
+      const token = localStorage.getItem('access');
 
       const formattedSalary = parseInt(formValues.salary, 10);
       const formattedIsNdfl = formValues.is_ndfl[0] || '';
@@ -33,7 +31,7 @@ const FormActionButtons = ({ isSubmitButtonDisabled, onClick, onSubmitSuccess, f
   return (
     <div className='add-shelter-form__submit-buttons'>
       <Button submit disabled={isSubmitButtonDisabled} onClick={handleSubmit}>
-        Добавить
+        Добавить вакансию
       </Button>
       <Button onClick={onClick}>Отменить</Button>
     </div>
