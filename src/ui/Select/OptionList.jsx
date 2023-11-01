@@ -1,23 +1,22 @@
 import React from 'react';
 import './Select.scss';
 
-const OptionList = ({ options, isMulti, required, onSelectChange, selected }) => {
+const OptionList = ({ options, isMulti, onSelectChange, selected }) => {
   return options.map((option) => {
     return (
-      <li className='select__checkboxes-item' key={option.id}>
-        <label className='select__check-label' htmlFor={option.id}>
+      <li className='select__checkboxes-item' key={option.slug}>
+        <label className='select__check-label' htmlFor={option.slug}>
           <input
             className='select__checkbox'
             hidden={!isMulti}
             type='checkbox'
-            name={option.id}
-            id={option.id}
+            name={option.slug}
+            id={option.slug}
             onChange={onSelectChange}
-            checked={selected.includes(option.id)}
-            required={required}
+            checked={selected.includes(option.slug)}
           />
 
-          {option.label}
+          {option.name}
         </label>
       </li>
     );

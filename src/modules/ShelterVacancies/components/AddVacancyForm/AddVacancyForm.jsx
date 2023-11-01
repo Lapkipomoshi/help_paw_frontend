@@ -5,13 +5,16 @@ import DeclarationInput from '../../../../ui/DeclarationInput/DeclarationInput';
 import Select from '../../../../ui/Select/Select';
 import * as regex from '../../../../utils/regex';
 import * as errorMessage from '../../../../utils/errorMessage';
-import { defaultFormValues, shiftOptions, salaryOptions, educationOptions } from './constants';
+import { defaultFormValues, getShiftOptions, getSalaryOptions, getEducationOptions } from './constants';
 import FormActionButtons from './components/FormActionButtons';
 import FormTextarea from './components/FormTextarea';
 import PrivacyCheckbox from '../../../../components/PrivacyCheckbox/PrivacyCheckbox';
 
 const AddVacancyForm = ({ onChange, onSubmitSuccess }) => {
   const [formValues, setFormValues] = useState(defaultFormValues);
+  const [shiftOptions, setShiftOptions] = useState([]);
+  const [educationOptions, setEducationOptions] = useState([]);
+  const [salaryOptions, setSalaryOptions] = useState([]);
 
   const jobTitleInput = useInput('', { notEmpty: true, maxLength: 30, regex: regex.NAME_REGEX }, errorMessage.VACANCY_NAME);
   const salaryInput = useInput('', { notEmpty: true, maxLength: 12, regex: regex.NUMBER }, errorMessage.VACANCY_SALARY);
@@ -38,10 +41,8 @@ const AddVacancyForm = ({ onChange, onSubmitSuccess }) => {
     onChange();
   };
 
-  // TODO написать api для отправки формы как только починят бек
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log('submit');
   };
 
   const handleDescriptionChange = (evt) => {
@@ -65,6 +66,24 @@ const AddVacancyForm = ({ onChange, onSubmitSuccess }) => {
     });
   }, [salaryInput.value, jobTitleInput.value]);
 
+  useEffect(() => {
+    const fetchOptions = async () => {
+      const fetchedShiftOptions = await getShiftOptions();
+      const fetchedEducationOptions = await getEducationOptions();
+      const fetchedSalaryOptions = await getSalaryOptions();
+      if (fetchedShiftOptions) {
+        setShiftOptions(fetchedShiftOptions);
+      }
+      if (fetchedEducationOptions) {
+        setEducationOptions(fetchedEducationOptions);
+      }
+      if (fetchedSalaryOptions) {
+        setSalaryOptions(fetchedSalaryOptions);
+      }
+    };
+    fetchOptions();
+  }, []);
+
   const handleSelectChange = (id, selected) => {
     setFormValues((prevValues) => {
       return {
@@ -81,20 +100,28 @@ const AddVacancyForm = ({ onChange, onSubmitSuccess }) => {
       <div className='add-vacancy-form__flex-container'>
         <DeclarationInput caption='Заработная плата*' inputState={salaryInput} type='number' name='salaryInput' required placeholder='₽' />
 
-        <Select label='Тип оплаты*' onChange={handleSelectChange} options={salaryOptions} id='is_ndfl' isMulti={false} required />
+        <Select label='Тип оплаты*' onChange={handleSelectChange} options={salaryOptions} id='is_ndfl' isMulti={false} />
       </div>
 
       <div className='add-vacancy-form__flex-container'>
-        <Select label='График работы*' onChange={handleSelectChange} options={shiftOptions} id='schedule' isMulti required />
+        <Select label='График работы*' onChange={handleSelectChange} options={shiftOptions} id='schedule' isMulti />
 
-        <Select label='Образование*' onChange={handleSelectChange} options={educationOptions} id='education' isMulti={false} required />
+        <Select label='Образование*' onChange={handleSelectChange} options={educationOptions} id='education' isMulti={false} />
       </div>
 
       <FormTextarea jobDescriptionInput={jobDescriptionInput} handleDescriptionChange={handleDescriptionChange} />
 
-      <PrivacyCheckbox onClick={toggleCheckbox} />
+      <PrivacyCheckbox onChange={toggleCheckbox} />
 
-      <FormActionButtons isSubmitButtonDisabled={isSubmitButtonDisabled} onClick={handleCancelClick} onSubmitSuccess={onSubmitSuccess} />
+      <FormActionButtons
+        isSubmitButtonDisabled={isSubmitButtonDisabled}
+        onClick={handleCancelClick}
+        onSubmitSuccess={onSubmitSuccess}
+        salaryInput={salaryInput}
+        formValues={formValues}
+        jobTitleInput={jobTitleInput}
+        jobDescriptionInput={jobDescriptionInput}
+      />
     </form>
   );
 };

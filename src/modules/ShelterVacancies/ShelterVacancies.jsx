@@ -53,6 +53,15 @@ const ShelterVacancies = () => {
     setIsOpenVacancyForm(false);
     setInfoTooltipOpen(true);
 
+    shelterVacanciesApi
+      .getVacanciesByShelterId(shelter.id)
+      .then((res) => {
+        setVacanciesList(res);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+
     setTimeout(() => {
       closeInfoTooltip();
     }, 5000);
