@@ -56,6 +56,15 @@ const AddVacancyForm = ({ onChange, onSubmitSuccess }) => {
     });
   };
 
+  const handleSelectChange = (id, selected) => {
+    setFormValues((prevValues) => {
+      return {
+        ...prevValues,
+        [id]: selected,
+      };
+    });
+  };
+
   useEffect(() => {
     setFormValues((prevValues) => {
       return {
@@ -70,7 +79,7 @@ const AddVacancyForm = ({ onChange, onSubmitSuccess }) => {
     const fetchOptions = async () => {
       const fetchedShiftOptions = await getShiftOptions();
       const fetchedEducationOptions = await getEducationOptions();
-      const fetchedSalaryOptions = await getSalaryOptions();
+      const fetchedSalaryOptions = getSalaryOptions();
       if (fetchedShiftOptions) {
         setShiftOptions(fetchedShiftOptions);
       }
@@ -83,15 +92,6 @@ const AddVacancyForm = ({ onChange, onSubmitSuccess }) => {
     };
     fetchOptions();
   }, []);
-
-  const handleSelectChange = (id, selected) => {
-    setFormValues((prevValues) => {
-      return {
-        ...prevValues,
-        [id]: selected,
-      };
-    });
-  };
 
   return (
     <form className='add-vacancy-form__container' onSubmit={handleSubmit}>
