@@ -5,20 +5,16 @@ import ProfileSheltersBlock from '../../components/ProfileSheltersBlock/ProfileS
 
 const ShelterOwnerProfile = () => {
   const currentUser = useContext(CurrentUserContext);
-  const { subscription_shelter } = currentUser;
+  const myShelters = [currentUser.own_shelter];
 
   return (
     <div>
       <ProfileSheltersBlock
-        shelters={subscription_shelter}
+        myShelters={myShelters}
         sheltersTitle='Ваши приюты'
-        owner
       />
 
-      <ProfileSheltersBlock
-        shelters={subscription_shelter}
-        sheltersTitle='Ваши любимые приюты'
-      />
+
     </div>
   );
 };
