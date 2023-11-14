@@ -4,10 +4,27 @@ import './VacancyCard.scss';
 import EditIcon from '../../images/EditIcon/EditIcon';
 import DeleteIcon from '../../images/DeleteIcon/DeleteIcon';
 import { Button } from '../../ui';
+import EditVacancyForm from './EditVacancyForm/EditVacancyForm';
 
 const VacancyCard = ({ id, title, salary, schedule, description, education, isLoading, onDelete }) => {
   const { isOwner } = useOutletContext();
-  const [isModalOpen, setModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [formValues, setFormValues] = useState({
+    title,
+    salary,
+    education,
+  });
+
+  console.log('Значение education в VacancyCard:', education);
+
+  const handleEditFormChange = (field, value) => {
+    // eslint-disable-next-line
+    setFormValues(prevValues => ({
+      ...prevValues,
+      [field]: value,
+    }));
+  };
 
   const handleDelete = async () => {
     try {
@@ -27,7 +44,7 @@ const VacancyCard = ({ id, title, salary, schedule, description, education, isLo
     } catch (error) {
       throw new Error('Ошибка при удалении вакансии');
     } finally {
-      setModalOpen(false);
+      setIsModalOpen(false);
     }
   };
 
@@ -42,11 +59,10 @@ const VacancyCard = ({ id, title, salary, schedule, description, education, isLo
 
         {isOwner && (
           <>
-            {/* TODO  <EditIcon /> функционал реализую в след PR */}
             <button type='button' className='vacancy-card__icon-button vacancy-card__icon-button_edit'>
               <EditIcon />
             </button>
-            <button type='button' className='vacancy-card__icon-button vacancy-card__title-button_delete' onClick={() => { setModalOpen(true); }}>
+            <button type='button' className='vacancy-card__icon-button vacancy-card__title-button_delete' onClick={() => { setIsModalOpen(true); }}>
               <DeleteIcon />
             </button>
           </>
@@ -56,6 +72,7 @@ const VacancyCard = ({ id, title, salary, schedule, description, education, isLo
       <p className='vacancy-card__text'>{`График работы: ${schedule.map((item) => { return item.name; }).join(', ')}`}</p>
       <p className='vacancy-card__text'>{`Образование: ${education.name}`}</p>
       <p className='vacancy-card__text'>{`Обязанности: ${description}`}</p>
+      <EditVacancyForm initialValues={formValues} onFieldChange={handleEditFormChange} />
 
       {isModalOpen && (
         <div className='modal-overlay'>
@@ -70,12 +87,12 @@ const VacancyCard = ({ id, title, salary, schedule, description, education, isLo
                   <DeleteIcon />
                   Да, удалить вакансию
                 </Button>
-                <Button theme='transparent' onClick={() => { setModalOpen(false); }}>Отменить удаление</Button>
+                <Button theme='transparent' onClick={() => { setIsModalOpen(false); }}>Отменить удаление</Button>
               </div>
               <button
                 type='button'
                 className='modal__esc'
-                onClick={() => { setModalOpen(false); }}
+                onClick={() => { setIsModalOpen(false); }}
               />
             </div>
           </div>

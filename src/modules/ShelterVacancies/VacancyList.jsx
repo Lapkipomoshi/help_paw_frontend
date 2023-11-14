@@ -2,7 +2,7 @@ import React from 'react';
 import VacancyCard from '../../components/VacancyCard/VacancyCard';
 import './ShelterVacancies.scss';
 
-const VacancyList = ({ vacancies, isLoading, onDelete  }) => {
+const VacancyList = ({ vacancies, isLoading, onDelete }) => {
   if (!vacancies.length) {
     return <p className='standard-font shelter__empty-list'>У приюта нет активных вакансий</p>;
   }
