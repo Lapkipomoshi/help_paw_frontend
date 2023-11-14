@@ -1,0 +1,15 @@
+.shelter-section__back-profile-button {
+  font-family: Montserrat Alternates;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  margin-bottom: 44px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.shelter-section__back-profile-button span {
+  margin-left: 16px;
+  color: var(--color-accent-base);
+}

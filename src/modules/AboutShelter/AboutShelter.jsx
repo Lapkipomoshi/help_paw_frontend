@@ -8,6 +8,7 @@ import telegramIcon from '../../images/icons/footer__icon_telegram.svg';
 import EditIcon from '../../images/EditIcon/EditIcon';
 import DeleteIcon from '../../images/DeleteIcon/DeleteIcon';
 import ShelterOwnerStatistics from '../ShelterOwnerStatistics/ShelterOwnerStatistics';
+import LeftArrowIcon from '../../images/LeftArrowIcon/LeftArrowIcon';
 
 // TODO переделать названия классов (объединить?), не совсем понятно, по какому принципу about-shelter, shelter-info
 
@@ -23,6 +24,10 @@ const AboutShelter = () => {
 
   return (
     <section className='shelter-section'>
+      {isOwner
+      && <Link to='/profile' className='shelter-section__back-profile-button'>
+        <LeftArrowIcon /><span>Вернуться в Личный Кабинет</span>
+      </Link>}
       <div className='shelter-info'>
         <img className='shelter-info__logo' src={shelter.logo} alt='лого' />
 
