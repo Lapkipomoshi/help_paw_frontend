@@ -91,7 +91,7 @@ const Modal = ({ descrText, onClose, handleTakePet }) => {
             />
           </div>
           <div className='btn'>
-            <Button theme='accent' type='button' onClick={handleTakeHomeButtonClick} disabled={!isSubmitButtonEnabled()}>
+            <Button className='btn__modal' theme='accent' type='button' onClick={handleTakeHomeButtonClick} disabled={!isSubmitButtonEnabled()}>
               Отправить заявку
             </Button>
           </div>
