@@ -19,6 +19,7 @@ const VacancyList = ({ vacancies, isLoading, onDelete }) => {
             title={card.position}
             salary={card.salary}
             schedule={card.schedule}
+            is_ndfl={card.is_ndfl}
             description={card.description}
             onDelete={onDelete}
           />

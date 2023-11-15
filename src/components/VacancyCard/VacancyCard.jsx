@@ -5,42 +5,28 @@ import EditIcon from '../../images/EditIcon/EditIcon';
 import DeleteIcon from '../../images/DeleteIcon/DeleteIcon';
 import { Button } from '../../ui';
 import EditVacancyForm from './EditVacancyForm/EditVacancyForm';
+import { deleteVacancy } from '../../modules/ShelterVacancies/components/AddVacancyForm/constants';
 
-const VacancyCard = ({ id, title, salary, schedule, description, education, isLoading, onDelete }) => {
+// eslint-disable-next-line
+const VacancyCard = ({ id, title, salary, schedule, description, education, is_ndfl, isLoading, onDelete }) => {
   const { isOwner } = useOutletContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditFormOpen, setIsEditFormOpen] = useState(false);
+  // eslint-disable-next-line
+  const convertedIsNdfl = is_ndfl === 'ndfl' ? { slug: 'ndfl', name: 'с НДФЛ' } : { slug: 'no_ndfl', name: 'на руки' };
 
-  const [formValues, setFormValues] = useState({
-    title,
-    salary,
-    education,
-  });
-
-  console.log('Значение education в VacancyCard:', education);
-
-  const handleEditFormChange = (field, value) => {
+  const handleEditFormToggle = () => {
     // eslint-disable-next-line
-    setFormValues(prevValues => ({
-      ...prevValues,
-      [field]: value,
-    }));
+    setIsEditFormOpen(prevState => !prevState);
   };
 
   const handleDelete = async () => {
     try {
-      const token = localStorage.getItem('access');
-      const response = await fetch(`http://194.58.109.129/api/v1/my-shelter/vacancies/${id}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const isDeleted = await deleteVacancy(id);
 
-      if (!response.ok) {
-        throw new Error('Ошибка при удалении вакансии');
+      if (isDeleted) {
+        onDelete(id);
       }
-      onDelete(id);
     } catch (error) {
       throw new Error('Ошибка при удалении вакансии');
     } finally {
@@ -59,7 +45,7 @@ const VacancyCard = ({ id, title, salary, schedule, description, education, isLo
 
         {isOwner && (
           <>
-            <button type='button' className='vacancy-card__icon-button vacancy-card__icon-button_edit'>
+            <button type='button' className='vacancy-card__icon-button vacancy-card__icon-button_edit' onClick={handleEditFormToggle}>
               <EditIcon />
             </button>
             <button type='button' className='vacancy-card__icon-button vacancy-card__title-button_delete' onClick={() => { setIsModalOpen(true); }}>
@@ -68,11 +54,24 @@ const VacancyCard = ({ id, title, salary, schedule, description, education, isLo
           </>
         )}
       </div>
-      <p className='vacancy-card__text'>{`ЗП: ${salary}`}</p>
+      {/* eslint-disable-next-line */}
+      <p className='vacancy-card__text'>{`ЗП: ${salary} рублей ${is_ndfl === 'ndfl' ? 'с НДФЛ' : 'на руки'}`}</p>
       <p className='vacancy-card__text'>{`График работы: ${schedule.map((item) => { return item.name; }).join(', ')}`}</p>
       <p className='vacancy-card__text'>{`Образование: ${education.name}`}</p>
       <p className='vacancy-card__text'>{`Обязанности: ${description}`}</p>
-      <EditVacancyForm initialValues={formValues} onFieldChange={handleEditFormChange} />
+
+      {isEditFormOpen && (
+        <EditVacancyForm
+          id={id}
+          title={title}
+          salary={salary}
+          education={education}
+          schedule={schedule}
+          is_ndfl={convertedIsNdfl}
+          description={description}
+          onDelete={onDelete}
+        />
+      )}
 
       {isModalOpen && (
         <div className='modal-overlay'>
