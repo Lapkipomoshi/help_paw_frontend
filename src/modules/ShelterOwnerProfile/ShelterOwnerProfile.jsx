@@ -13,8 +13,6 @@ const ShelterOwnerProfile = () => {
         myShelters={myShelters}
         sheltersTitle='Ваши приюты'
       />
-
-
     </div>
   );
 };

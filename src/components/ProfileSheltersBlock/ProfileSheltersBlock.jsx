@@ -1,9 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ProfileSheltersBlock.scss';
 import ShelterCard from '../ShelterCard/ShelterCard';
 import Button from '../../ui/Button/Button';
 
 const ProfileSheltersBlock = ({ myShelters, sheltersTitle }) => {
+  const navigate = useNavigate();
+
   return (
     <div className='profile-shelters'>
       {myShelters && myShelters.length !== 0 &&
@@ -28,7 +31,9 @@ const ProfileSheltersBlock = ({ myShelters, sheltersTitle }) => {
                 );
               })}
             </ul>
-            {myShelters && <Button link to={`/shelters/${myShelters[0].id}/about`}>Перейти в приют</Button>}
+            {myShelters && <Button onClick={
+              () => {return navigate('my-shelter', { state: { mySheltersId: myShelters[0].id } });}
+            }>Перейти в приют</Button>}
           </div>
         </div>
       }
