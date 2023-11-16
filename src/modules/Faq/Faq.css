@@ -37,7 +37,7 @@
   margin: 0 auto 0 0;
   border-radius: 20px;
   overflow: hidden;
-  padding: 24px 0 24px 45px;
+  padding: 24px 24px 24px 45px;
   background-color: var(--color-background-additional);
 }
 

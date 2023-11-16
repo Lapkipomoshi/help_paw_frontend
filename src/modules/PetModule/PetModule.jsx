@@ -145,7 +145,7 @@ const PetModule = () => {
         <div className='pet-module__button-wrapper'>
           {isModalOpen && (
             <Modal
-              descrText='Чтобы выгулять питомца, заполните, пожалуйста, контактные данные и приют свяжется с вами'
+              descrText='Чтобы забрать домой питомца, заполните, пожалуйста, контактные данные и приют свяжется с вами'
               onClose={() => {
                 setIsModalOpen(false);
               }}
