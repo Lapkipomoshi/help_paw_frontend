@@ -126,14 +126,19 @@ const ShelterStep = ({ handleBack, setShelter }) => {
         required
       />
       <p className='add-shelter-form__error'>{description.dirty && description.invalidText}</p>
-      <PrivacyCheckbox onClick={setIsAgreementChecked} />
+      <PrivacyCheckbox
+        type='checkbox'
+        onChange={() => {
+          setIsAgreementChecked(!isAgreementChecked);
+        }}
+      />
       <div className='register__privacy'>
         <label className='checkbox__container'>
           <input
             className='checkbox__input'
             name='warning'
             type='checkbox'
-            onClick={() => {
+            onChange={() => {
               setIsWarningChecked(!isWarningChecked);
             }}
           />
