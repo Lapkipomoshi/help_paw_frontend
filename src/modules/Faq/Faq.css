@@ -22,7 +22,7 @@
 .faq__text {
   width: 100%;
   margin: -4px 0 0;
-  padding: 0 240px 24px 45px;
+  padding: 0 240px 0 0;
   font-size: 18px;
   line-height: 28px;
   font-weight: 400;
@@ -37,7 +37,7 @@
   margin: 0 auto 0 0;
   border-radius: 20px;
   overflow: hidden;
-  padding: 20px 24px 21px 40px;
+  padding: 24px 0 24px 45px;
   background-color: var(--color-background-additional);
 }
 
