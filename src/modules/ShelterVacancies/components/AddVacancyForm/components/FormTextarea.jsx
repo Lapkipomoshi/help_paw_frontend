@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const FormTextarea = ({ jobDescriptionInput, handleDescriptionChange }) => {
+const FormTextarea = ({ jobDescriptionInput, handleDescriptionChange, initialValues }) => {
+  useEffect(() => {
+    if (initialValues) {
+      jobDescriptionInput.onChange({ target: { value: initialValues } });
+    }
+  }, [initialValues]);
   return (
     <>
       <p className='add-vacancy-form__desctioption-title'>Обязанности*</p>

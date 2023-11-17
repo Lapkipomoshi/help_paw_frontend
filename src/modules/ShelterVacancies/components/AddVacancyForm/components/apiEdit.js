@@ -1,12 +1,12 @@
 import { baseUrl } from '../../../../../utils/constants';
 
-const sendDataWithToken = async (token, formData) => {
+const updateDataWithToken = async (token, formData, id) => {
   try {
-    const response = await fetch(`${baseUrl}/v1/my-shelter/vacancies/`, {
-      method: 'POST',
+    const response = await fetch(`${baseUrl}/v1/my-shelter/vacancies/${id}/`, {
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`, // Предполагается, что токен передается в заголовке Authorization
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(formData),
     });
@@ -17,4 +17,4 @@ const sendDataWithToken = async (token, formData) => {
   }
 };
 
-export default sendDataWithToken;
+export default updateDataWithToken;

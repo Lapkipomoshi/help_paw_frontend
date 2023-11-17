@@ -12,10 +12,8 @@ const message = 'Вакансия успешно добавлена!';
 
 const ShelterVacancies = () => {
   const [infoTooltipOpen, setInfoTooltipOpen] = useState(false);
-
   const [vacanciesList, setVacanciesList] = useState([]);
   const [isOpenVacancyForm, setIsOpenVacancyForm] = useState(false);
-
   const [isLoading, setIsLoading] = useState(true);
 
   const { shelter, isOwner } = useOutletContext();
@@ -47,6 +45,13 @@ const ShelterVacancies = () => {
 
   const closeInfoTooltip = () => {
     setInfoTooltipOpen(false);
+  };
+
+  const handleDeleteVacancy = (id) => {
+    const updatedVacancies = vacanciesList.filter((vacancy) => {
+      return vacancy.id !== id;
+    });
+    setVacanciesList(updatedVacancies);
   };
 
   const handleSubmit = () => {
@@ -85,7 +90,7 @@ const ShelterVacancies = () => {
         <h3 className='standard-font_type_h3 shelter-section__subtitle'>Всего вакансий: <span className='color-number'>{vacanciesList.length}</span> </h3>
       )}
       <div className='shelter-vacancies__vacancies-container'>
-        <VacancyList vacancies={vacanciesList} isLoading={isLoading} />
+        <VacancyList vacancies={vacanciesList} isLoading={isLoading} onDelete={handleDeleteVacancy} />
         {isOpenVacancyForm && <AddVacancyForm onChange={cancelVacancyForm} onSubmitSuccess={handleSubmit} />}
       </div>
       <InfoTooltip isOpen={infoTooltipOpen} image={imageSuccess} message={message} onClose={closeInfoTooltip} />

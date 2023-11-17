@@ -1,11 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 import './VacancyCard.scss';
 import EditIcon from '../../images/EditIcon/EditIcon';
 import DeleteIcon from '../../images/DeleteIcon/DeleteIcon';
+import { Button } from '../../ui';
+import EditVacancyForm from './EditVacancyForm/EditVacancyForm';
+import { deleteVacancy } from '../../modules/ShelterVacancies/components/AddVacancyForm/constants';
 
-const VacancyCard = ({ title, salary, schedule, description, education, isLoading }) => {
+// eslint-disable-next-line
+const VacancyCard = ({ id, title, salary, schedule, description, education, is_ndfl, isLoading, onDelete }) => {
   const { isOwner } = useOutletContext();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditFormOpen, setIsEditFormOpen] = useState(false);
+  // eslint-disable-next-line
+  const convertedIsNdfl = is_ndfl === 'ndfl' ? { slug: 'ndfl', name: 'с НДФЛ' } : { slug: 'no_ndfl', name: 'на руки' };
+
+  const handleEditFormToggle = () => {
+    // eslint-disable-next-line
+    setIsEditFormOpen(prevState => !prevState);
+  };
+
+  const handleDelete = async () => {
+    try {
+      const isDeleted = await deleteVacancy(id);
+
+      if (isDeleted) {
+        onDelete(id);
+      }
+    } catch (error) {
+      throw new Error('Ошибка при удалении вакансии');
+    } finally {
+      setIsModalOpen(false);
+    }
+  };
 
   if (isLoading) {
     return null;
@@ -18,21 +45,58 @@ const VacancyCard = ({ title, salary, schedule, description, education, isLoadin
 
         {isOwner && (
           <>
-            {/* TODO  <EditIcon /> функционал реализую в след PR */}
-            <button type='button' className='vacancy-card__icon-button vacancy-card__icon-button_edit'>
+            <button type='button' className='vacancy-card__icon-button vacancy-card__icon-button_edit' onClick={handleEditFormToggle}>
               <EditIcon />
             </button>
-            {/* TODO DeleteIcon функционал реализую в след PR */}
-            <button type='button' className='vacancy-card__icon-button vacancy-card__title-button_delete'>
+            <button type='button' className='vacancy-card__icon-button vacancy-card__title-button_delete' onClick={() => { setIsModalOpen(true); }}>
               <DeleteIcon />
             </button>
           </>
         )}
       </div>
-      <p className='vacancy-card__text'>{`ЗП: ${salary}`}</p>
+      {/* eslint-disable-next-line */}
+      <p className='vacancy-card__text'>{`ЗП: ${salary} рублей ${is_ndfl === 'ndfl' ? 'с НДФЛ' : 'на руки'}`}</p>
       <p className='vacancy-card__text'>{`График работы: ${schedule.map((item) => { return item.name; }).join(', ')}`}</p>
       <p className='vacancy-card__text'>{`Образование: ${education.name}`}</p>
       <p className='vacancy-card__text'>{`Обязанности: ${description}`}</p>
+
+      {isEditFormOpen && (
+        <EditVacancyForm
+          id={id}
+          title={title}
+          salary={salary}
+          education={education}
+          schedule={schedule}
+          is_ndfl={convertedIsNdfl}
+          description={description}
+          onDelete={onDelete}
+        />
+      )}
+
+      {isModalOpen && (
+        <div className='modal-overlay'>
+          <div className='wrapper wrapper__del'>
+            <div className='modal modal__del'>
+              <div className='modal__del-text'>
+                <div className='modal__title modal__del-title standard-font standard-font_type_h3'>Вы уверены, что хотите удалить вакансию?</div>
+                <div className='modal__descr modal__del-descr standard-font standard-font_type_h3'>Все данные о вакансии будут удалены</div>
+              </div>
+              <div className='modal__btn-del'>
+                <Button className='modal__btn-del-left' theme='accent' onClick={handleDelete}>
+                  <DeleteIcon />
+                  Да, удалить вакансию
+                </Button>
+                <Button theme='transparent' onClick={() => { setIsModalOpen(false); }}>Отменить удаление</Button>
+              </div>
+              <button
+                type='button'
+                className='modal__esc'
+                onClick={() => { setIsModalOpen(false); }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </li>
   );
 };
