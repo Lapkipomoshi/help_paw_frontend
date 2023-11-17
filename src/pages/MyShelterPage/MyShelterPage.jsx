@@ -1,17 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './MyShelterPage.scss';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import MainContainer from '../../components/MainContainer/MainContainer';
 import LeftArrowIcon from '../../images/LeftArrowIcon/LeftArrowIcon';
 import myShelterApi from './api';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 const MyShelterPage = () => {
-  const { mySheltersId } = useLocation().state;
+  const curentUser = useContext(CurrentUserContext);
+  const mySheltersId = curentUser.own_shelter.id;
   const [shelter, setShelter] = useState({}); 
   const isOwner = true;
   const [isLoading, setIsLoading] = useState(true);
 
-  const BACK_LINK_TEXT = 'Вернуться в Личный Кабинет';
+  const location = useLocation();
+  const contentText = {
+    GO_TO_BACK: 'Вернуться назад',
+    BACK_TO_PROFILE: 'Вернуться в Личный Кабинет',
+  };
+  
+  let linkTo; 
+  let linkText;
+  if (location.pathname.includes('edit')) {
+    linkTo = -1;
+    linkText = contentText.GO_TO_BACK;
+  } else {
+    linkTo = '/profile';
+    linkText = contentText.BACK_TO_PROFILE;
+  }
+
+
 
   useEffect(() => {
     myShelterApi.getShelterById(mySheltersId)
@@ -28,8 +46,8 @@ const MyShelterPage = () => {
     <MainContainer>
       <main className='main'>
         <section className='my-shelter-section'>
-          <Link to='/profile' className='my-shelter-section__back-profile-button'>
-            <LeftArrowIcon /><span>{BACK_LINK_TEXT}</span>
+          <Link to={linkTo} className='my-shelter-section__back-profile-button'>
+            <LeftArrowIcon /><span>{linkText}</span>
           </Link>
           <Outlet context={{ shelter, isOwner, isLoading }} />
         </section>

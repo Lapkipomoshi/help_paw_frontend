@@ -32,7 +32,7 @@ const ProfileSheltersBlock = ({ myShelters, sheltersTitle }) => {
               })}
             </ul>
             {myShelters && <Button onClick={
-              () => {return navigate('my-shelter', { state: { mySheltersId: myShelters[0].id } });}
+              () => {return navigate('my-shelter');}
             }>Перейти в приют</Button>}
           </div>
         </div>

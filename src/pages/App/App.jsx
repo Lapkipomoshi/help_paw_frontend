@@ -36,6 +36,7 @@ import imageError from '../../images/icons/ic_error.svg';
 import getUserInfo from './api/userApi';
 import AppContext from '../../contexts/App';
 import MyShelterPage from '../MyShelterPage/MyShelterPage';
+import MyShelterEdit from '../../modules/MySheelterEdit/MyShelterEdit';
 
 const App = () => {
   const navigate = useNavigate();
@@ -190,6 +191,7 @@ const App = () => {
             <Route path='/profile' element={<ProtectedRoute condition={loggedIn} component={ProfilePage} />} />
             <Route path='/profile/my-shelter' element={<ProtectedRoute condition={loggedIn} component={MyShelterPage} />}>
               <Route index element={<ProtectedRoute condition={loggedIn} component={shelterModules.AboutShelter} />} />
+              <Route path='edit' element={<ProtectedRoute condition={loggedIn} component={MyShelterEdit} />} />
             </Route>
             <Route path='/profile/edit' element={<ProtectedRoute condition={loggedIn} component={EditProfilePage} onUpdateCurrentUser={setCurrentUser} />} />
             <Route path='/profile/sign-out' element={<ProtectedRoute condition={loggedIn} component={SignOutPage} onSignOut={handleSignOut} />} />
