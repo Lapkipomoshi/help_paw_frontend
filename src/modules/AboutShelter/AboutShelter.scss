@@ -12,3 +12,14 @@
 @import url('./styles/shelter-info/__link/shelter-info__link.css');
 @import url('./styles/shelter-info/__icons/shelter-info__icons.css');
 @import url('./styles/shelter-info/__icon/shelter-info__icon.css');
+
+.shelter-section__about {
+  display: flex;
+  gap: 44px;
+}
+
+.shelter-section__bottom {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}

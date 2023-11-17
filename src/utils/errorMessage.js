@@ -118,3 +118,9 @@ export const VACANCY_DESCRIPTION = {
   TOO_LONG: tooLong,
   INVALID: invalidSymbol,
 };
+
+// сумма пожертвования
+export const DONATION_AMOUNT = {
+  TOO_LONG: tooLong,
+  NOT_FOUND: 'Введите сумму пожертвования',
+};
