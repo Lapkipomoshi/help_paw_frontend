@@ -94,16 +94,16 @@ const AddVacancyForm = ({ onChange, onSubmitSuccess }) => {
   }, []);
 
   return (
-    <form className='add-vacancy-form__container' onSubmit={handleSubmit}>
+    <form className='vacancy-form' onSubmit={handleSubmit}>
       <DeclarationInput caption='Название вакансии*' inputState={jobTitleInput} type='text' name='jobTitleInput' required />
 
-      <div className='add-vacancy-form__flex-container'>
+      <div className='vacancy-form__container'>
         <DeclarationInput caption='Заработная плата*' inputState={salaryInput} type='number' name='salaryInput' required placeholder='₽' />
 
         <Select label='Тип оплаты*' onChange={handleSelectChange} options={salaryOptions} id='is_ndfl' isMulti={false} />
       </div>
 
-      <div className='add-vacancy-form__flex-container'>
+      <div className='vacancy-form__container'>
         <Select label='График работы*' onChange={handleSelectChange} options={shiftOptions} id='schedule' isMulti />
 
         <Select label='Образование*' onChange={handleSelectChange} options={educationOptions} id='education' isMulti={false} />

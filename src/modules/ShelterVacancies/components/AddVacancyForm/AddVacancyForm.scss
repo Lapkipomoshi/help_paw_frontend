@@ -1,21 +1,41 @@
-.add-vacancy-form__flex-container {
-  display: flex;
-  gap: 16px;
-  justify-content: space-between;
-}
+$images-path: '../../../../images';
 
-.add-vacancy-form__container {
+.vacancy-form {
   margin-top: 36px;
   width: 576px;
+
+  &__container {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+  }
+
+  &__edit {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 36px;
+
+    &-btn {
+      background-image: url('#{$images-path}/icons/ic_button_close_editForm.svg');
+      background-size: contain;
+      border: none;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(0, 0, 0, 0);
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+    }
+  }
 }
 
-.add-shelter-form__submit-buttons {
+.shelter-form__submit-buttons {
   display: flex;
   gap: 32px;
   margin-top: 40px;
 }
 
-.add-vacancy-form__description {
+.vacancy-form__description {
   width: 100%;
   height: 120px;
   margin: 0;
@@ -34,6 +54,15 @@
   }
 }
 
-.add-vacancy-form__desctioption-title {
+.vacancy-form__desctioption-title {
   margin-bottom: 10px;
+}
+
+.btn-edit {
+  display: flex;
+  gap: 76px;
+
+  &__buttons {
+    font-size: 16px;
+  }
 }

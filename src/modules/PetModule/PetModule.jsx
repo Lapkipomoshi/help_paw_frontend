@@ -17,7 +17,7 @@ const PetModule = () => {
   SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
   const { id: shelterId, petId } = useParams();
   const { shelter, isOwner } = useOutletContext();
-
+  // eslint-disable-next-line
   const [{ name, age, breed, gallery, sex, sheltering_time }, setPet] = useState({}); // информация о питомце
 
   const [isTakedHome, setIsTakedHome] = useState(false);
@@ -121,6 +121,7 @@ const PetModule = () => {
               <div className='pet-additional-info-card'>
                 <img className='pet-additional-info-card__shelter-info-image' src={clockIcon} alt='срок содержания' />
                 <div className='pet-additional-info-card__text-container'>
+                  {/* eslint-disable-next-line */}
                   <p className='standard-font standard-font_type_body'>{renderLoadingOrValue(isLoadingReq, sheltering_time >= 0 ? sheltering_time : '~')}</p>
                   <p className='pet-additional-info-card__secondary-string standard-font standard-font_type_small'>В приюте</p>
                 </div>

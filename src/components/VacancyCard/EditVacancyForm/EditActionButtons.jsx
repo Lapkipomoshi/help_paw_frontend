@@ -1,44 +1,44 @@
 import React, { useState } from 'react';
 import { Button } from '../../../ui';
-import updateDataWithToken from '../../../modules/ShelterVacancies/components/AddVacancyForm/components/apiEdit';
-import { deleteVacancy } from '../../../modules/ShelterVacancies/components/AddVacancyForm/constants';
 import DeleteIcon from '../../../images/DeleteIcon/DeleteIcon';
+import { updateVacancy, deleteVacancy } from '../../../modules/ShelterVacancies/components/AddVacancyForm/components/vacanciesAPI';
 
-const EditActionButtons = ({ id, formData, isSubmitButtonDisabled, onSubmitSuccess, onDelete }) => {
+const EditActionButtons = ({ formData, isSubmitButtonDisabled, onDelete, onClose, onSubmitSuccess, isLoading }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSubmit = async () => {
     try {
       const token = localStorage.getItem('access');
 
+      const getFormattedValue = (value) => {
+        if (Array.isArray(value)) {
+          return value.join('');
+        }
+        if (typeof value === 'object' && value !== null) {
+          return value.slug || '';
+        }
+        return value || '';
+      };
+
+      const formattedSchedule = formData.schedule.map((item) => {
+        if (typeof item === 'object' && item !== null && item.slug) {
+          return item.slug;
+        }
+        return item;
+      });
+
       const updateFormData = {
-        // eslint-disable-next-line
         id: formData.id,
-        // eslint-disable-next-line
         position: formData.title,
         salary: formData.salary,
-        is_ndfl: (() => {
-          if (Array.isArray(formData.is_ndfl)) {
-            // Если это массив строк, объединяем его в одну строку
-            return formData.is_ndfl.join('');
-          // eslint-disable-next-line
-          } else if (typeof formData.is_ndfl === 'object' && formData.is_ndfl !== null) {
-            // Если это объект, используем его поле slug
-            return formData.is_ndfl.slug || '';
-          } else {
-            // Если это не массив и не объект, оставляем без изменений
-            return formData.is_ndfl || '';
-          }
-        })(),
-        // eslint-disable-next-line
-        schedule: formData.schedule.map(item => item.slug),
-        education: formData.education,
+        is_ndfl: getFormattedValue(formData.is_ndfl),
+        schedule: formattedSchedule,
+        education: getFormattedValue(formData.education),
         description: formData.description,
       };
-      // eslint-disable-next-line
-      console.log('Данные в форме:', updateFormData);
-      await updateDataWithToken(token, updateFormData, updateFormData.id);
+      await updateVacancy(token, updateFormData, updateFormData.id);
       onSubmitSuccess();
+      onClose();
     } catch (error) {
       throw new Error('Network response was not ok');
     }
@@ -46,24 +46,32 @@ const EditActionButtons = ({ id, formData, isSubmitButtonDisabled, onSubmitSucce
 
   const handleDelete = async () => {
     try {
-      const isDeleted = await deleteVacancy(id);
-
+      const isDeleted = await deleteVacancy(formData.id);
       if (isDeleted) {
-        onDelete(id);
+        onDelete(formData.id);
       }
     } catch (error) {
       throw new Error('Ошибка при удалении вакансии');
     } finally {
       setIsModalOpen(false);
+      onClose();
     }
   };
 
+  if (isLoading) {
+    return null;
+  }
+
   return (
-    <div className='add-shelter-form__submit-buttons'>
-      <Button type='button' submit disabled={isSubmitButtonDisabled} onClick={handleSubmit}>
-        Сохранить изменения
-      </Button>
-      <Button onClick={() => { setIsModalOpen(true); }}>Удалить вакансию</Button>
+    <div className='shelter-form__submit-buttons'>
+      <div className='btn-edit'>
+        <Button className='btn-edit__buttons' disabled={isSubmitButtonDisabled} onClick={handleSubmit}>
+          Сохранить изменения
+        </Button>
+        <Button className='btn-edit__buttons' theme='transparent' onClick={() => { setIsModalOpen(true); }}>
+          Удалить вакансию
+        </Button>
+      </div>
 
       {isModalOpen && (
         <div className='modal-overlay'>

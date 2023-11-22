@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../../../../../ui/Button/Button';
-import sendDataWithToken from './api';
+import { sendVacancy } from './vacanciesAPI';
 
 const FormActionButtons = ({ isSubmitButtonDisabled, onClick, onSubmitSuccess, formValues }) => {
   const handleSubmit = async () => {
@@ -21,7 +21,7 @@ const FormActionButtons = ({ isSubmitButtonDisabled, onClick, onSubmitSuccess, f
         description: formattedDescription,
       };
 
-      await sendDataWithToken(token, formData);
+      await sendVacancy(token, formData);
       onSubmitSuccess();
     } catch (error) {
       throw new Error('Network response was not ok');
@@ -29,7 +29,7 @@ const FormActionButtons = ({ isSubmitButtonDisabled, onClick, onSubmitSuccess, f
   };
 
   return (
-    <div className='add-shelter-form__submit-buttons'>
+    <div className='shelter-form__submit-buttons'>
       <Button submit disabled={isSubmitButtonDisabled} onClick={handleSubmit}>
         Добавить вакансию
       </Button>
