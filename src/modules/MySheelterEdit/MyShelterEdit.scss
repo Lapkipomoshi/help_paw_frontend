@@ -6,10 +6,26 @@
   &__title {
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0 0 44px 0;
     font-size: 40px;
     line-height: 49px;
     font-weight: 600;
     font-family: 'Montserrat Alternates', 'Inter', Arial, sans-serif;
+  }
+}
+
+.edit-my-shelter-form {
+  width: 100%;
+
+  &__photos {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 48px;
+  }
+
+  &__list {
+  max-width: 37%;
+  padding-inline-start: 0;
   }
 }
