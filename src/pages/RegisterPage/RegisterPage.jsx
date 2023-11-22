@@ -188,7 +188,7 @@ const RegisterPage = ({ onRegister, isSuccess }) => {
                     onChange={handlePasswordChange}
                   />
 
-                  <PrivacyCheckbox onClick={handleChangeCheckbox} />
+                  <PrivacyCheckbox onChange={handleChangeCheckbox} />
 
                   <Button className='user-form__button-submit_register' submit disabled={disabled}>
                     Зарегистрироваться
