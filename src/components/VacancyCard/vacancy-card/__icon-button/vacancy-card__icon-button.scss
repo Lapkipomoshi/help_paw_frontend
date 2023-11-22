@@ -1,3 +1,8 @@
+.vacancy-card__icon {
+  display: flex;
+  gap: 8px;
+}
+
 .vacancy-card__icon-button {
   flex-shrink: 0;
   box-sizing: border-box;
@@ -12,10 +17,6 @@
   width: 29px;
   height: 29px;
   background-color: var(--color-background-base);
-}
-
-.vacancy-card__icon-button_edit {
-  margin-left: 12px;
 }
 
 .vacancy-card__title-button_delete {

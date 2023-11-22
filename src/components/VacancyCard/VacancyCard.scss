@@ -3,3 +3,62 @@
 @import url('./vacancy-card/__text/vacancy-card__text.css');
 @import url('./vacancy-card/__title-container/vacancy-card__title-container.scss');
 @import url('./vacancy-card/__icon-button/vacancy-card__icon-button.scss');
+$images-path: '../../images';
+
+.wrapper__del {
+  padding: 100px;
+  width: 621px;
+}
+
+.modal {
+  &__del {
+    gap: 40px;
+
+    &-title {
+      text-align: center;
+      width: 100%;
+    }
+
+    &-descr {
+      text-align: center;
+      width: 100%;
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+      width: 600px;
+    }
+  }
+
+  &__btn-del {
+    display: flex;
+    gap: 20px;
+
+    &-left {
+      display: flex;
+      gap: 8px;
+    }
+  }
+}
+
+.modal__esc {
+  background-image: url('#{$images-path}/icons/ic_button_close.svg');
+  background-size: contain;
+  border: none;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0;
+  margin: 0;
+  transition: opacity 0.2s;
+  position: absolute;
+  top: 36px;
+  right: 57px;
+
+  &:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+}

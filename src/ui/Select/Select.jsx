@@ -8,9 +8,12 @@ import OptionList from './OptionList';
 import Arrow from './svg/Arrow';
 import useOutsideClick from '../../hooks/useOutsideClick';
 
-const Select = ({ label, onChange, options, id: selectId, isMulti }) => {
+const Select = ({ label, onChange, options, id: selectId, isMulti, initialValues }) => {
+  // const initialSelected = initialValues ? [initialValues.slug] : [];
+  // eslint-disable-next-line
+  const initialSelected = initialValues ? (Array.isArray(initialValues) ? initialValues.map(item => item.slug) : [initialValues.slug]) : [];
   const [isSelectOpen, setIsOpenedSelect] = useState(false);
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState(initialSelected);
   const selectRef = useRef(null);
 
   const addSelectedItem = (slug) => {

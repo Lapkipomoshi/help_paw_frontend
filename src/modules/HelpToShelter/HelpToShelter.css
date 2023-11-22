@@ -1,2 +1,16 @@
-@import url('./help-to-shelter/__title/help-to-shelter__title.css');
-@import url('./help-to-shelter/__button/help-to-shelter__button.css');
+.help-to-shelter {
+  gap: 40px;
+}
+
+.help-to-shelter__mat {
+  display: flex;
+  flex-direction: column;
+  max-width: 528px;
+  gap: 32px;
+}
+
+.help-to-shelter__nonmat {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
