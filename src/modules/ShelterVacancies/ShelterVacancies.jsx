@@ -103,7 +103,9 @@ const ShelterVacancies = () => {
           </Button>
         )}
       </div>
-      <h3 className='standard-font_type_h3 shelter-section__subtitle'>Всего вакансий: <span className='color-number'>{vacanciesList.length}</span> </h3>
+      {isOwner && (
+        <h3 className='standard-font_type_h3 shelter-section__subtitle'>Всего вакансий: <span className='color-number'>{vacanciesList.length}</span> </h3>
+      )}
       <div className='shelter-vacancies__vacancies-container'>
         <VacancyList
           vacancies={vacanciesList}
