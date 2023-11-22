@@ -33,24 +33,3 @@ export const getSalaryOptions = () => {
 
   return salaryOptions;
 };
-
-export const deleteVacancy = async (id) => {
-  try {
-    const token = localStorage.getItem('access');
-    const response = await fetch(`http://194.58.109.129/api/v1/my-shelter/vacancies/${id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error('Ошибка при удалении вакансии');
-    }
-
-    return true; // Успешное удаление
-  } catch (error) {
-    throw new Error('Ошибка при удалении вакансии');
-  }
-};

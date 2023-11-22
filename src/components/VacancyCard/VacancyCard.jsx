@@ -5,25 +5,36 @@ import EditIcon from '../../images/EditIcon/EditIcon';
 import DeleteIcon from '../../images/DeleteIcon/DeleteIcon';
 import { Button } from '../../ui';
 import EditVacancyForm from './EditVacancyForm/EditVacancyForm';
-import { deleteVacancy } from '../../modules/ShelterVacancies/components/AddVacancyForm/constants';
+import { deleteVacancy } from '../../modules/ShelterVacancies/components/AddVacancyForm/components/vacanciesAPI';
 
 // eslint-disable-next-line
-const VacancyCard = ({ id, title, salary, schedule, description, education, is_ndfl, isLoading, onDelete }) => {
+const VacancyCard = ({ id, title, salary, schedule, description, education, is_ndfl, isLoading, onDelete, onSubmitSuccess, openEditForm, isOpenVacancyForm }) => {
   const { isOwner } = useOutletContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditFormOpen, setIsEditFormOpen] = useState(false);
   // eslint-disable-next-line
   const convertedIsNdfl = is_ndfl === 'ndfl' ? { slug: 'ndfl', name: 'с НДФЛ' } : { slug: 'no_ndfl', name: 'на руки' };
 
-  const handleEditFormToggle = () => {
-    // eslint-disable-next-line
-    setIsEditFormOpen(prevState => !prevState);
+  const handleEditFormClose = () => {
+    setIsEditFormOpen(false);
+  };
+
+  const handleEditFormOpen = () => {
+    openEditForm({
+      id,
+      title,
+      salary,
+      schedule,
+      description,
+      education,
+      // eslint-disable-next-line
+      is_ndfl: convertedIsNdfl,
+    });
   };
 
   const handleDelete = async () => {
     try {
       const isDeleted = await deleteVacancy(id);
-
       if (isDeleted) {
         onDelete(id);
       }
@@ -44,14 +55,23 @@ const VacancyCard = ({ id, title, salary, schedule, description, education, is_n
         <h3 className='vacancy-card__title'>{title}</h3>
 
         {isOwner && (
-          <>
-            <button type='button' className='vacancy-card__icon-button vacancy-card__icon-button_edit' onClick={handleEditFormToggle}>
+          <div className='vacancy-card__icon'>
+            <button
+              type='button'
+              className='vacancy-card__icon-button vacancy-card__icon-button_edit'
+              onClick={handleEditFormOpen}
+              disabled={isOpenVacancyForm}
+            >
               <EditIcon />
             </button>
-            <button type='button' className='vacancy-card__icon-button vacancy-card__title-button_delete' onClick={() => { setIsModalOpen(true); }}>
+            <button
+              type='button'
+              className='vacancy-card__icon-button vacancy-card__title-button_delete'
+              onClick={() => { setIsModalOpen(true); }}
+            >
               <DeleteIcon />
             </button>
-          </>
+          </div>
         )}
       </div>
       {/* eslint-disable-next-line */}
@@ -69,7 +89,10 @@ const VacancyCard = ({ id, title, salary, schedule, description, education, is_n
           schedule={schedule}
           is_ndfl={convertedIsNdfl}
           description={description}
-          onDelete={onDelete}
+          onDelete={handleDelete}
+          onClose={handleEditFormClose}
+          onSubmitSuccess={onSubmitSuccess}
+          isLoading={isLoading}
         />
       )}
 

@@ -8,9 +8,9 @@ const FormTextarea = ({ jobDescriptionInput, handleDescriptionChange, initialVal
   }, [initialValues]);
   return (
     <>
-      <p className='add-vacancy-form__desctioption-title'>Обязанности*</p>
+      <p className='vacancy-form__desctioption-title'>Обязанности*</p>
       <textarea
-        className={`add-vacancy-form__description ${jobDescriptionInput.dirty && jobDescriptionInput.invalidText && 'add-vacancy-form__textarea_invalid'}`}
+        className={`vacancy-form__description ${jobDescriptionInput.dirty && jobDescriptionInput.invalidText && 'add-vacancy-form__textarea_invalid'}`}
         value={jobDescriptionInput.value}
         onChange={handleDescriptionChange}
         onBlur={jobDescriptionInput.onBlur}
