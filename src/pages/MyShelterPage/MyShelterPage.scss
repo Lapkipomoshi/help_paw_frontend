@@ -1,0 +1,25 @@
+.my-shelter-section {
+  display: flex;
+  width: 1440px;
+  min-height: 625px;
+  flex-direction: column;
+  background-color: var(--color-background-base);
+  box-sizing: border-box;
+  overflow: hidden;
+
+  &__back-profile-button {
+    font-family: Montserrat Alternates, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 44px 0 44px 132px;
+    cursor: pointer;
+    text-decoration: none;
+
+    span {
+      margin-left: 16px;
+      color: var(--color-accent-base);
+    }
+  }
+}
