@@ -11,7 +11,6 @@ export const fetchDataFromBackend = async (url) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    // console.error('Error fetching data from backend:', error);
     return null;
   }
 };
@@ -26,21 +25,11 @@ export const getEducationOptions = async () => {
   return fetchDataFromBackend(url);
 };
 
-export const getSalaryOptions = async () => {
-  const url = `${baseUrl}/v1/vacancies`;
-  const data = await fetchDataFromBackend(url);
-  if (!data) {
-    return [];
-  }
+export const getSalaryOptions = () => {
+  const salaryOptions = [
+    { name: 'с НДФЛ', slug: 'ndfl' },
+    { name: 'На руки', slug: 'no_ndfl' },
+  ];
 
-  const salarySet = new Set();
-  data.forEach((item) => {
-    if (item.is_ndfl === 'ndfl') {
-      salarySet.add({ name: 'с НДФЛ', slug: 'ndfl' });
-    } else if (item.is_ndfl === 'no_ndfl') {
-      salarySet.add({ name: 'На руки', slug: 'no_ndfl' });
-    }
-  });
-
-  return Array.from(salarySet);
+  return salaryOptions;
 };

@@ -56,6 +56,15 @@ const AddVacancyForm = ({ onChange, onSubmitSuccess }) => {
     });
   };
 
+  const handleSelectChange = (id, selected) => {
+    setFormValues((prevValues) => {
+      return {
+        ...prevValues,
+        [id]: selected,
+      };
+    });
+  };
+
   useEffect(() => {
     setFormValues((prevValues) => {
       return {
@@ -70,7 +79,7 @@ const AddVacancyForm = ({ onChange, onSubmitSuccess }) => {
     const fetchOptions = async () => {
       const fetchedShiftOptions = await getShiftOptions();
       const fetchedEducationOptions = await getEducationOptions();
-      const fetchedSalaryOptions = await getSalaryOptions();
+      const fetchedSalaryOptions = getSalaryOptions();
       if (fetchedShiftOptions) {
         setShiftOptions(fetchedShiftOptions);
       }
@@ -84,26 +93,17 @@ const AddVacancyForm = ({ onChange, onSubmitSuccess }) => {
     fetchOptions();
   }, []);
 
-  const handleSelectChange = (id, selected) => {
-    setFormValues((prevValues) => {
-      return {
-        ...prevValues,
-        [id]: selected,
-      };
-    });
-  };
-
   return (
-    <form className='add-vacancy-form__container' onSubmit={handleSubmit}>
+    <form className='vacancy-form' onSubmit={handleSubmit}>
       <DeclarationInput caption='Название вакансии*' inputState={jobTitleInput} type='text' name='jobTitleInput' required />
 
-      <div className='add-vacancy-form__flex-container'>
+      <div className='vacancy-form__container'>
         <DeclarationInput caption='Заработная плата*' inputState={salaryInput} type='number' name='salaryInput' required placeholder='₽' />
 
         <Select label='Тип оплаты*' onChange={handleSelectChange} options={salaryOptions} id='is_ndfl' isMulti={false} />
       </div>
 
-      <div className='add-vacancy-form__flex-container'>
+      <div className='vacancy-form__container'>
         <Select label='График работы*' onChange={handleSelectChange} options={shiftOptions} id='schedule' isMulti />
 
         <Select label='Образование*' onChange={handleSelectChange} options={educationOptions} id='education' isMulti={false} />

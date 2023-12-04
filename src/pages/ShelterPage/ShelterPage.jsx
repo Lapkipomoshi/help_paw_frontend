@@ -14,6 +14,8 @@ const ShelterPage = () => {
 
   const currentUser = useContext(CurrentUserContext);
   const isOwner = currentUser?.own_shelter?.id === Number(id);
+  const isAuth = currentUser?.status === 'user';
+  const isShelterOwner = currentUser?.status === 'shelter_owner';
 
   useEffect(() => {
     shelterApi
@@ -33,7 +35,7 @@ const ShelterPage = () => {
         <section className='shelter-menu-section'>
           <NestedRoutesMenu linkList={shelterLinkList} gap={72} />
         </section>
-        <Outlet context={{ shelter, isOwner, isLoading }} />
+        <Outlet context={{ shelter, isOwner, isAuth, isShelterOwner, isLoading }} />
       </main>
     </MainContainer>
   );

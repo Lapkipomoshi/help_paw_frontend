@@ -1,11 +1,20 @@
 .tooltip-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 333px;
-    border-radius: 8px;
-    background: var(--color-background-additional);
-    box-shadow: 4px 4px 17px 0 rgba(23, 23, 23, 0.12);
-    padding: 12px;
-    position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 333px;
+  border-radius: 8px;
+  background: var(--color-background-additional);
+  box-shadow: 4px 4px 17px 0 rgba(23, 23, 23, 0.12);
+  padding: 12px;
+  position: absolute;
+}
+
+.tooltip-content {
+  gap: 4px;
+  padding: 8px;
+  width: auto;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
 }
