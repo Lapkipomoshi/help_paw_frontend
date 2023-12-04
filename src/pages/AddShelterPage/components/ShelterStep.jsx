@@ -63,9 +63,15 @@ const ShelterStep = ({ handleBack, setShelter }) => {
     }
   }, [isInvalid]);
 
-  // добавить маску для полей времени работы приюта
   useEffect(() => {
-    const maskOptions = { mask: '00:00' };
+    const maskOptions = {
+      mask: 'HH:MM',
+      blocks: {
+        HH: { mask: IMask.MaskedRange, from: 0, to: 23 },
+        MM: { mask: IMask.MaskedRange, from: 0, to: 59 }
+      }
+    };
+
     document.querySelectorAll('.add-shelter-form__time-input').forEach((el) => {
       IMask(el, maskOptions);
     });
