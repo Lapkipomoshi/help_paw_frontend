@@ -63,9 +63,15 @@ const ShelterStep = ({ handleBack, setShelter }) => {
     }
   }, [isInvalid]);
 
-  // добавить маску для полей времени работы приюта
   useEffect(() => {
-    const maskOptions = { mask: '00:00' };
+    const maskOptions = {
+      mask: 'HH:MM',
+      blocks: {
+        HH: { mask: IMask.MaskedRange, from: 0, to: 23 },
+        MM: { mask: IMask.MaskedRange, from: 0, to: 59 }
+      }
+    };
+
     document.querySelectorAll('.add-shelter-form__time-input').forEach((el) => {
       IMask(el, maskOptions);
     });
@@ -126,14 +132,19 @@ const ShelterStep = ({ handleBack, setShelter }) => {
         required
       />
       <p className='add-shelter-form__error'>{description.dirty && description.invalidText}</p>
-      <PrivacyCheckbox onClick={setIsAgreementChecked} />
+      <PrivacyCheckbox
+        type='checkbox'
+        onChange={() => {
+          setIsAgreementChecked(!isAgreementChecked);
+        }}
+      />
       <div className='register__privacy'>
         <label className='checkbox__container'>
           <input
             className='checkbox__input'
             name='warning'
             type='checkbox'
-            onClick={() => {
+            onChange={() => {
               setIsWarningChecked(!isWarningChecked);
             }}
           />

@@ -3,11 +3,20 @@ import { Link } from 'react-router-dom';
 
 import './PrivacyCheckbox.scss';
 
-const PrivacyCheckbox = ({ onClick }) => {
+const PrivacyCheckbox = ({ isChecked, onChange }) => {
+  const handleCheckboxChange = () => {
+    onChange(!isChecked);
+  };
+
   return (
     <div className='privacy-checkbox'>
       <label className='privacy-checkbox__container'>
-        <input className='privacy-checkbox__input' type='checkbox' onClick={onClick} />
+        <input
+          className='privacy-checkbox__input'
+          type='checkbox'
+          checked={isChecked}
+          onChange={handleCheckboxChange}
+        />
         <span className='privacy-checkbox__checkbox' />
       </label>
 

@@ -1,20 +1,35 @@
-export const defaultFormValues = { position: '', salary: null, is_ndfl: [], schedule: [], education: [], description: '' };
+import { baseUrl } from '../../../../utils/constants';
 
-// TODO бэк сказал сделал эндпоинты для селектов, пока замокала, жду как починят бек
-export const shiftOptions = [
-  { label: 'Полный день', id: 'slug1' },
-  { label: 'Сменный', id: 'slug2' },
-  { label: 'Гибкий', id: 'slug3' },
-  { label: 'Удаленная работа', id: 'slug4' },
-];
+export const defaultFormValues = { position: '', salary: null, is_ndfl: '', schedule: [], education: '', description: '' };
 
-export const salaryOptions = [
-  { label: 'На руки', id: '11' },
-  { label: 'с НДФЛ', id: '22' },
-];
+export const fetchDataFromBackend = async (url) => {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return null;
+  }
+};
 
-export const educationOptions = [
-  { label: 'Не требуется', id: '111' },
-  { label: 'Среднее специальное', id: '222' },
-  { label: 'Высшее', id: '333' },
-];
+export const getShiftOptions = async () => {
+  const url = `${baseUrl}/v1/schedules/`;
+  return fetchDataFromBackend(url);
+};
+
+export const getEducationOptions = async () => {
+  const url = `${baseUrl}/v1/educations/`;
+  return fetchDataFromBackend(url);
+};
+
+export const getSalaryOptions = () => {
+  const salaryOptions = [
+    { name: 'с НДФЛ', slug: 'ndfl' },
+    { name: 'На руки', slug: 'no_ndfl' },
+  ];
+
+  return salaryOptions;
+};

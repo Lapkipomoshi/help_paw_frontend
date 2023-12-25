@@ -22,9 +22,11 @@
       &:hover {
         background-color: var(--color-accent-hover);
       }
+
       &:focus {
         background-color: var(--color-accent-pressed);
       }
+
       &:disabled {
         background-color: var(--color-accent-disabled);
         cursor: default;
@@ -50,13 +52,39 @@
         color: var(--color-accent-hover);
         border-color: var(--color-accent-hover);
       }
+
       &:focus {
         color: var(--color-accent-pressed);
         border-color: var(--color-accent-pressed);
       }
+
       &:disabled {
         color: var(--color-accent-disabled);
         border-color: var(--color-accent-disabled);
+        cursor: default;
+      }
+    }
+
+    &_tertiary {
+      color: var(--color-accent-base);
+      background-color: var(--color-background-base);
+      padding: 0;
+      border: none;
+      border-radius: 0;
+
+      &:hover {
+        color: var(--color-accent-hover);
+        background-color: var(--color-background-base);
+      }
+
+      &:focus {
+        color: var(--color-accent-pressed);
+        background-color: var(--color-background-base);
+      }
+
+      &:disabled {
+        color: var(--color-accent-disabled);
+        background-color: var(--color-background-base);
         cursor: default;
       }
     }
