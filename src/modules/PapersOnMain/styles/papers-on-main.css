@@ -1,6 +1,7 @@
 .papers-on-main {
   display: flex;
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
   padding: 64px 132px;
   flex-direction: column;
   box-sizing: border-box;
