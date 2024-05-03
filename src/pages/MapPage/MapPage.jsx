@@ -113,7 +113,7 @@ const MapPage = () => {
                       options={{
                         iconLayout: 'default#image',
                         iconImageHref: pawIcon,
-                        iconImageSize: [23, 23],
+                        iconImageSize: [30, 30],
                         iconImageOffset: [-20, -20],
                       }}
                     />
