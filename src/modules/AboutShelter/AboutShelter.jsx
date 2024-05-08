@@ -15,7 +15,7 @@ import setPayment from './api';
 
 const AboutShelter = () => {
   const { shelter, isOwner, isLoading } = useOutletContext();
-
+  console.log(shelter);
   if (isLoading) {
     return null;
   }
@@ -24,7 +24,8 @@ const AboutShelter = () => {
   // TODO сделать попап при удалении приюта (6.2.1.3 в фигме)
 
   const handleSetPayment = () => {
-    setPayment();
+    // let token = localStorage.getItem('access');
+    setPayment(localStorage.getItem('access'));
   };
 
   return (

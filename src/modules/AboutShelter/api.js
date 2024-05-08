@@ -1,17 +1,19 @@
-import { apiHeaders, baseUrl } from '../../utils/constants';
+import { baseUrl } from '../../utils/constants';
 
-const setPayment = async () => {
+const setPayment = async (token) => {
+  // Перенаправить на страницу OAuth-сервера ЮKassa
   const response = await fetch(`${baseUrl}/v1/payments/get-partner-link/`, {
     method: 'GET',
-    headers: apiHeaders,
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      authorization: `Bearer ${token}`,
+    },
     redirect: 'follow'
   }).then(
     console.log('OK')
   );
-  // Перенаправить на страницу OAuth-сервера ЮKassa
-  // .then((res) => {
-  //   console.log(res);
-  // });
+
   if (!response.ok) {
     throw new Error(`HTTP error! Status: ${response.status}`);
   }
