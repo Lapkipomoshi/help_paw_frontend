@@ -9,6 +9,7 @@ import EditIcon from '../../images/EditIcon/EditIcon';
 import DeleteIcon from '../../images/DeleteIcon/DeleteIcon';
 import ShelterOwnerStatistics from '../ShelterOwnerStatistics/ShelterOwnerStatistics';
 import petLogo from '../../images/pet.jpg';
+import setPayment from './api';
 
 // TODO переделать названия классов (объединить?), не совсем понятно, по какому принципу about-shelter, shelter-info
 
@@ -21,6 +22,10 @@ const AboutShelter = () => {
 
   // TODO подключить рероутер на редактирование инфо о приюте (6.2.1.4 в фигме)
   // TODO сделать попап при удалении приюта (6.2.1.3 в фигме)
+
+  const handleSetPayment = () => {
+    setPayment();
+  };
 
   return (
     <section className='shelter-section shelter-section__about'>
@@ -100,7 +105,9 @@ const AboutShelter = () => {
           <h3 className='standard-font_type_h3 standard-font'>
             Подключить платежную систему
           </h3>
-          <Button>Подключить платеж</Button>
+          <Button
+            onClick={handleSetPayment}
+          >Подключить платеж</Button>
         </div>
       )}
     </section>
