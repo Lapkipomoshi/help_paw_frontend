@@ -15,7 +15,6 @@ import setPayment from './api';
 
 const AboutShelter = () => {
   const { shelter, isOwner, isLoading } = useOutletContext();
-  console.log(shelter);
   if (isLoading) {
     return null;
   }
