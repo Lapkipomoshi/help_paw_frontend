@@ -8,14 +8,14 @@ import * as errorMessage from '../../utils/errorMessage';
 import useInput from '../../hooks/useInput';
 import { donateToShelter } from './ApiHelpToShelter';
 
+
 const HelpToShelter = () => {
   const { id } = useParams();
-  const materialAid = useInput('', { notEmpty: true, maxLength: 12, regex: regex.NUMBER }, errorMessage.DONATION_AMOUNT);
+  const materialAid = useInput('', { notEmpty: true, maxLength: 12, regex: regex.NUMBER, isZero: true }, errorMessage.DONATION_AMOUNT);
   const { shelter } = useOutletContext();
-
   const handleDonate = async () => {
-    if (materialAid.value !== '') {
-      const donationAmount = parseInt(materialAid.value, 10);
+    const donationAmount = parseInt(materialAid.value, 10);
+    if ((donationAmount > 0) && (materialAid.value.length < 12)) {
       try {
         const paymentConfirmUrl = await donateToShelter(id, donationAmount);
         window.open(paymentConfirmUrl, '_blank');
