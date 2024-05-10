@@ -6,7 +6,7 @@ export const donateToShelter = async (id, amount) => {
     const response = await fetch(`${baseUrl}/v1/payments/shelters/${id}/donate/`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         amount
