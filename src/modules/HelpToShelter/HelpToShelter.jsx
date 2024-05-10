@@ -11,7 +11,7 @@ import { donateToShelter } from './ApiHelpToShelter';
 const HelpToShelter = () => {
   const { id } = useParams();
   const materialAid = useInput('', { notEmpty: true, maxLength: 12, regex: regex.NUMBER }, errorMessage.DONATION_AMOUNT);
-  const { isOwner, isAuth, isShelterOwner } = useOutletContext();
+  const { shelter } = useOutletContext();
 
   const handleDonate = async () => {
     if (materialAid.value !== '') {
@@ -27,23 +27,21 @@ const HelpToShelter = () => {
 
   return (
     <section className='shelter-section help-to-shelter'>
-      { !isOwner && (
+      {shelter.is_partner && (
         <div className='help-to-shelter__mat'>
           <h2 className='shelter-section__title help-to-shelter__title'>Материальная помощь</h2>
-          { (isShelterOwner || isAuth) && (isAuth || isShelterOwner) && (
-            <DeclarationInput
-              caption='Какую сумму вы хотите пожертвовать?'
-              inputState={materialAid}
-              type='number'
-              name='salaryInput'
-              required
-              placeholder='1000'
-            />
-          )}
+          <DeclarationInput
+            caption='Какую сумму вы хотите пожертвовать?'
+            inputState={materialAid}
+            type='number'
+            name='salaryInput'
+            required
+            placeholder='1000'
+          />
           <Button
             className='help-to-shelter__button'
             onClick={handleDonate}
-            disabled={(!isAuth && !isShelterOwner) || materialAid.value === ''}
+            disabled={materialAid.value === ''}
           >
             Пожертвовать деньги
           </Button>
