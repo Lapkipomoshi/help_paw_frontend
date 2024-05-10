@@ -1,18 +1,15 @@
-import { baseUrl } from '../../utils/constants';
-
-const donateHeaders = new Headers();
-donateHeaders.append('Content-Type', 'application/json');
+import { baseUrl, apiHeaders } from '../../utils/constants';
 
 // eslint-disable-next-line
 export const donateToShelter = async (id, amount) => {
   try {
     if (localStorage.getItem('access')) {
       const token = localStorage.getItem('access');
-      donateHeaders.append('authorization', `Bearer ${token}`);
+      apiHeaders.authorization = `Bearer ${token}`;
     }
     const response = await fetch(`${baseUrl}/v1/payments/shelters/${id}/donate/`, {
       method: 'POST',
-      headers: donateHeaders,
+      headers: apiHeaders,
       body: JSON.stringify({
         amount
       })
@@ -20,6 +17,7 @@ export const donateToShelter = async (id, amount) => {
 
     if (response.ok) {
       const data = await response.json();
+      delete apiHeaders.authorization;
       return data.payment_confirm_url;
     }
     throw new Error('Ошибка при отправке запроса');
