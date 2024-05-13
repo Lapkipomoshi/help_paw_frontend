@@ -95,13 +95,9 @@ const App = () => {
           navigate('/');
         }, 1000);
       })
-      .catch((res) => {
+      .catch(() => {
         setInfoTooltipImage(imageError);
-        if (res.status === 400) {
-          setMessage('Пользователь с таким e-mail уже зарегистрирован.');
-        } else {
-          setMessage('Что-то пошло не так! Попробуйте ещё раз.');
-        }
+        setMessage('Что-то пошло не так! Попробуйте ещё раз.');
         setInfoTooltipOpen(true);
         setTimeout(closeInfoTooltip, 15000);
       });

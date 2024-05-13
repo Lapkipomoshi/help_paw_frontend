@@ -20,12 +20,31 @@ const ShelterSamePets = () => {
       });
   }, [type]);
 
+
+  let animalType;
+  switch(type) {
+    case 'cat':
+      animalType = 'Кошки';
+      break;
+    case 'dog':
+      animalType = 'Собаки';
+      break;
+    case 'parrot':
+      animalType = 'Попугаи';
+      break;
+    case 'hamster':
+      animalType = 'Хомяки';
+      break;
+    default:
+      animalType = '';
+  }
+
   return (
     <section className='shelter-section shelter-same-pets'>
       <Link className='shelter-same-pets__link' to='../pets'>
         &#8592; Вернуться назад
       </Link>
-      <h2 className='shelter-section__title'>Наши животные</h2>
+      <h2 className='shelter-section__title'>{animalType}</h2>
       {pets && pets.length !== 0 ? (
         <>
           <ul className='shelter-same-pets__list'>
@@ -47,5 +66,6 @@ const ShelterSamePets = () => {
     </section>
   );
 };
+
 
 export default ShelterSamePets;
