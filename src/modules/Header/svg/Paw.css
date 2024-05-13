@@ -1,9 +1,10 @@
-.paw path {
+.paw {
   transition-duration: .5s;
   fill: var(--color-accent-base);
 }
 
-.paw:hover path {
+.paw:hover path:nth-child(1),
+.paw:hover path:nth-child(3) {
   fill: var(--color-accent-hover);
 }
 
