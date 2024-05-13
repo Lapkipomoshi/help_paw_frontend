@@ -1,22 +1,24 @@
-import { baseUrl } from '../../utils/constants';
+import { baseUrl, apiHeaders } from '../../utils/constants';
 
-const setPayment = async (token) => {
-  // Перенаправить на страницу OAuth-сервера ЮKassa
-  const response = await fetch(`${baseUrl}/v1/payments/get-partner-link/`, {
-    method: 'GET',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${token}`,
-    },
-    redirect: 'follow'
-  }).then(
-    console.log('OK')
-  );
+// eslint-disable-next-line
+export const setPayment = async (id, amount) => {
+  try {
+    if (localStorage.getItem('access')) {
+      const token = localStorage.getItem('access');
+      apiHeaders.authorization = `Bearer ${token}`;
+    }
+    const response = await fetch(`${baseUrl}/v1/payments/get-partner-link/`, {
+      method: 'GET',
+      headers: apiHeaders,
+    });
 
-  if (!response.ok) {
-    throw new Error(`HTTP error! Status: ${response.status}`);
+    if (response.ok) {
+      const data = await response.json();
+      delete apiHeaders.authorization;
+      return data.partner_link;
+    }
+    throw new Error('Ошибка при отправке запроса');
+  } catch (error) {
+    throw new Error('Ошибка:', error);
   }
-
 };
-export default setPayment;

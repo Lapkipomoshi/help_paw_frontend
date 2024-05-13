@@ -9,13 +9,12 @@ import EditIcon from '../../images/EditIcon/EditIcon';
 import DeleteIcon from '../../images/DeleteIcon/DeleteIcon';
 import ShelterOwnerStatistics from '../ShelterOwnerStatistics/ShelterOwnerStatistics';
 import petLogo from '../../images/pet.jpg';
-import setPayment from './api';
+import { setPayment } from './api';
 
 // TODO переделать названия классов (объединить?), не совсем понятно, по какому принципу about-shelter, shelter-info
 
 const AboutShelter = () => {
   const { shelter, isOwner, isLoading } = useOutletContext();
-  console.log(shelter);
   if (isLoading) {
     return null;
   }
@@ -23,9 +22,13 @@ const AboutShelter = () => {
   // TODO подключить рероутер на редактирование инфо о приюте (6.2.1.4 в фигме)
   // TODO сделать попап при удалении приюта (6.2.1.3 в фигме)
 
-  const handleSetPayment = () => {
-    // let token = localStorage.getItem('access');
-    setPayment(localStorage.getItem('access'));
+  const handleSetPayment = async () => {
+    try {
+      const paymentConfirmUrl = await setPayment();
+      window.open(paymentConfirmUrl, '_blank');
+    } catch (error) {
+      throw new Error(error.message);
+    }
   };
 
   return (
