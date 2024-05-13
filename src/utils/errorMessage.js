@@ -123,4 +123,5 @@ export const VACANCY_DESCRIPTION = {
 export const DONATION_AMOUNT = {
   TOO_LONG: tooLong,
   NOT_FOUND: 'Введите сумму пожертвования',
+  IS_ZERO: 'Cумма должно превышать нулевое значение',
 };

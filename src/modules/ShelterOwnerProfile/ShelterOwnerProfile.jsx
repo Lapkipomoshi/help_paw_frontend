@@ -6,7 +6,6 @@ import ProfileSheltersBlock from '../../components/ProfileSheltersBlock/ProfileS
 const ShelterOwnerProfile = () => {
   const currentUser = useContext(CurrentUserContext);
   const myShelters = [currentUser.own_shelter];
-
   return (
     <div>
       <ProfileSheltersBlock

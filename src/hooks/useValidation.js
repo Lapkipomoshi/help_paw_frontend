@@ -8,6 +8,7 @@ const useValidation = (value, validations, errorValidateMessage) => {
   const [minLengthError, setMinLengthError] = useState(false);
   const [maxLengthError, setMaxLengthError] = useState(false);
   const [regexError, setRegexError] = useState(false);
+  const [isZeroError, setIsZeroError] = useState(false);
 
   useEffect(() => {
     if (!validations.notEmpty && !value) {
@@ -28,6 +29,9 @@ const useValidation = (value, validations, errorValidateMessage) => {
         case 'regex':
           validations[validation].test(value) ? setRegexError(false) : setRegexError(true);
           break;
+        case 'isZero':
+          parseInt(value, 10) === 0 ? setIsZeroError(true) : setIsZeroError(false);
+          break;
         default:
           break;
       }
@@ -43,10 +47,12 @@ const useValidation = (value, validations, errorValidateMessage) => {
       setErrorText(errorValidateMessage.TOO_LONG);
     } else if (regexError) {
       setErrorText(errorValidateMessage.INVALID);
+    } else if (isZeroError) {
+      setErrorText(errorValidateMessage.IS_ZERO);
     } else {
       setErrorText('');
     }
-  }, [emptyError, minLengthError, maxLengthError, regexError]);
+  }, [emptyError, minLengthError, maxLengthError, regexError, isZeroError]);
 
   return errorText;
 };
