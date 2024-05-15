@@ -113,9 +113,10 @@ const MapPage = () => {
                       options={{
                         iconLayout: 'default#image',
                         iconImageHref: pawIcon,
-                        iconImageSize: [23, 23],
-                        iconImageOffset: [-20, -20],
-                      }}
+                        iconImageSize: [30, 30],
+                        iconImageOffset: [-15, -15],
+                        hideIconOnBalloonOpen: false,
+                      }}s
                     />
                   );
                 })}
