@@ -1,0 +1,47 @@
+.add-news {
+  display: flex;
+  flex-direction: column;
+  padding: 44px 0 167px 15px;
+
+  &__title {
+    margin: 0;
+    padding-bottom: 24px;
+    font-size: 40px;
+    line-height: 49px;
+    font-weight: 600;
+    font-family: 'Montserrat Alternates';
+    text-align: left;
+  }
+
+  &__form {
+    &-photo {
+      position: relative;
+
+      &-count {
+        position: absolute;
+        left: 115px;
+        top: 50px;
+        font-family: var(--second-family);
+        font-weight: 500;
+        font-size: 16px;
+        text-align: center;
+        color: #ff712c;
+        cursor: pointer;
+        pointer-events: none;
+      }
+
+    }
+
+    &-heading {
+      width: 944px;
+    }
+
+
+    &-buttons {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+  }
+}
