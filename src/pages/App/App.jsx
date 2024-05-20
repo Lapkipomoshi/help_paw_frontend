@@ -37,6 +37,9 @@ import getUserInfo from './api/userApi';
 import AppContext from '../../contexts/App';
 import MyShelterPage from '../MyShelterPage/MyShelterPage';
 import MyShelterEdit from '../../modules/MySheelterEdit/MyShelterEdit';
+import AddNewsPage from '../AddNewsPage/AddNewsPage';
+import ConfirmPopup from '../../components/ConfirmPopup/ConfirmPopup';
+
 
 const App = () => {
   const navigate = useNavigate();
@@ -49,11 +52,28 @@ const App = () => {
   const [infoTooltipImage, setInfoTooltipImage] = useState(null);
   const [message, setMessage] = useState('');
 
+  const [confirmPopupOpen, setConfirmPopupOpen] = useState(false);
+  const [question, setQuestion] = useState('');
+  const [description, setDescription] = useState('');
+  const [confirmBtnText, setConfirmBtnText] = useState('');
+  const [rejectBtnText, setRejectBtnText] = useState('');
+  const [iconBasket, setIconBasket] = useState(false);
+
   const [success, setSuccess] = useState(false);
 
   const closeInfoTooltip = () => {
     setInfoTooltipOpen(false);
     setInfoTooltipImage(null);
+  };
+
+  const closeConfirmPopup = () => {
+    setConfirmPopupOpen(false);
+    setTimeout(() => {
+      setQuestion('');
+      setDescription('');
+      setConfirmBtnText('');
+      setRejectBtnText('');
+    }, 1000);
   };
 
   const handleSignOut = () => {
@@ -163,6 +183,21 @@ const App = () => {
                 />
               }
             />
+            <Route
+              path='/my-shelter/add-news'
+              element={<ProtectedRoute condition={loggedIn} component={AddNewsPage}
+                openInfoPopup={setInfoTooltipOpen}
+                setInfoPopupImage={setInfoTooltipImage}
+                setMessageInfoPopup={setMessage}
+                setConfirmPopupOpen={setConfirmPopupOpen}
+                setQuestion={setQuestion}
+                setDescription={setDescription}
+                setConfirmBtnText={setConfirmBtnText}
+                setRejectBtnText={setRejectBtnText}
+                setIconBasket={setIconBasket}
+              />}
+            />
+
             <Route path='/papers' element={<PapersPage />} />
             <Route path='/papers/:id' element={<PaperPage />} />
             <Route path='/news' element={<NewsPage />} />
@@ -198,6 +233,15 @@ const App = () => {
           <Footer />
 
           <InfoTooltip isOpen={infoTooltipOpen} image={infoTooltipImage} message={message} onClose={closeInfoTooltip} />
+          <ConfirmPopup
+            isOpen={confirmPopupOpen}
+            question={question}
+            desc={description}
+            confirmBtnText={confirmBtnText}
+            rejectBtnText={rejectBtnText}
+            onClose={closeConfirmPopup}
+            iconBasket={iconBasket}
+          />
         </div>
       </AppContext.Provider>
     </CurrentUserContext.Provider>
