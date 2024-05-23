@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ProfileSheltersBlock.scss';
 import ShelterCard from '../ShelterCard/ShelterCard';
 import Button from '../../ui/Button/Button';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
 
 const ProfileSheltersBlock = ({ myShelters, sheltersTitle }) => {
+  const { own_shelter } = useContext(CurrentUserContext);
   const navigate = useNavigate();
-
   return (
     <div className='profile-shelters'>
-      {myShelters && myShelters.length !== 0 &&
+      {myShelters && myShelters.length !== 0 && (
         <div className='profile-shelters__container'>
           <h3 className='profile-shelters__title standard-font standard-font_type_h3'>{sheltersTitle}</h3>
           <div className='profile-shelters__shelters'>
@@ -31,12 +32,18 @@ const ProfileSheltersBlock = ({ myShelters, sheltersTitle }) => {
                 );
               })}
             </ul>
-            {myShelters && <Button onClick={
-              () => {return navigate('my-shelter');}
-            }>Перейти в приют</Button>}
+            {myShelters && (
+              <Button
+                onClick={() => {
+                  return navigate(`/shelters/${own_shelter.id}/about`);
+                }}
+              >
+                Перейти в приют
+              </Button>
+            )}
           </div>
         </div>
-      }
+      )}
     </div>
   );
 };
