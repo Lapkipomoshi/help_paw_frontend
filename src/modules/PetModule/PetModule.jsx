@@ -18,8 +18,8 @@ const PetModule = () => {
   const { id: shelterId, petId } = useParams();
   const { shelter, isOwner } = useOutletContext();
   // eslint-disable-next-line
-  const [{ name, age, breed, gallery, sex, sheltering_time }, setPet] = useState({}); // информация о питомце
-
+  const [{ name, age, breed, gallery, sex, sheltering_time, about }, setPet] = useState({}); // информация о питомце
+  console.log(about);
   const [isTakedHome, setIsTakedHome] = useState(false);
   const [popupIsVisible, setPopupIsVisible] = useState(false);
   const [tooltipIsVisible, setTooltipIsVisible] = useState(false);
@@ -138,10 +138,7 @@ const PetModule = () => {
         </div>
         <div className='pet-module__description-container'>
           <h3 className='standard-font standard-font_type_h3'>Описание</h3>
-          <p className='pet-module__description standard-font standard-font_type_body'>
-            Мы подобрали ее на улице, когда она была совсем крохотной. Это очень ласковая игривая кошка. Ее любимая еда это рыба. Любит гулять. Предыдущие
-            хозяева были добры с ней.
-          </p>
+          <p className='pet-module__description standard-font standard-font_type_body'>{about}</p>
         </div>
         <div className='pet-module__button-wrapper'>
           {isModalOpen && (
