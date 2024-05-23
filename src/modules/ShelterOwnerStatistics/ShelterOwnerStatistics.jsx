@@ -7,7 +7,7 @@ import ShelterMetricsOverview from '../../components/ShelterMetricsOverview/Shel
 const ShelterOwnerStatistics = ({ shelter }) => {
   const metrics = [
     { title: 'Количество питомцев: ', valueKey: shelter.count_pets, actionText: 'Посмотреть всех питомцев', path: '/' },
-    { title: 'Количество вакансий: ', valueKey: shelter.count_pets, actionText: 'Посмотреть все вакансии', path: '/' },
+    { title: 'Количество вакансий: ', valueKey: shelter.count_vacancies, actionText: 'Посмотреть все вакансии', path: `/shelters/${shelter.id}/vacancies` },
     { title: 'Количество тегов: ', valueKey: shelter.count_pets, actionText: 'Посмотреть все теги', path: '/' },
     { title: 'Количество новостей: ', valueKey: shelter.count_pets, actionText: 'Посмотреть новости приюта', path: '/' },
   ];
