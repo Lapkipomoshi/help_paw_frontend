@@ -1,8 +1,9 @@
 .shelter-section {
   display: flex;
-  width: 1440px;
+  max-width: 1440px;
+  width: 100%;
   /* min-height: 625px; */
-  padding: 0 0 80px 132px;
+  padding: 0 44px 80px;
   flex-direction: column;
   background-color: var(--color-background-base);
   box-sizing: border-box;
