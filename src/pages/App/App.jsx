@@ -190,7 +190,7 @@ const App = () => {
               <Route index element={<ProtectedRoute condition={loggedIn} component={shelterModules.AboutShelter} />} />
               <Route path='edit' element={<ProtectedRoute condition={loggedIn} component={MyShelterEdit} />} />
               <Route path=':id/all-pets' element={<ProtectedRoute condition={loggedIn} component={ShelterPetsPage} />} />
-              <Route path=':id/all-pets' element={<ProtectedRoute condition={loggedIn} component={ShelterPetsPage} />} />
+              <Route path=':id/pets/:id' element={<ProtectedRoute condition={loggedIn} component={shelterModules.PetModule} />} />
             </Route>
             <Route path='/profile/edit' element={<ProtectedRoute condition={loggedIn} component={EditProfilePage} onUpdateCurrentUser={setCurrentUser} />} />
             <Route path='/profile/sign-out' element={<ProtectedRoute condition={loggedIn} component={SignOutPage} onSignOut={handleSignOut} />} />
