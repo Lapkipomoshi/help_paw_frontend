@@ -51,7 +51,7 @@ const ShelterSamePets = () => {
             {pets.map((card) => {
               return (
                 <li className='shelter-same-pets__pets-item' key={card.id}>
-                  <PetCard id={card.id} shelterId={card.shelter} name={card.name} age={card.age} sex={card.sex} gallery={card.gallery} />
+                  <PetCard link={`/shelters/${card.shelter}/pets/${card.id}`} name={card.name} age={card.age} sex={card.sex} gallery={card.gallery} />
                 </li>
               );
             })}

@@ -5,12 +5,12 @@ import maleIcon from '../../images/icons/ic_male.svg';
 import femaleIcon from '../../images/icons/ic_female.svg';
 
 const PetCard = ({
-  id, shelterId, name, age, sex, gallery,
+  name, age, sex, gallery, link
 }) => {
   return (
     <Link
       className='pet-card'
-      to={`/shelters/${shelterId}/pets/${id}`}
+      to={link}
     >
       <img className='pet-card__photo' src={gallery[0].image} alt={name} />
       <div className='pet-card__cover' />
