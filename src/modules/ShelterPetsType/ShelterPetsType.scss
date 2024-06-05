@@ -7,13 +7,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 49px;
 }
 
 .shelter-pets-type__controls {
   width: 646px;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
+  gap: 0 24px;
 }
 
 .shelter-pets-type__btn-deleted {
@@ -28,11 +29,7 @@
   }
 }
 
-.shelter-pets-type__btn-selected {
-  margin-left: 24px;
-}
-
-.shelter-pets-type__btn-selected_active {
+.shelter-pets-type__btn-cancel-selected {
   position: relative;
 
   &::before {
@@ -59,6 +56,56 @@
   flex-wrap: wrap;
   gap: 24px;
   margin: 0;
+  margin-top: 36px;
   padding: 0;
   list-style-type: none;
+}
+
+.shelter-pets-type__list-item {
+  position: relative;
+}
+
+.shelter-pets-type__input {
+  display: none;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+
+  &::before {
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-background-additional);
+    opacity: 0;
+    z-index: 10;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-accent-base);
+    background-image: url('../../images/check.svg');
+    background-position: center;
+    opacity: 0;
+    z-index: 15;
+  }
+}
+
+.shelter-pets-type__input_selected {
+  display: block;
+
+  &::before {
+    opacity: 1;
+  }
+}
+
+.shelter-pets-type__input_checked {
+  &::after {
+    opacity: 1;
+  }
 }
