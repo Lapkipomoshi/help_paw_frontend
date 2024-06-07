@@ -9,7 +9,7 @@ import CurrentUserContext from '../../contexts/CurrentUserContext';
 const MyShelterPage = () => {
   const curentUser = useContext(CurrentUserContext);
   const mySheltersId = curentUser.own_shelter.id;
-  const [shelter, setShelter] = useState({}); 
+  const [shelter, setShelter] = useState({});
   const isOwner = true;
   const [isLoading, setIsLoading] = useState(true);
 
@@ -17,13 +17,18 @@ const MyShelterPage = () => {
   const contentText = {
     GO_TO_BACK: 'Вернуться назад',
     BACK_TO_PROFILE: 'Вернуться в Личный Кабинет',
+    GO_TO_SHELTER: 'Вернуться к приюту'
   };
-  
-  let linkTo; 
+
+  let linkTo;
   let linkText;
-  if (location.pathname.includes('edit')) {
+  if (location.pathname.includes('edit') || location.pathname.includes('pets')) {
     linkTo = -1;
     linkText = contentText.GO_TO_BACK;
+  }
+  else if(location.pathname.includes('all-pets')) {
+    linkTo = -1;
+    linkText = contentText.GO_TO_SHELTER;
   } else {
     linkTo = '/profile';
     linkText = contentText.BACK_TO_PROFILE;

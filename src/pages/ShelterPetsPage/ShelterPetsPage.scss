@@ -1,0 +1,44 @@
+.shelter-pets {
+  font-family: 'Montserrat Alternates';
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 44px 80px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.shelter-pets__header {
+  position: relative;
+  margin-bottom: 44px;
+}
+
+.shelter-pets__title {
+  margin: 0;
+  margin-bottom: 16px;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 49px;
+}
+
+.shelter-pets__all-pets {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 30px;
+  margin: 0;
+
+  span {
+    color: var(--color-accent-base);
+  }
+}
+
+.shelter-pets__add-pets-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.shelter-pets__load-more-button {
+  align-self: center;
+  margin-top: 40px;
+}

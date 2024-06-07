@@ -1,6 +1,7 @@
 .my-shelter-section {
   display: flex;
-  width: 1440px;
+  max-width: 1440px;
+  width: 100%;
   min-height: 625px;
   flex-direction: column;
   background-color: var(--color-background-base);
@@ -13,9 +14,11 @@
     font-style: normal;
     font-weight: 600;
     line-height: 20px;
-    padding: 44px 0 44px 132px;
+    padding: 44px;
     cursor: pointer;
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
 
     span {
       margin-left: 16px;
